@@ -134,7 +134,7 @@
     </div>
     <a class="link" href="#month-1"><span><b>📱 못난이삼돌이 앱</b><small>시간을 눈으로 보는 캘린더</small></span><span class="arw">→</span></a>
     <a class="link" href="#month-1"><span><b>✍️ 삼돌이 블로그</b><small>매일 쓰는 아빠의 기록</small></span><span class="arw">→</span></a>
-    <a class="link" href="#month-1"><span><b>💬 질문 게시판</b><small>모르는 건 같이 풀어보자</small></span><span class="arw">→</span></a>
+    <a class="link" id="ask-link" href="#"><span><b>💬 질문 보내기</b><small>모르는 건 메일로 물어봐</small></span><span class="arw">→</span></a>
   </section>
 
   <div id="months"></div>
@@ -149,6 +149,12 @@
 <script>
 (function(){
   var KEY = 'samdol-grammar-done';
+
+  // 메일 주소는 봇이 긁어가지 않게 조각내서 조립한다
+  var MAIL = ['jongeek1', 'gmail.com'].join('@');
+  var ask = document.getElementById('ask-link');
+  ask.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('[못난이삼돌이 영문법] 질문이요');
+
   var esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
 

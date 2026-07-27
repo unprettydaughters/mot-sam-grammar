@@ -65,6 +65,10 @@
   .readbtn:hover{background:var(--surface)}
   .readbtn.on{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
 
+  .askbtn{display:block;text-align:center;margin-top:12px;padding:14px;border-radius:999px;
+    background:var(--surface);color:var(--ink2);font-size:14px;font-weight:500;transition:background .2s}
+  .askbtn:hover{background:#EDEAE3;color:var(--ink2)}
+
   nav.pager{display:flex;gap:14px;margin:24px 0 0}
   nav.pager a,nav.pager span{
     flex:1;background:var(--card);border-radius:20px;padding:18px 20px;box-shadow:var(--sh);
@@ -165,8 +169,14 @@
     '<span>'+(idx+1)+' / '+grammarData.length+'</span></div>'+
     '<article>'+body+'</article>'+
     '<button class="readbtn" id="readbtn" type="button"></button>'+
+    '<a class="askbtn" id="askbtn" href="#">✉️ 이 과에 대해 질문 보내기</a>'+
     '<nav class="pager">'+pager+'</nav>'+
     '<a class="tolist" href="index.html">전체 목록 보기</a>';
+
+  var MAIL=['jongeek1','gmail.com'].join('@');
+  document.getElementById('askbtn').href='mailto:'+MAIL
+    +'?subject='+encodeURIComponent('[못난이삼돌이 영문법] '+d.title+' 질문')
+    +'&body='+encodeURIComponent('\n\n---\n'+d.title+'\n'+location.href);
 
   var done=load();
   var btn=document.getElementById('readbtn');
