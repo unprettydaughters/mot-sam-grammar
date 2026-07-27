@@ -70,7 +70,9 @@
         .join('');
 
       $('lesson-content').innerHTML = data.content
-        .map(line => `<p>${esc(line)}</p>`)
+        .map(line => line.startsWith('## ')
+          ? `<p class="text-white font-bold text-sm pt-4 pb-1 border-b border-zinc-800">${esc(line.slice(3))}</p>`
+          : `<p>${esc(line)}</p>`)
         .join('');
 
       $('progress-bar').style.width = Math.round((idx + 1) / grammarData.length * 100) + '%';
