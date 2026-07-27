@@ -3,86 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>못난이삼돌이 영문법</title>
+  <title>못난이삼돌이 영문법 - 카드뷰어</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { background-color: #121212; color: #E4E4E7; word-break: keep-all; }
-  </style>
+  <style>body { background-color: #121212; color: #E4E4E7; word-break: keep-all; }</style>
 </head>
-<body class="min-h-screen font-sans flex flex-col">
+<body class="min-h-screen flex flex-col justify-between p-4">
 
-  <header class="border-b border-zinc-800 p-4 sticky top-0 bg-[#121212] z-10">
-    <div class="max-w-3xl mx-auto flex justify-between items-center">
-      <a href="index.html" class="font-bold text-lg text-white tracking-tight">못난이삼돌이 영문법</a>
-      <a href="index.html" class="text-xs text-zinc-400 border border-zinc-800 px-2 py-1 rounded hover:bg-zinc-900 transition-colors">목록 →</a>
-    </div>
+  <header class="max-w-md w-full mx-auto flex justify-between items-center py-2 border-b border-zinc-800">
+    <a href="index.html" class="text-xs text-zinc-400 hover:text-zinc-200 transition-colors">← 홈으로</a>
+    <span id="lesson-month" class="text-xs text-zinc-500"></span>
   </header>
 
-  <main id="app" class="max-w-3xl w-full mx-auto p-6 flex-1"></main>
+  <main class="max-w-md w-full mx-auto bg-zinc-900 border border-zinc-800 rounded-2xl p-6 my-auto space-y-6 shadow-2xl">
+    <div>
+      <h1 id="lesson-title" class="text-xl font-bold text-white mb-2"></h1>
+      <div id="lesson-tags" class="flex gap-2 flex-wrap"></div>
+    </div>
 
-  <footer class="border-t border-zinc-800 p-4 text-center text-xs text-zinc-600">
-    © 못난이삼돌이. The Simplest Line.
-  </footer>
+    <div id="lesson-content" class="space-y-3 text-zinc-300 text-sm leading-relaxed max-h-[50vh] overflow-y-auto pr-2"></div>
+
+    <div id="lesson-progress" class="space-y-1">
+      <div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
+        <div id="progress-bar" class="h-full bg-white rounded-full transition-all"></div>
+      </div>
+      <p id="progress-text" class="text-xs text-zinc-600 text-right"></p>
+    </div>
+
+    <div id="lesson-nav" class="flex gap-4 pt-4 border-t border-zinc-800">
+      <button id="btn-prev" class="flex-1 py-3 bg-zinc-800 text-white font-bold rounded-xl disabled:opacity-30 disabled:cursor-not-allowed">👈 이전 과</button>
+      <button id="btn-next" class="flex-1 py-3 bg-white text-black font-bold rounded-xl disabled:opacity-30 disabled:cursor-not-allowed">다음 과 👉</button>
+    </div>
+  </main>
+
+  <footer class="text-center text-xs text-zinc-600">못난이삼돌이 영문법</footer>
 
   <script src="data.js"></script>
   <script>
     const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-    const app = document.getElementById('app');
 
-    const id = parseInt(new URLSearchParams(location.search).get('id'), 10) || 1;
-    const idx = grammarData.findIndex(d => d.id === id);
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentId = parseInt(urlParams.get('id'), 10) || 1;
 
-    if (idx === -1) {
-      app.innerHTML = `
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center space-y-4">
-          <p class="text-white font-bold text-lg">그런 과는 없습니다.</p>
-          <p class="text-zinc-400 text-sm">01과부터 32과까지 있습니다.</p>
-          <a href="index.html" class="inline-block bg-white text-black font-bold py-3 px-6 rounded-xl">목록으로 →</a>
-        </div>`;
-    } else {
-      const d = grammarData[idx];
-      const prev = grammarData[idx - 1];
-      const next = grammarData[idx + 1];
-      document.title = d.title + ' · 못난이삼돌이 영문법';
+    const $ = id => document.getElementById(id);
 
-      const navBtn = (item, dir) => item
-        ? `<a href="card.html?id=${item.id}" class="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:bg-zinc-800 transition-colors ${dir === 'next' ? 'text-right' : ''}">
-             <p class="text-xs text-zinc-500 mb-1">${dir === 'prev' ? '← 이전' : '다음 →'}</p>
-             <p class="text-sm text-white font-medium leading-snug">${esc(item.title)}</p>
-           </a>`
-        : `<div class="flex-1"></div>`;
-
-      app.innerHTML = `
-        <article class="space-y-6">
-          <div class="space-y-3">
-            <div class="flex items-center flex-wrap gap-2 text-xs text-zinc-400">
-              <span class="bg-zinc-800 px-2 py-1 rounded text-zinc-300">${esc(monthMeta[d.month].label)}</span>
-              <span>${d.tags.map(esc).join(' · ')}</span>
-            </div>
-            <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug">${esc(d.title)}</h1>
-            <div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
-              <div class="h-full bg-white rounded-full" style="width:${Math.round((idx + 1) / grammarData.length * 100)}%"></div>
-            </div>
-            <p class="text-xs text-zinc-600">${idx + 1} / ${grammarData.length}</p>
-          </div>
-
-          <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 space-y-4">
-            ${d.content.map(line => `<p class="text-zinc-200 text-base md:text-lg leading-relaxed">${esc(line)}</p>`).join('')}
-          </div>
-
-          <div class="flex gap-3">
-            ${navBtn(prev, 'prev')}
-            ${navBtn(next, 'next')}
-          </div>
-
-          <a href="index.html" class="block text-center text-sm text-zinc-500 hover:text-zinc-300 transition-colors py-2">전체 목록 보기</a>
-        </article>`;
+    function renderNotFound() {
+      $('lesson-month').textContent = '';
+      $('lesson-title').textContent = '그런 과는 없습니다';
+      $('lesson-tags').innerHTML = '';
+      $('lesson-content').innerHTML = `<p>01과부터 ${grammarData.length}과까지 있습니다.</p>`;
+      $('lesson-progress').classList.add('hidden');
+      $('lesson-nav').innerHTML = `<a href="index.html" class="flex-1 py-3 bg-white text-black font-bold rounded-xl text-center">목록으로 →</a>`;
     }
 
+    function renderCard(id) {
+      const idx = grammarData.findIndex(item => item.id === id);
+      if (idx === -1) { renderNotFound(); return null; }
+
+      const data = grammarData[idx];
+      document.title = data.title + ' · 못난이삼돌이 영문법';
+
+      $('lesson-month').textContent = `MONTH ${data.month}`;
+      $('lesson-title').textContent = data.title;
+
+      $('lesson-tags').innerHTML = data.tags
+        .map(t => `<span class="text-xs bg-zinc-800 text-zinc-400 px-2 py-1 rounded">#${esc(t)}</span>`)
+        .join('');
+
+      $('lesson-content').innerHTML = data.content
+        .map(line => `<p>${esc(line)}</p>`)
+        .join('');
+
+      $('progress-bar').style.width = Math.round((idx + 1) / grammarData.length * 100) + '%';
+      $('progress-text').textContent = `${idx + 1} / ${grammarData.length}`;
+
+      const prev = grammarData[idx - 1];
+      const next = grammarData[idx + 1];
+
+      $('btn-prev').disabled = !prev;
+      $('btn-next').disabled = !next;
+      if (prev) $('btn-prev').onclick = () => location.href = `card.html?id=${prev.id}`;
+      if (next) $('btn-next').onclick = () => location.href = `card.html?id=${next.id}`;
+
+      return { prev, next };
+    }
+
+    const nav = renderCard(currentId);
+
     document.addEventListener('keydown', e => {
-      if (idx === -1) return;
-      if (e.key === 'ArrowLeft' && grammarData[idx - 1]) location.href = 'card.html?id=' + grammarData[idx - 1].id;
-      if (e.key === 'ArrowRight' && grammarData[idx + 1]) location.href = 'card.html?id=' + grammarData[idx + 1].id;
+      if (!nav) return;
+      if (e.key === 'ArrowLeft' && nav.prev) location.href = `card.html?id=${nav.prev.id}`;
+      if (e.key === 'ArrowRight' && nav.next) location.href = `card.html?id=${nav.next.id}`;
     });
   </script>
 </body>
