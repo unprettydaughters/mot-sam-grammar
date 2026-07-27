@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>못난이삼돌이 영문법</title>
+  <meta name="description" content="복잡한 문법 용어 다 뺐다. 아는 단어로 순서만 지키는 32일 완성 카드뉴스.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #121212; color: #E4E4E7; word-break: keep-all; }
+  </style>
+</head>
+<body class="min-h-screen font-sans flex flex-col">
+
+  <header class="border-b border-zinc-800 p-4 sticky top-0 bg-[#121212] z-10">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="font-bold text-lg text-white tracking-tight">못난이삼돌이 영문법</a>
+      <span class="text-xs text-zinc-500 border border-zinc-800 px-2 py-1 rounded">DAILY GRAMMAR FEED</span>
+    </div>
+  </header>
+
+  <main class="max-w-5xl w-full mx-auto p-6 flex-1">
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
+      <div class="md:col-span-2 space-y-6">
+        <div class="space-y-2">
+          <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            영어는 기차다.<br>순서만 지키면 끝난다.
+          </h1>
+          <p class="text-zinc-400 text-base leading-relaxed">
+            복잡한 문법 용어 다 뺐다. 아는 단어로 순서만 지키는 32일 완성 카드뉴스.
+          </p>
+        </div>
+
+        <div id="hero-card" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4"></div>
+      </div>
+
+      <aside class="space-y-4">
+        <h3 class="text-sm font-bold text-zinc-500 uppercase tracking-wider border-b border-zinc-800 pb-2">바로가기</h3>
+        <div class="space-y-2">
+          <a href="#month-1" class="flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-xl hover:bg-zinc-800 transition-colors">
+            <span class="font-medium text-white">📱 못난이삼돌이 앱</span><span class="text-zinc-500 text-sm">→</span>
+          </a>
+          <a href="#month-1" class="flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-xl hover:bg-zinc-800 transition-colors">
+            <span class="font-medium text-white">✍️ 삼돌이 블로그</span><span class="text-zinc-500 text-sm">→</span>
+          </a>
+          <a href="#month-1" class="flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-xl hover:bg-zinc-800 transition-colors">
+            <span class="font-medium text-white">💬 질문 게시판</span><span class="text-zinc-500 text-sm">→</span>
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <div id="list"></div>
+  </main>
+
+  <footer class="border-t border-zinc-800 p-4 text-center text-xs text-zinc-600">
+    © 못난이삼돌이. The Simplest Line.
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+    const first = grammarData[0];
+    document.getElementById('hero-card').innerHTML = `
+      <div class="flex items-center flex-wrap gap-2 text-xs text-zinc-400">
+        <span class="bg-zinc-800 px-2 py-1 rounded text-zinc-300">${esc(monthMeta[first.month].label)}</span>
+        <span>${first.tags.map(esc).join(' · ')}</span>
+      </div>
+      <h2 class="text-xl font-bold text-white">${esc(first.title)}</h2>
+      <p class="text-zinc-400 text-sm">${esc(first.content.slice(0, 3).join(' '))}…</p>
+      <a href="card.html?id=${first.id}" class="inline-block w-full text-center bg-white hover:bg-zinc-200 text-black font-bold py-3 px-6 rounded-xl transition-colors">
+        01과 바로 읽기 →
+      </a>`;
+
+    const months = [...new Set(grammarData.map(d => d.month))];
+    document.getElementById('list').innerHTML = months.map(m => {
+      const items = grammarData.filter(d => d.month === m);
+      return `
+      <section id="month-${m}" class="mb-12 scroll-mt-20">
+        <div class="flex items-baseline gap-3 border-b border-zinc-800 pb-2 mb-4">
+          <h2 class="text-sm font-bold text-zinc-500 uppercase tracking-wider">${esc(monthMeta[m].label)}</h2>
+          <span class="text-sm text-zinc-400">${esc(monthMeta[m].theme)}</span>
+          <span class="ml-auto text-xs text-zinc-600">${items.length}과</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          ${items.map(d => `
+            <a href="card.html?id=${d.id}" class="block bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:bg-zinc-800 hover:border-zinc-700 transition-colors">
+              <p class="font-medium text-white text-sm mb-2 leading-snug">${esc(d.title)}</p>
+              <p class="text-xs text-zinc-500">${d.tags.map(esc).join(' · ')}</p>
+            </a>`).join('')}
+        </div>
+      </section>`;
+    }).join('');
+  </script>
+</body>
+</html>
