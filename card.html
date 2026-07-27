@@ -1,101 +1,192 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>못난이삼돌이 영문법 - 카드뷰어</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>body { background-color: #121212; color: #E4E4E7; word-break: keep-all; }</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>못난이삼돌이 영문법</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF8; --surface:#F5F3EF; --card:#FFFDF9;
+    --ink:#2C2420; --ink2:#6B6259; --ink3:#8E8577; --ink4:#A69D8E; --ink5:#C4BDB0;
+    --line:#E8E4DC;
+    --violet:#B8A9D9; --violet-d:#A395CB; --violet-t:#7C6BAE;
+    --gold:#E8C547; --gold-t:#9A7B1E; --gold-ink:#5C4708;
+    --sh:0 2px 12px rgba(100,80,60,.06);
+    --sh-h:0 6px 28px rgba(100,80,60,.10);
+    --serif:'Noto Serif KR',serif; --sans:'Noto Sans KR',sans-serif; --mono:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    background-image:radial-gradient(rgba(120,100,80,.035) 1px,transparent 1px);
+    background-size:4px 4px;
+    font-family:var(--sans); color:var(--ink);
+    word-break:keep-all; -webkit-text-size-adjust:100%;
+  }
+  a{color:var(--violet-t);text-decoration:none}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(250,250,248,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .hbar{max-width:780px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .back{display:flex;align-items:center;gap:9px;color:var(--ink2);font-size:14px}
+  .back img{width:28px;height:28px;object-fit:contain;object-position:top}
+  .back:hover{color:var(--ink)}
+  .mtag{font-family:var(--mono);font-size:12px;color:var(--ink3);letter-spacing:.06em}
+
+  main{max-width:780px;margin:0 auto;padding:36px 24px 0}
+
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .tag{background:var(--surface);color:var(--ink3);font-size:12px;padding:6px 13px;border-radius:999px}
+  h1{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.34;letter-spacing:-.02em;margin:0 0 22px}
+
+  .prog{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+  .bar{flex:1;height:6px;border-radius:999px;background:var(--line);overflow:hidden}
+  .bar>div{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--gold))}
+  .prog span{font-family:var(--mono);font-size:12px;color:var(--ink4);flex:none}
+
+  article{background:var(--card);border-radius:24px;padding:38px 40px;box-shadow:var(--sh)}
+  article p{font-size:17px;line-height:1.95;color:#3D342E;margin:0 0 14px}
+  article p:last-child{margin-bottom:0}
+  article h2{
+    font-family:var(--serif);font-weight:700;font-size:18px;color:var(--ink);
+    margin:34px 0 16px;padding-bottom:9px;border-bottom:1px solid var(--line);letter-spacing:-.01em;
+  }
+  article h2:first-child{margin-top:0}
+
+  .readbtn{
+    display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+    margin:24px 0 0;padding:16px;border-radius:999px;border:1px solid var(--line);
+    background:var(--card);color:var(--ink2);font-family:var(--sans);font-size:15px;font-weight:500;
+    cursor:pointer;transition:background .2s,color .2s,border-color .2s;
+  }
+  .readbtn:hover{background:var(--surface)}
+  .readbtn.on{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+
+  nav.pager{display:flex;gap:14px;margin:24px 0 0}
+  nav.pager a,nav.pager span{
+    flex:1;background:var(--card);border-radius:20px;padding:18px 20px;box-shadow:var(--sh);
+    color:var(--ink);transition:box-shadow .2s,transform .2s;min-width:0;
+  }
+  nav.pager a:hover{box-shadow:var(--sh-h);transform:translateY(-2px);color:var(--ink)}
+  nav.pager span{background:transparent;box-shadow:none}
+  nav.pager .lbl{display:block;font-family:var(--mono);font-size:11px;color:var(--ink4);margin-bottom:6px;letter-spacing:.05em}
+  nav.pager .ttl{display:block;font-size:14px;font-weight:500;line-height:1.5}
+  nav.pager .next{text-align:right}
+
+  .tolist{display:block;text-align:center;font-size:14px;color:var(--ink4);padding:22px 0}
+  .tolist:hover{color:var(--ink2)}
+
+  footer{max-width:780px;margin:0 auto;padding:8px 24px 60px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink4);border-top:1px solid var(--line);padding-top:26px}
+  footer img{width:52px;height:52px;object-fit:contain;object-position:top;opacity:.9}
+
+  .notfound{text-align:center;padding:20px 0 8px}
+  .notfound img{width:200px;max-width:60%;display:block;margin:0 auto 20px}
+
+  @media (max-width:640px){
+    main{padding:24px 16px 0}
+    .hbar,footer{padding-left:16px;padding-right:16px}
+    h1{font-size:26px}
+    article{padding:26px 22px;border-radius:20px}
+    article p{font-size:16px;line-height:1.9}
+    nav.pager{flex-direction:column;gap:10px}
+    nav.pager .next{text-align:left}
+    .mtag{display:none}
+  }
+</style>
 </head>
-<body class="min-h-screen flex flex-col p-4">
+<body>
 
-  <header class="max-w-md w-full mx-auto flex justify-between items-center py-2 border-b border-zinc-800">
-    <a href="index.html" class="text-xs text-zinc-400 hover:text-zinc-200 transition-colors">← 홈으로</a>
-    <span id="lesson-month" class="text-xs text-zinc-500"></span>
-  </header>
+<header>
+  <div class="hbar">
+    <a class="back" href="index.html">
+      <img src="images/samdol_default.webp" alt="">
+      <span>← 목록으로</span>
+    </a>
+    <span class="mtag" id="mtag"></span>
+  </div>
+</header>
 
-  <main class="max-w-md w-full mx-auto bg-zinc-900 border border-zinc-800 rounded-2xl p-6 my-8 space-y-6 shadow-2xl">
-    <div>
-      <h1 id="lesson-title" class="text-xl font-bold text-white mb-2"></h1>
-      <div id="lesson-tags" class="flex gap-2 flex-wrap"></div>
-    </div>
+<main id="app"></main>
 
-    <div id="lesson-content" class="space-y-3 text-zinc-300 text-base leading-relaxed"></div>
+<footer>
+  <span>© 못난이삼돌이 · The Simplest Line</span>
+  <img src="images/samdol_warm.webp" alt="">
+</footer>
 
-    <div id="lesson-progress" class="space-y-1">
-      <div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
-        <div id="progress-bar" class="h-full bg-white rounded-full transition-all"></div>
-      </div>
-      <p id="progress-text" class="text-xs text-zinc-600 text-right"></p>
-    </div>
+<script src="data.js"></script>
+<script>
+(function(){
+  var KEY='samdol-grammar-done';
+  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+  function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){}}
 
-    <div id="lesson-nav" class="flex gap-4 pt-4 border-t border-zinc-800">
-      <button id="btn-prev" class="flex-1 py-3 bg-zinc-800 text-white font-bold rounded-xl disabled:opacity-30 disabled:cursor-not-allowed">👈 이전 과</button>
-      <button id="btn-next" class="flex-1 py-3 bg-white text-black font-bold rounded-xl disabled:opacity-30 disabled:cursor-not-allowed">다음 과 👉</button>
-    </div>
-  </main>
+  var app=document.getElementById('app');
+  var id=parseInt(new URLSearchParams(location.search).get('id'),10)||1;
+  var idx=grammarData.findIndex(function(d){return d.id===id;});
 
-  <footer class="text-center text-xs text-zinc-600 mt-auto pt-4">못난이삼돌이 영문법</footer>
+  if(idx===-1){
+    document.getElementById('mtag').textContent='';
+    app.innerHTML=
+      '<article class="notfound">'+
+        '<img src="images/samdol_calm.webp" alt="">'+
+        '<h1 style="font-size:24px;margin-bottom:10px">그런 과는 없어</h1>'+
+        '<p style="color:var(--ink2)">01과부터 '+grammarData.length+'과까지 있어.</p>'+
+      '</article>'+
+      '<nav class="pager"><a href="index.html" style="text-align:center">'+
+      '<span class="ttl">목록으로 돌아가기 →</span></a></nav>';
+    return;
+  }
 
-  <script src="data.js"></script>
-  <script>
-    const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  var d=grammarData[idx];
+  var prev=grammarData[idx-1], next=grammarData[idx+1];
+  var meta=monthMeta[d.month]||{label:'MONTH '+d.month,theme:''};
+  document.title=d.title+' · 못난이삼돌이 영문법';
+  document.getElementById('mtag').textContent=meta.label+' · '+meta.theme;
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const currentId = parseInt(urlParams.get('id'), 10) || 1;
+  var body=d.content.map(function(l){
+    return l.indexOf('## ')===0
+      ? '<h2>'+esc(l.slice(3))+'</h2>'
+      : '<p>'+esc(l)+'</p>';
+  }).join('');
 
-    const $ = id => document.getElementById(id);
+  var pager=''
+    + (prev?'<a href="card.html?id='+prev.id+'"><span class="lbl">← 이전</span><span class="ttl">'+esc(prev.title)+'</span></a>':'<span></span>')
+    + (next?'<a class="next" href="card.html?id='+next.id+'"><span class="lbl">다음 →</span><span class="ttl">'+esc(next.title)+'</span></a>':'<span></span>');
 
-    function renderNotFound() {
-      $('lesson-month').textContent = '';
-      $('lesson-title').textContent = '그런 과는 없습니다';
-      $('lesson-tags').innerHTML = '';
-      $('lesson-content').innerHTML = `<p>01과부터 ${grammarData.length}과까지 있습니다.</p>`;
-      $('lesson-progress').classList.add('hidden');
-      $('lesson-nav').innerHTML = `<a href="index.html" class="flex-1 py-3 bg-white text-black font-bold rounded-xl text-center">목록으로 →</a>`;
-    }
+  app.innerHTML=
+    '<div class="badges">'+d.tags.map(function(t){return '<span class="tag">#'+esc(t)+'</span>';}).join('')+'</div>'+
+    '<h1>'+esc(d.title)+'</h1>'+
+    '<div class="prog"><div class="bar"><div style="width:'+Math.round((idx+1)/grammarData.length*100)+'%"></div></div>'+
+    '<span>'+(idx+1)+' / '+grammarData.length+'</span></div>'+
+    '<article>'+body+'</article>'+
+    '<button class="readbtn" id="readbtn" type="button"></button>'+
+    '<nav class="pager">'+pager+'</nav>'+
+    '<a class="tolist" href="index.html">전체 목록 보기</a>';
 
-    function renderCard(id) {
-      const idx = grammarData.findIndex(item => item.id === id);
-      if (idx === -1) { renderNotFound(); return null; }
+  var done=load();
+  var btn=document.getElementById('readbtn');
+  function paintBtn(){
+    var on=!!done[d.id];
+    btn.classList.toggle('on',on);
+    btn.setAttribute('aria-pressed',on?'true':'false');
+    btn.textContent=on?'✓ 읽었어':'다 읽었으면 눌러줘';
+  }
+  btn.addEventListener('click',function(){
+    if(done[d.id]) delete done[d.id]; else done[d.id]=true;
+    save(done); paintBtn();
+  });
+  paintBtn();
 
-      const data = grammarData[idx];
-      document.title = data.title + ' · 못난이삼돌이 영문법';
-
-      $('lesson-month').textContent = `MONTH ${data.month}`;
-      $('lesson-title').textContent = data.title;
-
-      $('lesson-tags').innerHTML = data.tags
-        .map(t => `<span class="text-xs bg-zinc-800 text-zinc-400 px-2 py-1 rounded">#${esc(t)}</span>`)
-        .join('');
-
-      $('lesson-content').innerHTML = data.content
-        .map(line => line.startsWith('## ')
-          ? `<p class="text-white font-bold text-sm pt-4 pb-1 border-b border-zinc-800">${esc(line.slice(3))}</p>`
-          : `<p>${esc(line)}</p>`)
-        .join('');
-
-      $('progress-bar').style.width = Math.round((idx + 1) / grammarData.length * 100) + '%';
-      $('progress-text').textContent = `${idx + 1} / ${grammarData.length}`;
-
-      const prev = grammarData[idx - 1];
-      const next = grammarData[idx + 1];
-
-      $('btn-prev').disabled = !prev;
-      $('btn-next').disabled = !next;
-      if (prev) $('btn-prev').onclick = () => location.href = `card.html?id=${prev.id}`;
-      if (next) $('btn-next').onclick = () => location.href = `card.html?id=${next.id}`;
-
-      return { prev, next };
-    }
-
-    const nav = renderCard(currentId);
-
-    document.addEventListener('keydown', e => {
-      if (!nav) return;
-      if (e.key === 'ArrowLeft' && nav.prev) location.href = `card.html?id=${nav.prev.id}`;
-      if (e.key === 'ArrowRight' && nav.next) location.href = `card.html?id=${nav.next.id}`;
-    });
-  </script>
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'&&prev) location.href='card.html?id='+prev.id;
+    if(e.key==='ArrowRight'&&next) location.href='card.html?id='+next.id;
+  });
+})();
+</script>
 </body>
 </html>
