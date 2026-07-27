@@ -1,98 +1,217 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>못난이삼돌이 영문법</title>
-  <meta name="description" content="복잡한 문법 용어 다 뺐다. 아는 단어로 순서만 지키는 32일 완성 카드뉴스.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { background-color: #121212; color: #E4E4E7; word-break: keep-all; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>못난이삼돌이 영문법</title>
+<meta name="description" content="복잡한 문법 용어는 다 뺐어. 아는 단어로 순서만 지키면 돼. 하루 한 과씩, 32일 완성 카드뉴스.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF8; --surface:#F5F3EF; --card:#FFFDF9;
+    --ink:#2C2420; --ink2:#6B6259; --ink3:#8E8577; --ink4:#A69D8E; --ink5:#C4BDB0;
+    --line:#E8E4DC;
+    --violet:#B8A9D9; --violet-d:#A395CB; --violet-t:#7C6BAE;
+    --gold:#E8C547; --gold-t:#9A7B1E; --gold-ink:#5C4708;
+    --sh:0 2px 12px rgba(100,80,60,.06);
+    --sh-h:0 6px 28px rgba(100,80,60,.10);
+    --serif:'Noto Serif KR',serif; --sans:'Noto Sans KR',sans-serif; --mono:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    background-image:radial-gradient(rgba(120,100,80,.035) 1px,transparent 1px);
+    background-size:4px 4px;
+    font-family:var(--sans); color:var(--ink);
+    word-break:keep-all; -webkit-text-size-adjust:100%;
+  }
+  a{color:var(--violet-t); text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(250,250,248,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .hbar{max-width:1160px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand img{width:34px;height:34px;object-fit:contain;object-position:top}
+  .brand span{font-family:var(--serif);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink)}
+  .hright{display:flex;align-items:center;gap:16px}
+  .feedtag{font-family:var(--mono);font-size:12px;color:var(--ink3);letter-spacing:.06em}
+  .pill{background:var(--violet);color:#FFFDF9;font-size:13px;font-weight:500;padding:9px 18px;border-radius:999px;transition:background .2s}
+  .pill:hover{background:var(--violet-d);color:#FFFDF9}
+
+  .hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:40px;align-items:end;padding:56px 0 40px}
+  .badge32{display:inline-flex;align-items:center;gap:8px;background:rgba(232,197,71,.18);color:var(--gold-t);font-size:12px;font-weight:500;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+  h1{font-family:var(--serif);font-weight:700;font-size:52px;line-height:1.28;letter-spacing:-.02em;margin:0 0 18px}
+  .lede{font-size:17px;line-height:1.75;color:var(--ink2);margin:0 0 28px;max-width:30em}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+  .btn1{background:var(--violet);color:#FFFDF9;font-size:15px;font-weight:500;padding:14px 28px;border-radius:999px;box-shadow:0 6px 20px rgba(124,107,174,.24);transition:background .2s}
+  .btn1:hover{background:var(--violet-d);color:#FFFDF9}
+  .btn2{background:var(--surface);color:var(--ink2);font-size:15px;font-weight:500;padding:14px 24px;border-radius:999px;transition:background .2s}
+  .btn2:hover{background:#EDEAE3;color:var(--ink2)}
+  .heroart{position:relative;display:flex;justify-content:center;align-items:flex-end}
+  .glow{position:absolute;bottom:12%;width:88%;aspect-ratio:1;border-radius:999px;background:radial-gradient(circle,rgba(244,194,194,.4) 0%,rgba(244,194,194,0) 70%)}
+  .heroart img{position:relative;width:100%;max-width:330px;display:block;filter:drop-shadow(0 14px 30px rgba(100,80,60,.14))}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding-bottom:16px}
+  .tile{background:var(--surface);border-radius:20px;padding:22px 24px;box-shadow:var(--sh)}
+  .tile-label{font-size:13px;color:var(--ink3);margin-bottom:10px}
+  .tile-num{display:flex;align-items:baseline;gap:6px;margin-bottom:14px}
+  .tile-num b{font-family:var(--mono);font-size:32px;font-weight:500;color:var(--violet-t)}
+  .tile-num i{font-family:var(--mono);font-size:15px;color:var(--ink5);font-style:normal}
+  .bar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
+  .bar>div{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--gold));width:0;transition:width .35s cubic-bezier(.4,0,.2,1)}
+  .link{background:var(--surface);border-radius:20px;padding:22px 24px;box-shadow:var(--sh);display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--ink);transition:box-shadow .2s,transform .2s}
+  .link:hover{box-shadow:var(--sh-h);transform:translateY(-2px);color:var(--ink)}
+  .link b{display:block;font-size:15px;font-weight:500;margin-bottom:4px}
+  .link small{display:block;font-size:12.5px;color:var(--ink4)}
+  .link span.arw{color:var(--ink5);font-size:18px}
+
+  .mhead{display:flex;align-items:flex-end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+  .mhead h2{font-family:var(--serif);font-weight:700;font-size:26px;margin:0;letter-spacing:-.01em}
+  .mhead .theme{font-size:14px;color:var(--ink3)}
+  .mhead .count{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--ink4)}
+  section.month{padding-top:36px;scroll-margin-top:80px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .lesson{background:var(--card);border-radius:20px;padding:18px 20px;box-shadow:var(--sh);display:flex;gap:14px;align-items:flex-start;color:var(--ink);transition:box-shadow .2s,transform .2s}
+  .lesson:hover{box-shadow:var(--sh-h);transform:translateY(-2px);color:var(--ink)}
+  .num{flex:none;width:34px;height:34px;border-radius:999px;display:grid;place-items:center;font-family:var(--mono);font-size:13px;background:var(--surface);color:var(--ink4);border:none;cursor:pointer;padding:0;transition:background .2s,color .2s}
+  .num.done{background:var(--gold);color:var(--gold-ink)}
+  .lesson .t{display:block;font-size:15px;font-weight:500;line-height:1.5;margin-bottom:6px}
+  .lesson .g{display:block;font-size:12px;color:var(--ink4)}
+
+  footer{margin-top:56px;padding:28px 0 60px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink4)}
+
+  @media (max-width:820px){
+    .wrap,.hbar{padding-left:20px;padding-right:20px}
+    .hero{grid-template-columns:1fr;gap:24px;padding:32px 0 28px}
+    .heroart{order:-1;justify-content:flex-start}
+    .heroart img{max-width:240px}
+    h1{font-size:34px}
+    .feedtag{display:none}
+  }
+</style>
 </head>
-<body class="min-h-screen font-sans flex flex-col">
+<body>
 
-  <header class="border-b border-zinc-800 p-4 sticky top-0 bg-[#121212] z-10">
-    <div class="max-w-5xl mx-auto flex justify-between items-center">
-      <a href="index.html" class="font-bold text-lg text-white tracking-tight">못난이삼돌이 영문법</a>
-      <span class="text-xs text-zinc-500 border border-zinc-800 px-2 py-1 rounded">DAILY GRAMMAR FEED</span>
+<header>
+  <div class="hbar">
+    <div class="brand">
+      <img src="images/samdol_default.webp" alt="">
+      <span>못난이삼돌이 영문법</span>
     </div>
-  </header>
+    <div class="hright">
+      <span class="feedtag">DAILY GRAMMAR FEED</span>
+      <a class="pill" id="today-link" href="card.html?id=1">오늘 한 과 읽기</a>
+    </div>
+  </div>
+</header>
 
-  <main class="max-w-5xl w-full mx-auto p-6 flex-1">
+<div class="wrap">
 
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
-      <div class="md:col-span-2 space-y-6">
-        <div class="space-y-2">
-          <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-            영어는 기차다.<br>순서만 지키면 끝난다.
-          </h1>
-          <p class="text-zinc-400 text-base leading-relaxed">
-            복잡한 문법 용어 다 뺐다. 아는 단어로 순서만 지키는 32일 완성 카드뉴스.
-          </p>
-        </div>
-
-        <div id="hero-card" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4"></div>
+  <section class="hero">
+    <div>
+      <div class="badge32">32일 완성</div>
+      <h1>영어는 기차다.<br>순서만 지키면 끝나.</h1>
+      <p class="lede">복잡한 문법 용어는 다 뺐어. 아는 단어로 순서만 지키면 돼. 하루 한 과씩, 우리 같이 32일만 가보자.</p>
+      <div class="cta">
+        <a class="btn1" id="start-link" href="card.html?id=1">01과 바로 읽기</a>
+        <a class="btn2" href="#month-1">전체 커리큘럼 보기</a>
       </div>
+    </div>
+    <div class="heroart">
+      <div class="glow"></div>
+      <img src="images/samdol_cheer.webp" alt="못난이와 삼돌이">
+    </div>
+  </section>
 
-      <aside class="space-y-4">
-        <h3 class="text-sm font-bold text-zinc-500 uppercase tracking-wider border-b border-zinc-800 pb-2">바로가기</h3>
-        <div class="space-y-2">
-          <a href="#month-1" class="flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-xl hover:bg-zinc-800 transition-colors">
-            <span class="font-medium text-white">📱 못난이삼돌이 앱</span><span class="text-zinc-500 text-sm">→</span>
-          </a>
-          <a href="#month-1" class="flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-xl hover:bg-zinc-800 transition-colors">
-            <span class="font-medium text-white">✍️ 삼돌이 블로그</span><span class="text-zinc-500 text-sm">→</span>
-          </a>
-          <a href="#month-1" class="flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-xl hover:bg-zinc-800 transition-colors">
-            <span class="font-medium text-white">💬 질문 게시판</span><span class="text-zinc-500 text-sm">→</span>
-          </a>
-        </div>
-      </aside>
-    </section>
+  <section class="stats">
+    <div class="tile">
+      <div class="tile-label">나의 진도</div>
+      <div class="tile-num"><b id="done-count">00</b><i>/ 32과</i></div>
+      <div class="bar"><div id="bar-fill"></div></div>
+    </div>
+    <a class="link" href="#month-1"><span><b>📱 못난이삼돌이 앱</b><small>시간을 눈으로 보는 캘린더</small></span><span class="arw">→</span></a>
+    <a class="link" href="#month-1"><span><b>✍️ 삼돌이 블로그</b><small>매일 쓰는 아빠의 기록</small></span><span class="arw">→</span></a>
+    <a class="link" href="#month-1"><span><b>💬 질문 게시판</b><small>모르는 건 같이 풀어보자</small></span><span class="arw">→</span></a>
+  </section>
 
-    <div id="list"></div>
-  </main>
+  <div id="months"></div>
 
-  <footer class="border-t border-zinc-800 p-4 text-center text-xs text-zinc-600">
-    © 못난이삼돌이. The Simplest Line.
+  <footer>
+    <span>© 못난이삼돌이 · The Simplest Line</span>
+    <span>번호를 누르면 읽은 과로 표시돼</span>
   </footer>
+</div>
 
-  <script src="data.js"></script>
-  <script>
-    const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+<script src="data.js"></script>
+<script>
+(function(){
+  var KEY = 'samdol-grammar-done';
+  var esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
 
-    const first = grammarData[0];
-    document.getElementById('hero-card').innerHTML = `
-      <div class="flex items-center flex-wrap gap-2 text-xs text-zinc-400">
-        <span class="bg-zinc-800 px-2 py-1 rounded text-zinc-300">${esc(monthMeta[first.month].label)}</span>
-        <span>${first.tags.map(esc).join(' · ')}</span>
-      </div>
-      <h2 class="text-xl font-bold text-white">${esc(first.title)}</h2>
-      <p class="text-zinc-400 text-sm">${esc(first.content.filter(l => !l.startsWith('## ')).slice(0, 3).join(' '))}…</p>
-      <a href="card.html?id=${first.id}" class="inline-block w-full text-center bg-white hover:bg-zinc-200 text-black font-bold py-3 px-6 rounded-xl transition-colors">
-        01과 바로 읽기 →
-      </a>`;
+  function load(){
+    try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){ return {}; }
+  }
+  function save(d){
+    try { localStorage.setItem(KEY, JSON.stringify(d)); } catch(e){}
+  }
+  var done = load();
 
-    const months = [...new Set(grammarData.map(d => d.month))];
-    document.getElementById('list').innerHTML = months.map(m => {
-      const items = grammarData.filter(d => d.month === m);
-      return `
-      <section id="month-${m}" class="mb-12 scroll-mt-20">
-        <div class="flex items-baseline gap-3 border-b border-zinc-800 pb-2 mb-4">
-          <h2 class="text-sm font-bold text-zinc-500 uppercase tracking-wider">${esc(monthMeta[m].label)}</h2>
-          <span class="text-sm text-zinc-400">${esc(monthMeta[m].theme)}</span>
-          <span class="ml-auto text-xs text-zinc-600">${items.length}과</span>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          ${items.map(d => `
-            <a href="card.html?id=${d.id}" class="block bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:bg-zinc-800 hover:border-zinc-700 transition-colors">
-              <p class="font-medium text-white text-sm mb-2 leading-snug">${esc(d.title)}</p>
-              <p class="text-xs text-zinc-500">${d.tags.map(esc).join(' · ')}</p>
-            </a>`).join('')}
-        </div>
-      </section>`;
-    }).join('');
-  </script>
+  var months = [];
+  grammarData.forEach(function(d){ if (months.indexOf(d.month) === -1) months.push(d.month); });
+
+  document.getElementById('months').innerHTML = months.map(function(m){
+    var items = grammarData.filter(function(d){ return d.month === m; });
+    var meta = monthMeta[m] || { label: 'MONTH ' + m, theme: '' };
+    return '<section class="month" id="month-' + m + '">' +
+      '<div class="mhead"><h2>' + esc(meta.label) + '</h2>' +
+      '<span class="theme">' + esc(meta.theme) + '</span>' +
+      '<span class="count">' + items.length + '과</span></div>' +
+      '<div class="grid">' + items.map(function(d){
+        var n = String(d.id).padStart(2, '0');
+        return '<a class="lesson" href="card.html?id=' + d.id + '">' +
+          '<button class="num" type="button" data-id="' + d.id + '" aria-label="' + n + '과 읽음 표시">' + n + '</button>' +
+          '<span><span class="t">' + esc(d.title) + '</span>' +
+          '<span class="g">' + d.tags.map(esc).join(' · ') + '</span></span></a>';
+      }).join('') + '</div></section>';
+  }).join('');
+
+  function paint(){
+    var count = 0;
+    Object.keys(done).forEach(function(k){ if (done[k]) count++; });
+    document.getElementById('done-count').textContent = String(count).padStart(2, '0');
+    document.getElementById('bar-fill').style.width = Math.round(count / grammarData.length * 100) + '%';
+
+    var btns = document.querySelectorAll('.num');
+    for (var i = 0; i < btns.length; i++){
+      var on = !!done[btns[i].getAttribute('data-id')];
+      btns[i].classList.toggle('done', on);
+      btns[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+
+    var next = grammarData.find(function(d){ return !done[d.id]; }) || grammarData[0];
+    var href = 'card.html?id=' + next.id;
+    document.getElementById('today-link').href = href;
+    var s = document.getElementById('start-link');
+    s.href = href;
+    s.textContent = String(next.id).padStart(2, '0') + '과 바로 읽기';
+  }
+
+  document.getElementById('months').addEventListener('click', function(e){
+    var b = e.target.closest('.num');
+    if (!b) return;
+    e.preventDefault();
+    var id = b.getAttribute('data-id');
+    if (done[id]) delete done[id]; else done[id] = true;
+    save(done);
+    paint();
+  });
+
+  paint();
+})();
+</script>
 </body>
 </html>
