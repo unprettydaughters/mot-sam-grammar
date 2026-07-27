@@ -65,6 +65,12 @@
   .readbtn:hover{background:var(--surface)}
   .readbtn.on{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
 
+  .practicebtn{display:block;text-align:center;margin-top:24px;padding:16px;border-radius:999px;
+    background:var(--violet);color:#FFFDF9;font-size:15px;font-weight:500;
+    box-shadow:0 6px 20px rgba(124,107,174,.24);transition:background .2s}
+  .practicebtn:hover{background:var(--violet-d);color:#FFFDF9}
+  .practicebtn+.readbtn{margin-top:12px}
+
   .askbtn{display:block;text-align:center;margin-top:12px;padding:14px;border-radius:999px;
     background:var(--surface);color:var(--ink2);font-size:14px;font-weight:500;transition:background .2s}
   .askbtn:hover{background:#EDEAE3;color:var(--ink2)}
@@ -168,6 +174,10 @@
     '<div class="prog"><div class="bar"><div style="width:'+Math.round((idx+1)/grammarData.length*100)+'%"></div></div>'+
     '<span>'+(idx+1)+' / '+grammarData.length+'</span></div>'+
     '<article>'+body+'</article>'+
+    (d.practice
+      ? '<a class="practicebtn" href="'+esc(d.practice)+'" target="_blank" rel="noopener">✏️ '
+        +String(d.id).padStart(2,'0')+'과 연습문제 풀러 가기 ↗</a>'
+      : '')+
     '<button class="readbtn" id="readbtn" type="button"></button>'+
     '<a class="askbtn" id="askbtn" href="#">✉️ 이 과에 대해 질문 보내기</a>'+
     '<nav class="pager">'+pager+'</nav>'+

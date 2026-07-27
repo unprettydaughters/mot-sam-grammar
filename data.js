@@ -4,6 +4,7 @@
 const grammarData = [
   {
     id: 1, month: 1, title: "01. 영어에서 가장 중요한 것 🚂", tags: ["기초뿌시기", "영어는순서", "기차놀이"],
+    practice: "https://47realization.tistory.com/category/1%EA%B3%BC%20%EC%98%81%EC%96%B4%EC%97%90%EC%84%9C%20%EA%B0%80%EC%9E%A5%20%EC%A4%91%EC%9A%94%ED%95%9C%20%EA%B2%83",
     content: [
       "영어에서 제일 중요한 게 뭘까요?",
       "제가 생각하는 제일 중요한 것은 순서입니다.",
@@ -54,6 +55,7 @@ const grammarData = [
   },
   {
     id: 2, month: 1, title: "02. 주어 동사만 알면 성공 🎯", tags: ["주어동사", "문장주인공", "핵심찾기"],
+    practice: "https://47realization.tistory.com/category/2%EA%B3%BC%20%EC%A3%BC%EC%96%B4%20%EB%8F%99%EC%82%AC%EB%A7%8C%20%EC%95%8C%EB%A9%B4%20%EC%84%B1%EA%B3%B5",
     content: [
       "저번 시간에 영어의 순서에 대해서 얘기했습니다.",
       "기억하시나요?",
@@ -107,6 +109,7 @@ const grammarData = [
   },
   {
     id: 3, month: 1, title: "03. I love you ❤️", tags: ["목적어", "기본완성", "무한연습"],
+    practice: "https://47realization.tistory.com/category/3%EA%B3%BC%20I%20love%20you",
     content: [
       "처음에 배웠던 영어의 순서.",
       "기억하시나요?",
@@ -138,6 +141,7 @@ const grammarData = [
   },
   {
     id: 4, month: 1, title: "04. 주어가 긴 경우 📏", tags: ["긴주어", "첫번째동사", "기차칸"],
+    practice: "https://47realization.tistory.com/category/4%EA%B3%BC%20%EC%A3%BC%EC%96%B4%EA%B0%80%20%EA%B8%B4%20%EA%B2%BD%EC%9A%B0",
     content: [
       "영어의 주어가 항상 짧을까요?",
       "아닙니다. 주어가 길 수도 있습니다.",
@@ -186,6 +190,7 @@ const grammarData = [
   },
   {
     id: 5, month: 1, title: "05. 영어에서는 숫자로 의미를 구분한다 🔢", tags: ["숫자감각", "a와s", "의미차이"],
+    practice: "https://47realization.tistory.com/category/5%EA%B3%BC%20%20%EC%88%AB%EC%9E%90%EA%B0%80%20%EB%9C%BB%EC%9D%84%20%EB%B0%94%EA%BE%BC%EB%8B%A4%3F",
     content: [
       "영어에서 숫자가 왜 중요할까요?",
       "영어는 숫자로 의미를 구분하기 때문입니다.",
@@ -233,6 +238,7 @@ const grammarData = [
   },
   {
     id: 6, month: 1, title: "06. 단수와 복수 🍎", tags: ["단수", "복수", "습관"],
+    practice: "https://47realization.tistory.com/category/6%EA%B3%BC%20%EC%98%81%EC%96%B4%EB%8A%94%20%EC%88%AB%EC%9E%90%20%EA%B0%95%EB%B0%95%3F",
     content: [
       "저번 시간에 영어에서는",
       "한 개냐 여러 개냐에 따라 뜻이 바뀐다고 했습니다.",
@@ -313,6 +319,7 @@ const grammarData = [
   },
   {
     id: 8, month: 1, title: "08. 이번 달 총정리 ✨", tags: ["1월총정리", "동사s", "공평함"],
+    practice: "https://47realization.tistory.com/category/8%EA%B3%BC%20%EC%B2%AB%EC%A7%B8%20%EB%8B%AC%20%EB%B3%B5%EC%8A%B5",
     content: [
       "## 주어가 단수일 때는 동사에 s를 붙인다",
       "이번 달의 마지막 시간입니다.",
@@ -362,6 +369,7 @@ const grammarData = [
   ,
   {
     id: 9, month: 2, title: "09. be 동사는 뜻이 없다 🥛", tags: ["be동사", "빈컵이론", "연결동사"],
+    practice: "https://47realization.tistory.com/category/9%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%8A%94%20%EB%9C%BB%EC%9D%B4%20%EC%97%86%EB%8B%A4%3F",
     content: [
       "I am happy.",
       "이 문장에서 가장 이상한 단어가 뭘까요?",
@@ -403,6 +411,7 @@ const grammarData = [
   },
   {
     id: 10, month: 2, title: "10. be 동사로 상태를 말한다 🦢", tags: ["상태설명", "행동vs상태", "존재"],
+    practice: "https://47realization.tistory.com/category/10%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%A1%9C%20%EC%83%81%ED%83%9C%EB%A5%BC%20%EB%A7%90%ED%95%9C%EB%8B%A4",
     content: [
       "She is tall.",
       "이 문장을 보세요.",
