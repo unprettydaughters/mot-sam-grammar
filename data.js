@@ -319,7 +319,7 @@ const grammarData = [
   },
   {
     id: 8, month: 1, title: "08. 이번 달 총정리 ✨", tags: ["1월총정리", "동사s", "공평함"],
-    practice: "https://47realization.tistory.com/category/8%EA%B3%BC%20%EC%B2%AB%EC%A7%B8%20%EB%8B%AC%20%EB%B3%B5%EC%8A%B5",
+    practice: "https://47realization.tistory.com/category/7%EA%B3%BC%20%EB%8B%A8%EC%88%98%20%EC%A3%BC%EC%96%B4%20%2B%20%EB%8F%99%EC%82%AC%20s",
     content: [
       "## 주어가 단수일 때는 동사에 s를 붙인다",
       "이번 달의 마지막 시간입니다.",
@@ -446,6 +446,7 @@ const grammarData = [
   },
   {
     id: 11, month: 2, title: "11. be 동사의 형태 🎨", tags: ["주어맞춤", "am_are_is", "배려심"],
+    practice: "https://47realization.tistory.com/category/11%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EC%9D%98%20%ED%98%95%ED%83%9C",
     content: [
       "He is smart.",
       "왜 am이 아니라 is일까요?",
@@ -476,6 +477,7 @@ const grammarData = [
   },
   {
     id: 12, month: 2, title: "12. be 동사로 만드는 진행형 📸", tags: ["진행형", "순간포착", "시간멈춤"],
+    practice: "https://47realization.tistory.com/category/12%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%A1%9C%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EC%A7%84%ED%96%89%ED%98%95",
     content: [
       "I am eating.",
       "이상한 문장입니다.",
@@ -507,6 +509,7 @@ const grammarData = [
   },
   {
     id: 13, month: 2, title: "13. be 동사로 만드는 수동태 🧱", tags: ["수동태", "결과강조", "상태"],
+    practice: "https://47realization.tistory.com/category/13%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%A1%9C%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EC%88%98%EB%8F%99%ED%83%9C",
     content: [
       "It is broken.",
       "누가 부러뜨렸을까요?",
@@ -532,6 +535,7 @@ const grammarData = [
   },
   {
     id: 14, month: 2, title: "14. be 동사로 만드는 미래 ✈️", tags: ["미래", "going_to", "방향"],
+    practice: "https://47realization.tistory.com/category/14%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%A1%9C%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%AF%B8%EB%9E%98",
     content: [
       "I am going to study.",
       "미래인데 왜 현재형 am이 있을까요?",
@@ -558,6 +562,7 @@ const grammarData = [
   },
   {
     id: 15, month: 2, title: "15. be 동사의 과거형 🕰️", tags: ["과거형", "was_were", "단절"],
+    practice: "https://47realization.tistory.com/category/15%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EC%9D%98%20%EA%B3%BC%EA%B1%B0",
     content: [
       "I was happy.",
       "영어의 과거형은 한국어와 많이 다릅니다.",
@@ -796,6 +801,7 @@ const grammarData = [
   },
   {
     id: 23, month: 3, title: "23. have, get, take 완벽 비교 🔍", tags: ["비교", "소유_변화_쟁취", "핵심구분"],
+    practice: "https://47realization.tistory.com/category/23%EA%B3%BC%20have%2Cget%2Ctake%20%EC%99%84%EB%B2%BD%20%EB%B9%84%EA%B5%90",
     content: [
       "이제 세 동사를 완벽하게 비교해볼까요?",
       "## 상황: 책 한 권",
@@ -831,6 +837,7 @@ const grammarData = [
   },
   {
     id: 24, month: 3, title: "24. 셋째 달 총정리 ✨", tags: ["3월총정리", "핵심3동사", "관계망"],
+    practice: "https://47realization.tistory.com/category/24%EA%B3%BC%20%EC%85%8B%EC%A7%B8%EB%8B%AC%20%EC%B4%9D%EC%A0%95%EB%A6%AC",
     content: [
       "지금까지 배운 have 동사를 정리해봅시다.",
       "## I have a book.",
@@ -1002,6 +1009,7 @@ const grammarData = [
   },
   {
     id: 31, month: 4, title: "31. OF & OFF 💡", tags: ["of", "off", "추상vs물리"],
+    practice: "https://47realization.tistory.com/category/31%EA%B3%BC%20OF%2COFF%20%3A%20%EB%96%A8%EC%96%B4%EC%A0%B8%20%EB%82%98%EC%98%A8%EB%8B%A4",
     content: [
       "## PHASE 1 · 핵심",
       "OF와 OFF는 원래 같은 단어였어요. 어딘가에서 떨어져 나오는 이미지.",
