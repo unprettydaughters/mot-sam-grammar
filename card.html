@@ -66,7 +66,53 @@
   .pull mark{background:rgba(232,197,71,.5)}
   article p+.pull{margin-top:26px}
 
-  @media (max-width:640px){ .pull{font-size:17px;padding:18px 20px} }
+  .note{display:flex;gap:12px;align-items:flex-start;margin:22px 0;padding:16px 20px;border-radius:14px}
+  .note span{flex:none;font-size:16px;line-height:1.7}
+  .note p{margin:0!important;font-size:15.5px!important;line-height:1.75!important}
+  .note.warn{background:rgba(232,197,71,.16)}
+  .note.aha{background:rgba(184,169,217,.16)}
+
+  .formula{
+    margin:28px 0;padding:28px 26px;border-radius:18px;background:var(--ink);
+    text-align:center;font-family:var(--serif);font-weight:700;font-size:23px;color:#FFFDF9;line-height:1.6;
+  }
+  .formula .flabel{
+    display:block;font-family:var(--mono);font-weight:400;font-size:11px;
+    color:var(--gold);letter-spacing:.14em;margin-bottom:12px;
+  }
+  .formula mark{background:rgba(232,197,71,.35);color:#FFFDF9}
+
+  .point{margin:26px 0 0;padding:22px 24px;border-radius:16px;background:var(--surface)}
+  .point b{display:block;font-family:var(--serif);font-size:15px;color:var(--violet-t);margin-bottom:8px}
+  .point p{margin:0!important;font-size:15.5px!important;line-height:1.8!important}
+
+  .fig{margin:26px 0;padding:26px 20px 18px;border-radius:16px;background:var(--surface)}
+  .train{display:flex;align-items:flex-end;justify-content:center;gap:0}
+  .car{display:flex;flex-direction:column;align-items:center;gap:7px}
+  .car .cap{font-size:12.5px;color:var(--ink3)}
+  .car .box{
+    width:62px;height:52px;border-radius:10px;display:grid;place-items:center;
+    font-family:var(--mono);font-size:20px;color:#3D342E;
+  }
+  .link2{width:16px;height:3px;background:var(--ink5);margin:0 0 24px;border-radius:2px}
+  .rail{height:3px;background:var(--ink5);border-radius:2px;margin:9px auto 0;max-width:300px;opacity:.6}
+  .figcap{margin:12px 0 0!important;text-align:center;font-size:13px!important;color:var(--ink3)!important}
+
+  .cmpwrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+  .cmp{padding:18px;border-radius:14px;text-align:center}
+  .cmp.ko{background:rgba(232,197,71,.16)}
+  .cmp.en{background:rgba(184,169,217,.16)}
+  .cmp b{display:block;font-family:var(--serif);font-size:15px;margin-bottom:6px;color:var(--ink)}
+  .cmp small{display:block;font-size:12.5px;color:var(--ink3);margin-bottom:12px}
+  .cmp .chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+  .cmp .chips span{background:var(--card);font-size:13px;padding:5px 11px;border-radius:999px;color:var(--ink)}
+
+  @media (max-width:640px){
+    .pull{font-size:17px;padding:18px 20px}
+    .formula{font-size:19px;padding:22px 18px}
+    .cmpwrap{grid-template-columns:1fr}
+    .car .box{width:52px;height:46px;font-size:17px}
+  }
 
   .readbtn{
     display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
@@ -139,7 +185,7 @@
   <img src="images/samdol_warm.webp" alt="">
 </footer>
 
-<script src="data.js?v=202607281133"></script>
+<script src="data.js?v=20260728114429"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -174,9 +220,37 @@
   // **강조** → 형광펜
   function mark(t){ return t.replace(/\*\*([^*]+)\*\*/g,'<mark>$1</mark>'); }
 
+  function train(spec){
+    var w=(spec||'주어 · 동사 · 목적어').split('·').map(function(x){return x.trim();});
+    var cars=[['S',w[0]||'주어','#B8A9D9'],['V',w[1]||'동사','#E8C547'],['O',w[2]||'목적어','#F0A9A9']];
+    return '<div class="fig">'+
+      '<div class="train">'+cars.map(function(c){
+        return '<div class="car"><span class="cap">'+esc(c[1])+'</span>'+
+               '<span class="box" style="background:'+c[2]+'">'+c[0]+'</span></div>';
+      }).join('<span class="link2"></span>')+'</div>'+
+      '<div class="rail"></div>'+
+      '<p class="figcap">칸 순서는 절대 바뀌지 않는다</p></div>';
+  }
+
+  function compare(spec){
+    var p=(spec||'').split('::').map(function(x){return x.trim();});
+    function col(t,o,ws,cls){
+      return '<div class="cmp '+cls+'"><b>'+esc(t)+'</b><small>'+esc(o)+'</small>'+
+        '<div class="chips">'+ws.split('/').map(function(x){
+          return '<span>'+esc(x.trim())+'</span>';}).join('')+'</div></div>';
+    }
+    return '<div class="cmpwrap">'+col(p[0],p[1],p[2]||'','ko')+col(p[3],p[4],p[5]||'','en')+'</div>';
+  }
+
   var body=d.content.map(function(l){
-    if(l.indexOf('## ')===0) return '<h2>'+mark(esc(l.slice(3)))+'</h2>';
-    if(l.indexOf('> ')===0)  return '<blockquote class="pull">'+mark(esc(l.slice(2)))+'</blockquote>';
+    if(l.indexOf('## ')===0)     return '<h2>'+mark(esc(l.slice(3)))+'</h2>';
+    if(l.indexOf('> ')===0)      return '<blockquote class="pull">'+mark(esc(l.slice(2)))+'</blockquote>';
+    if(l.indexOf('= ')===0)      return '<div class="formula"><span class="flabel">핵심 공식</span>'+mark(esc(l.slice(2)))+'</div>';
+    if(l.indexOf('! ')===0)      return '<div class="note warn"><span>⚠️</span><p>'+mark(esc(l.slice(2)))+'</p></div>';
+    if(l.indexOf('~ ')===0)      return '<div class="note aha"><span>💡</span><p>'+mark(esc(l.slice(2)))+'</p></div>';
+    if(l.indexOf('+ ')===0)      return '<div class="point"><b>이 과의 핵심</b><p>'+mark(esc(l.slice(2)))+'</p></div>';
+    if(l.indexOf('@train')===0)  return train(l.slice(6));
+    if(l.indexOf('@compare')===0)return compare(l.slice(8));
     return '<p>'+mark(esc(l))+'</p>';
   }).join('');
 
