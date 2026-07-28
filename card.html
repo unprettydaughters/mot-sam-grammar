@@ -56,6 +56,18 @@
   }
   article h2:first-child{margin-top:0}
 
+  article mark{background:rgba(232,197,71,.42);color:inherit;padding:1px 4px;border-radius:3px}
+
+  .pull{
+    font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.7;
+    color:var(--violet-t);background:rgba(184,169,217,.14);
+    margin:26px 0;padding:22px 26px;border-radius:16px;text-align:center;
+  }
+  .pull mark{background:rgba(232,197,71,.5)}
+  article p+.pull{margin-top:26px}
+
+  @media (max-width:640px){ .pull{font-size:17px;padding:18px 20px} }
+
   .readbtn{
     display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
     margin:24px 0 0;padding:16px;border-radius:999px;border:1px solid var(--line);
@@ -127,7 +139,7 @@
   <img src="images/samdol_warm.webp" alt="">
 </footer>
 
-<script src="data.js?v=202607272125"></script>
+<script src="data.js?v=202607281133"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -159,10 +171,13 @@
   document.title=d.title+' · 못난이삼돌이 영문법';
   document.getElementById('mtag').textContent=meta.label+' · '+meta.theme;
 
+  // **강조** → 형광펜
+  function mark(t){ return t.replace(/\*\*([^*]+)\*\*/g,'<mark>$1</mark>'); }
+
   var body=d.content.map(function(l){
-    return l.indexOf('## ')===0
-      ? '<h2>'+esc(l.slice(3))+'</h2>'
-      : '<p>'+esc(l)+'</p>';
+    if(l.indexOf('## ')===0) return '<h2>'+mark(esc(l.slice(3)))+'</h2>';
+    if(l.indexOf('> ')===0)  return '<blockquote class="pull">'+mark(esc(l.slice(2)))+'</blockquote>';
+    return '<p>'+mark(esc(l))+'</p>';
   }).join('');
 
   var pager=''
