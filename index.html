@@ -50,7 +50,8 @@
   .btn1:hover{background:var(--violet-d);color:#FFFDF9}
   .btn2{background:var(--surface);color:var(--ink2);font-size:15px;font-weight:500;padding:14px 24px;border-radius:999px;transition:background .2s}
   .btn2:hover{background:#EDEAE3;color:var(--ink2)}
-  .heroart{position:relative;display:flex;justify-content:center;align-items:flex-end}
+  .heroart{position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+  .artcap{position:relative;margin:12px 0 0;font-size:13px;color:var(--ink4);text-align:center}
   .glow{position:absolute;bottom:12%;width:88%;aspect-ratio:1;border-radius:999px;background:radial-gradient(circle,rgba(244,194,194,.4) 0%,rgba(244,194,194,0) 70%)}
   .heroart img{position:relative;width:100%;max-width:330px;display:block;filter:drop-shadow(0 14px 30px rgba(100,80,60,.14))}
 
@@ -86,8 +87,9 @@
   @media (max-width:820px){
     .wrap,.hbar{padding-left:20px;padding-right:20px}
     .hero{grid-template-columns:1fr;gap:24px;padding:32px 0 28px}
-    .heroart{order:-1;justify-content:flex-start}
+    .heroart{order:-1;align-items:flex-start}
     .heroart img{max-width:240px}
+    .artcap{text-align:left}
     h1{font-size:34px}
     .feedtag{display:none}
   }
@@ -123,6 +125,7 @@
     <div class="heroart">
       <div class="glow"></div>
       <img src="images/samdol_cheer.webp" alt="못난이와 삼돌이">
+      <p class="artcap">못난이와 삼돌이를 위해 아빠가 만든</p>
     </div>
   </section>
 
