@@ -47,6 +47,25 @@
   .bar>div{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--gold))}
   .prog span{font-family:var(--mono);font-size:12px;color:var(--ink4);flex:none}
 
+  .drama{background:var(--ink);border-radius:24px;padding:32px 36px;margin-bottom:22px;color:#EDE7E2}
+  .dhead{display:flex;align-items:baseline;gap:10px;padding-bottom:16px;margin-bottom:22px;border-bottom:1px solid rgba(255,253,249,.14)}
+  .dtitle{font-family:var(--serif);font-weight:700;font-size:17px;color:#FFFDF9}
+  .dsub{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em}
+  .ep+.ep{margin-top:32px;padding-top:28px;border-top:1px solid rgba(255,253,249,.12)}
+  .ep h3{margin:0 0 18px;font-family:var(--mono);font-size:12px;font-weight:400;color:var(--gold);letter-spacing:.08em}
+  .ep h3 em{font-family:var(--serif);font-style:normal;font-weight:700;font-size:15px;color:#FFFDF9;margin-left:8px;letter-spacing:0}
+  .drama p{margin:0 0 11px;font-size:15.5px;line-height:1.85}
+  .place{color:var(--gold);font-size:13px!important;letter-spacing:.02em;margin-bottom:16px!important}
+  .dir{color:#A29A93;font-size:14px!important;line-height:1.8!important}
+  .line{color:#EDE7E2}
+  .line b{display:inline-block;min-width:60px;font-weight:500;color:var(--violet);margin-right:8px}
+
+
+  @media (max-width:640px){
+    .drama{padding:24px 20px;border-radius:20px}
+    .line b{display:block;min-width:0;margin:0 0 2px}
+  }
+
   article{background:var(--card);border-radius:24px;padding:38px 40px;box-shadow:var(--sh)}
   article p{font-size:17px;line-height:1.95;color:#3D342E;margin:0 0 14px}
   article p:last-child{margin-bottom:0}
@@ -185,7 +204,8 @@
   <img src="images/samdol_warm.webp" alt="">
 </footer>
 
-<script src="data.js?v=20260728115242"></script>
+<script src="data.js?v=20260729103917"></script>
+<script src="scenes.js?v=20260729103917"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -258,11 +278,28 @@
     + (prev?'<a href="card.html?id='+prev.id+'"><span class="lbl">← 이전</span><span class="ttl">'+esc(prev.title)+'</span></a>':'<span></span>')
     + (next?'<a class="next" href="card.html?id='+next.id+'"><span class="lbl">다음 →</span><span class="ttl">'+esc(next.title)+'</span></a>':'<span></span>');
 
+  // 드라마 장면
+  var scenes = (typeof dramaScenes!=='undefined' && dramaScenes[d.id]) || [];
+  var sceneHTML = scenes.length ? '<section class="drama">'+
+    '<div class="dhead"><span class="dtitle">'+esc(typeof dramaTitle!=='undefined'?dramaTitle:'')+'</span>'+
+    '<span class="dsub">'+esc(typeof dramaSubtitle!=='undefined'?dramaSubtitle:'')+'</span></div>'+
+    scenes.map(function(s){
+      return '<div class="ep"><h3>EP.'+esc(s.no)+' <em>'+esc(s.title)+'</em></h3>'+
+        s.lines.map(function(l){
+          if(l.charAt(0)==='[') return '<p class="place">'+esc(l.replace(/^\[|\]$/g,''))+'</p>';
+          if(l.charAt(0)==='(') return '<p class="dir">'+esc(l)+'</p>';
+          var i=l.indexOf(': ');
+          if(i>0 && i<12) return '<p class="line"><b>'+esc(l.slice(0,i))+'</b>'+esc(l.slice(i+2))+'</p>';
+          return '<p class="dir">'+esc(l)+'</p>';
+        }).join('')+'</div>';
+    }).join('')+'</section>' : '';
+
   app.innerHTML=
     '<div class="badges">'+d.tags.map(function(t){return '<span class="tag">#'+esc(t)+'</span>';}).join('')+'</div>'+
     '<h1>'+esc(d.title)+'</h1>'+
     '<div class="prog"><div class="bar"><div style="width:'+Math.round((idx+1)/grammarData.length*100)+'%"></div></div>'+
     '<span>'+(idx+1)+' / '+grammarData.length+'</span></div>'+
+    sceneHTML+
     '<article>'+body+'</article>'+
     (d.practice
       ? '<a class="practicebtn" href="'+esc(d.practice)+'" target="_blank" rel="noopener">✏️ 연습문제 풀러 가기 ↗</a>'
