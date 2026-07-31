@@ -133,6 +133,59 @@
     .car .box{width:52px;height:46px;font-size:17px}
   }
 
+  .quizopen{
+    display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+    margin:24px 0 0;padding:16px;border-radius:999px;border:none;
+    background:var(--violet);color:#FFFDF9;font-family:var(--sans);font-size:15px;font-weight:500;
+    cursor:pointer;box-shadow:0 6px 20px rgba(124,107,174,.24);transition:background .2s;
+  }
+  .quizopen:hover{background:var(--violet-d)}
+  .quiz{margin-top:24px;background:var(--card);border-radius:24px;padding:32px 36px;box-shadow:var(--sh)}
+  .qcore{background:rgba(232,197,71,.16);border-radius:14px;padding:16px 20px;margin-bottom:26px;font-size:15px;line-height:1.75}
+  .qcore b{display:block;font-family:var(--serif);font-size:14px;margin-bottom:6px}
+  .qitem{padding:22px 0;border-top:1px solid var(--line)}
+  .qitem:first-of-type{border-top:none;padding-top:0}
+  .qnum{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+  .qnum b{width:26px;height:26px;border-radius:999px;background:var(--surface);color:var(--ink3);
+    font-family:var(--mono);font-size:12px;font-weight:400;display:grid;place-items:center;flex:none}
+  .qnum span{font-family:var(--mono);font-size:11px;color:var(--ink4);letter-spacing:.06em}
+  .qctx{font-size:13px;color:var(--ink3);margin:0 0 10px}
+  .qq{font-size:16.5px!important;line-height:1.8!important;margin:0 0 14px!important;white-space:pre-line}
+  .qhint{font-size:13px;color:var(--ink4);margin:0 0 12px!important}
+  .opts{display:flex;flex-direction:column;gap:8px}
+  .opt{text-align:left;padding:13px 16px;border-radius:12px;border:1px solid var(--line);
+    background:var(--card);font-family:var(--sans);font-size:15px;color:var(--ink);cursor:pointer;transition:.15s}
+  .opt:hover{background:var(--surface)}
+  .opt.ok{background:rgba(184,169,217,.22);border-color:var(--violet);color:var(--violet-t);font-weight:500}
+  .opt.no{background:rgba(232,197,71,.14);border-color:var(--line);color:var(--ink4)}
+  .fillrow{display:flex;gap:8px}
+  .fillrow input{flex:1;padding:12px 15px;border-radius:12px;border:1px solid var(--line);
+    background:var(--card);font-family:var(--sans);font-size:15px;color:var(--ink)}
+  .fillrow input:focus{outline:none;border-color:var(--violet)}
+  .fillrow button,.showa{padding:12px 18px;border-radius:12px;border:1px solid var(--line);
+    background:var(--surface);font-family:var(--sans);font-size:14px;color:var(--ink2);cursor:pointer;flex:none}
+  .fillrow button:hover,.showa:hover{background:#EDEAE3}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+  .chip{padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:var(--card);
+    font-family:var(--sans);font-size:15px;color:var(--ink);cursor:pointer}
+  .chip:hover{background:var(--surface)}
+  .chip.used{opacity:.3;pointer-events:none}
+  .tray{min-height:46px;padding:11px 15px;border-radius:12px;background:var(--surface);
+    font-size:15px;color:var(--ink);margin-bottom:10px;cursor:pointer}
+  .tray:empty::before{content:'단어를 눌러 순서대로 놓으세요';color:var(--ink5);font-size:14px}
+  .verdict{margin-top:12px;font-size:14.5px;line-height:1.75;padding:12px 16px;border-radius:12px}
+  .verdict.right{background:rgba(184,169,217,.16);color:var(--violet-t)}
+  .verdict.wrong{background:rgba(232,197,71,.16);color:var(--gold-t)}
+  .verdict b{font-weight:500}
+  .qscore{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;font-size:15px}
+  .qscore b{font-family:var(--mono);font-size:22px;font-weight:500;color:var(--violet-t)}
+
+  @media (max-width:640px){
+    .quiz{padding:24px 20px;border-radius:20px}
+    .qq{font-size:15.5px!important}
+  }
+
   .readbtn{
     display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
     margin:24px 0 0;padding:16px;border-radius:999px;border:1px solid var(--line);
@@ -204,8 +257,9 @@
   <img src="images/samdol_warm.webp" alt="">
 </footer>
 
-<script src="data.js?v=20260729103917"></script>
-<script src="scenes.js?v=20260729103917"></script>
+<script src="data.js?v=20260731164122"></script>
+<script src="scenes.js?v=20260731164122"></script>
+<script src="quiz.js?v=20260731164122"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -304,6 +358,9 @@
     (d.practice
       ? '<a class="practicebtn" href="'+esc(d.practice)+'" target="_blank" rel="noopener">✏️ 연습문제 풀러 가기 ↗</a>'
       : '<span class="practicebtn off" aria-disabled="true">✏️ 연습문제 준비 중이야</span>')+
+    (typeof quizData!=='undefined' && quizData[d.id]
+      ? '<button class="quizopen" id="quizopen" type="button">✏️ 연습문제 풀기 (7문제)</button><div id="quizbox"></div>'
+      : '')+
     '<button class="readbtn" id="readbtn" type="button"></button>'+
     '<a class="askbtn" id="askbtn" href="#">✉️ 이 과에 대해 질문 보내기</a>'+
     '<nav class="pager">'+pager+'</nav>'+
@@ -313,6 +370,108 @@
   document.getElementById('askbtn').href='mailto:'+MAIL
     +'?subject='+encodeURIComponent('[못난이삼돌이 영문법] '+d.title+' 질문')
     +'&body='+encodeURIComponent('\n\n---\n'+d.title+'\n'+location.href);
+
+  // ── 연습문제 ──
+  var qopen=document.getElementById('quizopen');
+  if(qopen){
+    var LABEL={scene:'장면에서',choice:'고르기',fill:'채우기',order:'조립하기',analyze:'분석하기'};
+    var ICON={scene:'🎬',choice:'🎮',fill:'🌏',order:'✏️',analyze:'💡'};
+    var Q=quizData[d.id], solved={}, opened=false;
+
+    function norm(s){return String(s).toLowerCase().replace(/[.,!?]/g,'').replace(/\s+/g,' ').trim();}
+
+    function verdict(el,ok,q,showAnswer){
+      var v=el.querySelector('.verdict')||document.createElement('div');
+      v.className='verdict '+(ok?'right':'wrong');
+      v.innerHTML=(showAnswer ? '<b>'+esc(q.a)+'</b>'+(q.why?' — ':'')
+                              : ok ? '맞았어. ' : '<b>정답 '+esc(q.a)+'</b>. ')
+                 +(q.why?esc(q.why):'');
+      if(!el.querySelector('.verdict')) el.appendChild(v);
+    }
+
+    function score(){
+      var n=Object.keys(solved).length, r=0;
+      for(var k in solved) if(solved[k]) r++;
+      var s=document.getElementById('qscore');
+      if(s) s.innerHTML='<span>푼 문제 '+n+' / 7</span><span><b>'+r+'</b> 맞음</span>';
+    }
+
+    function build(){
+      var html='<div class="quiz"><div class="qcore"><b>📚 핵심</b>'+esc(Q.core)+'</div>';
+      Q.qs.forEach(function(q,i){
+        html+='<div class="qitem" data-i="'+i+'">'+
+          '<div class="qnum"><b>'+(i+1)+'</b><span>'+ICON[q.t]+' '+LABEL[q.t]+'</span></div>'+
+          (q.ctx?'<p class="qctx">'+esc(q.ctx)+'</p>':'')+
+          (q.lead?'<p class="qctx">'+esc(q.lead)+'</p>':'')+
+          '<p class="qq">'+esc(q.q)+'</p>'+
+          (q.hint?'<p class="qhint">힌트 · '+esc(q.hint)+'</p>':'');
+        if(q.t==='scene'||q.t==='choice'){
+          html+='<div class="opts">'+q.opts.map(function(o){
+            return '<button class="opt" type="button" data-v="'+esc(o)+'">'+esc(o)+'</button>';}).join('')+'</div>';
+        } else if(q.t==='fill'){
+          html+='<div class="fillrow"><input type="text" placeholder="답을 쓰세요"><button type="button">확인</button></div>';
+        } else if(q.t==='order'){
+          html+='<div class="chips">'+q.words.map(function(w){
+            return '<button class="chip" type="button">'+esc(w)+'</button>';}).join('')+'</div>'+
+            '<div class="tray"></div><button class="showa" type="button">확인</button>';
+        } else {
+          html+='<button class="showa" type="button">정답 보기</button>';
+        }
+        html+='</div>';
+      });
+      html+='<div class="qscore" id="qscore"><span>푼 문제 0 / 7</span><span><b>0</b> 맞음</span></div></div>';
+      document.getElementById('quizbox').innerHTML=html;
+
+      document.getElementById('quizbox').addEventListener('click',function(e){
+        var item=e.target.closest('.qitem'); if(!item) return;
+        var i=+item.getAttribute('data-i'), q=Q.qs[i];
+
+        var o=e.target.closest('.opt');
+        if(o){
+          if(item.querySelector('.opt.ok')) return;
+          var ok=norm(o.getAttribute('data-v'))===norm(q.a);
+          [].forEach.call(item.querySelectorAll('.opt'),function(b){
+            if(norm(b.getAttribute('data-v'))===norm(q.a)) b.classList.add('ok');
+            else if(b===o) b.classList.add('no');
+          });
+          solved[i]=ok; verdict(item,ok,q); score(); return;
+        }
+        var chip=e.target.closest('.chip');
+        if(chip){ var tray=item.querySelector('.tray');
+          tray.textContent=(tray.textContent?tray.textContent+' ':'')+chip.textContent;
+          chip.classList.add('used'); return; }
+        var tray2=e.target.closest('.tray');
+        if(tray2){ tray2.textContent='';
+          [].forEach.call(item.querySelectorAll('.chip'),function(c){c.classList.remove('used')}); return; }
+        var b=e.target.closest('button');
+        if(!b) return;
+        if(q.t==='fill'){
+          var v=item.querySelector('input').value;
+          if(!v.trim()) return;
+          var ok2=norm(v)===norm(q.a);
+          solved[i]=ok2; verdict(item,ok2,q); score();
+        } else if(q.t==='order'){
+          var t=item.querySelector('.tray').textContent;
+          if(!t.trim()) return;
+          var ok3=norm(t)===norm(q.a);
+          solved[i]=ok3; verdict(item,ok3,q); score();
+        } else if(q.t==='analyze'){
+          if(solved[i]===undefined) solved[i]=true;
+          verdict(item,true,q,true); b.style.display='none'; score();
+        }
+      });
+    }
+
+    qopen.addEventListener('click',function(){
+      if(!opened){ build(); opened=true; qopen.textContent='✏️ 연습문제 접기';
+        var bx=document.getElementById('quizbox');
+        if(bx.scrollIntoView) bx.scrollIntoView({behavior:'smooth',block:'start'}); }
+      else { var box=document.getElementById('quizbox');
+        var hide=box.style.display!=='none';
+        box.style.display=hide?'none':'block';
+        qopen.textContent=hide?'✏️ 연습문제 풀기 (7문제)':'✏️ 연습문제 접기'; }
+    });
+  }
 
   var done=load();
   var btn=document.getElementById('readbtn');
