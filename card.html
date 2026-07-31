@@ -195,12 +195,10 @@
   .readbtn:hover{background:var(--surface)}
   .readbtn.on{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
 
-  .practicebtn{display:block;text-align:center;margin-top:24px;padding:16px;border-radius:999px;
-    background:var(--violet);color:#FFFDF9;font-size:15px;font-weight:500;
-    box-shadow:0 6px 20px rgba(124,107,174,.24);transition:background .2s}
-  .practicebtn:hover{background:var(--violet-d);color:#FFFDF9}
+  .practicebtn{display:block;text-align:center;margin-top:12px;padding:14px;border-radius:999px;
+    background:var(--surface);color:var(--ink2);font-size:14px;font-weight:500;transition:background .2s}
+  .practicebtn:hover{background:#EDEAE3;color:var(--ink2)}
   .practicebtn+.readbtn{margin-top:12px}
-  .practicebtn.off{background:var(--surface);color:var(--ink5);box-shadow:none;cursor:default}
 
   .askbtn{display:block;text-align:center;margin-top:12px;padding:14px;border-radius:999px;
     background:var(--surface);color:var(--ink2);font-size:14px;font-weight:500;transition:background .2s}
@@ -259,7 +257,7 @@
 
 <script src="data.js?v=20260731164122"></script>
 <script src="scenes.js?v=20260731164122"></script>
-<script src="quiz.js?v=20260731164122"></script>
+<script src="quiz.js?v=20260731170113"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -355,11 +353,11 @@
     '<span>'+(idx+1)+' / '+grammarData.length+'</span></div>'+
     sceneHTML+
     '<article>'+body+'</article>'+
-    (d.practice
-      ? '<a class="practicebtn" href="'+esc(d.practice)+'" target="_blank" rel="noopener">✏️ 연습문제 풀러 가기 ↗</a>'
-      : '<span class="practicebtn off" aria-disabled="true">✏️ 연습문제 준비 중이야</span>')+
     (typeof quizData!=='undefined' && quizData[d.id]
       ? '<button class="quizopen" id="quizopen" type="button">✏️ 연습문제 풀기 (7문제)</button><div id="quizbox"></div>'
+      : '')+
+    (d.practice
+      ? '<a class="practicebtn" href="'+esc(d.practice)+'" target="_blank" rel="noopener">📚 블로그에서 더 풀기 ↗</a>'
       : '')+
     '<button class="readbtn" id="readbtn" type="button"></button>'+
     '<a class="askbtn" id="askbtn" href="#">✉️ 이 과에 대해 질문 보내기</a>'+
