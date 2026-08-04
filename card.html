@@ -6,7 +6,8 @@
 <title>못난이삼돌이 영문법</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FAFAF8; --surface:#F5F3EF; --card:#FFFDF9;
@@ -14,9 +15,7 @@
     --line:#E8E4DC;
     --violet:#B8A9D9; --violet-d:#A395CB; --violet-t:#7C6BAE;
     --gold:#E8C547; --gold-t:#9A7B1E; --gold-ink:#5C4708;
-    --sh:0 2px 12px rgba(100,80,60,.06);
-    --sh-h:0 6px 28px rgba(100,80,60,.10);
-    --serif:'Noto Serif KR',serif; --sans:'Noto Sans KR',sans-serif; --mono:'DM Mono',monospace;
+    --serif:'Pretendard Variable','Pretendard',sans-serif; --sans:'Pretendard Variable','Pretendard',sans-serif; --mono:'DM Mono',monospace;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
@@ -40,14 +39,14 @@
 
   .badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
   .tag{background:var(--surface);color:var(--ink3);font-size:12px;padding:6px 13px;border-radius:999px}
-  h1{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.34;letter-spacing:-.02em;margin:0 0 22px}
+  h1{font-family:var(--serif);font-weight:800;font-size:34px;line-height:1.34;letter-spacing:-.02em;margin:0 0 22px}
 
   .prog{display:flex;align-items:center;gap:12px;margin-bottom:28px}
   .bar{flex:1;height:6px;border-radius:999px;background:var(--line);overflow:hidden}
   .bar>div{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--gold))}
   .prog span{font-family:var(--mono);font-size:12px;color:var(--ink4);flex:none}
 
-  .drama{background:var(--ink);border-radius:24px;padding:32px 36px;margin-bottom:22px;color:#EDE7E2}
+  .drama{background:var(--ink);border-radius:24px;padding:32px 36px;margin-bottom:32px;color:#EDE7E2}
   .dhead{display:flex;align-items:baseline;gap:10px;padding-bottom:16px;margin-bottom:22px;border-bottom:1px solid rgba(255,253,249,.14)}
   .dtitle{font-family:var(--serif);font-weight:700;font-size:17px;color:#FFFDF9}
   .dsub{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em}
@@ -66,7 +65,7 @@
     .line b{display:block;min-width:0;margin:0 0 2px}
   }
 
-  article{background:var(--card);border-radius:24px;padding:38px 40px;box-shadow:var(--sh)}
+  article{background:var(--card);border-radius:24px;padding:38px 40px}
   article p{font-size:17px;line-height:1.95;color:#3D342E;margin:0 0 14px}
   article p:last-child{margin-bottom:0}
   article h2{
@@ -135,12 +134,12 @@
 
   .quizopen{
     display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
-    margin:24px 0 0;padding:16px;border-radius:999px;border:none;
+    margin:32px 0 0;padding:16px;border-radius:999px;border:none;
     background:var(--violet);color:#FFFDF9;font-family:var(--sans);font-size:15px;font-weight:500;
-    cursor:pointer;box-shadow:0 6px 20px rgba(124,107,174,.24);transition:background .2s;
+    cursor:pointer;transition:background .2s;
   }
   .quizopen:hover{background:var(--violet-d)}
-  .quiz{margin-top:24px;background:var(--card);border-radius:24px;padding:32px 36px;box-shadow:var(--sh)}
+  .quiz{margin-top:32px;background:var(--card);border-radius:24px;padding:32px 36px}
   .qcore{background:rgba(232,197,71,.16);border-radius:14px;padding:16px 20px;margin-bottom:26px;font-size:15px;line-height:1.75}
   .qcore b{display:block;font-family:var(--serif);font-size:14px;margin-bottom:6px}
   .qitem{padding:22px 0;border-top:1px solid var(--line)}
@@ -188,7 +187,7 @@
 
   .readbtn{
     display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
-    margin:24px 0 0;padding:16px;border-radius:999px;border:1px solid var(--line);
+    margin:28px 0 0;padding:16px;border-radius:999px;border:1px solid var(--line);
     background:var(--card);color:var(--ink2);font-family:var(--sans);font-size:15px;font-weight:500;
     cursor:pointer;transition:background .2s,color .2s,border-color .2s;
   }
@@ -204,13 +203,13 @@
     background:var(--surface);color:var(--ink2);font-size:14px;font-weight:500;transition:background .2s}
   .askbtn:hover{background:#EDEAE3;color:var(--ink2)}
 
-  nav.pager{display:flex;gap:14px;margin:24px 0 0}
+  nav.pager{display:flex;gap:14px;margin:32px 0 0}
   nav.pager a,nav.pager span{
-    flex:1;background:var(--card);border-radius:20px;padding:18px 20px;box-shadow:var(--sh);
-    color:var(--ink);transition:box-shadow .2s,transform .2s;min-width:0;
+    flex:1;background:var(--card);border-radius:20px;padding:18px 20px;
+    color:var(--ink);transition:transform .2s;min-width:0;
   }
-  nav.pager a:hover{box-shadow:var(--sh-h);transform:translateY(-2px);color:var(--ink)}
-  nav.pager span{background:transparent;box-shadow:none}
+  nav.pager a:hover{transform:translateY(-2px);color:var(--ink)}
+  nav.pager span{background:transparent}
   nav.pager .lbl{display:block;font-family:var(--mono);font-size:11px;color:var(--ink4);margin-bottom:6px;letter-spacing:.05em}
   nav.pager .ttl{display:block;font-size:14px;font-weight:500;line-height:1.5}
   nav.pager .next{text-align:right}
@@ -318,8 +317,8 @@
     if(l.indexOf('## ')===0)     return '<h2>'+mark(esc(l.slice(3)))+'</h2>';
     if(l.indexOf('> ')===0)      return '<blockquote class="pull">'+mark(esc(l.slice(2)))+'</blockquote>';
     if(l.indexOf('= ')===0)      return '<div class="formula"><span class="flabel">핵심 공식</span>'+mark(esc(l.slice(2)))+'</div>';
-    if(l.indexOf('! ')===0)      return '<div class="note warn"><span>⚠️</span><p>'+mark(esc(l.slice(2)))+'</p></div>';
-    if(l.indexOf('~ ')===0)      return '<div class="note aha"><span>💡</span><p>'+mark(esc(l.slice(2)))+'</p></div>';
+    if(l.indexOf('! ')===0)      return '<div class="note warn"><p>'+mark(esc(l.slice(2)))+'</p></div>';
+    if(l.indexOf('~ ')===0)      return '<div class="note aha"><p>'+mark(esc(l.slice(2)))+'</p></div>';
     if(l.indexOf('+ ')===0)      return '<div class="point"><b>이 과의 핵심</b><p>'+mark(esc(l.slice(2)))+'</p></div>';
     if(l.indexOf('@train')===0)  return train(l.slice(6));
     if(l.indexOf('@compare')===0)return compare(l.slice(8));
@@ -354,13 +353,13 @@
     sceneHTML+
     '<article>'+body+'</article>'+
     (typeof quizData!=='undefined' && quizData[d.id]
-      ? '<button class="quizopen" id="quizopen" type="button">✏️ 연습문제 풀기 (7문제)</button><div id="quizbox"></div>'
+      ? '<button class="quizopen" id="quizopen" type="button">연습문제 풀기 (7문제)</button><div id="quizbox"></div>'
       : '')+
     (d.practice
-      ? '<a class="practicebtn" href="'+esc(d.practice)+'" target="_blank" rel="noopener">📚 블로그에서 더 풀기 ↗</a>'
+      ? '<a class="practicebtn" href="'+esc(d.practice)+'" target="_blank" rel="noopener">블로그에서 더 풀기 ↗</a>'
       : '')+
     '<button class="readbtn" id="readbtn" type="button"></button>'+
-    '<a class="askbtn" id="askbtn" href="#">✉️ 이 과에 대해 질문 보내기</a>'+
+    '<a class="askbtn" id="askbtn" href="#">이 과에 대해 질문 보내기</a>'+
     '<nav class="pager">'+pager+'</nav>'+
     '<a class="tolist" href="index.html">전체 목록 보기</a>';
 
@@ -373,7 +372,6 @@
   var qopen=document.getElementById('quizopen');
   if(qopen){
     var LABEL={scene:'장면에서',choice:'고르기',fill:'채우기',order:'조립하기',analyze:'분석하기'};
-    var ICON={scene:'🎬',choice:'🎮',fill:'🌏',order:'✏️',analyze:'💡'};
     var Q=quizData[d.id], solved={}, opened=false;
 
     function norm(s){return String(s).toLowerCase().replace(/[.,!?]/g,'').replace(/\s+/g,' ').trim();}
@@ -395,10 +393,10 @@
     }
 
     function build(){
-      var html='<div class="quiz"><div class="qcore"><b>📚 핵심</b>'+esc(Q.core)+'</div>';
+      var html='<div class="quiz"><div class="qcore"><b>핵심</b>'+esc(Q.core)+'</div>';
       Q.qs.forEach(function(q,i){
         html+='<div class="qitem" data-i="'+i+'">'+
-          '<div class="qnum"><b>'+(i+1)+'</b><span>'+ICON[q.t]+' '+LABEL[q.t]+'</span></div>'+
+          '<div class="qnum"><b>'+(i+1)+'</b><span>'+LABEL[q.t]+'</span></div>'+
           (q.ctx?'<p class="qctx">'+esc(q.ctx)+'</p>':'')+
           (q.lead?'<p class="qctx">'+esc(q.lead)+'</p>':'')+
           '<p class="qq">'+esc(q.q)+'</p>'+
@@ -461,13 +459,13 @@
     }
 
     qopen.addEventListener('click',function(){
-      if(!opened){ build(); opened=true; qopen.textContent='✏️ 연습문제 접기';
+      if(!opened){ build(); opened=true; qopen.textContent='연습문제 접기';
         var bx=document.getElementById('quizbox');
         if(bx.scrollIntoView) bx.scrollIntoView({behavior:'smooth',block:'start'}); }
       else { var box=document.getElementById('quizbox');
         var hide=box.style.display!=='none';
         box.style.display=hide?'none':'block';
-        qopen.textContent=hide?'✏️ 연습문제 풀기 (7문제)':'✏️ 연습문제 접기'; }
+        qopen.textContent=hide?'연습문제 풀기 (7문제)':'연습문제 접기'; }
     });
   }
 

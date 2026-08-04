@@ -3,7 +3,7 @@
 
 const grammarData = [
   {
-    id: 1, month: 1, title: "01. 영어에서 가장 중요한 것 🚂", tags: ["기초뿌시기", "영어는순서", "기차놀이"],
+    id: 1, month: 1, title: "01. 영어에서 가장 중요한 것", tags: ["기초뿌시기", "영어는순서", "기차놀이"],
     practice: "https://47realization.tistory.com/category/1%EA%B3%BC%20%EC%98%81%EC%96%B4%EC%97%90%EC%84%9C%20%EA%B0%80%EC%9E%A5%20%EC%A4%91%EC%9A%94%ED%95%9C%20%EA%B2%83",
     content: [
       "영어에서 제일 중요한 게 뭘까요?",
@@ -40,7 +40,7 @@ const grammarData = [
     ]
   },
   {
-    id: 2, month: 1, title: "02. 주어 동사만 알면 성공 🎯", tags: ["주어동사", "문장주인공", "핵심찾기"],
+    id: 2, month: 1, title: "02. 주어 동사만 알면 성공", tags: ["주어동사", "문장주인공", "핵심찾기"],
     practice: "https://47realization.tistory.com/category/2%EA%B3%BC%20%EC%A3%BC%EC%96%B4%20%EB%8F%99%EC%82%AC%EB%A7%8C%20%EC%95%8C%EB%A9%B4%20%EC%84%B1%EA%B3%B5",
     content: [
       "저번 시간에 영어의 순서에 대해서 얘기했습니다.",
@@ -78,7 +78,7 @@ const grammarData = [
     ]
   },
   {
-    id: 3, month: 1, title: "03. I love you ❤️", tags: ["목적어", "기본완성", "무한연습"],
+    id: 3, month: 1, title: "03. I love you", tags: ["목적어", "기본완성", "무한연습"],
     practice: "https://47realization.tistory.com/category/3%EA%B3%BC%20I%20love%20you",
     content: [
       "처음에 배웠던 영어의 순서. 기억하시나요?",
@@ -110,7 +110,7 @@ const grammarData = [
     ]
   },
   {
-    id: 4, month: 1, title: "04. 주어가 긴 경우 📏", tags: ["긴주어", "첫번째동사", "기차칸"],
+    id: 4, month: 1, title: "04. 주어가 긴 경우", tags: ["긴주어", "첫번째동사", "기차칸"],
     practice: "https://47realization.tistory.com/category/4%EA%B3%BC%20%EC%A3%BC%EC%96%B4%EA%B0%80%20%EA%B8%B4%20%EA%B2%BD%EC%9A%B0",
     content: [
       "영어의 주어가 항상 짧을까요?",
@@ -143,7 +143,7 @@ const grammarData = [
     ]
   },
   {
-    id: 5, month: 1, title: "05. 영어에서는 숫자로 의미를 구분한다 🔢", tags: ["숫자감각", "a와s", "의미차이"],
+    id: 5, month: 1, title: "05. 영어에서는 숫자로 의미를 구분한다", tags: ["숫자감각", "a와s", "의미차이"],
     practice: "https://47realization.tistory.com/category/5%EA%B3%BC%20%20%EC%88%AB%EC%9E%90%EA%B0%80%20%EB%9C%BB%EC%9D%84%20%EB%B0%94%EA%BE%BC%EB%8B%A4%3F",
     content: [
       "영어에서 숫자가 왜 중요할까요?",
@@ -173,7 +173,7 @@ const grammarData = [
     ]
   },
   {
-    id: 6, month: 1, title: "06. 단수와 복수 🍎", tags: ["단수", "복수", "습관"],
+    id: 6, month: 1, title: "06. 단수와 복수", tags: ["단수", "복수", "습관"],
     practice: "https://47realization.tistory.com/category/6%EA%B3%BC%20%EC%98%81%EC%96%B4%EB%8A%94%20%EC%88%AB%EC%9E%90%20%EA%B0%95%EB%B0%95%3F",
     content: [
       "저번 시간에 영어에서는 한 개냐 여러 개냐에 따라 뜻이 바뀐다고 했습니다.",
@@ -196,7 +196,7 @@ const grammarData = [
     ]
   },
   {
-    id: 7, month: 1, title: "07. 셀 수 있는 명사와 셀 수 없는 명사 🥛", tags: ["셀수있는것", "셀수없는것", "명사구분"],
+    id: 7, month: 1, title: "07. 셀 수 있는 명사와 셀 수 없는 명사", tags: ["셀수있는것", "셀수없는것", "명사구분"],
     content: [
       "영어에는 신기한 특징이 있습니다. 단어를 두 종류로 나누는 겁니다.",
       "= 셀 수 있는 것 / 셀 수 없는 것",
@@ -225,7 +225,7 @@ const grammarData = [
     ]
   },
   {
-    id: 8, month: 1, title: "08. 이번 달 총정리 ✨", tags: ["1월총정리", "동사s", "공평함"],
+    id: 8, month: 1, title: "08. 이번 달 총정리", tags: ["1월총정리", "동사s", "공평함"],
     practice: "https://47realization.tistory.com/category/7%EA%B3%BC%20%EB%8B%A8%EC%88%98%20%EC%A3%BC%EC%96%B4%20%2B%20%EB%8F%99%EC%82%AC%20s",
     content: [
       "이번 달의 마지막 시간입니다.",
@@ -260,7 +260,7 @@ const grammarData = [
   }
   ,
   {
-    id: 9, month: 2, title: "09. be 동사는 뜻이 없다 🥛", tags: ["be동사", "빈컵이론", "연결동사"],
+    id: 9, month: 2, title: "09. be 동사는 뜻이 없다", tags: ["be동사", "빈컵이론", "연결동사"],
     practice: "https://47realization.tistory.com/category/9%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%8A%94%20%EB%9C%BB%EC%9D%B4%20%EC%97%86%EB%8B%A4%3F",
     content: [
       "I am happy.",
@@ -286,7 +286,7 @@ const grammarData = [
     ]
   },
   {
-    id: 10, month: 2, title: "10. be 동사로 상태를 말한다 🦢", tags: ["상태설명", "행동vs상태", "존재"],
+    id: 10, month: 2, title: "10. be 동사로 상태를 말한다", tags: ["상태설명", "행동vs상태", "존재"],
     practice: "https://47realization.tistory.com/category/10%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%A1%9C%20%EC%83%81%ED%83%9C%EB%A5%BC%20%EB%A7%90%ED%95%9C%EB%8B%A4",
     content: [
       "She is tall.",
@@ -310,7 +310,7 @@ const grammarData = [
     ]
   },
   {
-    id: 11, month: 2, title: "11. be 동사의 형태 🎨", tags: ["주어맞춤", "am_are_is", "배려심"],
+    id: 11, month: 2, title: "11. be 동사의 형태", tags: ["주어맞춤", "am_are_is", "배려심"],
     practice: "https://47realization.tistory.com/category/11%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EC%9D%98%20%ED%98%95%ED%83%9C",
     content: [
       "He is smart.",
@@ -330,7 +330,7 @@ const grammarData = [
     ]
   },
   {
-    id: 12, month: 2, title: "12. be 동사로 만드는 진행형 📸", tags: ["진행형", "순간포착", "시간멈춤"],
+    id: 12, month: 2, title: "12. be 동사로 만드는 진행형", tags: ["진행형", "순간포착", "시간멈춤"],
     practice: "https://47realization.tistory.com/category/12%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%A1%9C%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EC%A7%84%ED%96%89%ED%98%95",
     content: [
       "I am eating.",
@@ -352,7 +352,7 @@ const grammarData = [
     ]
   },
   {
-    id: 13, month: 2, title: "13. be 동사로 만드는 수동태 🧱", tags: ["수동태", "결과강조", "상태"],
+    id: 13, month: 2, title: "13. be 동사로 만드는 수동태", tags: ["수동태", "결과강조", "상태"],
     practice: "https://47realization.tistory.com/category/13%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%A1%9C%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EC%88%98%EB%8F%99%ED%83%9C",
     content: [
       "It is broken.",
@@ -374,7 +374,7 @@ const grammarData = [
     ]
   },
   {
-    id: 14, month: 2, title: "14. be 동사로 만드는 미래 ✈️", tags: ["미래", "going_to", "방향"],
+    id: 14, month: 2, title: "14. be 동사로 만드는 미래", tags: ["미래", "going_to", "방향"],
     practice: "https://47realization.tistory.com/category/14%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EB%A1%9C%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%AF%B8%EB%9E%98",
     content: [
       "I am going to study.",
@@ -396,7 +396,7 @@ const grammarData = [
     ]
   },
   {
-    id: 15, month: 2, title: "15. be 동사의 과거형 🕰️", tags: ["과거형", "was_were", "단절"],
+    id: 15, month: 2, title: "15. be 동사의 과거형", tags: ["과거형", "was_were", "단절"],
     practice: "https://47realization.tistory.com/category/15%EA%B3%BC%20be%20%EB%8F%99%EC%82%AC%EC%9D%98%20%EA%B3%BC%EA%B1%B0",
     content: [
       "I was happy.",
@@ -418,7 +418,7 @@ const grammarData = [
     ]
   },
   {
-    id: 16, month: 2, title: "16. be 동사 총정리 🔚", tags: ["2월총정리", "상태동사", "다리역할"],
+    id: 16, month: 2, title: "16. be 동사 총정리", tags: ["2월총정리", "상태동사", "다리역할"],
     content: [
       "지금까지 배운 be 동사를 정리해봅시다.",
       "## I am happy.",
@@ -452,7 +452,7 @@ const grammarData = [
   }
   ,
   {
-    id: 17, month: 3, title: "17. 모든 것을 갖고 싶은 마음 have 💎", tags: ["have", "소유", "관계"],
+    id: 17, month: 3, title: "17. 모든 것을 갖고 싶은 마음 have", tags: ["have", "소유", "관계"],
     content: [
       "I have a book.",
       "have는 **욕심쟁이 동사**예요. 모든 것을 갖고 싶어 해요.",
@@ -475,7 +475,7 @@ const grammarData = [
     ]
   },
   {
-    id: 18, month: 3, title: "18. 현재완료는 경험을 갖고 있는 상태 🌍", tags: ["현재완료", "경험소유", "have_been"],
+    id: 18, month: 3, title: "18. 현재완료는 경험을 갖고 있는 상태", tags: ["현재완료", "경험소유", "have_been"],
     content: [
       "I have been to Seoul.",
       "이상한 문장이죠? have와 been이 왜 같이 나올까요?",
@@ -496,7 +496,7 @@ const grammarData = [
     ]
   },
   {
-    id: 19, month: 3, title: "19. 책임감마저 소유하는 have to 📋", tags: ["have_to", "이유소유", "필요성"],
+    id: 19, month: 3, title: "19. 책임감마저 소유하는 have to", tags: ["have_to", "이유소유", "필요성"],
     content: [
       "I have to go.",
       "have to는 의무를 나타낸다고 배웠죠? 하지만 진짜 의미는 좀 달라요.",
@@ -518,7 +518,7 @@ const grammarData = [
     ]
   },
   {
-    id: 20, month: 3, title: "20. have로 시작하는 표현들 🥳", tags: ["have표현", "경험하기", "일상"],
+    id: 20, month: 3, title: "20. have로 시작하는 표현들", tags: ["have표현", "경험하기", "일상"],
     content: [
       "I have fun.",
       "have는 정말 바쁜 동사예요. 온갖 표현에 다 들어가거든요.",
@@ -547,7 +547,7 @@ const grammarData = [
     ]
   },
   {
-    id: 21, month: 3, title: "21. have와 같은 듯 다른 get 💥", tags: ["get", "변화", "획득"],
+    id: 21, month: 3, title: "21. have와 같은 듯 다른 get", tags: ["get", "변화", "획득"],
     content: [
       "I get a book.",
       "get도 뭔가를 얻는 동사죠? have와 뭐가 다를까요?",
@@ -570,7 +570,7 @@ const grammarData = [
     ]
   },
   {
-    id: 22, month: 3, title: "22. get과는 또 다른 take ✊", tags: ["take", "의지", "행동"],
+    id: 22, month: 3, title: "22. get과는 또 다른 take", tags: ["take", "의지", "행동"],
     content: [
       "I take a book.",
       "take도 뭔가를 소유하는 동사죠? get과는 또 어떻게 다를까요?",
@@ -595,7 +595,7 @@ const grammarData = [
     ]
   },
   {
-    id: 23, month: 3, title: "23. have, get, take 완벽 비교 🔍", tags: ["비교", "소유_변화_쟁취", "핵심구분"],
+    id: 23, month: 3, title: "23. have, get, take 완벽 비교", tags: ["비교", "소유_변화_쟁취", "핵심구분"],
     practice: "https://47realization.tistory.com/category/23%EA%B3%BC%20have%2Cget%2Ctake%20%EC%99%84%EB%B2%BD%20%EB%B9%84%EA%B5%90",
     content: [
       "이제 세 동사를 완벽하게 비교해볼까요?",
@@ -624,7 +624,7 @@ const grammarData = [
     ]
   },
   {
-    id: 24, month: 3, title: "24. 셋째 달 총정리 ✨", tags: ["3월총정리", "핵심3동사", "관계망"],
+    id: 24, month: 3, title: "24. 셋째 달 총정리", tags: ["3월총정리", "핵심3동사", "관계망"],
     practice: "https://47realization.tistory.com/category/24%EA%B3%BC%20%EC%85%8B%EC%A7%B8%EB%8B%AC%20%EC%B4%9D%EC%A0%95%EB%A6%AC",
     content: [
       "지금까지 배운 have 동사를 정리해봅시다.",
@@ -656,7 +656,7 @@ const grammarData = [
   }
   ,
   {
-    id: 25, month: 4, title: "25. to는 딱 하나, '화살표(→)'입니다 🏹", tags: ["to", "화살표", "도착점"],
+    id: 25, month: 4, title: "25. to는 딱 하나, '화살표(→)'입니다", tags: ["to", "화살표", "도착점"],
     content: [
       "to는 딱 하나입니다.",
       "= to = 도착점이 있는 **화살표**",
@@ -678,7 +678,7 @@ const grammarData = [
     ]
   },
   {
-    id: 26, month: 4, title: "26. To 부정사 = 행동을 향한 화살표 🎯", tags: ["to부정사", "새로운행동", "결과"],
+    id: 26, month: 4, title: "26. To 부정사 = 행동을 향한 화살표", tags: ["to부정사", "새로운행동", "결과"],
     content: [
       "## 상황",
       "길을 걷던 제임스가 멈췄다.",
@@ -712,7 +712,7 @@ const grammarData = [
     ]
   },
   {
-    id: 27, month: 4, title: "27. FOR: 내 마음이 향하는 방향 (위해서) ❤️", tags: ["for", "마음의방향", "위해서"],
+    id: 27, month: 4, title: "27. FOR: 내 마음이 향하는 방향 (위해서)", tags: ["for", "마음의방향", "위해서"],
     content: [
       "\"친구가 너한테 선물을 사줬어. 그럼 선물은 '누구를 위해서' 사준 거야?\"",
       "맞지. 그 '위해서'가 바로 **For**야.",
@@ -722,45 +722,45 @@ const grammarData = [
       "@compare To :: 몸의 이동 :: I go to school :: For :: 마음의 이동 :: This is for you",
       "= For = 내 **마음**이 향하는 대상",
       "## 예시",
-      "1️⃣ This is for you. (이거 너를 위해서 샀어.) → 내 마음이 너를 향해 있다.",
-      "2️⃣ I'm waiting for you. (난 너를 위해 기다리고 있어.) → 너를 생각하면서 기다린다.",
-      "3️⃣ Thank you for your help. (너의 도움을 위해 고마워.) → 너를 떠올리면서 감사한다.",
-      "4️⃣ I'm studying for the exam. (난 시험을 위해 공부하고 있어.) → 내 마음이 시험을 향해 있다.",
+      "1. This is for you. (이거 너를 위해서 샀어.) → 내 마음이 너를 향해 있다.",
+      "2. I'm waiting for you. (난 너를 위해 기다리고 있어.) → 너를 생각하면서 기다린다.",
+      "3. Thank you for your help. (너의 도움을 위해 고마워.) → 너를 떠올리면서 감사한다.",
+      "4. I'm studying for the exam. (난 시험을 위해 공부하고 있어.) → 내 마음이 시험을 향해 있다.",
       "~ For를 볼 때마다 \"아, 여기 누군가를 또는 뭔가를 위해서 하는 거네\"라고 생각해보세요.",
       "> 그럼 For는 어렵지 않아요.",
       "+ to가 몸의 방향이라면 for는 마음의 방향이다. 누구를 생각하면서 한 일인지가 for 뒤에 온다."
     ]
   },
   {
-    id: 28, month: 4, title: "28. IN: 경계 안에 있다 📦", tags: ["in", "경계", "범위안"],
+    id: 28, month: 4, title: "28. IN: 경계 안에 있다", tags: ["in", "경계", "범위안"],
     content: [
       "\"여러분도 어렸을 때 박스 안에 들어가 본 경험이 있나요?\"",
       "= IN = **경계 안**에 있다",
       "IN은 물리적 공간일 수도 있고, 시간 범위일 수도, 추상적인 상황일 수도 있어요.",
       "! 하지만 항상 어떤 **\"범위 안\"**에 있다는 개념은 같습니다.",
       "## 예시",
-      "1️⃣ I am in the box. (난 박스 안에 있어.) → 물리적 경계 안",
-      "2️⃣ She was born in Korea. (그녀는 한국에서 태어났어.) → 지역이라는 범위 안",
-      "3️⃣ The meeting is in the morning. (회의는 아침에 있어.) → 시간이라는 범위 안",
-      "4️⃣ I'm interested in English. (난 영어에 관심이 있어.) → 관심이라는 추상적 범위 안",
-      "5️⃣ He's in trouble. (그는 문제 상황 안에 있어.) → 상황이라는 범위 안",
+      "1. I am in the box. (난 박스 안에 있어.) → 물리적 경계 안",
+      "2. She was born in Korea. (그녀는 한국에서 태어났어.) → 지역이라는 범위 안",
+      "3. The meeting is in the morning. (회의는 아침에 있어.) → 시간이라는 범위 안",
+      "4. I'm interested in English. (난 영어에 관심이 있어.) → 관심이라는 추상적 범위 안",
+      "5. He's in trouble. (그는 문제 상황 안에 있어.) → 상황이라는 범위 안",
       "~ 박스든 나라든 아침이든 곤란한 상황이든, 다 **테두리가 있는 무언가**입니다.",
       "> IN을 볼 때마다 \"아, 여기 어떤 범위 안에 있다는 뜻이네\"라고 생각해보세요.",
       "+ in은 언제나 경계 안이다. 공간이든 시간이든 상황이든, 테두리를 하나 그리고 그 안에 들어가 있다고 보면 된다."
     ]
   },
   {
-    id: 29, month: 4, title: "29. AT: 특정한 한 점 📍", tags: ["at", "특정점", "초점"],
+    id: 29, month: 4, title: "29. AT: 특정한 한 점", tags: ["at", "특정점", "초점"],
     content: [
       "\"너는 지금 어디에 있어? '학교에 있어', '도서관에 있어'라고 말하지 않니?\"",
       "바로 그 '에'가 **AT**이야.",
       "= AT = 특정한 **한 점**",
       "## 예시",
-      "1️⃣ I'm at school. (난 학교에 있어.) → 학교라는 정확한 한 점",
-      "2️⃣ Let's meet at the bus stop. (버스 정류장에서 만나자.) → 정확한 장소",
-      "3️⃣ She arrived at 3 o'clock. (그녀는 3시에 도착했어.) → 3시라는 정확한 시간의 한 점",
-      "4️⃣ I'm looking at you. (난 너를 보고 있어.) → 초점이 너라는 정확한 대상에 맞춰져 있음",
-      "5️⃣ He's good at math. (그는 수학을 잘해.) → 초점이 수학이라는 정확한 분야에 맞춰져 있음",
+      "1. I'm at school. (난 학교에 있어.) → 학교라는 정확한 한 점",
+      "2. Let's meet at the bus stop. (버스 정류장에서 만나자.) → 정확한 장소",
+      "3. She arrived at 3 o'clock. (그녀는 3시에 도착했어.) → 3시라는 정확한 시간의 한 점",
+      "4. I'm looking at you. (난 너를 보고 있어.) → 초점이 너라는 정확한 대상에 맞춰져 있음",
+      "5. He's good at math. (그는 수학을 잘해.) → 초점이 수학이라는 정확한 분야에 맞춰져 있음",
       "## IN과 나란히 보면",
       "@compare IN :: 테두리 안 :: in Korea / in the morning :: AT :: 콕 찍은 한 점 :: at school / at 3 o'clock",
       "~ 같은 장소라도 **범위**로 보면 in, **점**으로 보면 at입니다.",
@@ -769,7 +769,7 @@ const grammarData = [
     ]
   },
   {
-    id: 30, month: 4, title: "30. ON: 붙어있다 🛣️", tags: ["on", "접촉", "붙어있음"],
+    id: 30, month: 4, title: "30. ON: 붙어있다", tags: ["on", "접촉", "붙어있음"],
     content: [
       "\"집에 가는 중이야. 이 문장은 영어로 어떻게 말할까요?\"",
       "'I'm going home'? 맞지만 더 자주 쓰는 표현이 있어요. **'I'm on my way home.'**",
@@ -777,18 +777,18 @@ const grammarData = [
       "ON은 물리적으로 뭔가 위에 놓여있을 수도 있고, 어떤 활동이나 상태에 붙어있을 수도 있어요.",
       "! 하지만 항상 \"붙어있다\"는 느낌은 같습니다.",
       "## 예시",
-      "1️⃣ I'm on my way home. (난 집에 가는 길에 있어.) → 가는 길이라는 활동에 붙어있음",
-      "2️⃣ The book is on the table. (책이 테이블에 있어.) → 테이블 위에 붙어있음",
-      "3️⃣ I'm on the phone. (난 전화 통화 중이야.) → 전화라는 활동에 붙어있음",
-      "4️⃣ The meeting is on Monday. (회의는 월요일에 있어.) → 월요일에 붙어있음",
-      "5️⃣ He's on vacation. (그는 휴가 중이야.) → 휴가라는 상태에 붙어있음",
+      "1. I'm on my way home. (난 집에 가는 길에 있어.) → 가는 길이라는 활동에 붙어있음",
+      "2. The book is on the table. (책이 테이블에 있어.) → 테이블 위에 붙어있음",
+      "3. I'm on the phone. (난 전화 통화 중이야.) → 전화라는 활동에 붙어있음",
+      "4. The meeting is on Monday. (회의는 월요일에 있어.) → 월요일에 붙어있음",
+      "5. He's on vacation. (그는 휴가 중이야.) → 휴가라는 상태에 붙어있음",
       "~ 책상 위든 통화 중이든 휴가 중이든, 전부 **떨어지지 않고 닿아 있는** 상태입니다.",
       "> ON을 볼 때마다 \"아, 여기 뭔가에 붙어있다는 뜻이네\"라고 생각해보세요.",
       "+ on은 위가 아니라 접촉이다. 물건이 면에 닿아 있듯, 사람이 활동이나 상태에 닿아 있을 때도 on을 쓴다."
     ]
   },
   {
-    id: 31, month: 4, title: "31. OF & OFF 💡", tags: ["of", "off", "추상vs물리"],
+    id: 31, month: 4, title: "31. OF & OFF", tags: ["of", "off", "추상vs물리"],
     practice: "https://47realization.tistory.com/category/31%EA%B3%BC%20OF%2COFF%20%3A%20%EB%96%A8%EC%96%B4%EC%A0%B8%20%EB%82%98%EC%98%A8%EB%8B%A4",
     content: [
       "## PHASE 1 · 핵심",
@@ -831,7 +831,7 @@ const grammarData = [
     ]
   },
   {
-    id: 32, month: 4, title: "32. 넷째 달 복습 (25과 - 31과) 🔄", tags: ["전치사총정리", "이미지기억", "완성"],
+    id: 32, month: 4, title: "32. 넷째 달 복습 (25과 - 31과)", tags: ["전치사총정리", "이미지기억", "완성"],
     content: [
       "전치사는 외우는 게 아닙니다.",
       "= 전치사는 **그림**으로 기억한다",
