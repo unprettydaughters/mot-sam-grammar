@@ -30,11 +30,11 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["pizza", "eat", "I"], "a": "I eat pizza."},
   ] },
   4: { core: "주어가 아무리 길어도 **첫 번째 동사** 앞까지가 전부 주어.", qs: [
-    {"t": "scene", "ctx": "EP.4 **[대사 추가 제안]**", "q": "*현재 EP.4는 대사가 다 짧아서 긴 주어가 없다. 삼돌이가 노트 조각을 건네는 장면에 이 한 줄을 넣으면 딱 맞는다.*\n삼돌이: The person who wrote this ______ brave.", "opts": ["is", "are", "be", "being"], "a": "is", "why": "The person who wrote this 전체가 주어. 첫 동사는 is."},
+    {"t": "scene", "ctx": "EP.4", "q": "삼돌이: The person who wrote this ______ brave.", "opts": ["is", "are", "be", "being"], "a": "is", "why": "The person who wrote this 전체가 주어. 첫 동사는 is."},
     {"t": "choice", "q": "The man with a red hat is happy에서 주어는?", "opts": ["The man", "The man with a red hat", "a red hat", "is happy"], "a": "The man with a red hat"},
     {"t": "choice", "q": "긴 주어를 찾는 방법은?", "opts": ["가장 긴 단어를 찾는다", "첫 번째 동사를 찾는다", "맨 앞 세 단어를 본다", "물음표를 찾는다"], "a": "첫 번째 동사를 찾는다"},
     {"t": "choice", "q": "`The girls in my class ______ kind.` 빈칸은?", "opts": ["is", "are", "am", "be"], "a": "are", "why": "주어가 The girls in my class 전체. 여러 명이라 are."},
-    {"t": "choice", "q": "`The man with a red hat who is wearing blue jeans is happy`에서 주어는 어디까지인가?", "opts": ["The man", "The man with a red hat", "The man with a red hat who is wearing blue jeans", "is happy"], "a": "The man with a red hat who is wearing blue jeans", "why": "마지막 is 앞까지가 전부 주어다."},
+    {"t": "choice", "q": "`The man with a red hat wearing blue jeans is happy`에서 주어는 어디까지인가?", "opts": ["The man", "The man with a red hat", "The man with a red hat wearing blue jeans", "is happy"], "a": "The man with a red hat wearing blue jeans", "why": "wearing은 동사가 아니라 명사를 꾸미는 말이다. 진짜 첫 번째 동사는 마지막 is. 그 앞까지가 전부 주어다."},
     {"t": "order", "words": ["is", "The cat", "on the sofa", "sleeping"], "q": "단어를 순서대로 놓으세요", "a": "The cat on the sofa is sleeping."},
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["in Busan", "lives", "The boy who sits next to me"], "a": "The boy who sits next to me lives in Busan."},
   ] },
@@ -84,7 +84,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["tall", "is", "She"], "a": "She is tall."},
   ] },
   10: { core: "행동은 일반 동사, 상태는 be 동사. be가 보이면 상태 이야기다.", qs: [
-    {"t": "scene", "ctx": "EP.10, 무너진 민준이 애써 버티며", "q": "민준: I ______ fine.", "opts": ["am", "do", "have", "feel"], "a": "am", "why": "괜찮다는 건 행동이 아니라 상태다. 그런데 손은 떨리고 있다."},
+    {"t": "scene", "ctx": "EP.10, 무너진 민준이 애써 버티며", "q": "민준: I ______ fine.", "opts": ["am", "do", "have", "know"], "a": "am", "why": "괜찮다는 건 행동이 아니라 상태다. 그런데 손은 떨리고 있다."},
     {"t": "choice", "q": "상태를 말하는 문장은?", "opts": ["She runs", "She eats", "She is tired", "She sings"], "a": "She is tired"},
     {"t": "choice", "q": "`They ______ kind.` 빈칸은?", "opts": ["am", "is", "are", "be"], "a": "are"},
     {"t": "choice", "q": "`I run every day`와 `I am tired`는 무엇이 다른가?", "opts": ["앞은 행동, 뒤는 상태", "앞은 과거, 뒤는 현재", "뜻이 같다", "뒤가 틀린 문장이다"], "a": "앞은 행동, 뒤는 상태"},
@@ -111,7 +111,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["sleeping", "is", "He"], "a": "He is sleeping."},
   ] },
   13: { core: "누가 했는지보다 지금 어떤 **결과**인지를 말한다.", qs: [
-    {"t": "scene", "ctx": "EP.13 **[대사 추가 제안]**", "q": "*현재 EP.13엔 수동태 대사가 없다. 삼돌이가 바뀐 안무를 지적하는 장면에 이 한 줄이 들어가면 맞는다.*\n삼돌이: My part ______ changed. Without asking.", "opts": ["is", "am", "are", "do"], "a": "is", "why": "누가 바꿨는지는 이미 안다. 바뀌어 있다는 결과가 중요하다."},
+    {"t": "scene", "ctx": "EP.13", "q": "삼돌이: My part ______ changed. Without asking.", "opts": ["is", "am", "are", "do"], "a": "is", "why": "누가 바꿨는지는 이미 안다. 바뀌어 있다는 결과가 중요하다."},
     {"t": "choice", "q": "수동태 문장은?", "opts": ["I broke it", "It is broken", "I break it", "Break it"], "a": "It is broken"},
     {"t": "choice", "q": "`The door ______ closed.` 빈칸은?", "opts": ["is", "am", "are", "do"], "a": "is"},
     {"t": "choice", "q": "`It is broken`에서 부순 사람을 왜 말하지 않을까?", "opts": ["몰라서", "지금 부러진 상태가 중요해서", "말하면 실례라서", "문법상 못 써서"], "a": "지금 부러진 상태가 중요해서"},
@@ -120,7 +120,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["finished", "is", "The work"], "a": "The work is finished."},
   ] },
   14: { core: "be going to = 지금 그 방향으로 가고 있다. 그래서 곧 한다.", qs: [
-    {"t": "scene", "ctx": "EP.14 **[대사 추가 제안]**", "q": "*going to는 지금 EP.19에 들어가 있다. 자리를 바꾸거나, 공연 이틀 전 다투는 이 장면에 넣는 게 맞다.*\n민준: We ______ going to run it again.", "opts": ["are", "is", "am", "be"], "a": "are", "why": "아직 시작 안 했지만 이미 그쪽으로 가고 있다."},
+    {"t": "scene", "ctx": "EP.14", "q": "민준: We ______ going to run it again.", "opts": ["are", "is", "am", "be"], "a": "are", "why": "아직 시작 안 했지만 이미 그쪽으로 가고 있다."},
     {"t": "choice", "q": "I am going to study의 진짜 뜻은?", "opts": ["공부했다", "공부하러 가고 있다", "공부하기 싫다", "공부를 끝냈다"], "a": "공부하러 가고 있다"},
     {"t": "choice", "q": "`She is ______ to leave.` 빈칸은?", "opts": ["go", "goes", "going", "went"], "a": "going"},
     {"t": "choice", "q": "`I will study`와 `I am going to study`의 차이는?", "opts": ["뜻이 같다", "앞은 지금 막 정한 것, 뒤는 이미 그 방향으로 가는 중", "앞이 더 먼 미래", "뒤가 틀린 문장"], "a": "앞은 지금 막 정한 것, 뒤는 이미 그 방향으로 가는 중"},
@@ -138,8 +138,8 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["fine", "were", "yesterday", "We"], "a": "We were fine yesterday."},
   ] },
   16: { core: "상태·진행·수동·미래·과거. 전부 be 동사 하나에서 나온다.", qs: [
-    {"t": "scene", "ctx": "EP.16 **[대사 추가 제안]**", "q": "*EP.16은 have 이야기라 be동사가 거의 없다. 민준이 못난이에게 묻는 이 장면 끝에 한 줄 넣으면 총정리와 맞는다.*\n민준: So the notebook ______ your voice.", "opts": ["is", "has", "does", "do"], "a": "is", "why": "노트가 곧 네 목소리다. 등호 하나로 두 개를 이었다."},
-    {"t": "choice", "q": "be 동사가 만들 수 없는 것은?", "opts": ["진행형", "수동태", "미래", "명령문"], "a": "명령문"},
+    {"t": "scene", "ctx": "EP.16", "q": "민준: So the notebook ______ your voice.", "opts": ["is", "has", "does", "do"], "a": "is", "why": "노트가 곧 네 목소리다. 등호 하나로 두 개를 이었다."},
+    {"t": "choice", "q": "be동사가 아니라 일반동사에만 있는 것은?", "opts": ["진행형", "수동태", "3인칭 단수 -s", "미래"], "a": "3인칭 단수 -s", "why": "he goes처럼 3인칭 단수 뒤에 -s 붙이는 건 일반동사만 한다. be동사는 원래부터 is로 바뀌어서 -s를 따로 안 붙인다."},
     {"t": "choice", "q": "`I ______ scared before the show.` 빈칸은?", "opts": ["am", "was", "are", "were"], "a": "was"},
     {"t": "choice", "q": "`I am happy` `I am eating` `It is broken` `I was happy`가 다 말하는 것은?", "opts": ["행동", "지금(또는 그때) 어떤 상태인가", "시간", "장소"], "a": "지금(또는 그때) 어떤 상태인가"},
     {"t": "order", "words": ["going", "am", "I", "to", "try"], "q": "단어를 순서대로 놓으세요", "a": "I am going to try."},
@@ -147,7 +147,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["for us", "waiting", "are", "They"], "a": "They are waiting for us."},
   ] },
   17: { core: "have는 소유가 아니라 **관계**. 물건·시간·생각·경험을 나와 잇는다.", qs: [
-    {"t": "scene", "ctx": "EP.17 **[대사 추가 제안]**", "q": "*EP.17엔 현재완료(18과 문법)만 있고 순수한 have가 없다. 옥상에서 삼돌이가 털어놓는 자리에 한 줄.*\n삼돌이: I ______ a reason. I just never say it.", "opts": ["have", "has", "having", "am"], "a": "have", "why": "이유를 갖고 있다. 물건이 아닌 것도 have로 잇는다."},
+    {"t": "scene", "ctx": "EP.17", "q": "삼돌이: I ______ a reason. I just never say it.", "opts": ["have", "has", "having", "am"], "a": "have", "why": "이유를 갖고 있다. 물건이 아닌 것도 have로 잇는다."},
     {"t": "choice", "q": "have를 쓸 수 없는 것은?", "opts": ["I have a car", "I have time", "I have a dream", "I have happy"], "a": "I have happy", "why": "상태는 be가 맡는다"},
     {"t": "choice", "q": "`She ______ a sister.` 빈칸은?", "opts": ["have", "has", "having", "is"], "a": "has"},
     {"t": "order", "words": ["an", "I", "idea", "have"], "q": "단어를 순서대로 놓으세요", "a": "I have an idea."},
@@ -165,7 +165,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["in Busan", "lived", "have", "I"], "a": "I have lived in Busan."},
   ] },
   19: { core: "have to는 강요가 아니라 **그 이유를 내가 갖고 있다**는 뜻.", qs: [
-    {"t": "scene", "ctx": "EP.19 **[대사 추가 제안]**", "q": "*have to는 지금 EP.18에 들어가 있다. 14과와 자리를 맞바꾸거나, 못난이가 떠나려다 멈추는 이 장면에 한 줄.*\n못난이: I ______ to know why you asked me.", "opts": ["have", "has", "having", "am"], "a": "have", "why": "알아야 할 이유를 내가 갖고 있다. 남이 시킨 게 아니다."},
+    {"t": "scene", "ctx": "EP.19", "q": "못난이: I ______ to know why you asked me.", "opts": ["have", "has", "having", "am"], "a": "have", "why": "알아야 할 이유를 내가 갖고 있다. 남이 시킨 게 아니다."},
     {"t": "choice", "q": "I have to go의 진짜 뜻은?", "opts": ["누가 나를 쫓아낸다", "가야 할 이유를 갖고 있다", "가고 싶지 않다", "이미 갔다"], "a": "가야 할 이유를 갖고 있다"},
     {"t": "choice", "q": "`She ______ to study tonight.` 빈칸은?", "opts": ["have", "has", "having", "is"], "a": "has"},
     {"t": "order", "words": ["to", "have", "I", "work"], "q": "단어를 순서대로 놓으세요", "a": "I have to work."},
@@ -174,7 +174,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["mom", "call", "to", "have", "I"], "a": "I have to call mom."},
   ] },
   20: { core: "have + 명사 = 그 일을 **경험한다**. 밥도 샤워도 회의도 have로 한다.", qs: [
-    {"t": "scene", "ctx": "EP.20 **[대사 추가 제안]**", "q": "*EP.20엔 have 표현이 없다. 셋이 넘어지며 웃는 장면 끝에 한 줄 넣으면 딱이다.*\n삼돌이: Okay. Let's ______ a break.", "opts": ["have", "has", "do", "make"], "a": "have", "why": "휴식을 '갖는다'. 영어는 쉬는 것도 경험으로 본다."},
+    {"t": "scene", "ctx": "EP.20", "q": "삼돌이: Okay. Let's ______ a break.", "opts": ["have", "has", "do", "make"], "a": "have", "why": "휴식을 '갖는다'. 영어는 쉬는 것도 경험으로 본다."},
     {"t": "choice", "q": "have와 어울리지 않는 것은?", "opts": ["have dinner", "have a shower", "have a walk", "have a car fast"], "a": "have a car fast"},
     {"t": "choice", "q": "`Let's ______ fun.` 빈칸은?", "opts": ["have", "has", "do", "make"], "a": "have"},
     {"t": "order", "words": ["a", "We", "meeting", "have"], "q": "단어를 순서대로 놓으세요", "a": "We have a meeting."},
@@ -186,7 +186,7 @@ const quizData = {
     {"t": "scene", "ctx": "EP.21, 삼돌이가 뒤늦게 마음을 전하며", "q": "삼돌이: I mean— I ______ your words.", "opts": ["got", "have", "take", "am"], "a": "got", "why": "없던 것이 들어왔다. have면 원래부터 알았다는 뜻이 된다."},
     {"t": "choice", "q": "get이 나타내는 것은?", "opts": ["머무름", "변화", "사라짐", "반복"], "a": "변화"},
     {"t": "choice", "q": "`I ______ hungry at night.` 빈칸은?", "opts": ["get", "have", "take", "am"], "a": "get", "why": "배고프지 않던 상태가 배고픈 상태로 바뀐다."},
-    {"t": "order", "words": ["angry", "He", "easily", "gets"], "q": "단어를 순서대로 놓으세요", "a": "He gets easily angry."},
+    {"t": "order", "words": ["angry", "He", "easily", "gets"], "q": "단어를 순서대로 놓으세요", "a": "He gets angry easily."},
     {"t": "order", "words": ["a", "We", "teacher", "new", "got"], "q": "단어를 순서대로 놓으세요", "a": "We got a new teacher."},
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["tired", "get", "I"], "a": "I get tired."},
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["money", "got", "I"], "a": "I got money."},
@@ -255,7 +255,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["the morning", "in", "is", "The meeting"], "a": "The meeting is in the morning."},
   ] },
   29: { core: "at = 넓이가 아니라 **위치 하나, 시각 하나, 대상 하나**를 콕 찍는다.", qs: [
-    {"t": "scene", "ctx": "EP.29 **[대사 추가 제안]**", "q": "*EP.29는 대사가 하나도 없는 무대 장면이다. 민준이 삐끗하기 직전에 짧은 한 줄을 넣으면 긴장도 살고 문법도 산다.*\n민준: (속으로) Look ______ the light. Just the light.", "opts": ["at", "in", "on", "to"], "a": "at", "why": "관객 전체가 아니라 조명 한 점에 초점을 맞춘다."},
+    {"t": "scene", "ctx": "EP.29", "q": "민준: (속으로) Look ______ the light. Just the light.", "opts": ["at", "in", "on", "to"], "a": "at", "why": "관객 전체가 아니라 조명 한 점에 초점을 맞춘다."},
     {"t": "choice", "q": "at이 어울리는 것은?", "opts": ["at Korea", "at the morning", "at 3 o'clock", "at trouble"], "a": "at 3 o'clock"},
     {"t": "choice", "q": "`Let's meet ______ the bus stop.` 빈칸은?", "opts": ["at", "in", "on", "to"], "a": "at"},
     {"t": "order", "words": ["school", "I'm", "at"], "q": "단어를 순서대로 놓으세요", "a": "I'm at school."},
@@ -264,7 +264,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["you", "at", "looking", "I'm"], "a": "I'm looking at you."},
   ] },
   30: { core: "on = 위가 아니라 **접촉**. 물건도, 활동도, 상태도 닿아 있으면 on.", qs: [
-    {"t": "scene", "ctx": "EP.30 **[대사 추가 제안]**", "q": "*EP.30은 대사가 한 줄뿐이다. 삼돌이가 민준을 구해내며 던지는 말 앞에 한 줄 붙이면 좋다.*\n삼돌이: You're still ______ the beat. Keep going, idiot.", "opts": ["on", "in", "at", "to"], "a": "on", "why": "박자에서 떨어지지 않았다는 뜻. 붙어 있으라는 말."},
+    {"t": "scene", "ctx": "EP.30", "q": "삼돌이: You're still ______ the beat. Keep going, idiot.", "opts": ["on", "in", "at", "to"], "a": "on", "why": "박자에서 떨어지지 않았다는 뜻. 붙어 있으라는 말."},
     {"t": "choice", "q": "on이 어울리지 않는 것은?", "opts": ["on the table", "on Monday", "on vacation", "on Korea"], "a": "on Korea"},
     {"t": "choice", "q": "`I'm ______ my way home.` 빈칸은?", "opts": ["on", "in", "at", "to"], "a": "on"},
     {"t": "order", "words": ["the", "The book", "table", "is", "on"], "q": "단어를 순서대로 놓으세요", "a": "The book is on the table."},
