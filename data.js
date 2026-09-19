@@ -1023,7 +1023,7 @@ const grammarData = [
       "3. She looked through the window. (그녀는 창문 너머를 봤어.) → 시선이 유리를 뚫고 반대쪽까지 간다",
       "## 시간을 통과할 때",
       "4. We talked through the night. (우리는 밤새 이야기했어.) → 밤이 시작될 때 들어가서 끝날 때 나올 때까지 계속",
-      "~ 들어간 자리와 나온 자리가 따로 있는지 물어보세요. 둘이 다르면 through입니다.",
+      "~ 길이 끊기지 않고 반대쪽까지 이어지는지 보세요. 이어지면 through, 들어가서 끝이면 into입니다.",
       "> THROUGH를 볼 때마다 \"아, 이 길은 반대쪽까지 이어지네\"라고 생각해보세요.",
       "+ through는 시작과 끝이 이어진 길이다. 시장이든 터널이든 유리든 밤이든, 한쪽으로 들어가 반대쪽으로 나오면 through를 쓴다."
     ]
@@ -1072,8 +1072,8 @@ const grammarData = [
     content: [
       "수영장 물 위에 떠서 발을 내려다본다고 생각해 봐. 수면이 선 하나야. 그 선보다 **위**는 above, **아래**는 below야.",
       "= ABOVE = 선보다 **위** · BELOW = 선보다 **아래**",
-      "37과의 over와 under는 바로 위를 넘어가거나 바로 밑에 있는 가까운 그림이었어. above와 below는 거리는 상관없이 높이가 위인지 아래인지만 말해.",
-      "@compare OVER :: 바로 위를 넘어감 :: A bird flew over the boat :: ABOVE :: 높이만 위쪽 :: The sun is above the boat",
+      "37과의 over는 무언가의 위를 넘어 **지나가는** 그림이었어. above와 below는 지나가지 않고 그냥 그 높이에 가만히 있어. 거리는 상관없이 위인지 아래인지만 말해.",
+      "@compare OVER :: 위를 넘어 지나감 :: A bird flew over the boat :: ABOVE :: 가만히 더 높은 곳 :: The sun is above the boat",
       "1. The sun is above the sea. (해가 바다 위에 있어.) → 수면이라는 선보다 높은 곳",
       "2. The fish swim below the boat. (물고기들이 배 아래에서 헤엄쳐.) → 배가 있는 높이보다 낮은 곳",
       "3. The temperature is below zero. (기온이 영하야.) → 0이라는 눈금선보다 아래",
@@ -1118,16 +1118,17 @@ const grammarData = [
     id: 47, month: 6, title: "47. BEHIND & BESIDE: 뒤에 숨고, 옆에 서고", tags: ["behind", "beside", "위치"],
     content: [
       "숨바꼭질 해 봤지? 나무 **뒤**에 숨으면 술래는 나를 못 봐. 그런데 친구가 내 바로 **옆**에 서 있으면 둘 다 보여.",
-      "= BEHIND = 가려서 안 보이는 **뒤** · BESIDE = 나란히 서 있는 **옆**",
+      "= BEHIND = 나보다 **뒤쪽** · BESIDE = 나란히 서 있는 **옆**",
       "## BEHIND — 뒤",
       "1. The cat is behind the door. (고양이는 문 뒤에 있어.) → 문에 가려서 안 보인다",
       "2. The sun went behind the clouds. (해가 구름 뒤로 들어갔어.) → 구름에 가려졌다",
       "3. Who is hiding behind the tree? (누가 나무 뒤에 숨어 있어?) → 나무가 나를 가려 준다",
+      "! 가려지지 않아도 뒤쪽이면 behind야. the car behind me처럼.",
       "## BESIDE — 옆",
       "4. She stood beside me. (그녀는 내 옆에 섰어.) → 같은 방향을 보며 나란히",
       "~ 34과의 by도 곁이지만 by는 가까이에 있다는 뜻이고, beside는 나란히 옆자리라는 뜻이에요. by the window는 창문 가까이, beside me는 내 옆자리예요.",
       "> 숨바꼭질은 behind, 나란히 걷기는 beside.",
-      "+ 숨바꼭질처럼 가려지면 behind, 나란히 서 있으면 beside다."
+      "+ 숨바꼭질처럼 가려질 때가 많지만, 뒤쪽이면 behind, 나란히 서 있으면 beside다."
     ]
   },
   {
@@ -1182,7 +1183,7 @@ const grammarData = [
       "@compare BY :: 늦어도 그때까지 (한 번 해내면 끝) :: Come back by six :: UNTIL :: 그때까지 쭉 계속 :: Wait here until six",
       "## UNTIL — 그때까지 계속",
       "1. Wait here until six. (6시까지 여기서 기다려.) → 기다림이 6시 말뚝에서 끝난다",
-      "2. We waited until the bell rang. (우리는 종이 울릴 때까지 기다렸어.) → 종이 울리는 순간이 끝 말뚝",
+      "2. We waited until noon. (우리는 정오까지 기다렸어.) → 정오 말뚝에서 기다림이 끝난다",
       "3. I stayed up until midnight. (나는 자정까지 안 잤어.) → 자정 말뚝에서 깨어 있던 줄이 끊긴다",
       "## SINCE — 그때부터 지금까지",
       "4. I have lived here since 2020. (나는 2020년부터 여기 살아왔어.) → 2020 말뚝에서 시작해서 지금까지",
@@ -1235,11 +1236,11 @@ const grammarData = [
       "1. She sings like a bird. (그녀는 새처럼 노래해.) → 새를 비춘 거울처럼 닮았을 뿐, 새는 아니다",
       "2. It feels like summer. (여름 같은 느낌이야.) → 여름과 닮았다",
       "3. You look like your mother. (너는 엄마를 닮았어.) → 엄마 모습이 거울에 비친다",
-      "## AS — 그 역할이다 (진짜다)",
+      "## AS — 그 역할을 맡는다",
       "4. He works as a teacher. (그는 교사로 일해.) → 진짜 교사라는 명찰을 달았다",
       "5. Use this box as a chair. (이 상자를 의자로 써.) → 상자가 의자라는 명찰을 달고 역할을 맡는다",
-      "@compare LIKE :: 닮음 (진짜가 아닐 수 있다) :: He works like a boss :: AS :: 역할 (진짜다) :: He works as a boss",
-      "~ 명찰은 진짜 자격을 알려주고, 거울은 닮은 모습만 보여줘. 그래서 He works like a boss와 He works as a boss는 전혀 다른 말이야.",
+      "@compare LIKE :: 닮음 (진짜가 아닐 수 있다) :: He works like a boss :: AS :: 그 역할을 맡음 :: He works as a boss",
+      "~ 명찰은 맡은 역할을 알려주고, 거울은 닮은 모습만 보여줘. 그래서 He works like a boss와 He works as a boss는 전혀 다른 말이야.",
       "+ like는 거울이고 as는 명찰이다. 닮기만 했으면 like, 그 역할을 하고 있으면 as를 쓴다."
     ]
   },
@@ -1272,16 +1273,16 @@ const grammarData = [
       "2. Walk toward the light. (빛 쪽으로 걸어가.) → 빛을 가리키며 가는 중. 아직 닿지는 않았다",
       "## BEYOND — 저 너머",
       "3. The school is beyond that hill. (학교는 저 언덕 너머에 있어.) → 언덕이라는 선을 넘은 저편",
-      "4. The sun rose beyond the horizon. (해가 수평선 너머에서 떠올랐어.) → 수평선이라는 선의 저쪽",
-      "~ over도 선을 넘는다고 했지(37과). over는 선 바로 위를 지나가는 그림이야. beyond는 선을 넘어서 눈에 안 닿을 만큼 저편에 가 있어.",
-      "+ toward는 나침반 바늘처럼 쪽을 가리키고, beyond는 선 너머 저편이다. 도착했는지는 to가, 어디를 향하는지는 toward가, 얼마나 멀리 있는지는 beyond가 말한다."
+      "4. The boat sailed beyond the horizon. (배가 수평선 너머로 항해해 갔어.) → 수평선이라는 선을 넘어 저편으로 갔다",
+      "~ over도 선을 넘는다고 했지(37과). over는 선 위를 지나가는 그림이고, beyond는 선을 다 넘어선 저편이 어디인지 말해.",
+      "+ toward는 나침반 바늘처럼 쪽을 가리키고, beyond는 선 너머 저편이다. 도착했는지는 to가, 어디를 향하는지는 toward가, 넘어선 저편은 beyond가 말한다."
     ]
   },
   {
     id: 56, month: 7, title: "56. 일곱째 달 복습 (49과 - 55과)", tags: ["전치사총정리", "그림지도", "완성"],
     content: [
       "이번 달에는 시간과 까닭, 방향 그림이 쌓였어. 하나씩 다시 걸어보자.",
-      "= 일곱째 달의 그림은 **시간, 까닭, 방향**이다",
+      "= 일곱째 달도 전치사는 **그림**이다",
       "## during — 시간의 띠",
       "영화나 폭풍처럼 일이 벌어지는 동안. Don't talk during the movie. 길이(두 시간)는 for가 맡는다.",
       "## until & since — 끝 말뚝과 시작 말뚝",
@@ -1311,5 +1312,5 @@ const monthMeta = {
   4: { label: "MONTH 4", theme: "전치사 완전 정복", tags: "#전치사 #화살표 #In_At_On #관계" },
   5: { label: "MONTH 5", theme: "전치사 2 · 붙고 떠나고 넘나드는 그림", tags: "#with #by #from #about #over_under #into #up_down" },
   6: { label: "MONTH 6", theme: "전치사 3 · 지나고 사이에 끼고 둘러싸는 그림", tags: "#through #between #before_after #above_below #around #across #behind" },
-  7: { label: "MONTH 7", theme: "전치사 4 · 시간과 이유와 방향의 그림", tags: "#during #until_since #without #against #like_as #because_of #toward" }
+  7: { label: "MONTH 7", theme: "전치사 4 · 시간에서 방향까지 마지막 그림", tags: "#during #until_since #without #against #like_as #because_of #toward" }
 };

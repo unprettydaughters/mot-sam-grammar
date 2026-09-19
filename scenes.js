@@ -821,14 +821,14 @@ const dramaScenes = {
         "하늘: (이름을 적는다) Mr. Park.",
         "강 할아버지: Since that day, I couldn't sleep.",
         "(그때 창밖에서 자동차 소리. 검은 차 한 대가 정문 앞에 선다. 강 할아버지의 손이 멈춘다.)",
-        "강 할아버지: (낮게) He's early. Wait here until I call you."
+        "강 할아버지: (낮게) He's early. Stay here. Don't come out."
       ] }
   ],
   51: [
     { no: "51", title: "여섯 시의 침묵", lines: [
         "[마을 보건소 복도. 저녁 여섯 시.]",
         "(창밖에서는 아무 소리도 나지 않는다. 벽시계가 6을 가리킨다. 소이가 병실 문 앞에 서서 유리창 안을 들여다본다. 흰머리 할아버지가 침대에 앉아 창밖만 보고 있다.)",
-        "소이: Every evening at six, he waits for the bell.",
+        "소이: Every evening at six, my grandfather waits for the bell.",
         "도윤: And now?",
         "소이: (목소리가 낮아진다) Nothing comes. He can't sleep without that sound.",
         "하늘: Why didn't you tell us?",
@@ -838,7 +838,7 @@ const dramaScenes = {
         "소이: You can't promise that.",
         "하늘: (노트를 펼치며) I don't promise. I make plans.",
         "(병실 안. 할아버지가 손을 들어 종탑 쪽 창문을 가리킨다. 소이가 그 손을 보고 숨을 삼킨다.)",
-        "소이: (작게) Mr. Park visits the school tomorrow. He wants to see the tower."
+        "소이: (작게) Mr. Park was at the gate this afternoon. He comes back tomorrow to see the tower."
       ] }
   ],
   52: [
@@ -847,7 +847,7 @@ const dramaScenes = {
         "(검은 차에서 양복 입은 남자가 내린다. 손에는 서류철. 강 할아버지가 정문 앞을 막아서 있고, 그 뒤에 하늘, 도윤, 소이.)",
         "Mr. Park: Good morning. I'm here to see the bell.",
         "강 할아버지: It's gone.",
-        "Mr. Park: (서류철을 톡톡 치며) Gone? The board voted. Seven for, one against.",
+        "Mr. Park: (서류철을 톡톡 치며) Gone? The board is ready. Seven for, one against.",
         "하늘: (앞으로 나서며) I'm against it.",
         "Mr. Park: (피식) You can't vote. You're a child.",
         "소이: Then we won't vote. We'll stand here.",

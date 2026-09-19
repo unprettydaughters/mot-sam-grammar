@@ -376,8 +376,8 @@ const quizData = {
     {"t": "choice", "q": "`She is the tallest ______ her friends.` (친구들 중에서 그녀가 제일 크다)", "opts": ["among", "between", "by", "off"], "a": "among", "why": "친구 여럿 속에서 견준다."},
     {"t": "choice", "q": "`Sit ______ Mina and me.` (미나와 나 사이에 앉아)", "opts": ["between", "among", "through", "over"], "a": "between", "why": "양쪽에 하나씩, 딱 둘이다."},
     {"t": "order", "words": ["between", "cat", "is", "The", "the two boxes"], "q": "단어를 순서대로 놓으세요", "a": "The cat is between the two boxes."},
-    {"t": "order", "words": ["Mina", "and", "me", "between", "Sit"], "q": "단어를 순서대로 놓으세요", "a": "Sit between Mina and me."},
-    {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["the bank", "between", "and", "the school", "is", "The shop"], "a": "The shop is between the bank and the school."},
+    {"t": "order", "words": ["a river", "between", "There", "is", "the two towns"], "q": "단어를 순서대로 놓으세요", "a": "There is a river between the two towns."},
+    {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["the two mountains", "between", "is", "The lake"], "a": "The lake is between the two mountains."},
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["my hat", "found", "among", "I", "the coats"], "a": "I found my hat among the coats."},
   ] },
   43: { core: "before = 줄의 앞, after = 줄의 뒤. 시간도 순서도 같은 줄이다.", qs: [
@@ -392,7 +392,7 @@ const quizData = {
   44: { core: "above = 선보다 위, below = 선보다 아래. 거리는 상관없고 높이만 본다.", qs: [
     {"t": "scene", "ctx": "EP.44, 유리 바닥 보트 위에서", "q": "하늘: The sun is ______ us. The light goes all the way down.\n소이: Look. ______ that rock.", "hint": "해는 우리 위에 있고, 붉은 끈은 바위 아래에서 흔들린다", "opts": ["above / Below", "below / Above", "above / Among", "through / Below"], "a": "above / Below", "why": "해는 우리보다 높은 곳, 끈은 바위보다 낮은 곳이다."},
     {"t": "choice", "q": "`The temperature is ______ zero.` (기온이 영하야)", "opts": ["below", "above", "among", "through"], "a": "below", "why": "0이라는 눈금선보다 아래다."},
-    {"t": "choice", "q": "above와 over의 차이로 맞는 것은?", "opts": ["above는 높이만 위쪽이고, over는 바로 위를 넘어가는 그림이다", "above는 아래쪽이고, over는 위쪽이다", "둘은 서로 반대말이다", "above는 시간에만 쓴다"], "a": "above는 높이만 위쪽이고, over는 바로 위를 넘어가는 그림이다"},
+    {"t": "choice", "q": "above와 over의 차이로 맞는 것은?", "opts": ["above는 가만히 더 높은 곳이고, over는 위를 넘어 지나가는 그림이다", "above는 아래쪽이고, over는 위쪽이다", "둘은 서로 반대말이다", "above는 시간에만 쓴다"], "a": "above는 가만히 더 높은 곳이고, over는 위를 넘어 지나가는 그림이다"},
     {"t": "order", "words": ["above", "the sea", "is", "The sun"], "q": "단어를 순서대로 놓으세요", "a": "The sun is above the sea."},
     {"t": "order", "words": ["the boat", "swim", "below", "The fish"], "q": "단어를 순서대로 놓으세요", "a": "The fish swim below the boat."},
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["zero", "below", "The temperature", "is"], "a": "The temperature is below zero."},
@@ -416,7 +416,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["the street", "across", "Walk"], "a": "Walk across the street."},
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["the road", "along", "There are", "trees"], "a": "There are trees along the road."},
   ] },
-  47: { core: "behind = 가려지는 뒤, beside = 나란히 서는 옆.", qs: [
+  47: { core: "behind = 뒤쪽(가려질 때가 많다), beside = 나란히 서는 옆.", qs: [
     {"t": "scene", "ctx": "EP.47, 등대 아래에서", "q": "하늘: Someone is ______ the lighthouse.\n강 할아버지: Stand ______ me, Soi.", "opts": ["behind / beside", "through / beside", "behind / among", "above / between"], "a": "behind / beside", "why": "등대 뒤쪽 그늘에 누가 있고, 소이는 곁에 나란히 서라고 한다."},
     {"t": "choice", "q": "`The cat is ______ the door.` (고양이는 문 뒤에 있다)", "opts": ["behind", "beside", "among", "through"], "a": "behind", "why": "문에 가려서 안 보인다."},
     {"t": "choice", "q": "`She stood ______ me.` (그녀는 내 바로 옆에 나란히 섰다)", "opts": ["beside", "behind", "through", "across"], "a": "beside", "why": "가려지는 게 아니라 나란히 선다."},
@@ -449,7 +449,7 @@ const quizData = {
     {"t": "choice", "q": "`I have lived here ______ 2020.` (2020년부터 지금까지 여기 살았어)", "opts": ["since", "until", "during", "against"], "a": "since", "why": "2020이 시작 말뚝이고 줄이 지금까지 이어진다."},
     {"t": "order", "words": ["until", "here", "six", "Wait"], "q": "단어를 순서대로 놓으세요", "a": "Wait here until six."},
     {"t": "order", "words": ["since", "2020", "lived", "have", "here", "I"], "q": "단어를 순서대로 놓으세요", "a": "I have lived here since 2020."},
-    {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["until", "We", "rang", "the bell", "waited"], "a": "We waited until the bell rang."},
+    {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["until", "We", "noon", "waited"], "a": "We waited until noon."},
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["since", "Monday", "has", "here", "She", "been"], "a": "She has been here since Monday."},
   ] },
   51: { core: "without은 with가 빠진 빈자리다. 있어야 할 것이 없다.", qs: [
@@ -462,7 +462,7 @@ const quizData = {
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["without", "sugar", "coffee", "drinks", "He"], "a": "He drinks coffee without sugar."},
   ] },
   52: { core: "against는 맞대고 미는 힘이다. 기댈 때도, 반대할 때도, 겨룰 때도 같은 그림.", qs: [
-    {"t": "scene", "ctx": "EP.52, 정문 앞에서 Mr. Park와", "q": "Mr. Park: Gone? The board voted. Seven for, one ______.", "hint": "일곱은 찬성, 하나는 반대라는 뜻", "opts": ["against", "above", "among", "along"], "a": "against", "why": "찬성 일곱, 반대 하나. 계획과 반대쪽에 선 표는 against."},
+    {"t": "scene", "ctx": "EP.52, 정문 앞에서 Mr. Park와", "q": "Mr. Park: Gone? The board is ready. Seven for, one ______.", "hint": "일곱은 찬성, 하나는 반대라는 뜻", "opts": ["against", "above", "among", "along"], "a": "against", "why": "찬성 일곱, 반대 하나. 계획과 반대쪽에 선 표는 against."},
     {"t": "choice", "q": "`I voted ______ the plan.` (나는 그 계획에 반대표를 던졌어)", "opts": ["against", "for", "by", "from"], "a": "against", "why": "계획과 반대쪽에 서 있다."},
     {"t": "choice", "q": "on과 against의 차이는?", "opts": ["on은 그냥 닿아 있음, against는 힘을 싣고 맞대고 있음", "on은 힘을 싣고 맞댐, against는 그냥 닿아 있음", "둘은 똑같다", "on은 위, against는 아래"], "a": "on은 그냥 닿아 있음, against는 힘을 싣고 맞대고 있음"},
     {"t": "order", "words": ["against", "the wall", "leans", "He"], "q": "단어를 순서대로 놓으세요", "a": "He leans against the wall."},
@@ -495,9 +495,9 @@ const quizData = {
     {"t": "order", "words": ["toward", "the pier", "turning", "is", "boat", "The"], "q": "단어를 순서대로 놓으세요", "a": "The boat is turning toward the pier."},
     {"t": "order", "words": ["beyond", "that hill", "is", "school", "The"], "q": "단어를 순서대로 놓으세요", "a": "The school is beyond that hill."},
     {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["toward", "the light", "Walk"], "a": "Walk toward the light."},
-    {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["beyond", "the horizon", "rose", "sun", "The"], "a": "The sun rose beyond the horizon."},
+    {"t": "order", "q": "단어를 순서대로 놓으세요", "words": ["beyond", "the horizon", "sailed", "boat", "The"], "a": "The boat sailed beyond the horizon."},
   ] },
-  56: { core: "전치사는 그림이 모인 지도다. 이번 달은 시간, 까닭, 방향.", qs: [
+  56: { core: "전치사는 그림이 모인 지도다. 이번 달 그림이 그 지도에 더해졌다.", qs: [
     {"t": "scene", "ctx": "EP.56, 종소리가 처음 울린 아침", "q": "하늘: ______ the crack, it sounds ______ home.", "hint": "금이 갔는데도 집처럼 들린다", "opts": ["Despite / like", "Despite / as", "Because of / like", "Because of / as"], "a": "Despite / like", "why": "금이 갔는데도라서 despite, 집을 닮은 소리라서 like."},
     {"t": "choice", "q": "그림이 잘못 짝지어진 것은?", "opts": ["during = 일이 벌어지는 시간의 띠", "without = 빠져서 남은 빈자리", "against = 맞대고 미는 힘", "toward = 도착점에 닿음"], "a": "toward = 도착점에 닿음", "why": "toward는 그쪽을 가리키며 가는 중이다. 도착점에 닿는 건 to."},
     {"t": "choice", "q": "`I'll wait ______ six.` (6시까지 쭉 기다릴게)", "opts": ["until", "by", "since", "during"], "a": "until"},
