@@ -49,6 +49,8 @@
   .drama{background:var(--ink);border-radius:24px;padding:32px 36px;margin-bottom:32px;color:#EDE7E2}
   .dhead{display:flex;align-items:baseline;gap:10px;padding-bottom:16px;margin-bottom:22px;border-bottom:1px solid rgba(255,253,249,.14)}
   .dtitle{font-family:var(--serif);font-weight:700;font-size:17px;color:#FFFDF9}
+  .dtoon{margin-left:auto;display:inline-flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;color:#E3DCF5;text-decoration:none}
+  .dtoon:hover{color:#FFFDF9}
   .dsub{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em}
   .ep+.ep{margin-top:32px;padding-top:28px;border-top:1px solid rgba(255,253,249,.12)}
   .ep h3{margin:0 0 18px;font-family:var(--mono);font-size:12px;font-weight:400;color:var(--gold);letter-spacing:.08em}
@@ -257,6 +259,7 @@
 <script src="data.js?v=20260920210000"></script>
 <script src="scenes.js?v=20260920210000"></script>
 <script src="quiz.js?v=20260920210000"></script>
+<script src="webtoon-data.js?v=20260920230000"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -330,12 +333,14 @@
     + (next?'<a class="next" href="card.html?id='+next.id+'"><span class="lbl">다음 →</span><span class="ttl">'+esc(next.title)+'</span></a>':'<span></span>');
 
   // 드라마 장면
+  var toon = (typeof webtoonEps!=='undefined') && webtoonEps.find(function(e){ return e.ep===d.id && e.panels>0; });
+  var toonLink = toon ? '<a class="dtoon" href="webtoon.html?ep='+d.id+'">웹툰으로 보기 →</a>' : '';
   var scenes = (typeof dramaScenes!=='undefined' && dramaScenes[d.id]) || [];
   var dm = (typeof dramaByMonth!=='undefined' && dramaByMonth[d.month]) ||
     { title: (typeof dramaTitle!=='undefined'?dramaTitle:''), subtitle: (typeof dramaSubtitle!=='undefined'?dramaSubtitle:'') };
   var sceneHTML = scenes.length ? '<section class="drama">'+
     '<div class="dhead"><span class="dtitle">'+esc(dm.title)+'</span>'+
-    '<span class="dsub">'+esc(dm.subtitle)+'</span></div>'+
+    '<span class="dsub">'+esc(dm.subtitle)+'</span>'+toonLink+'</div>'+
     scenes.map(function(s){
       return '<div class="ep"><h3>EP.'+esc(s.no)+' <em>'+esc(s.title)+'</em></h3>'+
         s.lines.map(function(l){

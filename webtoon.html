@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>웹툰 · 못난이삼돌이 영문법</title>
+<meta name="description" content="영문법 1~32과가 그대로 들어간 웹툰 「우리들의 리듬」. 한 화가 한 과다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* 토큰 — 너무쉬운AI 이름 그대로, 바탕만 살구 종이 */
+  :root{
+    --bg:#FBF6F2;
+    --ink-900:#2C2420; --ink-700:#4A4039; --ink-400:#9C9288;
+    --cream-0:#FFFFFF; --cream-2:#F5F3EF; --line:#E8E4DC;
+    --lav-100:#F2EFF9; --lav-200:#E3DCF5; --lav-400:#7C6BAE; --lav-600:#54487A;
+    --peach-100:#FDF8E7; --peach-face:#E8C547; --peach-300:#9A6E1E;
+    --radius:18px; --radius-sm:14px;
+    --shadow:0 1px 3px rgba(100,80,60,0.05);
+    --shadow-up:0 4px 16px rgba(100,80,60,0.09);
+    --sans:'Pretendard Variable', Pretendard, system-ui, sans-serif;
+    --mono:'DM Mono', monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background-color:var(--bg);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    color:var(--ink-700); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; word-break:keep-all; -webkit-text-size-adjust:100%;
+  }
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lav-400);outline-offset:3px;border-radius:8px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* 상단 메뉴 */
+  header{position:sticky;top:0;z-index:20;background:rgba(251,246,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .logo{font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--ink-900);white-space:nowrap}
+  .menu{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+  .menu::-webkit-scrollbar{display:none}
+  .menu a{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:16px;font-weight:500;color:var(--ink-700);white-space:nowrap}
+  .menu a.on{color:var(--lav-600);font-weight:700}
+  .menu a.soon{color:var(--ink-400);cursor:default}
+  .soon-badge{font-size:12px;font-weight:500;color:var(--ink-400);background:var(--cream-2);padding:2px 8px;border-radius:999px}
+
+  /* 목록 머리 */
+  .top{display:flex;align-items:center;gap:24px;padding:48px 0 32px}
+  .top-text{flex:1;min-width:0}
+  .kicker{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-400);background:var(--cream-2);padding:5px 10px;border-radius:999px;margin-bottom:14px}
+  h1{font-size:32px;font-weight:700;letter-spacing:-.025em;line-height:1.25;color:var(--ink-900)}
+  .sub{font-size:16px;line-height:1.7;color:var(--ink-700);margin-top:12px;max-width:32em}
+  .top img{flex:none;width:168px;height:auto;display:block}
+
+  /* 달 묶음 */
+  .month{padding:24px 0 8px}
+  .mhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+  .mhead h2{font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink-900)}
+  .mhead span{font-size:14px;color:var(--ink-400)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+  .ep{display:block;background:var(--cream-0);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .ep:hover{transform:translateY(-2px);box-shadow:var(--shadow-up)}
+  .ep img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;background:var(--cream-2)}
+  .ep-body{padding:14px 16px 16px}
+  .ep-no{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--lav-400)}
+  .ep-title{display:block;font-size:16px;font-weight:500;color:var(--ink-900);margin-top:4px;line-height:1.45}
+  .ep-lesson{display:block;font-size:14px;color:var(--ink-400);margin-top:4px;line-height:1.5}
+  /* 아직 그림 없는 화 — 카드가 아니라 한 줄 */
+  .missing{display:flex;align-items:center;gap:10px;min-height:32px;font-size:14px;color:var(--ink-400);margin-top:8px}
+
+  /* 보기 */
+  .viewer{max-width:720px;margin:0 auto;padding:32px 0 0}
+  .vhead{padding:0 0 20px}
+  .vhead .ep-no{font-size:12px}
+  .vhead h1{margin-top:6px}
+  .vhead .sub{margin-top:8px}
+  .vhead .sub a{color:var(--lav-600);font-weight:500;border-bottom:1px solid rgba(124,107,174,.35)}
+  .panels img{display:block;width:100%;height:auto;background:var(--cream-2)}
+  .extra{font-size:14px;color:var(--ink-400);text-align:center;padding:12px 0 0}
+  .vnav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:28px 0 8px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:var(--lav-400);color:#fff;font-size:16px;font-weight:700;padding:0 26px;border-radius:var(--radius-sm);box-shadow:var(--shadow-up)}
+  .ghost{display:inline-flex;align-items:center;min-height:44px;font-size:16px;font-weight:600;color:var(--lav-600)}
+  .ghost.off{color:var(--ink-400);pointer-events:none}
+  .back{display:inline-flex;align-items:center;min-height:44px;font-size:14px;color:var(--ink-400)}
+
+  footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-400)}
+
+  @media (max-width:640px){
+    .top{padding:32px 0 20px;gap:12px}
+    .top img{width:108px}
+    .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+    .ep-body{padding:12px}
+    .viewer{padding-top:20px}
+    .viewer .panels{margin:0 -20px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">못난이삼돌이 영문법</a>
+    <nav class="menu" aria-label="메뉴">
+      <a href="index.html">영문법</a>
+      <a class="on" href="webtoon.html" aria-current="page">웹툰</a>
+      <a class="soon" aria-disabled="true">블로그<span class="soon-badge">준비 중</span></a>
+      <a class="soon" aria-disabled="true">링크<span class="soon-badge">준비 중</span></a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<div class="wrap"><footer>© 못난이삼돌이 · 웹툰 한 화가 영문법 한 과다</footer></div>
+
+<script src="data.js?v=20260920210000"></script>
+<script src="webtoon-data.js?v=20260920230000"></script>
+<script>
+(function(){
+  var app = document.getElementById('app');
+  var esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var pad = function(n){ return String(n).padStart(2,'0'); };
+  var lesson = function(n){ return grammarData.find(function(d){ return d.id === n; }); };
+  var ready = webtoonEps.filter(function(e){ return e.panels > 0; });
+
+  function list(){
+    document.title = '웹툰 「' + webtoonTitle + '」 · 못난이삼돌이 영문법';
+    var html = '<section class="top"><div class="top-text">' +
+      '<span class="kicker">WEBTOON · 1~4월</span>' +
+      '<h1>「' + esc(webtoonTitle) + '」</h1>' +
+      '<p class="sub">춤 동아리 셋의 이야기다. 한 화가 한 과다. 대사가 그 과에서 배운 영어로 되어 있다.</p>' +
+      '</div><img src="images/ch/cheer_active.webp" alt="팔을 들어 응원하는 못난이와 삼돌이" width="168" height="103"></section>';
+    [1,2,3,4].forEach(function(m){
+      var eps = webtoonEps.filter(function(e){ var l = lesson(e.ep); return l && l.month === m; });
+      if (!eps.length) return;
+      var meta = (typeof monthMeta !== 'undefined' && monthMeta[m]) || { label:'MONTH ' + m, theme:'' };
+      var have = eps.filter(function(e){ return e.panels > 0; });
+      var miss = eps.filter(function(e){ return e.panels === 0; });
+      html += '<section class="month"><div class="mhead"><h2>' + esc(meta.label) + '</h2><span>' + esc(meta.theme) + '</span></div>';
+      var missLine = '';
+      if (miss.length) {
+        var a = miss[0].ep, b = miss[miss.length - 1].ep;
+        missLine = '<div class="missing">' + (a === b ? a + '화' : a + '~' + b + '화') + '<span class="soon-badge">준비 중</span></div>';
+      }
+      var missFirst = miss.length && (!have.length || miss[0].ep < have[0].ep);
+      if (missFirst) html += missLine;
+      if (have.length) {
+        html += '<div class="grid">' + have.map(function(e){
+          var l = lesson(e.ep);
+          return '<a class="ep" href="webtoon.html?ep=' + e.ep + '">' +
+            '<img src="images/webtoon/ep' + pad(e.ep) + '-t.webp" alt="" width="360" height="480" loading="lazy">' +
+            '<span class="ep-body"><span class="ep-no">' + pad(e.ep) + '화</span>' +
+            '<span class="ep-title">' + esc(e.title) + '</span>' +
+            '<span class="ep-lesson">' + esc(l ? l.title : '') + '</span></span></a>';
+        }).join('') + '</div>';
+      }
+      if (!missFirst) html += missLine;
+      html += '</section>';
+    });
+    app.innerHTML = html;
+  }
+
+  function view(e){
+    var l = lesson(e.ep);
+    var i = ready.indexOf(e);
+    var prev = ready[i - 1], next = ready[i + 1];
+    document.title = pad(e.ep) + '화 ' + e.title + ' · 「' + webtoonTitle + '」';
+    var extra = e.ep === 24 ? '번외 24.5화 「잠깐」이 이어진다' : e.ep === 29 ? '번외 29.5화 「못난이의 순간」이 이어진다' : '';
+    var imgs = '';
+    for (var k = 1; k <= e.panels; k++) {
+      imgs += '<img src="images/webtoon/ep' + pad(e.ep) + '-' + k + '.webp" alt="' + pad(e.ep) + '화 ' + k + '번째 장면" width="1080" height="1935"' + (k > 1 ? ' loading="lazy"' : '') + '>';
+    }
+    app.innerHTML = '<div class="viewer">' +
+      '<a class="back" href="webtoon.html">← 전체 화</a>' +
+      '<div class="vhead"><span class="ep-no">' + pad(e.ep) + '화</span><h1>' + esc(e.title) + '</h1>' +
+      (l ? '<p class="sub">이 화의 문법: <a href="card.html?id=' + l.id + '">' + esc(l.title) + '</a></p>' : '') + '</div>' +
+      '<div class="panels">' + imgs + '</div>' +
+      (extra ? '<p class="extra">' + extra + '</p>' : '') +
+      '<div class="vnav">' +
+        (prev ? '<a class="ghost" href="webtoon.html?ep=' + prev.ep + '">← ' + pad(prev.ep) + '화</a>' : '<span class="ghost off">← 이전 화</span>') +
+        (l ? '<a class="btn" href="card.html?id=' + l.id + '">' + pad(l.id) + '과 읽기</a>' : '') +
+        (next ? '<a class="ghost" href="webtoon.html?ep=' + next.ep + '">' + pad(next.ep) + '화 →</a>' : '<span class="ghost off">다음 화 →</span>') +
+      '</div></div>';
+    document.addEventListener('keydown', function(ev){
+      if (ev.altKey || ev.ctrlKey || ev.metaKey) return;
+      if (ev.key === 'ArrowLeft' && prev) location.href = 'webtoon.html?ep=' + prev.ep;
+      if (ev.key === 'ArrowRight' && next) location.href = 'webtoon.html?ep=' + next.ep;
+    });
+  }
+
+  var q = parseInt(new URLSearchParams(location.search).get('ep'), 10);
+  var e = webtoonEps.find(function(x){ return x.ep === q && x.panels > 0; });
+  if (e) view(e); else list();
+})();
+</script>
+</body>
+</html>
