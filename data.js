@@ -856,11 +856,460 @@ const grammarData = [
       "+ 전치사는 단어가 아니라 그림이다. 일곱 개의 그림만 머리에 있으면 사전을 찾지 않고도 뜻이 잡힌다."
     ]
   }
+  ,
+  {
+    id: 33, month: 5, title: "33. WITH: 딱 붙어서 함께", tags: ["with", "함께", "도구"],
+    content: [
+      "\"친구랑 같이 갔어.\" \"연필로 썼어.\" 이 두 문장에 똑같이 들어가는 영어 단어가 있어. 뭘까?",
+      "바로 **WITH**야. 한국말은 '랑'과 '로'로 나누지만, 이 둘은 영어로 with 하나야.",
+      "! 손에 쥐고 쓰는 도구는 with야. 버스나 기차처럼 타고 가는 건 다음 과에서 배우는 by를 써.",
+      "= WITH = 나한테 **딱 붙어서 함께** 있는 것",
+      "## 사람이 붙어 있을 때 — 동행",
+      "1. I go to school with my friend. (나는 친구와 함께 학교에 가.) → 친구가 나란히 붙어 있다",
+      "2. Come with me. (나랑 같이 가.) → 내 옆에 붙어서 같이 움직인다",
+      "## 물건이 붙어 있을 때 — 도구",
+      "3. I write with a pencil. (나는 연필로 써.) → 연필이 내 손에 붙어서 같이 움직인다",
+      "4. Cut it with a knife. (칼로 잘라.) → 칼이 손에 붙어 있다",
+      "## 모습이 붙어 있을 때 — 특징",
+      "5. She is the girl with a red hat. (그녀는 빨간 모자를 쓴 여자애야.) → 모자가 그 애한테 붙어 있다",
+      "~ 친구든 연필이든 모자든, **나와 같이 움직이면** with입니다. 책상에 닿아 있는 on은 면에 붙고, with는 나와 함께 다닙니다.",
+      "> WITH를 볼 때마다 \"아, 뭔가가 붙어서 같이 있네\"라고 생각해보세요.",
+      "+ with는 '함께'라는 그림 하나다. 같이 다니는 사람이든 손에 쥔 도구든 몸에 붙은 특징이든, 나와 함께 있으면 with를 쓴다."
+    ]
+  },
+  {
+    id: 34, month: 5, title: "34. BY: 바로 곁에", tags: ["by", "곁", "방법"],
+    content: [
+      "\"창가에 앉았어.\" \"버스로 가.\" \"미나가 쓴 노래야.\" \"6시까지 와.\" 이 네 문장에 다 들어가는 단어도 하나야.",
+      "= BY = 바로 **곁**에 서 있다",
+      "with는 나한테 붙어서 같이 움직이는 거야. by는 **한 걸음 옆**에 서 있는 거야. 붙지는 않고, 곁에 있어.",
+      "@compare WITH :: 붙어서 같이 움직임 :: I write with a pencil :: BY :: 곁에 서 있음 :: I sit by the window",
+      "## 예시",
+      "1. She sits by the window. (그녀는 창가에 앉아 있어.) → 창문 바로 곁",
+      "2. I go to school by bus. (나는 버스로 학교에 가.) → 곁에 있는 버스가 나를 대신 움직여 준다. 그래서 방법이 된다",
+      "3. This song was written by Mina. (이 노래는 미나가 썼어.) → 노래 곁에 미나가 있다. 만든 사람이다",
+      "4. Come back by six. (6시까지 돌아와.) → 6시라는 시각 곁에 와 있으면 된다. at six는 6시 정각 한 점이고, by six는 늦어도 6시 곁까지다",
+      "5. I did it by myself. (나 혼자 해냈어.) → 내 곁에 나밖에 없다",
+      "~ 창문이든 버스든 노래든 시계든, **곁에 있는 것**을 가리키는 그림 하나입니다.",
+      "> BY를 볼 때마다 \"아, 바로 곁에 뭐가 있네\"라고 생각해보세요.",
+      "+ by는 곁이다. 곁에 있는 장소가 되기도 하고, 곁에서 도와주는 방법이 되기도 하고, 곁에서 만든 사람이 되기도 한다."
+    ]
+  },
+  {
+    id: 35, month: 5, title: "35. FROM: 출발한 곳", tags: ["from", "출발점", "시작"],
+    content: [
+      "\"너 어디서 왔어?\" 이 질문에 대한 답이 영어로 뭔지 알아?",
+      "25과에서 to는 화살표라고 했지. 화살표에는 머리도 있고 **꼬리**도 있어.",
+      "= FROM = 화살표의 **꼬리**, 출발한 곳",
+      "@compare TO :: 화살표 머리 (도착) :: go to school :: FROM :: 화살표 꼬리 (출발) :: come from school",
+      "## 예시",
+      "1. I'm from Korea. (나는 한국에서 왔어.) → 한국에서 출발했다",
+      "2. The gift is from my mom. (이 선물은 엄마가 준 거야.) → 엄마 손에서 출발한 선물",
+      "3. The class is from nine to ten. (수업은 9시부터 10시까지야.) → 9시에서 출발해서 10시로 도착",
+      "4. Milk comes from cows. (우유는 소에서 나와.) → 소가 출발점",
+      "5. Stay away from the fire. (불에서 떨어져 있어.) → 불에서 출발해서 멀어진다",
+      "~ to와 from은 한 쌍입니다. come from A, go to B. 화살표 하나에 꼬리와 머리가 같이 그려져요.",
+      "> FROM을 볼 때마다 \"아, 여기서 출발했네\"라고 생각해보세요.",
+      "+ from은 화살표의 꼬리다. 장소든 사람이든 시간이든, 어디서 시작했는지를 from 뒤에 놓는다."
+    ]
+  },
+  {
+    id: 36, month: 5, title: "36. ABOUT: 주변을 빙 둘러", tags: ["about", "주변", "주제"],
+    content: [
+      "\"지금 몇 시야?\" \"3시쯤이야.\" 이 '쯤'을 영어로 하면 뭘까? 정확히 3시가 아니라 3시 **둘레**를 빙글빙글 도는 말이야.",
+      "= ABOUT = 한 점의 **둘레**를 빙 돈다",
+      "@compare AT :: 정확한 한 점 :: at three o'clock :: ABOUT :: 한 점의 둘레 :: about three o'clock",
+      "## 예시",
+      "1. It's about three o'clock. (대략 3시쯤이야.) → 3시 한 점이 아니라 그 둘레",
+      "2. About twenty students came. (스무 명쯤 왔어.) → 20명 언저리",
+      "3. Let's talk about the plan. (그 계획에 대해 얘기하자.) → 계획 둘레를 빙 돌며 이야기한다",
+      "4. This book is about a dog. (이 책은 개에 대한 이야기야.) → 개 둘레에서 이야기가 펼쳐진다",
+      "5. What are you thinking about? (뭘 생각하고 있어?) → 어떤 생각 둘레를 머릿속이 맴돈다",
+      "~ 정확한 시각을 말하면 at, 대충 짐작하면 about. 점이냐 둘레냐만 고르면 됩니다.",
+      "> ABOUT을 볼 때마다 \"아, 이 주변을 빙 돌고 있네\"라고 생각해보세요.",
+      "+ about은 둘레다. 정확히 한 점이 아니라서 '대략'이 되고, 그 둘레를 맴도는 이야기라서 '~에 대해'가 된다."
+    ]
+  },
+  {
+    id: 37, month: 5, title: "37. OVER & UNDER: 위와 아래", tags: ["over", "under", "위", "아래"],
+    content: [
+      "30과에서 on은 붙어 있는 거라고 했지. 그런데 붙지 않고 **떨어져서 위에** 있으면?",
+      "= OVER = 떨어져서 위로 **넘어간다** · UNDER = 그 **밑에** 있다",
+      "@compare ON :: 닿아 있음 :: The lamp is on the table :: OVER :: 떨어져서 위 :: The lamp is over the table",
+      "## OVER — 위로",
+      "1. A plane flew over the house. (비행기가 집 위로 날아갔어.) → 닿지 않고 위를 지나간다",
+      "2. Jump over the fence. (울타리를 뛰어넘어.) → 울타리 위를 넘어간다",
+      "3. Over a hundred people came. (백 명이 넘게 왔어.) → 백이라는 선을 넘어선다",
+      "## UNDER — 아래",
+      "4. The cat is under the table. (고양이가 식탁 밑에 있어.) → 식탁 아래",
+      "5. You must be under ten. (열 살 미만이어야 해.) → 열이라는 선 아래",
+      "~ 위와 아래는 짝이라서 한 장면으로 같이 봅니다. 둘 다 **선 하나**가 기준이에요.",
+      "> OVER와 UNDER를 볼 때마다 \"아, 뭔가 기준선의 위 또는 아래네\"라고 생각해보세요.",
+      "+ over는 떨어진 위쪽, under는 그 아래쪽이다. 진짜 위아래도 되고, 숫자의 선을 넘느냐 못 넘느냐도 된다."
+    ]
+  },
+  {
+    id: 38, month: 5, title: "38. INTO & OUT OF: 안으로, 밖으로", tags: ["into", "out_of", "들어감", "나옴"],
+    content: [
+      "문을 열고 방에 들어가는 순간을 떠올려봐. 그 순간에는 in이 아니라 다른 단어를 써. 경계를 **넘어가는** 중이니까.",
+      "= INTO = 경계 안으로 들어가는 **화살표** · OUT OF = 경계 밖으로 나오는 **화살표**",
+      "in + to = into야. 안(in)으로 향하는 화살표(to)를 붙여 놓은 거지.",
+      "@compare IN :: 안에 가만히 있음 :: I'm in the room :: INTO :: 안으로 들어감 :: I walk into the room",
+      "## 예시",
+      "1. He walked into the room. (그는 방 안으로 걸어 들어갔어.) → 방의 경계를 넘어 안으로",
+      "2. She jumped into the pool. (그녀는 수영장에 뛰어들었어.) → 물이라는 경계 안으로",
+      "3. Water turned into ice. (물이 얼음으로 변했어.) → 물이라는 경계를 나와 얼음이라는 경계 안으로",
+      "4. Get out of the car. (차에서 나와.) → 차라는 경계 밖으로",
+      "5. I ran out of money. (돈이 다 떨어졌어.) → 주머니 안에 있던 돈이 밖으로 다 빠져나가서 안이 텅 비었다",
+      "~ 문 앞에 서 있다고 생각해보세요. 넘어 들어가면 into, 넘어 나오면 out of입니다.",
+      "> INTO와 OUT OF를 볼 때마다 \"아, 경계를 넘고 있네\"라고 생각해보세요.",
+      "+ in은 가만히 안에 있는 것이고, into는 안으로 들어가는 움직임이다. 그 반대로 밖으로 나오는 움직임이 out of다."
+    ]
+  },
+  {
+    id: 39, month: 5, title: "39. UP & DOWN: 올라가고 내려가고", tags: ["up", "down", "위로", "아래로"],
+    content: [
+      "엘리베이터 버튼에 위 화살표와 아래 화살표가 있지. 영어 버튼에는 UP과 DOWN이라고 써 있어.",
+      "= UP = **위쪽** 화살표 · DOWN = **아래쪽** 화살표",
+      "## 길 위에서 — 전치사",
+      "1. Go up the stairs. (계단을 올라가.) → 위쪽으로 움직인다",
+      "2. Walk down the hill. (언덕을 걸어 내려가.) → 아래쪽으로 움직인다",
+      "## 혼자 서 있을 때 — 같은 그림",
+      "! 뒤에 계단이나 언덕 같은 명사가 없어도 그림은 그대로야. 숫자가 올라가면 up, 마음이 가라앉으면 down.",
+      "3. Turn up the volume. (볼륨을 키워.) → 숫자가 위로 올라간다",
+      "4. Calm down. (진정해.) → 들뜬 마음이 아래로 가라앉는다",
+      "5. Wake up! (일어나!) → 잠 속에서 위로 떠오른다",
+      "~ 계단이든 볼륨이든 마음이든 잠이든, **위로 가면 up, 아래로 가면 down**입니다.",
+      "> UP과 DOWN을 볼 때마다 \"아, 위로 가나 아래로 가나\"라고 생각해보세요.",
+      "+ up은 위로, down은 아래로 가는 화살표다. 눈에 보이는 높이도, 숫자와 마음의 오르내림도 같은 그림으로 읽는다."
+    ]
+  },
+  {
+    id: 40, month: 5, title: "40. 다섯째 달 복습 (33과 - 39과)", tags: ["전치사총정리", "그림기억", "완성"],
+    content: [
+      "지난달에 그림 일곱 개를 가졌지. 이번 달에는 그 위에 그림이 더 쌓였어.",
+      "= 전치사는 이번 달도 **그림**으로 기억한다",
+      "## with — 붙어서 함께",
+      "사람이든 도구든 붙어서 같이 있으면 with. Come with me. I write with a pencil.",
+      "## by — 바로 곁",
+      "곁에 있는 장소, 방법, 만든 사람, 시한까지. by the window, by bus, written by Mina, by six.",
+      "## from — 화살표의 꼬리",
+      "출발한 곳. I'm from Korea. Stay away from the fire.",
+      "## about — 한 점의 둘레",
+      "정확한 한 점이 at이라면 그 둘레가 about. about three o'clock, a story about a dog.",
+      "## over & under — 기준선의 위와 아래",
+      "떨어져서 위로 넘으면 over, 그 밑이면 under. over the fence, under the table.",
+      "## into & out of — 경계를 넘는 화살표",
+      "안으로 들어가면 into, 밖으로 나오면 out of. walk into the room, get out of the car.",
+      "## up & down — 위쪽과 아래쪽 화살표",
+      "높이도, 숫자도, 마음도 오르내림은 같은 그림. go up the stairs, calm down.",
+      "## 지금까지 모은 그림",
+      "> 지난달 그림과 합쳐서 보면 to · for · in · at · on · of · off · with · by · from · about · over · under · into · out of · up · down",
+      "~ 그림은 겹쳐서 쓰입니다. 한 문장에 두세 개가 같이 나와도 그림을 하나씩 대보면 풀립니다.",
+      "+ 그림이 쌓일수록 전치사는 쉬워진다. 문장 안의 전치사 하나를 보면 그 뒤에 어떤 장면이 붙는지 머릿속에 그려진다."
+    ]
+  }
+  ,
+  {
+    id: 41, month: 6, title: "41. THROUGH: 들어가서 반대쪽으로 나온다", tags: ["through", "통과", "터널"],
+    content: [
+      "빨대로 주스를 마셔 본 적 있지? 주스는 빨대 한쪽으로 들어가서 반대쪽으로 나와. 그 길이 **THROUGH**야.",
+      "= THROUGH = 한쪽으로 들어가서 **반대쪽으로 나오는** 터널",
+      "into는 안으로 들어가는 데서 끝나. through는 계속 가서 반대쪽 끝까지 빠져나가.",
+      "@compare INTO :: 안으로 들어가서 거기서 끝 :: walk into the room :: THROUGH :: 들어가서 반대쪽으로 빠져나옴 :: walk through the room",
+      "## 길을 통과할 때",
+      "1. We walked through the market. (우리는 시장을 지나 걸어갔어.) → 시장 한가운데로 들어가서 반대편 입구로 나왔다",
+      "2. The train goes through a tunnel. (기차가 터널을 통과해.) → 터널 한쪽으로 들어가서 반대쪽으로 나온다",
+      "3. She looked through the window. (그녀는 창문 너머를 봤어.) → 시선이 유리를 뚫고 반대쪽까지 간다",
+      "## 시간을 통과할 때",
+      "4. We talked through the night. (우리는 밤새 이야기했어.) → 밤이 시작될 때 들어가서 끝날 때 나올 때까지 계속",
+      "~ 들어간 자리와 나온 자리가 따로 있는지 물어보세요. 둘이 다르면 through입니다.",
+      "> THROUGH를 볼 때마다 \"아, 이 길은 반대쪽까지 이어지네\"라고 생각해보세요.",
+      "+ through는 시작과 끝이 이어진 길이다. 시장이든 터널이든 유리든 밤이든, 한쪽으로 들어가 반대쪽으로 나오면 through를 쓴다."
+    ]
+  },
+  {
+    id: 42, month: 6, title: "42. BETWEEN & AMONG: 사이에 끼고, 속에 섞이고", tags: ["between", "among", "사이"],
+    content: [
+      "샌드위치를 떠올려봐. 빵 두 장 **사이**에 햄이 끼어 있지. 그런데 과자 한 봉지 **속**에서 과자 하나를 집을 때는 느낌이 달라.",
+      "= BETWEEN = 둘 **사이**에 끼어 있다 · AMONG = 여럿 **속**에 섞여 있다",
+      "@compare BETWEEN :: 딱 두 개의 사이 :: between the two boxes :: AMONG :: 여럿의 속 :: among the boxes",
+      "## BETWEEN — 둘 사이",
+      "1. The cat is between the two boxes. (고양이가 상자 두 개 사이에 있어.) → 왼쪽에 상자 하나, 오른쪽에 상자 하나",
+      "2. Sit between Mina and me. (미나와 나 사이에 앉아.) → 양쪽에 사람이 하나씩",
+      "3. The shop is between the bank and the school. (가게는 은행과 학교 사이에 있어.) → 은행과 학교가 양쪽 끝",
+      "## AMONG — 여럿 속",
+      "4. I found my hat among the coats. (코트들 속에서 내 모자를 찾았어.) → 코트 여러 벌 틈에 섞여 있었다",
+      "5. She is the tallest among her friends. (친구들 중에서 그녀가 제일 키가 커.) → 친구 여럿 속에서 견준다",
+      "~ 손가락으로 세어 보세요. 딱 둘이면 between, 여럿 속에 섞여 있으면 among이에요.",
+      "! 셋 이상이어도 하나하나의 위치를 콕 집어 말할 때는 between을 쓰기도 해요. 처음에는 '둘은 between, 여럿은 among'만 기억해요.",
+      "> in은 테두리가 기준이고, between과 among은 이웃하는 것들이 기준이에요.",
+      "+ 사이에 낀 게 둘이면 between, 여럿 속에 섞이면 among이다. 어느 쪽이든 기준은 테두리가 아니라 곁에 있는 이웃이다."
+    ]
+  },
+  {
+    id: 43, month: 6, title: "43. BEFORE & AFTER: 줄의 앞과 뒤", tags: ["before", "after", "순서"],
+    content: [
+      "매점 줄에 서 있다고 생각해 봐. 내 **앞**에 선 사람이 먼저 사고, 내 **뒤**에 선 사람이 나중에 사.",
+      "= BEFORE = 줄에서 **앞** (먼저) · AFTER = 줄에서 **뒤** (나중)",
+      "시간도 줄이야. 아침이 저녁보다 줄 앞에 서 있어.",
+      "@compare BEFORE :: 더 이른 쪽 :: before dinner :: AFTER :: 더 늦은 쪽 :: after dinner",
+      "## 시간의 줄",
+      "1. Wash your hands before dinner. (저녁 먹기 전에 손을 씻어.) → 저녁이라는 자리보다 줄 앞",
+      "2. I call my mom after school. (학교 끝나고 엄마한테 전화해.) → 학교보다 줄 뒤",
+      "3. We talked after the movie. (영화 끝나고 우리는 얘기했어.) → 영화 다음 순서",
+      "## 순서의 줄",
+      "4. A comes before B. (A는 B 앞에 와.) → 알파벳 줄에서 앞",
+      "5. Monday comes after Sunday. (월요일은 일요일 뒤에 와.) → 요일 줄에서 뒤",
+      "6. After you. (먼저 가세요.) → 나는 당신 뒤에 서겠다는 말",
+      "~ 34과의 by six는 6시 정각에 온 사람도 통과예요. before six는 6시가 되기 전이라서 6시 정각은 못 들어와요.",
+      "> 앞줄은 before, 뒷줄은 after. 시계도 달력도 알파벳도 전부 같은 줄이에요.",
+      "+ before는 줄의 앞이고 after는 줄의 뒤다. 시간이든 순서든 누가 먼저 서 있는지만 보면 된다."
+    ]
+  },
+  {
+    id: 44, month: 6, title: "44. ABOVE & BELOW: 눈금선의 위와 아래", tags: ["above", "below", "높이"],
+    content: [
+      "수영장 물 위에 떠서 발을 내려다본다고 생각해 봐. 수면이 선 하나야. 그 선보다 **위**는 above, **아래**는 below야.",
+      "= ABOVE = 선보다 **위** · BELOW = 선보다 **아래**",
+      "37과의 over와 under는 바로 위를 넘어가거나 바로 밑에 있는 가까운 그림이었어. above와 below는 거리는 상관없이 높이가 위인지 아래인지만 말해.",
+      "@compare OVER :: 바로 위를 넘어감 :: A bird flew over the boat :: ABOVE :: 높이만 위쪽 :: The sun is above the boat",
+      "1. The sun is above the sea. (해가 바다 위에 있어.) → 수면이라는 선보다 높은 곳",
+      "2. The fish swim below the boat. (물고기들이 배 아래에서 헤엄쳐.) → 배가 있는 높이보다 낮은 곳",
+      "3. The temperature is below zero. (기온이 영하야.) → 0이라는 눈금선보다 아래",
+      "4. Her name is above mine on the list. (목록에서 그녀 이름이 내 이름 위에 있어.) → 목록 칸에서 위쪽",
+      "~ 거리는 상관없어요. 해가 바다 위 멀리 떠 있어도 above, 물고기가 배 한참 아래에 있어도 below예요.",
+      "> 온도계를 떠올려요. 0 위는 above, 0 아래는 below.",
+      "+ 선을 하나 긋고 위와 아래를 가르면 above와 below가 된다. 바다의 수면이든 온도계의 0이든 목록의 칸이든 같은 그림이다."
+    ]
+  },
+  {
+    id: 45, month: 6, title: "45. AROUND: 빙 둘러서, 돌아서", tags: ["around", "둘러싸다", "한바퀴"],
+    content: [
+      "캠핑 가서 모닥불 주위에 둥글게 앉아 본 적 있어? 불은 가운데에 있고 사람들은 그 둘레를 빙 둘러 앉아. 그 그림이 **AROUND**야.",
+      "= AROUND = 가운데를 **빙 둘러** 있거나 · 한 바퀴 **돌아서** 간다",
+      "1. We sat around the fire. (우리는 불 둘레에 둘러앉았어.) → 불이 가운데, 사람이 동그랗게",
+      "2. I walked around the lake. (나는 호수를 한 바퀴 돌았어.) → 호수 가장자리를 빙 돈다",
+      "3. Wait for me around the corner. (모퉁이 돌아서 기다려.) → 모퉁이를 돌아가면 나오는 곳",
+      "~ 시각과 숫자에서는 about과 바꿔 써도 돼요. around three o'clock, about three o'clock 둘 다 3시쯤이에요. 다른 점은 around가 몸으로 돌거나 둘러싸는 모습까지 그린다는 거예요.",
+      "> AROUND를 볼 때마다 \"아, 둥글게 돌고 있네\"라고 생각해보세요.",
+      "+ 불 둘레에 앉든 호수를 걷든 모퉁이를 돌든, 둘레를 도는 그림이면 around다."
+    ]
+  },
+  {
+    id: 46, month: 6, title: "46. ACROSS & ALONG: 가로질러, 따라서", tags: ["across", "along", "길"],
+    content: [
+      "강 하나를 두고 두 가지로 움직일 수 있어. 강을 이쪽에서 저쪽으로 **건너가거나**, 강가를 **따라** 걸어가거나.",
+      "= ACROSS = 이쪽 끝에서 저쪽 끝으로 **가로지른다** · ALONG = 길게 뻗은 것을 **따라간다**",
+      "@compare ACROSS :: 이쪽에서 저쪽으로 건넘 :: across the river :: ALONG :: 뻗은 길을 따라감 :: along the river",
+      "## ACROSS — 이쪽에서 저쪽으로",
+      "1. We rowed across the bay. (우리는 노를 저어 만을 건넜어.) → 만의 한쪽 끝에서 반대쪽 끝으로",
+      "2. Walk across the street. (길을 건너.) → 길 한쪽에서 반대쪽으로",
+      "3. A smile spread across her face. (미소가 그녀의 얼굴에 번졌어.) → 얼굴 한쪽에서 반대쪽까지",
+      "## ALONG — 따라서",
+      "4. She walked along the pier. (그녀는 부두를 따라 걸었어.) → 길게 뻗은 부두 방향으로 움직인다",
+      "5. There are trees along the road. (길을 따라 나무가 서 있어.) → 길이 뻗은 방향으로 늘어서 있다",
+      "~ through는 속을 뚫고 나오는 거고, across는 겉면을 가로지르는 거예요. 만을 across로 건널 때는 물속이 아니라 물 위를 지나가요.",
+      "> '끝에서 끝으로'라는 말이 떠오르면 across, '쭉 따라서'라는 말이 떠오르면 along이에요.",
+      "+ across는 가로로 건너는 것이고 along은 길이를 따라가는 것이다. 어느 쪽 방향으로 움직이는지가 두 단어를 가른다."
+    ]
+  },
+  {
+    id: 47, month: 6, title: "47. BEHIND & BESIDE: 뒤에 숨고, 옆에 서고", tags: ["behind", "beside", "위치"],
+    content: [
+      "숨바꼭질 해 봤지? 나무 **뒤**에 숨으면 술래는 나를 못 봐. 그런데 친구가 내 바로 **옆**에 서 있으면 둘 다 보여.",
+      "= BEHIND = 가려서 안 보이는 **뒤** · BESIDE = 나란히 서 있는 **옆**",
+      "## BEHIND — 뒤",
+      "1. The cat is behind the door. (고양이는 문 뒤에 있어.) → 문에 가려서 안 보인다",
+      "2. The sun went behind the clouds. (해가 구름 뒤로 들어갔어.) → 구름에 가려졌다",
+      "3. Who is hiding behind the tree? (누가 나무 뒤에 숨어 있어?) → 나무가 나를 가려 준다",
+      "## BESIDE — 옆",
+      "4. She stood beside me. (그녀는 내 옆에 섰어.) → 같은 방향을 보며 나란히",
+      "~ 34과의 by도 곁이지만 by는 가까이에 있다는 뜻이고, beside는 나란히 옆자리라는 뜻이에요. by the window는 창문 가까이, beside me는 내 옆자리예요.",
+      "> 숨바꼭질은 behind, 나란히 걷기는 beside.",
+      "+ 숨바꼭질처럼 가려지면 behind, 나란히 서 있으면 beside다."
+    ]
+  },
+  {
+    id: 48, month: 6, title: "48. 여섯째 달 복습 (41과 - 47과)", tags: ["전치사총정리", "길과자리", "완성"],
+    content: [
+      "이번 달 전치사는 전부 어디에 있고 어떻게 지나가는지를 그렸어.",
+      "= 이번 달도 전치사는 **그림**이다. 이번에는 길과 자리",
+      "## through — 들어가서 반대쪽으로 나오는 터널",
+      "시장, 터널, 유리, 밤. We walked through the market.",
+      "## between & among — 사이와 속",
+      "둘 사이에 끼면 between, 여럿 속에 섞이면 among. between the two boxes, among the coats.",
+      "## before & after — 줄의 앞과 뒤",
+      "시간도 순서도 줄이다. before dinner, after school, Monday comes after Sunday.",
+      "## above & below — 눈금선의 위와 아래",
+      "거리와 상관없이 높이만 본다. above the sea, below zero.",
+      "## around — 둘러서, 돌아서",
+      "불 둘레도 호수 한 바퀴도 모퉁이 돌기도 같은 그림이다. We sat around the fire.",
+      "## across & along — 가로질러, 따라서",
+      "끝에서 끝으로 건너면 across, 길을 따라가면 along. across the bay, along the pier.",
+      "## behind & beside — 뒤와 옆",
+      "가려지면 behind, 나란히 서면 beside. behind the door, beside me.",
+      "## 지금까지 모은 그림",
+      "> 25~40과의 그림 위에 through · between · among · before · after · above · below · around · across · along · behind · beside가 더 붙었다",
+      "~ 이번 달 그림을 하나로 묶으면 지도가 돼요. 문장 속 전치사 하나가 지도 위의 어느 점인지, 어느 길인지를 알려 줍니다.",
+      "+ 전치사가 붙으면 문장이 그림이 된다. 이번 달에는 길과 자리 열두 개가 더 생겼다."
+    ]
+  }
+  ,
+  {
+    id: 49, month: 7, title: "49. DURING: 일이 벌어지는 동안", tags: ["during", "동안", "시간의띠"],
+    content: [
+      "영화관에서 옆자리 사람이 속삭인다. \"쉿, 영화 하는 **동안**이잖아.\"",
+      "이 '~하는 동안'을 영어로 하면 **DURING**이야.",
+      "= DURING = 어떤 일이 벌어지는 **시간의 띠** 안",
+      "영화, 폭풍, 긴 밤은 다 시작과 끝이 있는 띠야. during은 그 띠 위에 서 있다는 말이야.",
+      "## 예시",
+      "1. It rained during the night. (밤 동안 비가 왔어.) → '밤'이라는 띠 위에서 비가 내렸다",
+      "2. Don't talk during the movie. (영화 하는 동안 떠들지 마.) → 영화라는 띠가 흐르는 동안",
+      "3. The bell rang during the storm. (폭풍이 부는 동안 종이 울렸어.) → 폭풍이라는 띠 안",
+      "@compare FOR :: 얼마나 길게 (길이) :: I slept for two hours :: DURING :: 무슨 일이 벌어지는 동안 (사건) :: I slept during the movie",
+      "~ in은 경계 안에 있다는 것만 말해. during은 그 안에서 일이 진행되는 중이라는 것까지 말해줘.",
+      "> during 뒤에 two hours나 three days가 붙어 있으면 잠깐 멈춰. 그건 for일 가능성이 높아.",
+      "+ during은 일이 벌어지는 동안이라는 띠다. 얼마나 길었는지는 for가, 무슨 일이 벌어지는 중이었는지는 during이 말한다."
+    ]
+  },
+  {
+    id: 50, month: 7, title: "50. UNTIL & SINCE: 끝 말뚝과 시작 말뚝", tags: ["until", "since", "말뚝"],
+    content: [
+      "\"6시까지 와.\"와 \"6시까지 기다려.\" 둘 다 '까지'인데, 34과의 by six는 앞의 것만 맡아. 뒤의 '계속'은 다른 단어가 맡아.",
+      "= UNTIL = **끝 말뚝**까지 쭉 이어진다 · SINCE = **시작 말뚝**에서 지금까지 쭉 이어진다",
+      "줄 하나를 상상해봐. until은 줄의 오른쪽 끝에 말뚝을 박고, since는 왼쪽 끝에 말뚝을 박아.",
+      "@compare BY :: 늦어도 그때까지 (한 번 해내면 끝) :: Come back by six :: UNTIL :: 그때까지 쭉 계속 :: Wait here until six",
+      "## UNTIL — 그때까지 계속",
+      "1. Wait here until six. (6시까지 여기서 기다려.) → 기다림이 6시 말뚝에서 끝난다",
+      "2. We waited until the bell rang. (우리는 종이 울릴 때까지 기다렸어.) → 종이 울리는 순간이 끝 말뚝",
+      "3. I stayed up until midnight. (나는 자정까지 안 잤어.) → 자정 말뚝에서 깨어 있던 줄이 끊긴다",
+      "## SINCE — 그때부터 지금까지",
+      "4. I have lived here since 2020. (나는 2020년부터 여기 살아왔어.) → 2020 말뚝에서 시작해서 지금까지",
+      "5. She has been here since Monday. (그녀는 월요일부터 여기 있었어.) → 월요일 말뚝에서 지금까지 줄이 이어져 있다",
+      "~ since 문장에는 보통 have가 같이 다녀. 18과에서 본 현재완료가 바로 그 짝이야.",
+      "> 끝을 찍으면 until, 시작을 찍으면 since. 말뚝이 어느 쪽에 박혔는지만 보면 돼.",
+      "+ until은 끝 말뚝, since는 시작 말뚝이다. 둘 다 줄이 끊기지 않고 이어진다는 점에서 한 번 해내면 끝나는 by와 다르다."
+    ]
+  },
+  {
+    id: 51, month: 7, title: "51. WITHOUT: 있던 자리가 비었다", tags: ["without", "없이", "빈자리"],
+    content: [
+      "우산 없이 나갔더니 비가 쏟아졌다. 이 '~ 없이'가 영어로 **WITHOUT**이야.",
+      "= WITHOUT = 함께 있던 것이 빠져서 **빈자리**가 남았다",
+      "글자를 쪼개 보면 with + out이야. with(붙어서 함께)에서 밖(out)으로 나가 버린 거지. 그래서 with의 정반대야.",
+      "! without 뒤에 동작이 올 때는 saying처럼 -ing 꼴로 써.",
+      "## 예시",
+      "1. Don't go out without an umbrella. (우산 없이 나가지 마.) → 우산이 있어야 할 자리가 비어 있다",
+      "2. I can't sleep without music. (나는 음악 없이는 잠을 못 자.) → 음악 자리가 비면 잠도 안 온다",
+      "3. He drinks coffee without sugar. (그는 설탕 없이 커피를 마셔.) → 설탕 자리가 빈 커피",
+      "4. She left without saying goodbye. (그녀는 작별 인사도 없이 떠났어.) → '작별 인사하기' 자리가 비었다",
+      "~ 33과의 with는 나와 같이 움직이는 것이었어. without은 그 짝이 빠진 상태야. 문장 안에서 with 자리에 without을 넣으면 뜻이 정반대로 뒤집혀.",
+      "+ without은 빈자리다. 있어야 할 것이 없다는 뜻이니, with와 자리를 바꾸면 문장이 정반대가 된다."
+    ]
+  },
+  {
+    id: 52, month: 7, title: "52. AGAINST: 맞서서 밀고 있다", tags: ["against", "맞섬", "기댐"],
+    content: [
+      "벽에 기대선 사람을 떠올려봐. 그냥 벽에 붙은 게 아니라 몸무게를 실어서 **밀고** 있어.",
+      "= AGAINST = 무언가에 **맞서서** 힘을 싣고 있다",
+      "on은 그냥 닿아 있는 것이었고, against는 닿은 채로 힘이 오가. 그 힘의 방향이 서로 반대라서 '기대', '맞서', '반대'가 다 나와.",
+      "@compare ON :: 그냥 닿아 있음 :: A picture is on the wall :: AGAINST :: 힘을 싣고 맞대고 있음 :: He leans against the wall",
+      "## 예시",
+      "1. He leans against the wall. (그는 벽에 기대 서 있어.) → 몸무게가 벽을 밀고 있다",
+      "2. The wind blew against the window. (바람이 창문에 세게 불어 부딪혔어.) → 바람이 유리를 밀어붙인다",
+      "3. We played against Team B. (우리는 B팀과 맞서서 경기했어.) → 두 팀이 서로 반대편에 마주 선다",
+      "4. Who voted against the plan? (누가 그 계획에 반대표를 던졌어?) → 계획과 반대쪽에 서 있다",
+      "~ 그래서 for와 짝이 돼. 27과의 for가 내 마음이 향하는 쪽이라면, against는 그 반대쪽에 서 있는 거야.",
+      "> against 뒤에 오는 건 내가 마주 서 있는 상대나 벽이야. 힘을 주는 방향만 그리면 뜻이 잡혀.",
+      "+ against는 맞대고 미는 힘이다. 벽에 기댈 때도, 계획에 반대할 때도, 상대와 겨룰 때도 같은 그림이다."
+    ]
+  },
+  {
+    id: 53, month: 7, title: "53. LIKE & AS: 거울과 명찰", tags: ["like", "as", "처럼과로서"],
+    content: [
+      "\"그는 왕처럼 일해.\"와 \"그는 왕으로서 일해.\" 이 두 문장, 같은 뜻일까? 아니야. 영어는 이 둘을 다른 단어로 갈라.",
+      "= LIKE = 닮은 모습을 비추는 **거울** · AS = 그 역할을 다는 **명찰**",
+      "! like에는 '좋아하다'라는 동사도 있어. 여기서는 뒤에 명사가 붙어서 '~처럼'이 되는 like만 다뤄.",
+      "## LIKE — 닮았다 (진짜는 아니다)",
+      "1. She sings like a bird. (그녀는 새처럼 노래해.) → 새를 비춘 거울처럼 닮았을 뿐, 새는 아니다",
+      "2. It feels like summer. (여름 같은 느낌이야.) → 여름과 닮았다",
+      "3. You look like your mother. (너는 엄마를 닮았어.) → 엄마 모습이 거울에 비친다",
+      "## AS — 그 역할이다 (진짜다)",
+      "4. He works as a teacher. (그는 교사로 일해.) → 진짜 교사라는 명찰을 달았다",
+      "5. Use this box as a chair. (이 상자를 의자로 써.) → 상자가 의자라는 명찰을 달고 역할을 맡는다",
+      "@compare LIKE :: 닮음 (진짜가 아닐 수 있다) :: He works like a boss :: AS :: 역할 (진짜다) :: He works as a boss",
+      "~ 명찰은 진짜 자격을 알려주고, 거울은 닮은 모습만 보여줘. 그래서 He works like a boss와 He works as a boss는 전혀 다른 말이야.",
+      "+ like는 거울이고 as는 명찰이다. 닮기만 했으면 like, 그 역할을 하고 있으면 as를 쓴다."
+    ]
+  },
+  {
+    id: 54, month: 7, title: "54. BECAUSE OF & DESPITE: 이유와 걸림돌", tags: ["because_of", "despite", "이유"],
+    content: [
+      "A: Why didn't you go out?",
+      "B: Because of the rain.",
+      "이 대답이 이 과의 절반이야. 나머지 절반은 정반대로, 비가 와도 나갔을 때 쓰는 말이야.",
+      "= BECAUSE OF = 이유를 **등에 업고** 간다 · DESPITE = 걸림돌을 **지나쳐서** 그대로 간다",
+      "## 예시",
+      "1. We stayed home because of the rain. (비 때문에 우리는 집에 있었어.) → 비를 등에 업고 집에 남았다",
+      "2. The game was cancelled because of the storm. (폭풍 때문에 경기가 취소됐어.) → 폭풍이 이유를 등에 업고 취소로 이어졌다",
+      "3. She smiled despite the pain. (그녀는 아팠는데도 웃었어.) → 아픔이라는 걸림돌을 지나쳐서 웃는다",
+      "4. Despite the rain, we played outside. (비가 왔는데도 우리는 밖에서 놀았어.) → 비를 지나쳐 밖으로 나갔다",
+      "! because만 있으면 뒤에 문장(주어 + 동사)이 오고, because of 뒤에는 명사가 와. because it rained와 because of the rain을 나란히 놓고 봐.",
+      "~ despite 뒤에도 명사가 와. 문장을 쓸 때는 of가 붙었는지만 확인하면 접속사 because와 헷갈리지 않아.",
+      "> 이유가 있으면 등에 업고, 그래도 갔으면 지나친다. 방향이 반대인 두 짝이야.",
+      "+ because of는 이유를 앞세우고, despite는 걸림돌을 넘어선다. 같은 사건에서 결과가 예상대로냐 뜻밖이냐로 갈린다."
+    ]
+  },
+  {
+    id: 55, month: 7, title: "55. TOWARD & BEYOND: 그쪽으로, 저 너머로", tags: ["toward", "beyond", "방향"],
+    content: [
+      "나침반 바늘은 북쪽에 도착하지 않아. 그냥 북쪽을 **가리켜**. 이 '~쪽으로'가 TOWARD야. 그리고 울타리 저편 멀리 있는 곳은 BEYOND야.",
+      "= TOWARD = 그쪽을 **가리키며** 가는 중 · BEYOND = 선을 넘어 **저 너머**",
+      "@compare TO :: 도착점까지 감 :: walk to the sea :: TOWARD :: 그쪽으로 가는 중 (도착은 몰라) :: walk toward the sea",
+      "## TOWARD — 쪽으로",
+      "1. The boat is turning toward the pier. (배가 부두 쪽으로 돌고 있어.) → 뱃머리가 부두를 가리키며 돈다",
+      "2. Walk toward the light. (빛 쪽으로 걸어가.) → 빛을 가리키며 가는 중. 아직 닿지는 않았다",
+      "## BEYOND — 저 너머",
+      "3. The school is beyond that hill. (학교는 저 언덕 너머에 있어.) → 언덕이라는 선을 넘은 저편",
+      "4. The sun rose beyond the horizon. (해가 수평선 너머에서 떠올랐어.) → 수평선이라는 선의 저쪽",
+      "~ over도 선을 넘는다고 했지(37과). over는 선 바로 위를 지나가는 그림이야. beyond는 선을 넘어서 눈에 안 닿을 만큼 저편에 가 있어.",
+      "+ toward는 나침반 바늘처럼 쪽을 가리키고, beyond는 선 너머 저편이다. 도착했는지는 to가, 어디를 향하는지는 toward가, 얼마나 멀리 있는지는 beyond가 말한다."
+    ]
+  },
+  {
+    id: 56, month: 7, title: "56. 일곱째 달 복습 (49과 - 55과)", tags: ["전치사총정리", "그림지도", "완성"],
+    content: [
+      "이번 달에는 시간과 까닭, 방향 그림이 쌓였어. 하나씩 다시 걸어보자.",
+      "= 일곱째 달의 그림은 **시간, 까닭, 방향**이다",
+      "## during — 시간의 띠",
+      "영화나 폭풍처럼 일이 벌어지는 동안. Don't talk during the movie. 길이(두 시간)는 for가 맡는다.",
+      "## until & since — 끝 말뚝과 시작 말뚝",
+      "끝 말뚝까지 쭉이면 until, 시작 말뚝에서 지금까지 쭉이면 since. Wait here until six. I have lived here since 2020.",
+      "## without — 빈자리",
+      "with가 빠진 자리. Don't go out without an umbrella.",
+      "## against — 맞대고 미는 힘",
+      "벽에 기댈 때도, 계획에 반대할 때도. He leans against the wall. Who voted against the plan?",
+      "## like & as — 거울과 명찰",
+      "닮았으면 like, 그 역할이면 as. She sings like a bird. He works as a teacher.",
+      "## because of & despite — 이유와 걸림돌",
+      "이유를 업으면 because of, 걸림돌을 지나치면 despite. We stayed home because of the rain. She smiled despite the pain.",
+      "## toward & beyond — 쪽으로와 저 너머",
+      "쪽을 가리키면 toward, 선을 넘은 저편이면 beyond. Walk toward the light. The school is beyond that hill.",
+      "## 지금까지 모은 그림",
+      "> to · for · in · at · on · of · off · with · by · from · about · over · under · into · out of · up · down · through · between · among · before · after · above · below · around · across · along · behind · beside · during · until · since · without · against · like · as · because of · despite · toward · beyond",
+      "~ 처음엔 그림을 하나씩 대보던 것이, 이제는 문장을 읽으면 그림이 먼저 떠올라.",
+      "+ 전치사는 외울 목록이 아니라 그림이 모인 지도다. 처음 보는 전치사도 지도 위 어디에 놓일지만 찾으면 된다."
+    ]
+  }
 ];
 
 const monthMeta = {
   1: { label: "MONTH 1", theme: "영어의 기본 구조 완성", tags: "#기초뿌시기 #영어는순서 #기차놀이" },
   2: { label: "MONTH 2", theme: "be 동사 완전 정복", tags: "#be동사 #빈컵이론 #상태설명" },
   3: { label: "MONTH 3", theme: "have 동사 완전 정복", tags: "#have #get #take #욕심쟁이동사" },
-  4: { label: "MONTH 4", theme: "전치사 완전 정복", tags: "#전치사 #화살표 #In_At_On #관계" }
+  4: { label: "MONTH 4", theme: "전치사 완전 정복", tags: "#전치사 #화살표 #In_At_On #관계" },
+  5: { label: "MONTH 5", theme: "전치사 2 · 붙고 떠나고 넘나드는 그림", tags: "#with #by #from #about #over_under #into #up_down" },
+  6: { label: "MONTH 6", theme: "전치사 3 · 지나고 사이에 끼고 둘러싸는 그림", tags: "#through #between #before_after #above_below #around #across #behind" },
+  7: { label: "MONTH 7", theme: "전치사 4 · 시간과 이유와 방향의 그림", tags: "#during #until_since #without #against #like_as #because_of #toward" }
 };

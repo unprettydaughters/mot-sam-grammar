@@ -531,4 +531,410 @@ const dramaScenes = {
         "(셋이 동시에 빵 터져 웃는다. 밤하늘 위로 기분 좋은 비트의 음악이 페이드인 되며 올라간다. 카메라 천천히 줌아웃.)"
       ] }
   ],
+  // ─── 5월 · 「사라진 종소리」 (The Missing Bell) ───
+  33: [
+    { no: "33", title: "같이 가자", lines: [
+        "[파도중학교 종탑 아래. 이른 아침. 안개.]",
+        "(백 년 된 종탑. 맨 위, 종이 있어야 할 자리가 텅 비어 있다. 하늘, 고개를 뒤로 젖힌 채 굳어 있다. 손에는 언제나 들고 다니는 노트.)",
+        "하늘: The bell is gone.",
+        "(뒤에서 찰칵, 셔터 소리. 도윤이 카메라를 들고 다가온다.)",
+        "도윤: I know. I came to take a picture.",
+        "하늘: Before school?",
+        "도윤: (화면을 내밀며) Look. Yesterday at six, the bell was still there.",
+        "하늘: (노트에 재빨리 적는다) So it disappeared last night.",
+        "도윤: Someone took it.",
+        "하늘: Then I need to find that someone. Come with me.",
+        "도윤: Where?",
+        "하늘: The janitor's room. He has all the keys.",
+        "도윤: (카메라를 목에 걸며) Okay. I'm coming with my camera."
+      ] }
+  ],
+  34: [
+    { no: "34", title: "창가의 목격자", lines: [
+        "[관리실. 종탑 바로 옆 작은 방. 같은 아침.]",
+        "(강 할아버지가 창가 의자에 앉아 식은 차를 마시고 있다. 창밖으로 종탑이 보인다.)",
+        "하늘: Sir, were you here last night?",
+        "강 할아버지: I sat by the window all night.",
+        "도윤: Then you saw everything.",
+        "강 할아버지: (고개를 저으며) I saw a truck. By the gate. That's all.",
+        "하늘: A truck? Can a truck carry a bell?",
+        "강 할아버지: A bell that big? It needs a crane.",
+        "하늘: Who was driving?",
+        "강 할아버지: I don't know. (열쇠 꾸러미를 짤랑 흔들며) Come back by six. The gate camera has the answer.",
+        "(하늘, 노트에 크게 적는다. \"TRUCK — BY THE GATE.\")"
+      ] }
+  ],
+  35: [
+    { no: "35", title: "어디서 왔니", lines: [
+        "[학교 뒷담장. 점심시간.]",
+        "(하늘과 도윤이 종탑 뒤를 살피는데, 낯선 여학생이 흙바닥에 쭈그려 앉아 뭔가를 줍고 있다.)",
+        "하늘: Hey. Who are you?",
+        "소이: (일어서며 손을 털고) Soi. I'm new here.",
+        "도윤: Where are you from?",
+        "소이: Busan. I came from Busan last week.",
+        "하늘: (눈을 가늘게 뜨며) Why are you here? Nobody comes to this wall.",
+        "소이: (주머니 속 접힌 종이를 슬쩍 누르며) Nothing.",
+        "도윤: (소이의 손을 가리키며) What's in your hand?",
+        "소이: A ribbon. (붉은 리본을 내민다) It fell from the tower.",
+        "하늘: (리본을 받아 들며) From the bell tower...",
+        "(하늘, 소이의 얼굴을 오래 본다. 소이는 시선을 피한다.)"
+      ] }
+  ],
+  36: [
+    { no: "36", title: "종에 대한 이야기", lines: [
+        "[빈 교실. 방과 후. 창밖 노을.]",
+        "(칠판에 단서가 적혀 있다. TRUCK / RIBBON / 6 P.M. 하늘, 분필을 쥔 채 소이를 본다.)",
+        "하늘: Soi. What do you know about the bell?",
+        "소이: (잠시 망설이다) There's an old story about it.",
+        "도윤: What kind of story?",
+        "소이: It rings when someone is in trouble. (창밖을 보며) It rang every evening at six.",
+        "도윤: (하늘에게) You're quiet. What are you thinking about?",
+        "하늘: (분필을 톡 내려놓으며) The truck. A truck leaves marks on the road.",
+        "도윤: So we follow the marks.",
+        "하늘: Tomorrow. After school.",
+        "(소이, 아무 말 없이 주머니 속 종이를 다시 만진다.)"
+      ] }
+  ],
+  37: [
+    { no: "37", title: "울타리 너머", lines: [
+        "[학교 뒷문 밖. 해 질 무렵.]",
+        "(굳게 잠긴 뒷문. 그 옆으로 낮은 울타리. 울타리 너머 젖은 흙길에 깊게 팬 바퀴 자국이 길게 이어져 있다.)",
+        "하늘: Look. Tire marks. They start behind the fence.",
+        "도윤: The gate is locked.",
+        "하늘: Then we go over the fence.",
+        "도윤: (한숨) The teacher will kill us.",
+        "하늘: (이미 한 발을 걸치며) Quick!",
+        "(울타리를 넘은 둘. 도윤이 무릎을 굽혀 큰 돌 아래를 들여다본다.)",
+        "도윤: Wait. There's something under this stone.",
+        "(돌 밑에서 작고 낡은 놋쇠 열쇠가 나온다. 열쇠에 묶인 끈이 리본과 같은 붉은색이다.)",
+        "하늘: (열쇠를 들어 올리며) The same red."
+      ] }
+  ],
+  38: [
+    { no: "38", title: "안으로, 그리고 밖으로", lines: [
+        "[학교 옆 낡은 창고. 어두운 저녁.]",
+        "(열쇠가 자물쇠에 딱 맞는다. 문이 삐걱 열린다. 하늘이 손전등을 켠다.)",
+        "하늘: Ready? We're going into the dark.",
+        "도윤: (카메라 플래시를 터뜨리며) Not the dark. The light.",
+        "(창고 안. 먼지 낀 커다란 나무 상자. 뚜껑이 열려 있고 텅 비었다. 짚만 흩어져 있다.)",
+        "도윤: The bell was in this box.",
+        "하늘: (짚을 집으며) The straw is still clean. Someone took it out of the box today.",
+        "(그때 창고 뒤편에서 쿵! 소리. 검은 그림자가 뒷문으로 튀어 나간다.)",
+        "도윤: Someone just ran out of the storeroom!",
+        "하늘: (바닥에서 뭔가를 줍는다. 붉은 끈 조각) Follow them!"
+      ] }
+  ],
+  39: [
+    { no: "39", title: "탑 위에서", lines: [
+        "[종탑 나선 계단. 밤.]",
+        "(하늘이 두 칸씩 계단을 뛰어 오른다. 뒤에서 도윤이 헉헉거린다.)",
+        "하늘: Come on! Up the stairs!",
+        "도윤: (난간에 매달려) I can't run up... I'm dying.",
+        "하늘: Calm down and just climb.",
+        "(꼭대기. 텅 빈 종 자리 너머로 밤바다가 펼쳐진다. 언덕 아래로 작은 불빛 하나가 흔들리며 내려가고 있다.)",
+        "도윤: (숨을 고르며) Look. Someone is walking down the hill.",
+        "하늘: With a lantern.",
+        "도윤: Toward the harbor.",
+        "하늘: (난간을 꽉 쥐며) They're taking the bell by boat.",
+        "도윤: Then we're too late.",
+        "하늘: (고개를 저으며) Not yet."
+      ] }
+  ],
+  40: [
+    { no: "40", title: "다섯 번째 단서", lines: [
+        "[종탑 아래. 새벽. 안개가 걷히는 중.]",
+        "(벽에 붙인 종이 위에 하늘이 단서를 하나씩 적는다.)",
+        "하늘: A truck by the gate. A key under the stone. A box in the storage room. A lantern down the hill.",
+        "도윤: Four clues. Zero bells.",
+        "소이: (조용히) I have one more.",
+        "(소이, 주머니에서 접힌 편지를 꺼낸다. 낡은 봉투. 겉에는 색 바랜 글씨.)",
+        "소이: This is from my grandfather. He was the bell keeper here.",
+        "하늘: (눈이 커진다) Your grandfather?",
+        "소이: (편지를 펼쳐 읽는다) \"If the bell disappears, don't look at the tower. Look under the sea.\"",
+        "도윤: Under the sea?",
+        "소이: That's all he wrote.",
+        "하늘: (노트를 탁 덮으며) Then we need a boat.",
+        "(멀리서 새벽 파도 소리. 카메라가 텅 빈 종탑 꼭대기에서 바다로 천천히 이동한다.)"
+      ] }
+  ],
+
+  // ─── 6월 ───
+  // ─── 6월 · 「사라진 종소리」 (The Missing Bell) ───
+  41: [
+    { no: "41", title: "안개 속 통로", lines: [
+        "[항구 옆 어시장. 새벽. 안개.]",
+        "(상인들이 얼음 상자를 나르는 소리. 하늘, 도윤, 소이가 좁은 통로로 들어선다. 하늘의 노트에는 언덕에서 항구로 내려오는 화살표가 그려져 있다.)",
+        "하늘: The lantern came down the hill. Then it went through the market.",
+        "도윤: How do you know?",
+        "하늘: (바닥의 젖은 발자국을 가리키며) Wet footprints. They go through here.",
+        "소이: (사람들 사이로 밀려가며) Stay close!",
+        "도윤: (카메라를 머리 위로 들며) I can't see through this fog.",
+        "(어시장 반대편 문이 열리고 짠 바다 냄새가 확 끼친다. 눈앞에 부두가 펼쳐진다.)",
+        "소이: The harbor. It's just ahead.",
+        "(부두에는 크고 작은 배가 빼곡하게 매여 있다. 하늘의 얼굴이 굳는다.)",
+        "하늘: (낮게) Fifty boats.",
+        "도윤: (카메라를 내리며) And one red rope."
+      ] }
+  ],
+  42: [
+    { no: "42", title: "붉은 끈 배", lines: [
+        "[부두. 이른 아침. 어부들이 그물을 정리한다.]",
+        "(하늘이 노트에 배 그림을 촘촘히 그리다 멈춘다. 이름도 번호도 다 다른 배들.)",
+        "도윤: (셔터를 누르며) Among all these boats? Impossible.",
+        "소이: (천천히 걸으며) My grandfather always said, look at the smallest one.",
+        "하늘: The smallest boat is between those two big ones.",
+        "(작은 파란 배 한 척이 큰 배 두 척 사이에 끼어 있다. 뱃머리에 붉은 끈이 묶여 있다.)",
+        "도윤: (낮게) Found it.",
+        "(하늘이 배 위로 뛰어내린다. 갑판은 텅 비었고, 바닥에 젖은 짚 몇 가닥이 붙어 있다.)",
+        "하늘: Empty. But look. Straw.",
+        "소이: (짚을 집어 들며) The same straw as the storeroom.",
+        "도윤: So the bell was here.",
+        "소이: (아주 작게) And someone moved it again."
+      ] }
+  ],
+  43: [
+    { no: "43", title: "끊긴 열 분", lines: [
+        "[관리실. 아침. 창밖으로 종탑이 보인다.]",
+        "(책상 위 낡은 모니터. 강 할아버지의 의자는 비어 있다. 하늘이 마우스를 잡는다.)",
+        "하늘: Mr. Kang said the gate camera has the answer. Let's watch.",
+        "(화면 속 정문. 텅 빈 밤길. 시각 숫자가 천천히 올라간다. 1:58. 1:59.)",
+        "소이: Before two, the gate is empty.",
+        "(2:00. 트럭 한 대가 정문 앞에 멈춘다. 하늘이 정지를 누르고 다시 재생한다.)",
+        "하늘: After the truck, the video jumps.",
+        "(화면이 깜빡. 2:09에서 2:19로 뛴다.)",
+        "도윤: (눈을 크게 뜨며) Ten minutes are gone!",
+        "하늘: Somebody cut them out.",
+        "소이: (조용히) Who can touch this computer?",
+        "(세 사람의 시선이 창밖의 종탑을 지나, 비어 있는 강 할아버지의 의자에 멈춘다.)"
+      ] }
+  ],
+  44: [
+    { no: "44", title: "유리 아래", lines: [
+        "[등대가 보이는 앞바다. 낮. 바다는 잔잔하다.]",
+        "(어부 할머니의 낡은 유리 바닥 보트. 셋이 바닥에 엎드려 유리 아래를 들여다본다.)",
+        "어부 할머니: (키를 잡은 채) This glass shows you the sea floor.",
+        "도윤: (카메라를 유리에 바짝 대며) I see fish and seaweed. Nothing else.",
+        "하늘: (노트에 적으며) The sun is above us. The light goes all the way down.",
+        "소이: (유리를 톡톡 치며) Look. Below that rock.",
+        "(붉은 끈 한 가닥이 물결에 흔들린다. 그 끝에 거대하고 둥근 그림자가 누워 있다.)",
+        "도윤: (숨을 삼키며) That's big.",
+        "하늘: (속삭이며) It's the size of a bell.",
+        "어부 할머니: (엔진을 끄며) I don't dive that deep. Not for anyone.",
+        "(그때 파도가 살짝 높아진다. 어부 할머니가 수평선을 힐끗 본다.)",
+        "어부 할머니: The tide is turning. We go back. Now."
+      ] }
+  ],
+  45: [
+    { no: "45", title: "밀물이 온다", lines: [
+        "[방파제. 늦은 오후. 밀물이 눈에 띄게 차오른다.]",
+        "(긴 콘크리트 방파제. 파도가 발밑까지 찰랑거린다. 어부 할머니의 보트는 벌써 멀리 갔다. 셋은 서둘러 걷는다.)",
+        "도윤: The water is coming up fast.",
+        "하늘: Keep moving. We can rest around the corner.",
+        "(모퉁이를 돌자 낚시꾼 세 명이 작은 불을 둘러싸고 앉아 컵라면을 먹고 있다.)",
+        "낚시꾼: (라면을 후루룩) Kids? This path is covered at five.",
+        "하늘: We're going to the lighthouse.",
+        "낚시꾼: Then sit around the fire first. You're soaked.",
+        "(하늘이 불가로 다가가는 순간, 소이의 눈이 방파제 모퉁이에 멈춘다. 그림자 하나가 스윽 사라진다.)",
+        "소이: (아주 낮게) Someone is following us.",
+        "하늘: (불을 보는 척하며) Don't look back. Just walk.",
+        "낚시꾼: (작은 노 젓는 배를 가리키며) The path is closed. Take my boat across the bay."
+      ] }
+  ],
+  46: [
+    { no: "46", title: "가로질러", lines: [
+        "[등대 앞 바다. 해 질 무렵. 노 젓는 작은 배.]",
+        "(낚시꾼에게 빌린 작은 배. 하늘과 소이가 노를 잡고 도윤은 뱃머리에서 카메라를 든다. 만 건너편에 등대가 서 있다.)",
+        "소이: (노를 힘껏 당기며) It's a long way across the bay.",
+        "하늘: We'll get there before dark.",
+        "도윤: (뒤를 돌아보며) That boat is following us.",
+        "(검은 어선 한 척이 불도 켜지 않고 같은 방향으로 물살을 가른다.)",
+        "하늘: (표정이 굳는다) Row faster.",
+        "(배가 방파제 끝에 쿵 부딪힌다. 셋은 젖은 돌 위로 뛰어오른다. 등대까지 부두가 길게 뻗어 있다.)",
+        "소이: Run along the pier! It leads to the lighthouse.",
+        "도윤: (헉헉거리며) I'm not built for this.",
+        "(뒤에서 검은 배의 엔진이 꺼진다. 누군가 배에서 내리는 소리.)",
+        "하늘: (돌아보지 않고) Don't stop."
+      ] }
+  ],
+  47: [
+    { no: "47", title: "등대 뒤의 사람", lines: [
+        "[등대 아래. 해 질 무렵. 파도가 방파제를 때린다.]",
+        "(하얀 등대. 문은 잠겨 있다. 세 사람이 숨을 몰아쉰다. 등대 뒤쪽에서 열쇠가 짤랑이는 소리.)",
+        "하늘: (귀에 손을 대며) Someone is behind the lighthouse.",
+        "도윤: (카메라를 내리며) That sound. I know it.",
+        "(등대 뒤 그늘에 강 할아버지가 서 있다. 그의 곁 벽에 낡은 종지기 모자가 걸려 있다.)",
+        "소이: (얼어붙은 목소리로) That's my grandfather's hat.",
+        "강 할아버지: (낮게) Stand beside me, Soi. This was his spot.",
+        "소이: You knew him?",
+        "강 할아버지: We rang that bell together. For forty years.",
+        "하늘: (한 발 앞으로) Mr. Kang. Where is the bell?",
+        "(긴 침묵. 파도 소리만 남는다.)",
+        "강 할아버지: I hid the bell."
+      ] }
+  ],
+  48: [
+    { no: "48", title: "썰물을 기다리며", lines: [
+        "[등대 앞 방파제. 어스름. 파도가 조금씩 잦아든다.]",
+        "(강 할아버지가 낡은 모자를 두 손으로 쥐고 있다. 세 사람이 그를 둘러싸고 서 있다.)",
+        "하늘: You hid the bell. And you cut the video. Why?",
+        "강 할아버지: (모자를 소이에게 건네며) Not for the reason you think.",
+        "도윤: Then what reason?",
+        "강 할아버지: (밀려나가는 파도를 보며) Not tonight. The tide is too high.",
+        "소이: (모자를 가슴에 안고) When can we see it?",
+        "강 할아버지: Come back when the tide is low. Before six in the morning. And tell no one.",
+        "하늘: (노트를 펴며) Six o'clock. The bell is below the water.",
+        "(소이가 모자 안쪽을 만진다. 손끝에 닿은 건 붉은 실로 놓은 작은 종 모양의 자수. 그녀는 아무 말도 하지 않는다.)",
+        "도윤: (소이를 보며) Soi? You okay?",
+        "소이: (짧게) I'm fine.",
+        "(강 할아버지가 등대의 어둠 속으로 사라진다. 소이는 끝까지 그의 뒷모습을 바라본다. 뭔가를 아는 얼굴이다.)"
+      ] }
+  ],
+  // ─── 7월 ───
+  // ─── 7월 · 「사라진 종소리」 (The Missing Bell) ───
+  49: [
+    { no: "49", title: "폭풍의 밤", lines: [
+        "[등대 아래 갯바위. 썰물의 새벽.]",
+        "(물이 멀리 빠져 있다. 젖은 바위 틈 웅덩이에 초록 이끼가 낀 청동 종이 누워 있다. 손잡이에는 붉은 끈. 세 아이는 말없이 서 있다.)",
+        "하늘: (조용히) You said it's not for the reason we think.",
+        "강 할아버지: (종 위의 이끼를 손으로 쓸며) Forty years ago, there was a big storm.",
+        "도윤: What did you do during the storm?",
+        "강 할아버지: I was a boy. I carried water for the old men.",
+        "강 할아버지: During the storm, Soi's grandfather rang this bell all night.",
+        "소이: (목소리가 떨린다) He never told me that.",
+        "강 할아버지: The whole village walked up the hill. Nobody was lost.",
+        "하늘: (노트를 꽉 쥐며) So it's not just a bell.",
+        "강 할아버지: (고개를 끄덕이며) And now someone wants to melt it.",
+        "(파도가 다시 바위를 적시기 시작한다. 붉은 끈이 물결에 흔들린다.)"
+      ] }
+  ],
+  50: [
+    { no: "50", title: "금요일까지", lines: [
+        "[관리실. 오후. 창밖은 흐리다.]",
+        "(강 할아버지가 서랍에서 구겨진 종이를 꺼내 책상에 편다. 학교 이름 위에 붉은 도장이 찍혀 있다.)",
+        "강 할아버지: The school board wants to sell this school.",
+        "도윤: And the bell?",
+        "강 할아버지: They will melt it. The metal is worth a lot of money.",
+        "하늘: (노트를 펴며) When?",
+        "강 할아버지: The board meets next Friday. The bell stays hidden until Friday.",
+        "소이: (종이를 노려보며) How long have you known?",
+        "강 할아버지: Since last month. A man in a suit came here. Mr. Park.",
+        "하늘: (이름을 적는다) Mr. Park.",
+        "강 할아버지: Since that day, I couldn't sleep.",
+        "(그때 창밖에서 자동차 소리. 검은 차 한 대가 정문 앞에 선다. 강 할아버지의 손이 멈춘다.)",
+        "강 할아버지: (낮게) He's early. Wait here until I call you."
+      ] }
+  ],
+  51: [
+    { no: "51", title: "여섯 시의 침묵", lines: [
+        "[마을 보건소 복도. 저녁 여섯 시.]",
+        "(창밖에서는 아무 소리도 나지 않는다. 벽시계가 6을 가리킨다. 소이가 병실 문 앞에 서서 유리창 안을 들여다본다. 흰머리 할아버지가 침대에 앉아 창밖만 보고 있다.)",
+        "소이: Every evening at six, he waits for the bell.",
+        "도윤: And now?",
+        "소이: (목소리가 낮아진다) Nothing comes. He can't sleep without that sound.",
+        "하늘: Why didn't you tell us?",
+        "소이: I left Busan without saying goodbye to my friends. I thought you'd say it's only a bell.",
+        "도윤: (카메라를 내리며) A village without a bell... It's too quiet.",
+        "하늘: We'll get it back.",
+        "소이: You can't promise that.",
+        "하늘: (노트를 펼치며) I don't promise. I make plans.",
+        "(병실 안. 할아버지가 손을 들어 종탑 쪽 창문을 가리킨다. 소이가 그 손을 보고 숨을 삼킨다.)",
+        "소이: (작게) Mr. Park visits the school tomorrow. He wants to see the tower."
+      ] }
+  ],
+  52: [
+    { no: "52", title: "정문 앞", lines: [
+        "[파도중학교 정문 앞. 이튿날 아침.]",
+        "(검은 차에서 양복 입은 남자가 내린다. 손에는 서류철. 강 할아버지가 정문 앞을 막아서 있고, 그 뒤에 하늘, 도윤, 소이.)",
+        "Mr. Park: Good morning. I'm here to see the bell.",
+        "강 할아버지: It's gone.",
+        "Mr. Park: (서류철을 톡톡 치며) Gone? The board voted. Seven for, one against.",
+        "하늘: (앞으로 나서며) I'm against it.",
+        "Mr. Park: (피식) You can't vote. You're a child.",
+        "소이: Then we won't vote. We'll stand here.",
+        "(도윤이 철제 정문에 등을 대고 힘껏 기댄다.)",
+        "도윤: I'm leaning against this gate. Try to open it.",
+        "Mr. Park: (한숨) You can't stop me forever.",
+        "하늘: Not forever. Only a few days.",
+        "Mr. Park: (차 문을 열며) Friday at six. Bring the bell, or this school is finished.",
+        "(차가 떠난다. 강 할아버지가 조용히 하늘을 돌아본다.)",
+        "강 할아버지: (낮게) There's something I didn't say. The bell has a crack."
+      ] }
+  ],
+  53: [
+    { no: "53", title: "종지기의 손녀", lines: [
+        "[종탑 꼭대기. 해 질 녘.]",
+        "(텅 빈 종 자리 옆으로 붉은 노을이 들어온다. 소이가 낡은 편지를 다시 펼친다. 하늘과 도윤은 난간에 기대어 기다린다.)",
+        "소이: My grandfather wrote one more line. I didn't read it to you.",
+        "하늘: Read it now.",
+        "소이: (편지를 눈으로 따라가며) \"The bell is like a heart. When it stops, the village stops.\"",
+        "도윤: (카메라를 내리고) Like a heart...",
+        "소이: He wants me to work as the new bell keeper.",
+        "하늘: You? A keeper?",
+        "소이: (고개를 끄덕이며) That's why I came. I didn't come as a new student. I came as a keeper.",
+        "도윤: (씩 웃으며) You act like a detective, too.",
+        "소이: Someone had to.",
+        "하늘: (노트를 덮으며) Then you're our keeper now.",
+        "소이: (편지를 접으며) But a keeper needs a bell. And ours has a crack."
+      ] }
+  ],
+  54: [
+    { no: "54", title: "금 간 종", lines: [
+        "[갯바위. 썰물의 저녁.]",
+        "(젖은 종 옆에 무릎 꿇은 도윤이 렌즈를 종의 가장자리에 댄다. 머리카락처럼 가는 금 하나가 보인다.)",
+        "도윤: There's a crack.",
+        "강 할아버지: (쓴웃음) It got bigger because of the sea water.",
+        "하늘: If we lift it, will it break?",
+        "강 할아버지: Maybe. Because of the crack, it's weak.",
+        "소이: Then we leave it here.",
+        "강 할아버지: And Mr. Park will find it. They'll melt it anyway.",
+        "하늘: (일어서며) Then we lift it. Despite the risk.",
+        "도윤: (카메라를 내리며) Despite the risk?",
+        "하늘: A cracked bell is still a bell.",
+        "소이: (붉은 끈을 만지며) My grandfather would say the same.",
+        "강 할아버지: (바다를 보며) The next low tide is Friday at five. After that, you have one hour.",
+        "(밀물이 다시 발목까지 올라온다. 멀리서 갈매기 소리.)"
+      ] }
+  ],
+  55: [
+    { no: "55", title: "새벽의 밧줄", lines: [
+        "[항구 부두. 금요일 새벽 다섯 시 반.]",
+        "(썰물 끝자락. 낡은 어선이 굵은 밧줄로 종을 끌며 부두 쪽으로 다가온다. 뱃머리에 하늘과 소이, 부두에 도윤과 강 할아버지.)",
+        "도윤: (카메라를 내리며) It's coming toward us!",
+        "강 할아버지: Slowly. Don't pull too hard. The crack is still there.",
+        "소이: (뱃머리에서) The boat is turning toward the pier!",
+        "(안개 사이로 사람 그림자들이 하나둘 나타난다. 어부, 빵집 아주머니, 우체부.)",
+        "하늘: Who called them?",
+        "강 할아버지: Nobody. They missed the sound.",
+        "도윤: (셔터를 누르며) Look. Beyond the pier, more people are coming.",
+        "(수평선 위로 첫 햇살이 올라온다. 종의 붉은 끈이 반짝인다.)",
+        "강 할아버지: (시계를 보며) Five forty. The school is beyond that hill. We have twenty minutes.",
+        "하늘: (밧줄을 꽉 쥐며) Then everybody pull!",
+        "(부두의 사람들이 한 줄로 밧줄을 잡는다. 종이 천천히 물 밖으로 올라온다.)"
+      ] }
+  ],
+  56: [
+    { no: "56", title: "여섯 시의 종소리", lines: [
+        "[파도중학교 종탑 위. 아침 여섯 시.]",
+        "(종이 다시 걸려 있다. 손잡이에 붉은 끈. 언덕 아래, 밧줄을 쥔 마을 사람들이 종탑을 올려다본다. 소이가 종 줄을 두 손으로 잡는다.)",
+        "소이: (숨을 고르며) Grandfather, are you listening?",
+        "(뎅—. 첫 소리. 금이 간 종은 갈라지지만 깊은 소리를 낸다. 소리가 마을을 지나 바다까지 번진다.)",
+        "도윤: (카메라를 내리며) It doesn't sound broken.",
+        "하늘: (웃으며) Despite the crack, it sounds like home.",
+        "(정문 아래, 양복 차림의 Mr. Park가 소리를 듣고 서 있다. 서류철이 손에서 미끄러진다.)",
+        "Mr. Park: (낮게) My mother grew up in this village.",
+        "강 할아버지: Then you know why we did it.",
+        "Mr. Park: (서류철을 줍는다) The board meets at nine. I'll speak. I can't promise anything.",
+        "하늘: (씩) We don't promise either. We make plans.",
+        "(소이가 종 줄을 한 번 더 당긴다. 종소리 사이로 하늘이 종 안쪽 가장자리를 올려다본다. 작은 놋쇠 열쇠 하나가 붉은 끈에 매달려 있다.)",
+        "하늘: Wait. There's another key inside the bell.",
+        "도윤: (카메라를 들며) Another one?"
+      ] }
+  ],
+};
+
+// 월별 드라마 제목. 없는 달은 위 dramaTitle을 쓴다.
+const dramaByMonth = {
+  5: { title: "사라진 종소리", subtitle: "The Missing Bell" },
+  6: { title: "사라진 종소리", subtitle: "The Missing Bell" },
+  7: { title: "사라진 종소리", subtitle: "The Missing Bell" }
 };

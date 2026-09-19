@@ -254,9 +254,9 @@
   <img src="images/samdol_warm.webp" alt="">
 </footer>
 
-<script src="data.js?v=20260731164122"></script>
-<script src="scenes.js?v=20260731164122"></script>
-<script src="quiz.js?v=20260731170113"></script>
+<script src="data.js?v=20260920180000"></script>
+<script src="scenes.js?v=20260920180000"></script>
+<script src="quiz.js?v=20260920180000"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -331,9 +331,11 @@
 
   // 드라마 장면
   var scenes = (typeof dramaScenes!=='undefined' && dramaScenes[d.id]) || [];
+  var dm = (typeof dramaByMonth!=='undefined' && dramaByMonth[d.month]) ||
+    { title: (typeof dramaTitle!=='undefined'?dramaTitle:''), subtitle: (typeof dramaSubtitle!=='undefined'?dramaSubtitle:'') };
   var sceneHTML = scenes.length ? '<section class="drama">'+
-    '<div class="dhead"><span class="dtitle">'+esc(typeof dramaTitle!=='undefined'?dramaTitle:'')+'</span>'+
-    '<span class="dsub">'+esc(typeof dramaSubtitle!=='undefined'?dramaSubtitle:'')+'</span></div>'+
+    '<div class="dhead"><span class="dtitle">'+esc(dm.title)+'</span>'+
+    '<span class="dsub">'+esc(dm.subtitle)+'</span></div>'+
     scenes.map(function(s){
       return '<div class="ep"><h3>EP.'+esc(s.no)+' <em>'+esc(s.title)+'</em></h3>'+
         s.lines.map(function(l){

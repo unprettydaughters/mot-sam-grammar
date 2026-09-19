@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>못난이삼돌이 영문법</title>
-<meta name="description" content="복잡한 문법 용어는 다 뺐어. 아는 단어로 순서만 지키면 돼. 하루 한 과씩, 32일 완성 카드뉴스.">
+<meta name="description" content="복잡한 문법 용어는 다 뺐어. 아는 단어로 순서만 지키면 돼. 하루 한 과씩 카드뉴스로.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
@@ -114,9 +114,9 @@
 
   <section class="hero">
     <div>
-      <div class="badge32">32일 완성</div>
+      <div class="badge32" id="badge-days">32일 완성</div>
       <h1>영어는 기차다.<br>순서만 지키면 끝나.</h1>
-      <p class="lede">복잡한 문법 용어는 다 뺐어. 아는 단어로 순서만 지키면 돼. 하루 한 과씩, 우리 같이 32일만 가보자.</p>
+      <p class="lede">복잡한 문법 용어는 다 뺐어. 아는 단어로 순서만 지키면 돼. 하루 한 과씩, 우리 같이 하루 한 과씩만 가보자.</p>
       <div class="cta">
         <a class="btn1" id="start-link" href="card.html?id=1">01과 바로 읽기</a>
         <a class="btn2" href="#month-1">전체 커리큘럼 보기</a>
@@ -132,7 +132,7 @@
   <section class="stats">
     <div class="tile">
       <div class="tile-label">나의 진도</div>
-      <div class="tile-num"><b id="done-count">00</b><i>/ 32과</i></div>
+      <div class="tile-num"><b id="done-count">00</b><i id="total-count">/ 32과</i></div>
       <div class="bar"><div id="bar-fill"></div></div>
     </div>
     <a class="link" href="https://motnani-planner.vercel.app/" target="_blank" rel="noopener"><span><b>못난이삼돌이 플래너</b><small>시간을 눈으로 보는 캘린더</small></span><span class="arw">↗</span></a>
@@ -148,7 +148,7 @@
   </footer>
 </div>
 
-<script src="data.js?v=20260731164122"></script>
+<script src="data.js?v=20260920180000"></script>
 <script>
 (function(){
   var KEY = 'samdol-grammar-done';
@@ -195,6 +195,8 @@
   function paint(){
     var count = 0;
     Object.keys(done).forEach(function(k){ if (done[k]) count++; });
+    document.getElementById('total-count').textContent = '/ ' + grammarData.length + '과';
+    document.getElementById('badge-days').textContent = grammarData.length + '일 완성';
     document.getElementById('done-count').textContent = String(count).padStart(2, '0');
     document.getElementById('bar-fill').style.width = Math.round(count / grammarData.length * 100) + '%';
 
