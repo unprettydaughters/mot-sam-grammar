@@ -1,52 +1,61 @@
 // 웹툰 「우리들의 리듬」 — 화 = 과. panels 0이면 아직 그림 없음(준비 중)
 // 그림: images/webtoon/epNN-K.webp (K=1..panels), 목록 썸네일 epNN-t.webp
+// h: 그림 높이(폭 1080 기준). 없으면 1935(9:16). 2~9화는 4:5라 1341
 // 24화에는 번외 24.5「잠깐」, 29화에는 번외 29.5「못난이의 순간」 그림이 이어서 들어 있다
 var webtoonTitle = "우리들의 리듬";
 var webtoonEps = [
  {
   "ep": 1,
   "title": "순서",
-  "panels": 0
+  "panels": 3
  },
  {
   "ep": 2,
   "title": "찾아가는 쪽",
-  "panels": 0
+  "panels": 2,
+  "h": 1341
  },
  {
   "ep": 3,
   "title": "안 온다는 사람",
-  "panels": 0
+  "panels": 3,
+  "h": 1341
  },
  {
   "ep": 4,
   "title": "한 장",
-  "panels": 0
+  "panels": 3,
+  "h": 1341
  },
  {
   "ep": 5,
   "title": "나는 사랑해 너를",
-  "panels": 0
+  "panels": 3,
+  "h": 1341
  },
  {
   "ep": 6,
   "title": "a와 s",
-  "panels": 0
+  "panels": 3,
+  "h": 1341
  },
  {
   "ep": 7,
   "title": "셀 수 있는 것들",
-  "panels": 0
+  "panels": 2,
+  "h": 1341
  },
  {
   "ep": 8,
   "title": "동사에 s를 붙일 때",
-  "panels": 0
+  "panels": 3,
+  "h": 1341
  },
  {
   "ep": 9,
   "title": "뜻 없는 연결",
-  "panels": 0
+  "panels": 2,
+  "h": 1341
  },
  {
   "ep": 10,

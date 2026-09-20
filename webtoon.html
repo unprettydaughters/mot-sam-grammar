@@ -115,7 +115,7 @@
 <div class="wrap"><footer>© 못난이삼돌이 · 웹툰 한 화가 영문법 한 과다</footer></div>
 
 <script src="data.js?v=20260920210000"></script>
-<script src="webtoon-data.js?v=20260920230000"></script>
+<script src="webtoon-data.js?v=20260921000000"></script>
 <script>
 (function(){
   var app = document.getElementById('app');
@@ -170,7 +170,7 @@
     var extra = e.ep === 24 ? '번외 24.5화 「잠깐」이 이어진다' : e.ep === 29 ? '번외 29.5화 「못난이의 순간」이 이어진다' : '';
     var imgs = '';
     for (var k = 1; k <= e.panels; k++) {
-      imgs += '<img src="images/webtoon/ep' + pad(e.ep) + '-' + k + '.webp" alt="' + pad(e.ep) + '화 ' + k + '번째 장면" width="1080" height="1935"' + (k > 1 ? ' loading="lazy"' : '') + '>';
+      imgs += '<img src="images/webtoon/ep' + pad(e.ep) + '-' + k + '.webp" alt="' + pad(e.ep) + '화 ' + k + '번째 장면" width="1080" height="' + (e.h || 1935) + '"' + (k > 1 ? ' loading="lazy"' : '') + '>';
     }
     app.innerHTML = '<div class="viewer">' +
       '<a class="back" href="webtoon.html">← 전체 화</a>' +
