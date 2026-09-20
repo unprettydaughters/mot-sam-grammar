@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>링크 · 못난이삼돌이 영문법</title>
+<meta name="description" content="못난이삼돌이가 만든 것과, 매일 쓰는 곳. 너무쉬운AI 사이트, 삼돌이 영어, 못삼플래너.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* 토큰 — 너무쉬운AI 이름 그대로, 바탕만 살구 종이 */
+  :root{
+    --bg:#FBF6F2;
+    --ink-900:#2C2420; --ink-700:#4A4039; --ink-400:#9C9288;
+    --cream-0:#FFFFFF; --cream-2:#F5F3EF; --line:#E8E4DC;
+    --lav-100:#F2EFF9; --lav-200:#E3DCF5; --lav-400:#7C6BAE; --lav-600:#54487A;
+    --radius:18px; --radius-sm:14px;
+    --shadow:0 1px 3px rgba(100,80,60,0.05);
+    --shadow-up:0 4px 16px rgba(100,80,60,0.09);
+    --sans:'Pretendard Variable', Pretendard, system-ui, sans-serif;
+    --mono:'DM Mono', monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background-color:var(--bg);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    color:var(--ink-700); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; word-break:keep-all; -webkit-text-size-adjust:100%;
+  }
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lav-400);outline-offset:3px;border-radius:8px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* 상단 메뉴 */
+  header{position:sticky;top:0;z-index:20;background:rgba(251,246,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .logo{font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--ink-900);white-space:nowrap}
+  .menu{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+  .menu::-webkit-scrollbar{display:none}
+  .menu a{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:16px;font-weight:500;color:var(--ink-700);white-space:nowrap}
+  .menu a.on{color:var(--lav-600);font-weight:700}
+  .menu a.soon{color:var(--ink-400);cursor:default}
+  .soon-badge{font-size:12px;font-weight:500;color:var(--ink-400);background:var(--cream-2);padding:2px 8px;border-radius:999px}
+
+  /* 머리 — 글 옆에 엿보기 영상 (너무쉬운AI 연결 탭과 같은 영상) */
+  .page-head-row{display:flex;align-items:center;gap:32px}
+  .page-head-text{flex:1;min-width:0;padding:64px 0 40px}
+  .page-head-text h1{font-size:52px;font-weight:700;letter-spacing:-.03em;line-height:1.16;color:var(--ink-900)}
+  .page-head-text p{font-size:20px;line-height:1.6;color:var(--ink-700);margin-top:16px}
+  .page-head-art{flex:none}
+  .peek-video{display:block;width:340px;max-width:48vw;height:auto}
+
+  .group{margin-bottom:56px}
+  .group h2{font-size:20px;font-weight:700;letter-spacing:-.02em;color:var(--ink-900);margin-bottom:4px}
+  .group .lead{font-size:14px;color:var(--ink-400);margin-bottom:20px}
+
+  .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  .link{
+    display:flex;align-items:center;gap:16px;
+    background:var(--cream-0);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px 22px;
+    box-shadow:var(--shadow);transition:box-shadow .14s,transform .14s;
+  }
+  a.link:hover{box-shadow:var(--shadow-up);transform:translateY(-1px)}
+  .link .mark{
+    flex:none;width:44px;height:44px;border-radius:var(--radius-sm);
+    background:var(--lav-100);color:var(--lav-600);
+    font-family:var(--mono);font-size:16px;font-weight:500;
+    display:grid;place-items:center;
+  }
+  .link .body{flex:1;min-width:0}
+  .link .name,.link .desc{display:block}
+  .link .name{font-size:16px;font-weight:700;color:var(--ink-900);letter-spacing:-.01em}
+  .link .desc{font-size:14px;line-height:1.55;color:var(--ink-400);margin-top:4px}
+  .link .go{flex:none;font-size:16px;color:var(--lav-400)}
+
+  /* 아직 없는 것은 회색이다. 흐리게 만들지 않는다 */
+  .link.soon{background:var(--cream-2);box-shadow:none}
+  .link.soon .mark{background:var(--line);color:var(--ink-400)}
+  .link.soon .name{color:var(--ink-700)}
+  .link.soon .go{font-family:var(--mono);font-size:12px;color:var(--ink-400);background:var(--cream-0);padding:4px 9px;border-radius:6px}
+
+  footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-400)}
+
+  @media (max-width:640px){
+    .page-head-row{flex-direction:column-reverse;text-align:center;gap:4px}
+    .page-head-text{padding:0 16px 32px}
+    .page-head-text h1{font-size:32px;line-height:1.25}
+    .page-head-text p{font-size:16px}
+    .peek-video{width:260px;max-width:80vw;margin:0 auto}
+  }
+  @media (max-width:480px){
+    .menu{gap:16px}
+    .soon-badge{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">못난이삼돌이 영문법</a>
+    <nav class="menu" aria-label="메뉴">
+      <a href="index.html">영문법</a>
+      <a href="webtoon.html">웹툰</a>
+      <a class="soon" aria-disabled="true">블로그<span class="soon-badge">준비 중</span></a>
+      <a class="on" href="links.html" aria-current="page">링크</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="page-head-row">
+    <div class="page-head-text">
+      <h1>링크</h1>
+      <p>만든 것과, 매일 쓰는 곳.</p>
+    </div>
+    <div class="page-head-art">
+      <video class="peek-video" autoplay loop muted playsinline poster="images/peek-poster.jpg">
+        <source src="images/peek.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <section class="group">
+    <h2>만든 것</h2>
+    <p class="lead">직접 쓰려고 만들었다. 누구나 쓸 수 있다.</p>
+    <div class="links">
+
+      <a class="link" href="https://too-easy-ai.vercel.app" target="_blank" rel="noopener">
+        <span class="mark">AI</span>
+        <span class="body">
+          <span class="name">너무쉬운AI</span>
+          <span class="desc">AI로 삽질한 경험을 글로 나눈다. 배움 글과 게시판이 있다</span>
+        </span>
+        <span class="go">→</span>
+      </a>
+
+      <a class="link" href="https://samdol-english.vercel.app" target="_blank" rel="noopener">
+        <span class="mark">영어</span>
+        <span class="body">
+          <span class="name">삼돌이 영어</span>
+          <span class="desc">문제는 중학 수준, 단어는 초등 수준. 하루 열 문제</span>
+        </span>
+        <span class="go">→</span>
+      </a>
+
+      <a class="link" href="https://motnani-planner.vercel.app" target="_blank" rel="noopener">
+        <span class="mark">계획</span>
+        <span class="body">
+          <span class="name">못삼플래너</span>
+          <span class="desc">계획한 시간과 실제 쓴 시간을 나란히 본다. 폰에 저장된다</span>
+        </span>
+        <span class="go">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>채널</h2>
+    <p class="lead">아직 문을 안 연 곳은 회색이다. 죽은 링크는 걸지 않는다.</p>
+    <div class="links">
+
+      <div class="link soon">
+        <span class="mark">유튜</span>
+        <span class="body">
+          <span class="name">유튜브</span>
+          <span class="desc">실제 수업 풀영상. 삽질하는 장면 그대로</span>
+        </span>
+        <span class="go">준비 중</span>
+      </div>
+
+      <div class="link soon">
+        <span class="mark">인스</span>
+        <span class="body">
+          <span class="name">인스타</span>
+          <span class="desc">수업 중 잘 풀리는 30초 장면</span>
+        </span>
+        <span class="go">준비 중</span>
+      </div>
+
+      <div class="link soon">
+        <span class="mark">스레</span>
+        <span class="body">
+          <span class="name">스레드</span>
+          <span class="desc">그날 알게 된 것 세 줄. 매일</span>
+        </span>
+        <span class="go">준비 중</span>
+      </div>
+
+      <div class="link soon">
+        <span class="mark">블로</span>
+        <span class="body">
+          <span class="name">네이버 블로그</span>
+          <span class="desc">검색해서 오는 사람이 처음 만나는 자리</span>
+        </span>
+        <span class="go">준비 중</span>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<div class="wrap"><footer>© 못난이삼돌이 · The Simplest Line</footer></div>
+
+</body>
+</html>
