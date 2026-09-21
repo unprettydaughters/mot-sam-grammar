@@ -45,6 +45,12 @@
   .menu a.soon{color:var(--ink-400);cursor:default}
   .soon-badge{font-size:12px;font-weight:500;color:var(--ink-400);background:var(--cream-2);padding:2px 8px;border-radius:999px}
 
+  /* 버전 칸 — 원래 / 쉬운 */
+  .vtabs{display:flex;gap:8px;padding:24px 0 0}
+  .vtab{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;font-size:16px;font-weight:600;color:var(--ink-700);background:var(--cream-0);border:1px solid var(--line);border-radius:999px}
+  .vtab.on{background:var(--lav-400);border-color:var(--lav-400);color:#fff}
+  .vtabs + .top{padding-top:28px}
+
   /* 목록 머리 */
   .top{display:flex;align-items:center;gap:24px;padding:48px 0 32px}
   .top-text{flex:1;min-width:0}
@@ -119,7 +125,7 @@
 <div class="wrap"><footer>© 못난이삼돌이 · 웹툰 한 화가 영문법 한 과다</footer></div>
 
 <script src="data.js?v=20260920210000"></script>
-<script src="webtoon-data.js?v=20260921000000"></script>
+<script src="webtoon-data.js?v=20260922000500"></script>
 <script>
 (function(){
   var app = document.getElementById('app');
@@ -127,21 +133,35 @@
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
   var pad = function(n){ return String(n).padStart(2,'0'); };
   var lesson = function(n){ return grammarData.find(function(d){ return d.id === n; }); };
-  var ready = webtoonEps.filter(function(e){ return e.panels > 0; });
+  var params = new URLSearchParams(location.search);
+  // 버전: 원래(기본) / 쉬운 버전(?v=easy). 쉬운 버전은 한 화에 그림 한 장, 제목은 과 제목을 쓴다
+  var easy = params.get('v') === 'easy';
+  var eps = easy ? webtoonEasyEps : webtoonEps;
+  var title = easy ? webtoonEasyTitle : webtoonTitle;
+  var imgDir = easy ? 'images/webtoon/easy/' : 'images/webtoon/';
+  var base = 'webtoon.html' + (easy ? '?v=easy' : '');
+  var epUrl = function(n){ return 'webtoon.html?' + (easy ? 'v=easy&' : '') + 'ep=' + n; };
+  var epTitle = function(e){ var l = lesson(e.ep); return easy ? (l ? l.title.replace(/^\d+\.\s*/, '') : '') : e.title; };
+  var ready = eps.filter(function(e){ return e.panels > 0; });
 
   function list(){
-    document.title = '웹툰 「' + webtoonTitle + '」 · 못난이삼돌이 영문법';
-    var html = '<section class="top"><div class="top-text">' +
-      '<span class="kicker">WEBTOON · 1~4월</span>' +
-      '<h1>「' + esc(webtoonTitle) + '」</h1>' +
-      '<p class="sub">춤 동아리 셋의 이야기다. 한 화가 한 과다. 대사가 그 과에서 배운 영어로 되어 있다.</p>' +
+    document.title = '웹툰 「' + title + '」 · 못난이삼돌이 영문법';
+    var html = '<nav class="vtabs" aria-label="웹툰 버전">' +
+      '<a class="vtab' + (easy ? '' : ' on') + '" href="webtoon.html"' + (easy ? '' : ' aria-current="page"') + '>원래 버전</a>' +
+      '<a class="vtab' + (easy ? ' on' : '') + '" href="webtoon.html?v=easy"' + (easy ? ' aria-current="page"' : '') + '>쉬운 버전</a></nav>' +
+      '<section class="top"><div class="top-text">' +
+      '<span class="kicker">' + (easy ? 'WEBTOON · 쉬운 버전' : 'WEBTOON · 1~4월') + '</span>' +
+      '<h1>「' + esc(webtoonTitle) + '」' + (easy ? '<br>쉬운 버전' : '') + '</h1>' +
+      '<p class="sub">' + (easy
+        ? '「' + esc(webtoonTitle) + '」의 쉬운 버전이다. 한 화가 한 과다. 한 화에 그림 한 장, 컷 셋이 세로로 이어진다.'
+        : '춤 동아리 셋의 이야기다. 한 화가 한 과다. 대사가 그 과에서 배운 영어로 되어 있다.') + '</p>' +
       '</div><img src="images/ch/cheer_active.webp" alt="팔을 들어 응원하는 못난이와 삼돌이" width="168" height="103"></section>';
     [1,2,3,4].forEach(function(m){
-      var eps = webtoonEps.filter(function(e){ var l = lesson(e.ep); return l && l.month === m; });
-      if (!eps.length) return;
+      var inMonth = eps.filter(function(e){ var l = lesson(e.ep); return l && l.month === m; });
+      if (!inMonth.length) return;
       var meta = (typeof monthMeta !== 'undefined' && monthMeta[m]) || { label:'MONTH ' + m, theme:'' };
-      var have = eps.filter(function(e){ return e.panels > 0; });
-      var miss = eps.filter(function(e){ return e.panels === 0; });
+      var have = inMonth.filter(function(e){ return e.panels > 0; });
+      var miss = inMonth.filter(function(e){ return e.panels === 0; });
       html += '<section class="month"><div class="mhead"><h2>' + esc(meta.label) + '</h2><span>' + esc(meta.theme) + '</span></div>';
       var missLine = '';
       if (miss.length) {
@@ -153,11 +173,11 @@
       if (have.length) {
         html += '<div class="grid">' + have.map(function(e){
           var l = lesson(e.ep);
-          return '<a class="ep" href="webtoon.html?ep=' + e.ep + '">' +
-            '<img src="images/webtoon/ep' + pad(e.ep) + '-t.webp" alt="" width="360" height="480" loading="lazy">' +
+          return '<a class="ep" href="' + epUrl(e.ep) + '">' +
+            '<img src="' + imgDir + 'ep' + pad(e.ep) + '-t.webp" alt="" width="360" height="480" loading="lazy">' +
             '<span class="ep-body"><span class="ep-no">' + pad(e.ep) + '화</span>' +
-            '<span class="ep-title">' + esc(e.title) + '</span>' +
-            '<span class="ep-lesson">' + esc(l ? l.title : '') + '</span></span></a>';
+            '<span class="ep-title">' + esc(epTitle(e)) + '</span>' +
+            (easy ? '' : '<span class="ep-lesson">' + esc(l ? l.title : '') + '</span>') + '</span></a>';
         }).join('') + '</div>';
       }
       if (!missFirst) html += missLine;
@@ -170,32 +190,33 @@
     var l = lesson(e.ep);
     var i = ready.indexOf(e);
     var prev = ready[i - 1], next = ready[i + 1];
-    document.title = pad(e.ep) + '화 ' + e.title + ' · 「' + webtoonTitle + '」';
-    var extra = e.ep === 24 ? '번외 24.5화 「잠깐」이 이어진다' : e.ep === 29 ? '번외 29.5화 「못난이의 순간」이 이어진다' : '';
+    var name = epTitle(e);
+    document.title = pad(e.ep) + '화 ' + name + ' · 「' + title + '」';
+    var extra = easy ? '' : e.ep === 24 ? '번외 24.5화 「잠깐」이 이어진다' : e.ep === 29 ? '번외 29.5화 「못난이의 순간」이 이어진다' : '';
     var imgs = '';
     for (var k = 1; k <= e.panels; k++) {
-      imgs += '<img src="images/webtoon/ep' + pad(e.ep) + '-' + k + '.webp" alt="' + pad(e.ep) + '화 ' + k + '번째 장면" width="1080" height="' + (e.h || 1935) + '"' + (k > 1 ? ' loading="lazy"' : '') + '>';
+      imgs += '<img src="' + imgDir + 'ep' + pad(e.ep) + '-' + k + '.webp" alt="' + pad(e.ep) + '화 ' + (easy ? '쉬운 버전' : k + '번째 장면') + '" width="1080" height="' + (e.h || 1935) + '"' + (k > 1 ? ' loading="lazy"' : '') + '>';
     }
     app.innerHTML = '<div class="viewer">' +
-      '<a class="back" href="webtoon.html">← 전체 화</a>' +
-      '<div class="vhead"><span class="ep-no">' + pad(e.ep) + '화</span><h1>' + esc(e.title) + '</h1>' +
-      (l ? '<p class="sub">이 화의 문법: <a href="card.html?id=' + l.id + '">' + esc(l.title) + '</a></p>' : '') + '</div>' +
+      '<a class="back" href="' + base + '">← 전체 화</a>' +
+      '<div class="vhead"><span class="ep-no">' + pad(e.ep) + '화' + (easy ? ' · 쉬운 버전' : '') + '</span><h1>' + esc(name) + '</h1>' +
+      (l && !easy ? '<p class="sub">이 화의 문법: <a href="card.html?id=' + l.id + '">' + esc(l.title) + '</a></p>' : '') + '</div>' +
       '<div class="panels">' + imgs + '</div>' +
       (extra ? '<p class="extra">' + extra + '</p>' : '') +
       '<div class="vnav">' +
-        (prev ? '<a class="ghost" href="webtoon.html?ep=' + prev.ep + '">← ' + pad(prev.ep) + '화</a>' : '<span class="ghost off">← 이전 화</span>') +
+        (prev ? '<a class="ghost" href="' + epUrl(prev.ep) + '">← ' + pad(prev.ep) + '화</a>' : '<span class="ghost off">← 이전 화</span>') +
         (l ? '<a class="btn" href="card.html?id=' + l.id + '">' + pad(l.id) + '과 읽기</a>' : '') +
-        (next ? '<a class="ghost" href="webtoon.html?ep=' + next.ep + '">' + pad(next.ep) + '화 →</a>' : '<span class="ghost off">다음 화 →</span>') +
+        (next ? '<a class="ghost" href="' + epUrl(next.ep) + '">' + pad(next.ep) + '화 →</a>' : '<span class="ghost off">다음 화 →</span>') +
       '</div></div>';
     document.addEventListener('keydown', function(ev){
       if (ev.altKey || ev.ctrlKey || ev.metaKey) return;
-      if (ev.key === 'ArrowLeft' && prev) location.href = 'webtoon.html?ep=' + prev.ep;
-      if (ev.key === 'ArrowRight' && next) location.href = 'webtoon.html?ep=' + next.ep;
+      if (ev.key === 'ArrowLeft' && prev) location.href = epUrl(prev.ep);
+      if (ev.key === 'ArrowRight' && next) location.href = epUrl(next.ep);
     });
   }
 
-  var q = parseInt(new URLSearchParams(location.search).get('ep'), 10);
-  var e = webtoonEps.find(function(x){ return x.ep === q && x.panels > 0; });
+  var q = parseInt(params.get('ep'), 10);
+  var e = eps.find(function(x){ return x.ep === q && x.panels > 0; });
   if (e) view(e); else list();
 })();
 </script>

@@ -173,3 +173,42 @@ var webtoonEps = [
   "panels": 3
  }
 ];
+
+// 쉬운 버전 — 화 = 과. 한 화에 그림 한 장(컷 3개가 세로로 붙은 1080×1935)
+// 그림: images/webtoon/easy/epNN-1.webp, 썸네일 epNN-t.webp. panels 0이면 아직 그림 없음(준비 중)
+// 화 제목은 따로 없고 그 과의 제목(data.js)을 쓴다
+var webtoonEasyTitle = "우리들의 리듬 · 쉬운 버전";
+var webtoonEasyEps = [
+ {"ep": 1, "panels": 1},
+ {"ep": 2, "panels": 1},
+ {"ep": 3, "panels": 1},
+ {"ep": 4, "panels": 1},
+ {"ep": 5, "panels": 1},
+ {"ep": 6, "panels": 1},
+ {"ep": 7, "panels": 1},
+ {"ep": 8, "panels": 1},
+ {"ep": 9, "panels": 1},
+ {"ep": 10, "panels": 1},
+ {"ep": 11, "panels": 1},
+ {"ep": 12, "panels": 1},
+ {"ep": 13, "panels": 1},
+ {"ep": 14, "panels": 1},
+ {"ep": 15, "panels": 1},
+ {"ep": 16, "panels": 1},
+ {"ep": 17, "panels": 1},
+ {"ep": 18, "panels": 1},
+ {"ep": 19, "panels": 1},
+ {"ep": 20, "panels": 1},
+ {"ep": 21, "panels": 1},
+ {"ep": 22, "panels": 1},
+ {"ep": 23, "panels": 1},
+ {"ep": 24, "panels": 1},
+ {"ep": 25, "panels": 1},
+ {"ep": 26, "panels": 1},
+ {"ep": 27, "panels": 0},
+ {"ep": 28, "panels": 0},
+ {"ep": 29, "panels": 0},
+ {"ep": 30, "panels": 0},
+ {"ep": 31, "panels": 0},
+ {"ep": 32, "panels": 0}
+];
