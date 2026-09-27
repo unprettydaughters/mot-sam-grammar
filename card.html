@@ -243,7 +243,7 @@
   <div class="wrap nav">
     <a class="logo" href="index.html">못난이삼돌이 영문법</a>
     <nav class="menu" aria-label="메뉴">
-      <a class="on" href="index.html" aria-current="page">영문법</a>
+      <a class="on" href="grammar.html" aria-current="page">영문법</a>
       <a href="webtoon.html">웹툰</a>
       <a class="soon" aria-disabled="true">블로그<span class="soon-badge">준비 중</span></a>
       <a href="links.html">링크</a>
@@ -284,7 +284,7 @@
         '<h1>그런 과는 없어</h1>'+
         '<p>01과부터 '+grammarData.length+'과까지 있어.</p>'+
       '</article>'+
-      '<nav class="pager"><a href="index.html" style="text-align:center">'+
+      '<nav class="pager"><a href="grammar.html" style="text-align:center">'+
       '<span class="ttl">목록으로 돌아가기 →</span></a></nav>';
     return;
   }
@@ -371,7 +371,7 @@
     '<button class="readbtn" id="readbtn" type="button"></button>'+
     '<a class="askbtn" id="askbtn" href="#">이 과에 대해 질문 보내기</a>'+
     '<nav class="pager">'+pager+'</nav>'+
-    '<a class="tolist" href="index.html">전체 목록 보기</a>';
+    '<a class="tolist" href="grammar.html#month-'+d.month+'">전체 목록 보기</a>';
 
   var MAIL=['jongeek1','gmail.com'].join('@');
   document.getElementById('askbtn').href='mailto:'+MAIL
