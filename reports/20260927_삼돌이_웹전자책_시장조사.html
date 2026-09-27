@@ -1,0 +1,340 @@
+<title>삼돌이 웹전자책 시장조사</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#F2F4F7; --paper:#FFFFFF; --ink:#18202E; --ink2:#4A5468; --line:#D6DBE4;
+  --blue:#2346B0; --blue-soft:#E3E9F8; --mark:#F5C84A; --mark-soft:#FDF1CC;
+  --good:#1E7A4F; --warn:#A86A00; --bad:#B3312B; --bad-soft:#F8E1DF; --warn-soft:#FBEBCB; --good-soft:#DDF0E5;
+  --display:"Black Han Sans","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#11151D; --paper:#1A2029; --ink:#E6EAF1; --ink2:#A3ADBF; --line:#2E3645;
+    --blue:#8FA8F0; --blue-soft:#1E2A48; --mark:#E8BC45; --mark-soft:#3A3120;
+    --good:#6CCB98; --warn:#E3AE4F; --bad:#EE8A83; --bad-soft:#3D2222; --warn-soft:#3A2E17; --good-soft:#193326;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#11151D; --paper:#1A2029; --ink:#E6EAF1; --ink2:#A3ADBF; --line:#2E3645;
+  --blue:#8FA8F0; --blue-soft:#1E2A48; --mark:#E8BC45; --mark-soft:#3A3120;
+  --good:#6CCB98; --warn:#E3AE4F; --bad:#EE8A83; --bad-soft:#3D2222; --warn-soft:#3A2E17; --good-soft:#193326;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;padding-inline:16px;padding-block:32px 64px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+a{color:var(--blue);text-underline-offset:3px;text-decoration-thickness:1px;word-break:break-word}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+h1,h2{font-family:var(--display);font-weight:400;text-wrap:balance;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(34px,7vw,52px);line-height:1.15}
+h2{font-size:clamp(24px,4.6vw,30px);line-height:1.3}
+h3{font-size:17px;margin:0}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hl{background:linear-gradient(transparent 58%,var(--mark-soft) 58%);padding-inline:2px}
+section{display:flex;flex-direction:column;gap:18px}
+.prose{display:flex;flex-direction:column;gap:14px;max-width:66ch}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:11px;font-family:var(--mono);padding:0 6px;border-radius:4px;background:var(--warn-soft);color:var(--warn);vertical-align:1px;white-space:nowrap}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.hero img{width:150px;height:auto;display:block}
+.hero .lede{font-size:18px;color:var(--ink2);margin-top:14px;max-width:52ch}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.hero img{width:110px;order:-1}}
+
+.verdict{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.verdict .big{font-size:20px;font-weight:700;line-height:1.5}
+.changes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.changes div{border-top:3px solid var(--ink);padding-top:10px;display:flex;flex-direction:column;gap:4px}
+.changes b{font-size:15px}
+.changes s{color:var(--ink2);font-size:14px}
+.changes span{font-size:14px;color:var(--ink2)}
+@media (max-width:620px){.changes{grid-template-columns:1fr}}
+.note{font-size:14px;color:var(--ink2);background:var(--bg);border-radius:10px;padding:14px 16px}
+
+/* stamp card */
+.stamps{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.card-row{display:flex;flex-direction:column;gap:8px}
+.card-row .lab{display:flex;justify-content:space-between;gap:12px;font-size:14px}
+.slots{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;max-width:420px}
+.slot{aspect-ratio:1;border-radius:50%;border:2px dashed var(--line)}
+.slot.on{border:2px solid var(--bad);background:radial-gradient(circle,var(--bad-soft) 55%,transparent 56%)}
+.slot.x{display:none}
+.pct{font-family:var(--mono);font-size:22px}
+
+/* charts */
+.chart{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .cap{font-size:13px;color:var(--ink2)}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar{display:grid;grid-template-columns:minmax(120px,38%) 1fr auto;gap:12px;align-items:center;font-size:14px}
+.bar .track{height:14px;background:var(--bg);border-radius:7px;overflow:hidden}
+.bar .fill{height:100%;background:var(--blue);border-radius:7px}
+.bar .fill.muted{background:var(--ink2)}
+@media (max-width:520px){.bar{grid-template-columns:1fr auto}.bar .track{grid-column:1/-1;grid-row:2}}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55;min-width:640px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-size:12px;color:var(--ink2);font-weight:500;background:var(--bg);position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:500}
+
+/* risk */
+.risks{display:flex;flex-direction:column;gap:10px}
+.risk{display:grid;grid-template-columns:84px 1fr;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.sev{font-size:12px;font-weight:700;border-radius:6px;padding:4px 0;text-align:center;align-self:start}
+.sev.high{background:var(--bad-soft);color:var(--bad)}
+.sev.mid{background:var(--warn-soft);color:var(--warn)}
+.risk p{font-size:14px;color:var(--ink2)}
+.risk h3{margin-bottom:2px}
+
+/* calculator */
+.calc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.calc .inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.calc label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--ink2)}
+.calc input[type=number]{font:inherit;font-family:var(--mono);font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+.calc input[type=range]{width:100%;accent-color:var(--blue)}
+.calc .out{display:flex;flex-wrap:wrap;gap:24px;align-items:baseline;border-top:1px solid var(--line);padding-top:14px}
+.calc .out div{display:flex;flex-direction:column}
+.calc .out b{font-family:var(--mono);font-size:26px;font-weight:500}
+.calc .out span{font-size:13px;color:var(--ink2)}
+@media (max-width:560px){.calc .inputs{grid-template-columns:1fr}}
+
+/* plan */
+.plan{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:8px}
+.step{position:relative;padding:0 0 20px 22px;display:flex;flex-direction:column;gap:4px}
+.step:before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--blue)}
+.step p{color:var(--ink2);font-size:15px}
+
+.pitch{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pitch div{border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.pitch .no{background:var(--bad-soft)}
+.pitch .yes{background:var(--good-soft)}
+.pitch small{font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.pitch .no small{color:var(--bad)} .pitch .yes small{color:var(--good)}
+@media (max-width:520px){.pitch{grid-template-columns:1fr}}
+
+details{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14px}
+summary{cursor:pointer;color:var(--ink2)}
+details ul{margin:10px 0 4px;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.closing{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px}
+.closing img{width:96px;height:auto}
+@media (max-width:480px){.closing{grid-template-columns:1fr}}
+footer{font-size:13px;color:var(--ink2)}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">못난이삼돌이 영문법 · 시장조사 · 2026.09.27</div>
+    <h1>'전자책'보다<br>'완주 코스'로 팔아</h1>
+    <p class="lede">웹앱 접근권을 전자책이라고 팔면 먹힐까? 국내외 사례 19개, 경쟁 상품 21개, 수요·효과 연구, 법·플랫폼 규정을 훑어서 나온 답이야.</p>
+  </div>
+  <img src="images/samdol_nudge.webp" alt="못난이삼돌이 캐릭터">
+</header>
+
+<section class="verdict" aria-label="결론">
+  <p class="big">해볼 만해. 자리는 비어 있어. 그런데 <span class="hl">세 가지는 바꿔야 해.</span></p>
+  <div class="changes">
+    <div><s>'전자책'이라는 이름</s><b>→ 웹 전자책 + 56일 완주 코스</b><span>한국에서 전자책은 '부업 PDF' 느낌. 크몽·탈잉 규정, 세금, 표기 문제까지 붙어.</span></div>
+    <div><s>"대시보드 제공"</s><b>→ "끝까지 가게 해 줌"</b><span>진도표를 보여 주기만 하면 효과 약해. 매일 돌아올 이유가 효과 있어.</span></div>
+    <div><s>크몽에 코드만 올리기</s><b>→ 자체 결제 / Gumroad</b><span>크몽 전자책은 A4 20쪽 PDF 필수, 외부 링크 금지. 반려될 가능성 높아.</span></div>
+  </div>
+  <p class="note"><b>읽기 전에.</b> 조사 환경 네트워크가 대부분의 상품 페이지(크몽, YES24, 앱스토어, 문체부 등)를 막았어. 그래서 숫자 상당수는 검색 요약에서 가져왔어. <span class="tag">스니펫</span> 은 검색 요약에서만 본 숫자, <span class="tag">미확인</span> 은 블로그·제휴·오래된 자료 숫자야. 같은 이유로 <b>경쟁 상품 이미지는 못 받아왔어.</b> 표의 링크로 들어가서 봐. 법·세금 내용은 조사 결과지 자문이 아니야.</p>
+</section>
+
+<section id="cases">
+  <div class="eyebrow">사례</div>
+  <h2>해외에선 '책 = 웹 접근권 + 진도표'가 이미 흔해</h2>
+  <div class="prose">
+    <p>제일 센 선례는 미국 대학 교재야. <b>zyBooks</b>는 자기를 "interactive textbook"이라고 불러. 서점에서 산 선불 키를 넣으면 열려. <b>Pearson</b>은 한 번만 쓰는 24자리 코드, <b>McGraw Hill SmartBook</b>은 완료율이랑 약한 개념을 리포트로 보여줘.</p>
+    <p>개인 창작자는 결이 달라. Josh Comeau는 미니게임 들어간 CSS 강좌를 자체 웹으로 만들어서 사전 판매만 약 $550k 벌었어. 그런데 이름은 <span class="hl">'책'이 아니라 '코스'</span>, 가격은 $399~$599야. Execute Program, Brilliant도 '코스'나 '구독'이야.</p>
+    <p><b>한 줄 정리:</b> '책'은 학교 교재에서 쓰는 이름이고, 개인이 인터랙티브 웹 상품을 만들면 거의 다 '코스'라고 불러.</p>
+  </div>
+  <div class="tbl"><table><thead><tr><th>사례</th><th>받는 것</th><th>가격</th><th>판매처</th><th>진도 기능</th><th>접근 방식</th><th>링크</th></tr></thead><tbody><tr><td>zyBooks (Wiley)</td><td>인터랙티브 교재 + 자동채점 문제</td><td>학생 $69~$90, 일반 약 $195</td><td>zybooks.com, 대학 서점</td><td>있음 (완료율)</td><td>계정 + 선불 키</td><td><a href="https://www.zybooks.com/" target="_blank" rel="noopener">zybooks.com</a></td></tr><tr><td>Pearson eTextbook / Revel</td><td>전자교재 + 평가</td><td>미확인 (6개월/5년 이용권)</td><td>pearson.com, 서점, Walmart</td><td>있음 (Revel 대시보드)</td><td>24자리 1회용 코드</td><td><a href="https://www.pearson.com/en-us/higher-education/products-services/revel.html" target="_blank" rel="noopener">Revel</a></td></tr><tr><td>McGraw Hill SmartBook</td><td>적응형 전자책</td><td>대여 $45~$70, 평생 $70~$90</td><td>mheducation.com, 서점</td><td>있음 (완료율, 약점 개념)</td><td>계정 + 코드</td><td><a href="https://www.mheducation.com/highered/digital-products/connect/student-tools/smartbook.html" target="_blank" rel="noopener">SmartBook</a></td></tr><tr><td>Manning liveBook</td><td>브라우저 리더, 예제, 오디오</td><td>일반 책값, 구독 있음</td><td>manning.com</td><td>부분 (북마크, 연습문제)</td><td>계정</td><td><a href="https://livebook.manning.com/" target="_blank" rel="noopener">liveBook</a>, <a href="https://www.manning.com/livebook-program" target="_blank" rel="noopener">프로그램</a></td></tr><tr><td>Leanpub "Web" 형식</td><td>브라우저에서 읽는 EPUB</td><td>저자가 정함</td><td>leanpub.com</td><td>확인 안 됨</td><td>계정 서재</td><td><a href="https://help.leanpub.com/en/articles/7548197-how-can-i-access-and-read-the-web-version-of-a-leanpub-book-i-ve-purchased" target="_blank" rel="noopener">도움말</a></td></tr><tr><td>CSS for JS Developers</td><td>영상, 글, 미니게임</td><td>약 $399 (블랙프라이데이 $239) <span class="tag">스니펫</span></td><td>자체 사이트</td><td>모듈 구조 (차트 미확인)</td><td>계정</td><td><a href="https://css-for-js.dev/" target="_blank" rel="noopener">css-for-js.dev</a></td></tr><tr><td>The Joy of React</td><td>같은 플랫폼</td><td>약 $599 (블랙프라이데이 $349) <span class="tag">스니펫</span></td><td>자체 사이트</td><td>위와 같음</td><td>계정</td><td><a href="https://www.joyofreact.com/" target="_blank" rel="noopener">joyofreact.com</a></td></tr><tr><td>Execute Program</td><td>글 + 실습 + 간격 반복</td><td>$39/월, $235/년</td><td>자체 사이트</td><td>있음 (복습 일정, 하루 제한)</td><td>구독</td><td><a href="https://www.executeprogram.com/" target="_blank" rel="noopener">executeprogram.com</a></td></tr><tr><td>Educative</td><td>텍스트형 코딩 코스</td><td>월 $59, 연 약 $199.99 <span class="tag">미확인</span></td><td>자체 사이트</td><td>있음</td><td>구독</td><td><a href="https://www.educative.io/" target="_blank" rel="noopener">educative.io</a></td></tr><tr><td>Brilliant</td><td>인터랙티브 STEM 레슨</td><td>연 결제 시 약 $20/월, 월 결제 약 $30 <span class="tag">미확인</span></td><td>자체 사이트</td><td>있음 (스트릭, 레벨, 일일 목표)</td><td>구독</td><td><a href="https://brilliant.org/" target="_blank" rel="noopener">brilliant.org</a></td></tr><tr><td>Kotobee / PandaSuite / KITABOO</td><td>인터랙티브 전자책을 웹앱으로 내는 도구</td><td>SaaS <span class="tag">미확인</span></td><td>각 사이트</td><td>KITABOO는 진도 추적 있음</td><td>접근 제어</td><td><a href="https://www.kotobee.com/" target="_blank" rel="noopener">Kotobee</a>, <a href="https://pandasuite.com/interactive-ebook-publishing-software/" target="_blank" rel="noopener">PandaSuite</a>, <a href="https://kitaboo.com/best-book-app-makers/" target="_blank" rel="noopener">KITABOO</a></td></tr></tbody></table></div>
+  <div class="prose">
+    <p>국내 선례는 전부 <b>"종이책 사면 웹·앱을 덤으로"</b> 구조야. 제일 가까운 건 <b>쎄듀런</b>. 천일문·어법끝 내용을 웹·앱으로 주고, 쿠폰 번호로 2주 체험을 열어줘. 다만 진도 관리는 선생님이 반에 배정하는 방식이야.</p>
+    <p>크몽에는 <b>PDF 안에 노션 템플릿 링크를 넣어 파는</b> 상품이 이미 있어. "PDF 속 링크로 외부 도구를 준다"는 모양이 한국 구매자한테 낯설지 않다는 뜻이야.</p>
+    <p class="hl" style="align-self:flex-start"><b>개인이 '전자책'으로 웹앱 + 개인 진도표를 파는 국내 사례는 하나도 못 찾았어.</b></p>
+    <p>빈자리라는 뜻이기도 하고, 기댈 선례가 없다는 뜻이기도 해.</p>
+  </div>
+  <div class="tbl"><table><thead><tr><th>국내 사례</th><th>받는 것</th><th>가격</th><th>판매처</th><th>진도 기능</th><th>접근 방식</th><th>링크</th></tr></thead><tbody><tr><td>쎄듀런 (쎄듀)</td><td>쎄듀 교재 기반 영어 웹·앱, 8레벨</td><td>요금제별 (금액 미확인)</td><td>cedulearn.com, 앱스토어</td><td>있음 (교사 중심)</td><td>계정 + 쿠폰 번호</td><td><a href="https://cedulearn.com/" target="_blank" rel="noopener">cedulearn.com</a>, <a href="https://apps.apple.com/kr/app/%EC%8E%84%EB%93%80%EB%9F%B0-cedulearn/id1628996948" target="_blank" rel="noopener">앱</a>, <a href="https://edu.dasfl.com/entry/%EC%B2%9C%EC%9D%BC%EB%AC%B8-%EB%93%B1-%EC%8E%84%EB%93%80-%EC%98%81%EC%96%B4-%EC%BD%98%ED%85%90%EC%B8%A0-%ED%83%91%EC%9E%AC%ED%95%9C-%EC%98%A8%EB%9D%BC%EC%9D%B8-%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%8E%84%EB%93%80%EB%9F%B0-%EA%B0%80%EC%9D%B4%EB%93%9C" target="_blank" rel="noopener">안내 블로그</a>, <a href="https://www.cedubook.com/studydata" target="_blank" rel="noopener">부가자료</a></td></tr><tr><td>NE능률 × 클래스카드</td><td>교재 700종의 단어 세트</td><td>NE능률 교재를 쓰는 교사는 무료</td><td>classcard.net</td><td>있음 (실시간 리포트)</td><td>계정</td><td><a href="https://www.classcard.net/" target="_blank" rel="noopener">클래스카드</a>, <a href="https://wowtale.net/2021/02/16/22736/" target="_blank" rel="noopener">와우테일</a>, <a href="https://play.google.com/store/apps/details?id=classcard.net&amp;hl=en_US" target="_blank" rel="noopener">앱</a></td></tr><tr><td>길벗 구매도서인증</td><td>도서 부록 자료</td><td>책값에 포함</td><td>길벗 사이트, 앱</td><td>확인 안 됨</td><td>ISBN 부가기호 입력</td><td><a href="https://www.gilbut.co.kr/customer/faq" target="_blank" rel="noopener">FAQ</a>, <a href="https://apps.apple.com/us/app/%EA%B8%B8%EB%B2%97%EC%B6%9C%ED%8C%90%EC%82%AC/id1458439600" target="_blank" rel="noopener">앱</a></td></tr><tr><td>시나공 프리미엄 존</td><td>자격증 교재 구매자 전용 공간</td><td>책값에 포함</td><td>sinagong.co.kr</td><td>확인 안 됨</td><td>구매 인증 (오류 문의 사례 있음)</td><td><a href="https://www.sinagong.co.kr/community/003002002/book-qnas/206138" target="_blank" rel="noopener">Q&amp;A</a></td></tr><tr><td>다락원 / NE능률 QR</td><td>MP3, 단어 서비스</td><td>책값에 포함</td><td>서점</td><td>없음</td><td>QR (로그인 없음)</td><td><a href="https://www.darakwon.co.kr/" target="_blank" rel="noopener">다락원</a>, <a href="http://www.nebooks.co.kr/" target="_blank" rel="noopener">NE Books</a></td></tr><tr><td>해커스 텝스 보카 앱</td><td>교재 연계 단어 앱</td><td>확인 안 됨</td><td>앱스토어</td><td>확인 안 됨</td><td>앱</td><td><a href="https://apps.apple.com/kr/app/id506599259" target="_blank" rel="noopener">앱</a></td></tr><tr><td>위키독스 유료 전자책</td><td>웹에서 읽는 전자책</td><td>저자가 정함</td><td>wikidocs.net</td><td>없음</td><td>계정</td><td><a href="https://wikidocs.net/150" target="_blank" rel="noopener">판매 안내</a>, <a href="https://wikidocs.net/205871" target="_blank" rel="noopener">예시</a></td></tr><tr><td>크몽 노션 템플릿 전자책</td><td>PDF + 노션 복제 링크</td><td>다양 (미수집)</td><td>크몽</td><td>템플릿 기능 수준</td><td>PDF 속 링크</td><td><a href="https://kmong.com/gig/643031" target="_blank" rel="noopener">gig 643031</a>, <a href="https://kmong.com/knowhow/gig/594008" target="_blank" rel="noopener">594008</a>, <a href="https://kmong.com/gig/487245" target="_blank" rel="noopener">487245</a>, <a href="https://kmong.com/knowhow" target="_blank" rel="noopener">노하우 카테고리</a></td></tr></tbody></table></div>
+  <details><summary>이 부분 출처 더 보기 (13)</summary><ul><li><a href="https://support.zybooks.com/hc/en-us/articles/1260801584850-Payment-Cost-financial-aid-refunds-discounts-and-more" target="_blank" rel="noopener">zyBooks 결제 안내</a></li><li><a href="https://support.zybooks.com/hc/en-us/articles/360007536753-What-is-a-prepaid-access-key" target="_blank" rel="noopener">선불 키</a></li><li><a href="https://support.zybooks.com/hc/en-us/articles/360007441274-How-much-do-zyBooks-cost" target="_blank" rel="noopener">가격</a></li><li><a href="https://astatebookstore.com/products/digital-structures-essentials-w-zybooks-access-code-9798203401946-1st-edition" target="_blank" rel="noopener">서점 판매 예</a></li><li><a href="https://www.pearson.com/en-us/pearsonplus/support/etextbooks.html" target="_blank" rel="noopener">Pearson+ 전자교재</a></li><li><a href="https://www.pearson.com/en-us/pearsonplus/redeem" target="_blank" rel="noopener">코드 등록</a></li><li><a href="https://www.mheducation.com/highered/digital-products/mhebook.html" target="_blank" rel="noopener">McGraw Hill eBook</a></li><li><a href="https://www.mheducation.com/highered/support/support-at-every-step/connect/smartbook/reports.html" target="_blank" rel="noopener">SmartBook 리포트</a></li><li><a href="https://www.failory.com/interview/css-for-js-developers" target="_blank" rel="noopener">Failory 인터뷰</a></li><li><a href="https://www.indiehackers.com/post/launched-my-first-course-earned-over-us-500-000-ama-4382405cd5" target="_blank" rel="noopener">Indie Hackers</a></li><li><a href="https://code.brettchalupa.com/execute-program-review" target="_blank" rel="noopener">Execute Program 리뷰</a></li><li><a href="https://brilliant.org/help/pricing-and-plans/" target="_blank" rel="noopener">Brilliant 가격</a></li><li><a href="https://cedubook.com/event/EVENT000178" target="_blank" rel="noopener">쎄듀북 이벤트</a></li></ul></details>
+</section>
+
+<section id="price">
+  <div class="eyebrow">경쟁 · 가격</div>
+  <h2>1만 원대 책과 10만 원대 앱 사이가 비어 있어</h2>
+  <div class="chart">
+    <svg viewBox="0 0 700 250" role="img" aria-label="영문법 상품 가격대 비교. 크몽 전자책 5천~2.9만 원, 초보 문법책 1.1만~1.35만 원, 제안 가격 1.9만~2.9만 원, 앱 연 구독 9.9만~29.9만 원">
+      <!-- log scale: x = 40 + (log10(p) - log10(4000)) / (log10(400000)-log10(4000)) * 620 -->
+      <g font-family="IBM Plex Mono, monospace" font-size="15" fill="var(--ink2)">
+        <line x1="40" y1="210" x2="660" y2="210" stroke="var(--line)"/>
+        <line x1="70" y1="30" x2="70" y2="210" stroke="var(--line)" stroke-dasharray="2 4"/><text x="70" y="230" text-anchor="middle">5천</text>
+        <line x1="163" y1="30" x2="163" y2="210" stroke="var(--line)" stroke-dasharray="2 4"/><text x="163" y="230" text-anchor="middle">1만</text>
+        <line x1="311" y1="30" x2="311" y2="210" stroke="var(--line)" stroke-dasharray="2 4"/><text x="311" y="230" text-anchor="middle">3만</text>
+        <line x1="473" y1="30" x2="473" y2="210" stroke="var(--line)" stroke-dasharray="2 4"/><text x="473" y="230" text-anchor="middle">10만</text>
+        <line x1="621" y1="30" x2="621" y2="210" stroke="var(--line)" stroke-dasharray="2 4"/><text x="621" y="230" text-anchor="middle">30만</text>
+      </g>
+      <g font-family="IBM Plex Sans KR, sans-serif" font-size="16">
+        <rect x="70" y="40" width="237" height="22" rx="6" fill="var(--ink2)" opacity=".35"/>
+        <text x="70" y="34" fill="var(--ink2)">크몽 전자책 5천~2.9만</text>
+        <rect x="176" y="88" width="28" height="22" rx="6" fill="var(--ink2)"/>
+        <text x="176" y="82" fill="var(--ink)">초보 문법책·전자책 1.1만~1.35만</text>
+        <rect x="250" y="136" width="57" height="22" rx="6" fill="var(--mark)"/>
+        <text x="250" y="130" fill="var(--ink)" font-weight="700">제안 1.9만~2.9만 (추론)</text>
+        <rect x="472" y="184" width="149" height="22" rx="6" fill="var(--blue)"/>
+        <text x="621" y="178" fill="var(--ink)" text-anchor="end">앱 연 구독 9.9만~29.9만</text>
+      </g>
+    </svg>
+    <p class="cap">가로축은 로그 눈금이야. 가격은 대부분 <span class="tag">스니펫</span> 수준. 제안 가격은 조사로 확인한 값이 아니라 추론이야.</p>
+  </div>
+  <div class="prose">
+    <p>초보 영문법 책은 <span class="num">1.1만~1.35만 원</span>에 몰려 있어. 제일 센 상대는 <b>해커스 그래머 게이트웨이 베이직</b>(정가 12,900원, YES24 Top100 23주). 반대편 앱은 훨씬 비싸. 말해보카가 연 98,000원에서 119,000원으로 올린 게 뉴스가 될 정도야.</p>
+    <p>표에서 읽히는 건 두 개야.</p>
+    <p><b>① 성인용 캐릭터·웹툰 영문법은 거의 비어 있어.</b> 만화 영문법은 대부분 초등학생용이야. 성인 쪽은 성안당 책 한 권이랑 '영문법왕국' 앱 정도인데, 이 앱도 반응이 거의 안 보였어.</p>
+    <p><b>② 책(1.35만)과 앱(연 10만+) 사이가 비어 있어.</b> "평생 이용 + 완주 코스"를 2만 원대에 두면 책보다는 비싸지만 구독 피로는 피하는 자리야.</p>
+    <p>참고로 <b>왕초보영어훈련소</b>는 이미 "무료 유튜브 강의 + 유료 PDF"로 팔고 있어. 무료 사이트에 유료 상품을 붙이는 네 구상이랑 모양이 같아.</p>
+  </div>
+  <div class="tbl"><table><thead><tr><th>구분</th><th>상품</th><th>가격</th><th>문법 중심?</th><th>진도 기능</th><th>링크</th></tr></thead><tbody><tr><td>책/전자책</td><td>해커스 그래머 게이트웨이 베이직</td><td>12,900원 (YES24 11,610원), 전자책 13,400원</td><td>예</td><td>없음 (인강 별도)</td><td>위 링크</td></tr><tr><td>책</td><td>혼공 기초 영문법 Lv1/Lv2</td><td>Lv2 11,250원</td><td>예</td><td>없음 (무료 유튜브 강의)</td><td><a href="https://www.yes24.com/product/goods/106174243" target="_blank" rel="noopener">YES24</a>, <a href="https://m.yes24.com/Goods/Detail/106174245" target="_blank" rel="noopener">모바일</a>, <a href="https://www.yes24.com/product/goods/106187953" target="_blank" rel="noopener">세트</a></td></tr><tr><td>전자책</td><td>소피반의 쓸만한 영어 비밀과외 1교시</td><td>11,900원</td><td>기초 영어</td><td>없음</td><td><a href="https://m.yes24.com/Goods/Detail/122542140" target="_blank" rel="noopener">YES24</a></td></tr><tr><td>전자책</td><td>한국에서 유일한 기초 영문법 1 / 요약본</td><td>미수집</td><td>예</td><td>없음</td><td><a href="https://m.yes24.com/Goods/Detail/139805870" target="_blank" rel="noopener">YES24</a>, <a href="https://www.yes24.com/product/goods/141511980" target="_blank" rel="noopener">요약본</a></td></tr><tr><td>전자책</td><td>영문법의 기초 (리디)</td><td>미수집</td><td>예</td><td>없음</td><td><a href="https://ridibooks.com/books/2709000877" target="_blank" rel="noopener">리디</a></td></tr><tr><td>크몽 PDF</td><td>하루 만에 끝내는 영문법 개념서</td><td>미수집 (카테고리 최저 5,000원)</td><td>예</td><td>없음</td><td><a href="https://kmong.com/gig/419187" target="_blank" rel="noopener">크몽</a></td></tr><tr><td>PDF + 무료 유튜브</td><td>영문법 뿌시기 LV1/LV1.5 (왕초보영어훈련소)</td><td>미수집</td><td>예</td><td>없음</td><td><a href="https://lexteacher.com/Store-Textbooks/?idx=80" target="_blank" rel="noopener">판매 페이지</a>, <a href="https://www.youtube.com/playlist?list=PLGdkAqcobzqZn44qARXnQfkIZUl4XZ7y1" target="_blank" rel="noopener">유튜브</a></td></tr><tr><td>책</td><td>그래머 인 유즈 베이직 (한국어판)</td><td>미수집</td><td>예</td><td>없음</td><td><a href="https://namu.wiki/w/Grammar%20in%20Use" target="_blank" rel="noopener">나무위키</a></td></tr><tr><td>캐릭터 앱</td><td>영문법왕국</td><td>미수집</td><td>예, 캐릭터 중심</td><td>미확인</td><td><a href="https://play.google.com/store/apps/details?id=amazingteur.enggrammarkingdom" target="_blank" rel="noopener">Google Play</a>, <a href="https://play.google.com/store/apps/details?id=amazingteur.enggrammarkingdom&amp;hl=en_US" target="_blank" rel="noopener">영문판</a></td></tr><tr><td>문법 앱</td><td>영어 문법 - AI 기반 / English Star</td><td>미수집</td><td>예</td><td>레슨 진행</td><td><a href="https://apps.apple.com/us/app/id6746693767" target="_blank" rel="noopener">AI 문법</a>, <a href="https://apps.apple.com/us/app/id6746693767?l=ko" target="_blank" rel="noopener">한국어</a>, <a href="https://apps.apple.com/kr/app/id1115051209" target="_blank" rel="noopener">English Star</a></td></tr><tr><td>앱 구독</td><td>말해보카</td><td>연 119,000원, 월 19,500원, 웹 12개월 99,000원 <span class="tag">미확인</span></td><td>일부</td><td>강함 (리그, 반복)</td><td><a href="https://apps.apple.com/kr/app/id1460766549" target="_blank" rel="noopener">앱</a>, <a href="https://epop.ai/ko/premium" target="_blank" rel="noopener">요금</a>, <a href="https://brunch.co.kr/@eab1896cc0ac47e/861" target="_blank" rel="noopener">브런치</a></td></tr><tr><td>앱 구독</td><td>스픽</td><td>연 129,000~299,000원 <span class="tag">미확인</span></td><td>아니요 (회화)</td><td>스트릭</td><td><a href="https://apps.apple.com/kr/app/id1286609883" target="_blank" rel="noopener">앱</a></td></tr><tr><td>앱 구독</td><td>듀오링고 Super</td><td>월 약 8,000~13,000원, 연 약 112,000원 <span class="tag">미확인, 출처끼리 다름</span></td><td>간접</td><td>매우 강함</td><td><a href="https://apps.apple.com/kr/app/id570060128" target="_blank" rel="noopener">앱</a>, <a href="https://pickle.plus/blog/duolingo-price-comparison" target="_blank" rel="noopener">pickle.plus</a>, <a href="https://brunch.co.kr/@ed8b942448fe4b6/1112" target="_blank" rel="noopener">브런치</a></td></tr><tr><td>앱 구독</td><td>케이크</td><td>Plus 9,900원/월 (유독)</td><td>아니요</td><td>스트릭 <span class="tag">미확인</span></td><td><a href="https://apps.apple.com/kr/app/id1350420987" target="_blank" rel="noopener">앱</a>, <a href="https://www.lguplus.com/pogg/product/%EC%BC%80%EC%9D%B4%ED%81%AC-%ED%94%8C%EB%9F%AC%EC%8A%A4-%EC%9B%94-%EA%B5%AC%EB%8F%85%EA%B6%8C" target="_blank" rel="noopener">유독</a></td></tr><tr><td>인강</td><td>야나두</td><td>정가 약 33,250원/월, 유독 9,900원/월</td><td>일부</td><td>미션·출석</td><td><a href="https://www.lguplus.com/pogg/product/야나두-클래스-월-구독권" target="_blank" rel="noopener">유독</a>, <a href="https://www.lguplus.com/pogg/magazine/%ED%8F%89%EC%83%9D-%EC%88%98%EA%B0%95-%EC%95%BC%EB%82%98%EB%91%90-%EA%B0%80%EA%B2%A9%EC%9D%80-%EC%98%81%EC%96%B4%ED%9A%8C%ED%99%94%EC%96%B4%ED%94%8C-%EA%B3%A0%EB%AF%BC-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0" target="_blank" rel="noopener">매거진</a></td></tr><tr><td>인강</td><td>시원스쿨 (완독 그래머인유즈 포함)</td><td>종합 약 19,750원/월</td><td>일부</td><td>수강 기록 <span class="tag">미확인</span></td><td><a href="https://www.siwonschool.com/" target="_blank" rel="noopener">시원스쿨</a>, <a href="https://www.siwonschool.com/?s=event&amp;t=wandok" target="_blank" rel="noopener">완독</a></td></tr><tr><td>인강</td><td>인프런 인생 영문법 / CLASS101+ / YBM</td><td>CLASS101+ 19,000원/월 <span class="tag">미확인</span></td><td>예/일부</td><td>수강률</td><td><a href="https://www.inflearn.com/course/%ED%95%9C%EA%B5%AD%EC%82%AC%EB%9E%8C-%EC%9D%B8%EC%83%9D-%EC%98%81%EB%AC%B8%EB%B2%95-%EA%B8%B4%EB%AC%B8%EC%9E%A5" target="_blank" rel="noopener">인프런</a>, <a href="https://class101.net/en" target="_blank" rel="noopener">CLASS101</a>, <a href="https://curious24356.com/40" target="_blank" rel="noopener">블로그</a>, <a href="https://eng.ybmclass.com/" target="_blank" rel="noopener">YBM</a></td></tr><tr><td>아동</td><td>호두잉글리시</td><td>6개월 87,120원 ~ 평생 29.9만 원</td><td>아니요</td><td>레벨 진행</td><td><a href="https://www.11st.co.kr/products/4112677280" target="_blank" rel="noopener">11번가</a>, <a href="https://www.11st.co.kr/products/4772683827" target="_blank" rel="noopener">12개월</a></td></tr><tr><td>만화 영문법</td><td>혼공쌤 초등만화영문법 외</td><td>미수집</td><td>예</td><td>없음</td><td><a href="https://school.gilbut.co.kr/book/view?bookcode=BN003662" target="_blank" rel="noopener">길벗스쿨</a>, <a href="https://ridibooks.com/books/476001126" target="_blank" rel="noopener">리디</a>, <a href="https://www.cyber.co.kr/book/item/3851" target="_blank" rel="noopener">성안당</a>, <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=267631318" target="_blank" rel="noopener">알라딘</a>, <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=6228119" target="_blank" rel="noopener">알라딘 구판</a>, <a href="https://m.yes24.com/Goods/Detail/125818534" target="_blank" rel="noopener">기적의 초등 영문법</a></td></tr></tbody></table></div>
+  <details><summary>이 부분 출처 더 보기 (10)</summary><ul><li><a href="https://www.yes24.com/product/goods/73425553" target="_blank" rel="noopener">YES24</a></li><li><a href="https://www.yes24.com/product/goods/126962091" target="_blank" rel="noopener">전자책</a></li><li><a href="https://m.yes24.com/Goods/Detail/111706311" target="_blank" rel="noopener">전자책 모바일</a></li><li><a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=192561985" target="_blank" rel="noopener">알라딘</a></li><li><a href="https://apps.apple.com/kr/app/id1617556984" target="_blank" rel="noopener">앱</a></li><li><a href="https://www.hackers.co.kr/?c=s_eng/eng_lec/grammar_gateway" target="_blank" rel="noopener">인강</a></li><li><a href="https://kmong.com/category/1905" target="_blank" rel="noopener">크몽 교육 카테고리</a></li><li><a href="https://biz.sbs.co.kr/article/20000261697" target="_blank" rel="noopener">SBS Biz</a></li><li><a href="https://speakpartner.kr/" target="_blank" rel="noopener">speakpartner.kr</a></li><li><a href="https://kmong.com/article/1864--%EC%9E%90%EB%A9%B4%EC%84%9C%EB%8F%84-%EB%8F%88-%EB%B2%84%EB%8A%94-%EC%A0%84%EC%9E%90%EC%B1%85-%ED%8C%90%EB%A7%A4%EC%9D%98-%EB%B9%84%EA%B2%B0" target="_blank" rel="noopener">크몽 아티클</a></li></ul></details>
+</section>
+
+<section id="demand">
+  <div class="eyebrow">수요</div>
+  <h2>돈은 앱 쪽으로 가. 하지만 무료→유료는 1% 안팎이야</h2>
+  <div class="prose">
+    <p><b>흐름은 우리 편이야.</b> 2024년 11월 영어 앱 상위 5개의 월 사용자는 합계 <span class="num">156만</span>으로 1년 새 <span class="num">90%</span> 늘었어 <span class="tag">스니펫</span>. 듀오링고가 18만에서 62만이 됐어. 반면 전통 인강 업체 매출은 크게 줄었다는 주장이 있어 <span class="tag">미확인</span>. 돈이 <span class="hl">매일 여는 퀴즈형 도구</span>로 가고 있고, 웹툰·퀴즈·카드가 있는 사이트는 이 흐름에 맞아.</p>
+    <p><b>'전자책'이라는 이름엔 불리한 신호가 붙어.</b> 크몽 전자책 약 2,300종 중 누적 100만 원을 넘긴 건 <span class="num">약 5%</span>뿐이야 <span class="tag">스니펫</span>. 잘 팔리는 건 재테크·부업이고, 상위권 상당수는 "전자책으로 돈 버는 법" 전자책이야. 한국에서 "전자책"은 부업 PDF 느낌이 강해.</p>
+    <p><b>전환율이 제일 현실적인 벽이야.</b> 뉴스레터 무료→유료 전환율 중앙값은 <span class="num">0.62%</span>(beehiiv), Substack 평균 약 <span class="num">3%</span>야. 같은 내용을 무료로 볼 수 있으면 아래쪽에 머물 가능성이 커.</p>
+    <p><b>좋은 신호도 있어.</b> 크몽 사례에서 첫 책을 산 사람의 <span class="num">35%</span>가 두 번째 책도 샀어 <span class="tag">스니펫</span>. 56과를 여러 권으로 나눠 시리즈로 파는 방법도 볼 만해.</p>
+  </div>
+  <div class="calc" id="calc">
+    <h3>내 숫자로 계산해 봐</h3>
+    <div class="inputs">
+      <label for="mau">월 활성 사용자(명)<input id="mau" type="number" min="0" step="100" value="5000"></label>
+      <label for="conv">구매 전환율 <span id="convv" class="num">1.0%</span><input id="conv" type="range" min="0.2" max="5" step="0.1" value="1"></label>
+      <label for="price">가격(원)<input id="price" type="number" min="0" step="1000" value="19900"></label>
+    </div>
+    <div class="out">
+      <div><b id="buyers">50</b><span>한 달 구매자</span></div>
+      <div><b id="rev">995,000원</b><span>한 달 매출 (수수료·세금 전)</span></div>
+    </div>
+    <p class="cap" style="font-size:13px;color:var(--ink2)">예시 값이야. 사이트의 실제 월 사용자 수는 이번 조사에서 확인 못 했어. 그 숫자를 넣어 봐. 전환율 0.6~3%가 벤치마크야.</p>
+  </div>
+  <details><summary>이 부분 출처 더 보기 (26)</summary><ul><li><a href="https://www.unicornfactory.co.kr/article/2025011618225699147" target="_blank" rel="noopener">유니콘팩토리</a></li><li><a href="https://sensortower.com/ko/blog/revenue-of-the-korean-market-education-app-and-MalhaeVoca-reached-all-time-highs" target="_blank" rel="noopener">Sensor Tower</a></li><li><a href="https://sensortower.com/ko/blog/Speak-top-1-by-revenue-in-the-education-category-of-the-Korean-market-for-a-year" target="_blank" rel="noopener">Sensor Tower</a></li><li><a href="https://news.nate.com/view/20250430n31916" target="_blank" rel="noopener">네이트뉴스</a></li><li><a href="https://www.threads.com/@careerlab_brian/post/DPKqj_bkpe4" target="_blank" rel="noopener">Threads</a></li><li><a href="https://kmong.com/gig/295837" target="_blank" rel="noopener">크몽 gig 295837</a></li><li><a href="https://litt.ly/blog/ebook-side-hustle-strategy" target="_blank" rel="noopener">리틀리 재인용</a></li><li><a href="https://kmong.com/category/1901" target="_blank" rel="noopener">크몽 1901</a></li><li><a href="https://kmong.com/gig/450745" target="_blank" rel="noopener">gig 450745</a></li><li><a href="https://kmong.com/gig/559092" target="_blank" rel="noopener">gig 559092</a></li><li><a href="https://kmong.com/gig/346412" target="_blank" rel="noopener">gig 346412</a></li><li><a href="https://platum.kr/archives/281677" target="_blank" rel="noopener">플래텀</a></li><li><a href="https://brunch.co.kr/@mingzi93/144" target="_blank" rel="noopener">브런치</a></li><li><a href="https://namu.wiki/w/%ED%81%AC%EB%AA%BD" target="_blank" rel="noopener">나무위키</a></li><li><a href="https://www.asiae.co.kr/article/2025021713120105647" target="_blank" rel="noopener">아시아경제</a></li><li><a href="https://www.issueon.co.kr/news/articleView.html?idxno=10825" target="_blank" rel="noopener">이슈온</a></li><li><a href="https://www.beehiiv.com/blog/the-state-of-paid-newsletters-2026" target="_blank" rel="noopener">beehiiv 2026</a></li><li><a href="https://bestwriting.com/substack-statistics" target="_blank" rel="noopener">bestwriting</a></li><li><a href="https://humblytics.com/blog/free-to-paid-newsletter-conversion-rate" target="_blank" rel="noopener">Humblytics</a></li><li><a href="https://newsletrix.com/blog/free-to-paid-newsletter-conversion-rate" target="_blank" rel="noopener">Newsletrix</a></li><li><a href="https://brunch.co.kr/@engcurator-dab/3" target="_blank" rel="noopener">브런치</a></li><li><a href="https://www.edaily.co.kr/news/read?newsId=03686726622585024&amp;mediaCodeNo=257" target="_blank" rel="noopener">이데일리</a></li><li><a href="https://www.ajunews.com/view/20171018141127033" target="_blank" rel="noopener">아주경제</a></li><li><a href="https://www.hankyung.com/article/202105105240i" target="_blank" rel="noopener">한국경제</a></li><li><a href="https://www.the-stock.kr/news/articleView.html?idxno=17384" target="_blank" rel="noopener">더스탁</a></li><li><a href="https://www.mordorintelligence.kr/industry-reports/digital-english-language-learning-market" target="_blank" rel="noopener">Mordor Intelligence</a></li></ul></details>
+</section>
+
+<section id="progress">
+  <div class="eyebrow">진도표 효과</div>
+  <h2>진도표는 보여 주기만 하면 약해. 매일 돌아오게 해야 효과가 나</h2>
+  <div class="prose">
+    <p><b>대부분은 끝까지 안 가.</b> 이게 출발점이야.</p>
+  </div>
+  <div class="chart">
+    <div class="bars">
+      <div class="bar"><span>edX 강좌 완주율 (2017~18)</span><div class="track"><div class="fill" style="width:3.13%"></div></div><span class="num">3.13%</span></div>
+      <div class="bar"><span>한국 인강 완강률 (업계 주장)</span><div class="track"><div class="fill muted" style="width:12.5%;opacity:.5"></div></div><span class="num">5~20% <span class="tag">미확인</span></span></div>
+      <div class="bar"><span>넛지 없음 (25만 명 실험)</span><div class="track"><div class="fill muted" style="width:12.81%"></div></div><span class="num">12.81%</span></div>
+      <div class="bar"><span>계획 세우기 넛지</span><div class="track"><div class="fill" style="width:13.38%"></div></div><span class="num">13.38%</span></div>
+    </div>
+    <p class="cap">막대 길이는 0~100% 기준. 넛지는 완주율을 거의 못 바꿨어 (Kizilcec 외, PNAS 2020).</p>
+  </div>
+  <div class="prose">
+    <p><b>그래도 기록 자체는 효과가 있어.</b> 실험 138개를 묶은 연구에서 진도를 확인하는 것만으로 목표 달성이 올라갔어(효과 크기 d=0.40). <span class="hl">기록을 남기거나 남한테 보여줄 때</span> 효과가 더 컸어.</p>
+    <p><b>제일 쓸모 있는 근거는 세차 도장카드 실험이야.</b></p>
+  </div>
+  <div class="stamps" aria-label="도장카드 실험">
+    <div class="card-row">
+      <div class="lab"><span>A. 빈칸 8개짜리 카드</span><span class="pct">19%</span></div>
+      <div class="slots"><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot x"></i><i class="slot x"></i></div>
+    </div>
+    <div class="card-row">
+      <div class="lab"><span>B. 10칸 중 2칸을 미리 찍어 준 카드</span><span class="pct" style="color:var(--bad)">34%</span></div>
+      <div class="slots"><i class="slot on"></i><i class="slot on"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i><i class="slot"></i></div>
+    </div>
+    <p class="cap" style="font-size:14px;color:var(--ink2)">둘 다 도장 8개를 더 모아야 하는 건 똑같아. 그런데 B의 완료율이 거의 두 배야 (Nunes &amp; Drèze 2006). <b style="color:var(--ink)">삼돌이 버전: 무료로 이미 공부한 과를 구매하자마자 진도표에 찍어 줘.</b></p>
+  </div>
+  <div class="prose">
+    <p><b>스트릭(연속 학습 기록)은 큰 앱에서 강하게 먹혀.</b> 듀오링고는 1년 넘게 이어 온 사용자가 1,000만 명이 넘어. 하지만 그건 수억 명, 수백 번의 A/B 테스트, 푸시 알림에서 나온 결과야. 개인 사이트에서 그대로 기대하면 안 돼.</p>
+    <p><b>"대시보드가 있으면 더 산다"는 직접 증거는 없어.</b> 진도표는 사게 만드는 이유가 아니라, 산 다음에 계속 쓰게 만드는 장치야.</p>
+  </div>
+  <div class="pitch">
+    <div class="no"><small>근거 약함</small><b>"공부량 대시보드 제공"</b>진도 차트, 공부 시간 그래프</div>
+    <div class="yes"><small>근거 있음</small><b>"56일 완주 코스"</b>하루 1과 · 연속 기록 · 미리 채운 진도 · 공유할 수 있는 완주 인증</div>
+  </div>
+  <details><summary>이 부분 출처 더 보기 (23)</summary><ul><li><a href="https://www.science.org/doi/10.1126/science.aav7958" target="_blank" rel="noopener">Science 2019</a></li><li><a href="https://www.insidehighered.com/digital-learning/article/2019/01/16/study-offers-data-show-moocs-didnt-achieve-their-goals" target="_blank" rel="noopener">Inside Higher Ed</a></li><li><a href="https://brunch.co.kr/@englishspeaking/157" target="_blank" rel="noopener">브런치</a></li><li><a href="https://orbi.kr/00013586114" target="_blank" rel="noopener">오르비</a></li><li><a href="http://news.unn.net/news/articleView.html?idxno=500423" target="_blank" rel="noopener">한국대학신문</a></li><li><a href="https://class101.net/events/60a66211be518b00155d22d3" target="_blank" rel="noopener">클래스101</a></li><li><a href="https://www.apa.org/pubs/journals/releases/bul-bul0000025.pdf" target="_blank" rel="noopener">Harkin 외 2016, APA</a></li><li><a href="https://eprints.whiterose.ac.uk/id/eprint/87431/" target="_blank" rel="noopener">White Rose</a></li><li><a href="https://eric.ed.gov/?id=EJ1245270" target="_blank" rel="noopener">Sailer &amp; Homner 2020</a></li><li><a href="https://www.cogn-iq.org/blog/gamified-learning/" target="_blank" rel="noopener">Cogn-IQ</a></li><li><a href="https://www.researchgate.net/publication/23547282_The_Endowed_Progress_Effect_How_Artificial_Advancement_Increases_Effort" target="_blank" rel="noopener">Nunes &amp; Drèze 2006</a></li><li><a href="https://www.researchgate.net/publication/239776073_The_Goal-Gradient_Hypothesis_Resurrected_Purchase_Acceleration_Illusionary_Goal_Progress_and_Customer_Retention" target="_blank" rel="noopener">Kivetz 외 2006</a></li><li><a href="https://investors.duolingo.com/static-files/99006c40-d8cf-41ca-b5b1-c5cb1fa5ba88" target="_blank" rel="noopener">주주서한 Q4 2024</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1562088/000156208825000039/q4fy24duolingo12-31x24shar.htm" target="_blank" rel="noopener">SEC 8-K</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1562088/000162828025049514/q3fy25duolingo9-30x25share.htm" target="_blank" rel="noopener">SEC Q3 2025</a></li><li><a href="https://www.orizon.co/blog/duolingos-gamification-secrets" target="_blank" rel="noopener">Orizon</a></li><li><a href="https://duolingo.deconstructoroffun.com/mechanics/streaks" target="_blank" rel="noopener">Deconstructor of Fun</a></li><li><a href="https://blog.duolingo.com/improving-the-streak" target="_blank" rel="noopener">듀오링고 블로그(열람 차단)</a></li><li><a href="https://investors.duolingo.com/static-files/3c8277ee-bc94-4f5d-9b77-0db3e46f88b8" target="_blank" rel="noopener">주주서한 Q2 2026, 열람 차단</a></li><li><a href="https://skillscouter.com/brilliant-review-math-science-coding/" target="_blank" rel="noopener">skillscouter</a></li><li><a href="https://www.executeprogram.com/spaced-repetition" target="_blank" rel="noopener">Execute Program 간격 반복</a></li><li><a href="https://mike.place/2020/executeprogram/" target="_blank" rel="noopener">mike.place</a></li><li><a href="https://www.pnas.org/doi/10.1073/pnas.1921417117" target="_blank" rel="noopener">Kizilcec 외, PNAS 2020</a></li></ul></details>
+</section>
+
+<section id="risks">
+  <div class="eyebrow">리스크</div>
+  <h2>제일 큰 벽은 플랫폼 규정, 세금, 환불 고지야</h2>
+  <div class="risks">
+    <div class="risk"><span class="sev high">높음</span><div><h3>크몽·탈잉에 코드만 올리면 반려</h3><p>크몽 전자책은 다운로드 파일, A4 20쪽 이상, 워터마크 필수, 외부 주소 금지야. 탈잉도 "PDF를 주는 클래스"로 정의해. → PDF 요약본을 본체로 하고 코드를 보너스로 붙이는 걸 미리 문의하거나, 자체 결제·Gumroad에서 팔아.</p></div></div>
+    <div class="risk"><span class="sev high">높음</span><div><h3>환불 제한이 효력을 잃음</h3><p>디지털 콘텐츠는 제공을 시작하면 환불을 막을 수 있어. 단, "철회 불가"를 미리 알리고 <b>맛보기를 줘야</b> 해. → 무료 사이트가 그대로 맛보기 근거가 돼서 오히려 유리해. 결제 전에 "코드 등록 즉시 제공 개시" 동의 체크를 받고, 등록 전이면 7일 안에 전액 환불해 줘.</p></div></div>
+    <div class="risk"><span class="sev high">높음</span><div><h3>사업자등록·통신판매업</h3><p>토스페이먼츠, 스마트스토어는 사업자등록이 필요해. 통신판매업 신고는 간이과세자이거나 직전 연도 거래가 50회 미만이면 면제돼. → 간이과세자로 시작하고, 사이트 아래에 사업자 정보를 적어.</p></div></div>
+    <div class="risk"><span class="sev mid">중간~높음</span><div><h3>부가세를 면세로 착각</h3><p>면세는 <b>ISBN이 있는 전자출판물</b>만 해당돼. 웹앱 이용권은 10% 과세로 보는 게 안전해 (세무사 확인 필요). → 면세를 원하면 ISBN을 받은 PDF판을 따로 만들어.</p></div></div>
+    <div class="risk"><span class="sev mid">중간</span><div><h3>'전자책' 표기로 "파일 소장" 오해</h3><p>말 자체는 불법이 아니야. 하지만 구매자가 파일을 영구 소장한다고 믿게 하면 기만 표시 문제가 될 수 있어. 이 표기 때문에 제재받은 사례는 못 찾았어. → 상세페이지 맨 위에 "PDF 다운로드 아님 · 웹 열람 · 이용 기간 · 기기 수 · 서비스 종료 시 PDF 제공"을 적어.</p></div></div>
+    <div class="risk"><span class="sev mid">중간</span><div><h3>코드·계정 공유</h3><p>한국은 PDF 전자책이 텔레그램·오픈채팅으로 흔하게 퍼져. 웹앱은 PDF보다 버티기 쉽고, 진도표는 복사해 가도 못 써. → 코드는 계정에 묶고, 기기 2대, 동시 접속 1개, 화면에 이메일 워터마크.</p></div></div>
+    <div class="risk"><span class="sev mid">중간</span><div><h3>무료 사이트를 잠그면 반발</h3><p>검색 유입이 줄고 "원래 무료였는데" 소리가 나와. → 무료 56과는 그대로 두고, <b>새 가치만</b> 유료로 팔아(완주 코스, 추가 문제, 진도표, 복습). 기존 방문자한테는 얼리버드 할인.</p></div></div>
+    <div class="risk"><span class="sev mid">중간</span><div><h3>개인정보처리방침</h3><p>공부 기록이나 이메일을 저장하면 처리방침을 걸어야 해. → 이메일이랑 진도만 모으고, 해외 서버에 저장하면 그 사실도 알려.</p></div></div>
+  </div>
+  <details><summary>이 부분 출처 더 보기 (60)</summary><ul><li><a href="https://support.kmong.com/hc/ko/articles/54382942782873-%EB%85%B8%ED%95%98%EC%9A%B0-%EC%BD%98%ED%85%90%EC%B8%A0-%EC%A0%9C%EC%9E%91-%EA%B0%80%EC%9D%B4%EB%93%9C" target="_blank" rel="noopener">제작 가이드</a></li><li><a href="https://support.kmong.com/hc/ko/articles/4402739619609--%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%93%B1%EB%A1%9D-%EA%B0%80%EC%9D%B4%EB%93%9C-%EC%A0%84%EC%9E%90%EC%B1%85-%EC%84%9C%EB%B9%84%EC%8A%A4" target="_blank" rel="noopener">전자책 등록 가이드</a></li><li><a href="https://support.kmong.com/hc/ko/articles/54382416262169-%EB%85%B8%ED%95%98%EC%9A%B0-%EC%BD%98%ED%85%90%EC%B8%A0-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%93%B1%EB%A1%9D-%EA%B0%80%EC%9D%B4%EB%93%9C" target="_blank" rel="noopener">노하우·콘텐츠 등록 가이드</a></li><li><a href="https://support.kmong.com/hc/ko/articles/13531011874713--%EC%A0%84%EC%9E%90%EC%B1%85-%EC%A0%84%EC%9E%90%EC%B1%85-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%93%B1%EB%A1%9D-%ED%82%A4%ED%8A%B8-%EC%A0%9C%EA%B3%B5" target="_blank" rel="noopener">등록 키트</a></li><li><a href="https://talingtutorguide.oopy.io/ebookmaking" target="_blank" rel="noopener">탈잉 제작 가이드</a></li><li><a href="https://talingtutorguide.oopy.io/ebookclass" target="_blank" rel="noopener">전자책 클래스</a></li><li><a href="https://talingrules.oopy.io/faq" target="_blank" rel="noopener">탈잉 FAQ</a></li><li><a href="https://start.litt.ly/blog/ebook-side-hustle-strategy" target="_blank" rel="noopener">리틀리 블로그</a></li><li><a href="https://calctools.co.kr/finance/ebook-revenue" target="_blank" rel="noopener">수익 계산기</a></li><li><a href="https://creator.class101.net/" target="_blank" rel="noopener">크리에이터 센터</a></li><li><a href="https://class101.ghost.io/class101-creator-home-launch/" target="_blank" rel="noopener">크리에이터 홈</a></li><li><a href="https://otto513.com/entry/%EC%8A%A4%EB%A7%88%ED%8A%B8%EC%8A%A4%ED%86%A0%EC%96%B4%EC%97%90-%EB%94%94%EC%A7%80%ED%84%B8-%EC%BD%98%ED%85%90%EC%B8%A0-%EB%93%B1%EB%A1%9D%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-A-to-Z" target="_blank" rel="noopener">OTTOsky</a></li><li><a href="https://www.mercisox.com/workfromhome/post81/" target="_blank" rel="noopener">mercisox</a></li><li><a href="https://gumroad.com/help/article/76-license-keys" target="_blank" rel="noopener">Gumroad 도움말</a></li><li><a href="https://dev.to/zsevic/license-key-verification-with-gumroad-api-58f9" target="_blank" rel="noopener">DEV 예제</a></li><li><a href="https://licenseseat.com/alternative-to-gumroad" target="_blank" rel="noopener">LicenseSeat, 경쟁사 주장</a></li><li><a href="https://www.tosspayments.com/blog/business-registration" target="_blank" rel="noopener">사업자등록</a></li><li><a href="https://www.tosspayments.com/blog/articles/sales-registration" target="_blank" rel="noopener">통신판매업</a></li><li><a href="https://help.sixshop.com/learn-sixshop/get-started/prepare-to-sell/payment-gateway/pg-toss" target="_blank" rel="noopener">식스샵 안내</a></li><li><a href="https://www.mcst.go.kr/site/s_data/ordinance/instruction/instructionView.jsp?pSeq=759" target="_blank" rel="noopener">문체부 면세 기준 고시</a></li><li><a href="https://www.mcst.go.kr/site/s_data/ordinance/instruction/instructionView.jsp?pSeq=149" target="_blank" rel="noopener">구 고시</a></li><li><a href="https://www.mcst.go.kr/site/s_notice/press/pressView.jsp?pSeq=9224" target="_blank" rel="noopener">보도자료</a></li><li><a href="https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=010000000000434735" target="_blank" rel="noopener">국세청 질의회신</a></li><li><a href="https://blog.guide.taxmedicenter.com/289" target="_blank" rel="noopener">택스메디센터</a></li><li><a href="http://guide.taxmedicenter.com/32/?bmode=view&amp;idx=13252676" target="_blank" rel="noopener">택스메디센터: 크몽·탈잉</a></li><li><a href="https://ai.bznav.com/contents/702315" target="_blank" rel="noopener">bznav</a></li><li><a href="https://www.ulex.co.kr/tax/%EB%B6%80%EA%B0%80%EA%B0%80%EC%B9%98%EC%84%B8%EA%B3%BC2062-232698" target="_blank" rel="noopener">예규 부가가치세과-2062</a></li><li><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%B6%9C%ED%8C%90%EB%AC%B8%ED%99%94%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EB%B2%95" target="_blank" rel="noopener">법령</a></li><li><a href="https://www.nl.go.kr/seoji/contents/S30101000000.do" target="_blank" rel="noopener">국립중앙도서관</a></li><li><a href="https://www.help-me.kr/blog/article/%EC%B6%9C%ED%8C%90%EC%97%85/" target="_blank" rel="noopener">헬프미</a></li><li><a href="https://www.readersnews.com/news/articleView.html?idxno=95877" target="_blank" rel="noopener">독서신문</a></li><li><a href="https://view.asiae.co.kr/article/2020052110140895154" target="_blank" rel="noopener">아시아경제</a></li><li><a href="https://www.intn.co.kr/news/articleView.html?idxno=2011993" target="_blank" rel="noopener">일간NTN</a></li><li><a href="https://www.consumer.go.kr/user/bbs/consumer/380/940/bbsDataView/3579.do?page=4&amp;column=&amp;search=&amp;searchSDate=&amp;searchEDate=&amp;bbsDataCategory=" target="_blank" rel="noopener">소비자24</a></li><li><a href="https://sajangconomy.com/articles/online-sales-report-exemption" target="_blank" rel="noopener">sajangconomy</a></li><li><a href="https://thecheck.co.kr/mail-order-business-report-exemption/" target="_blank" rel="noopener">thecheck</a></li><li><a href="https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=282793&amp;joNo=0017&amp;joBrNo=00&amp;docCls=jo&amp;urlMode=lsScJoRltInfoR" target="_blank" rel="noopener">전자상거래법 제17조</a></li><li><a href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?csmSeq=835&amp;ccfNo=4&amp;cciNo=1&amp;cnpClsNo=2" target="_blank" rel="noopener">생활법령 반품·환불</a></li><li><a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=25&amp;ccfNo=3&amp;cciNo=3&amp;cnpClsNo=3" target="_blank" rel="noopener">생활법령 사업자 의무</a></li><li><a href="https://www.ulex.co.kr/%EB%B2%95%EB%A5%A0/2100000216089-83561-%EB%94%94%EC%A7%80%ED%84%B8%EC%BD%98%ED%85%90" target="_blank" rel="noopener">디지털콘텐츠 표준약관</a></li><li><a href="http://itnlaw.knu.ac.kr/?task=json&amp;cmd=board-file-download&amp;fid=255&amp;filename=002-%EA%B3%A0%ED%98%95%EC%84%9D.pdf" target="_blank" rel="noopener">고형석 논문</a></li><li><a href="https://support.kmong.com/hc/ko/articles/15391076144153--%EC%B7%A8%EC%86%8C-%ED%99%98%EB%B6%88-%EC%A0%84%EC%9E%90%EC%B1%85-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%84%9C%EB%B9%84%EC%8A%A4%EC%9D%98-%ED%99%98%EB%B6%88-%EA%B8%B0%EC%A4%80%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94" target="_blank" rel="noopener">크몽 환불 기준</a></li><li><a href="https://support.kmong.com/hc/ko/articles/32568765491225--%EC%A0%84%EC%9E%90%EC%B1%85-%ED%99%98%EB%B6%88-%EC%A0%95%EC%B1%85-%EA%B0%9C%ED%8E%B8-%EC%95%88%EB%82%B4" target="_blank" rel="noopener">크몽 환불 정책 개편</a></li><li><a href="https://lbox.kr/v2/statute/%EC%A0%84%EC%9E%90%EC%83%81%EA%B1%B0%EB%9E%98%EB%93%B1%EC%97%90%EC%84%9C%EC%9D%98%EC%86%8C%EB%B9%84%EC%9E%90%EB%B3%B4%ED%98%B8%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0/%EB%B3%B8%EB%AC%B8%20%3E%20%EC%A0%9C2%EC%9E%A5%20%3E%20%EC%A0%9C21%EC%A1%B0?statuteName=%EC%A0%84%EC%9E%90%EC%83%81%EA%B1%B0%EB%9E%98+%EB%93%B1%EC%97%90%EC%84%9C%EC%9D%98+%EC%86%8C%EB%B9%84%EC%9E%90%EB%B3%B4%ED%98%B8%EC%97%90+%EA%B4%80%ED%95%9C+%EB%B2%95%EB%A5%A0&amp;statuteType=%EB%B2%95%EB%A5%A0&amp;effectiveDate=2025-02-14&amp;proclamationNumber=%EC%A0%9C+20302%ED%98%B8&amp;proclamationDate=2024-02-13&amp;revisionType=%EC%9D%BC%EB%B6%80%EA%B0%9C%EC%A0%95" target="_blank" rel="noopener">전자상거래법 제21조</a></li><li><a href="https://www.law.go.kr/LSW/lsInfoP.do?lsId=002011&amp;ancYnChk=0" target="_blank" rel="noopener">표시광고법</a></li><li><a href="https://www.law.go.kr/LSW//admRulInfoP.do?admRulSeq=2100000184414&amp;chrClsCd=010201" target="_blank" rel="noopener">부당 표시·광고 고시</a></li><li><a href="https://kiyul.co.kr/archives/73281" target="_blank" rel="noopener">기율법률사무소</a></li><li><a href="https://lawdrop.kr/140" target="_blank" rel="noopener">lawdrop</a></li><li><a href="https://www.thereport.co.kr/news/articleView.html?idxno=87347" target="_blank" rel="noopener">더리포트</a></li><li><a href="https://www.copyright.or.kr/business/koreacopyright/info/news/view.do?brdctsno=46143&amp;pageIndex=47&amp;searchTarget=ALL" target="_blank" rel="noopener">한국저작권위원회</a></li><li><a href="https://www.koreadaily.com/article/20260915235608214" target="_blank" rel="noopener">미주중앙일보 2026.9</a></li><li><a href="https://www.hynews.ac.kr/news/articleView.html?idxno=12837" target="_blank" rel="noopener">한양대 신문</a></li><li><a href="https://developers.google.com/search/docs/appearance/flexible-sampling" target="_blank" rel="noopener">Google Flexible Sampling</a></li><li><a href="https://www.playwire.com/blog/isaccessibleforfree-the-complete-guide-to-structured-data-for-paywalled-and-gated-content" target="_blank" rel="noopener">Playwire</a></li><li><a href="https://www.playwire.com/blog/structured-data-for-paywalled-and-gated-content-the-isaccessibleforfree-google-search-central-implementation-guide" target="_blank" rel="noopener">Playwire 구현 가이드</a></li><li><a href="https://rankstudio.net/articles/en/paywalled-content-seo-cloaking" target="_blank" rel="noopener">RankStudio</a></li><li><a href="https://www.stateofdigitalpublishing.com/seo/paywall-seo-strategy/" target="_blank" rel="noopener">State of Digital Publishing</a></li><li><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C30%EC%A1%B0" target="_blank" rel="noopener">개인정보보호법 제30조</a></li><li><a href="https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=283" target="_blank" rel="noopener">개인정보 포털</a></li><li><a href="https://www.easylaw.go.kr/CSP/CnpClsMainBtr.laf?csmSeq=1257&amp;ccfNo=2&amp;cciNo=1&amp;cnpClsNo=1" target="_blank" rel="noopener">생활법령</a></li></ul></details>
+</section>
+
+<section id="next">
+  <div class="eyebrow">다음 한 걸음</div>
+  <h2>질문이 바뀌어</h2>
+  <div class="prose">
+    <p>처음 질문: "전자책으로 팔면 먹힐까?"</p>
+    <p class="big" style="font-size:19px;font-weight:700">바뀐 질문: <span class="hl">"무료 사용자 중 1%가 돈을 낼 만큼 확실히 다른 걸 주는가?"</span></p>
+    <p>이름은 비용이 더 커. 파는 건 대시보드가 아니라 <b>끝까지 가게 해 주는 구조</b>여야 해.</p>
+  </div>
+  <div class="plan">
+    <div class="step"><h3>무료 사이트는 그대로 둬</h3><p>무료 56과가 맛보기이자 환불 규정의 근거야.</p></div>
+    <div class="step"><h3>간이과세자로 등록</h3><p>자체 결제든 Gumroad든 이게 먼저야.</p></div>
+    <div class="step"><h3>"웹 전자책 + 56일 완주 코스"를 단품으로 올려</h3><p>1.9만~2.9만 원, 평생 이용. 기존 방문자한테 얼리버드 가격을 먼저 보여 줘.</p></div>
+    <div class="step"><h3>월 사용자 대비 전환율 1%로 판단해</h3><p>넘으면 크몽용 ISBN PDF판이나 시리즈 분권으로 넓혀. 한참 못 미치면 이름 말고 <b>유료로 주는 가치</b>를 다시 설계해.</p></div>
+  </div>
+  <div class="closing">
+    <img src="images/samdol_calm.webp" alt="못난이삼돌이 캐릭터">
+    <div class="prose">
+      <p><b>가격 정하기 전에 먼저 확인할 숫자 하나: 사이트의 실제 월 사용자 수.</b></p>
+      <p>이번 조사에서 못 본 것도 있어. 경쟁 앱의 평점·다운로드 수, 크몽 영문법 전자책 판매량, 클래스101·스마트스토어의 코드 판매 정책, 문체부 면세 고시 세부 요건이야.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="eyebrow">부록</div>
+  <h2>전체 출처</h2>
+  <p class="prose" style="color:var(--ink2);font-size:15px">조사일 2026-09-27. 원문 대부분은 네트워크 차단으로 검색 요약으로만 확인했어. 판매 페이지에 쓰기 전에 원문을 다시 봐. 경쟁 상품 이미지는 아래 링크에서 직접 보면 돼.</p>
+  <details><summary>나머지 참고 자료 (11)</summary><ul><li><a href="https://www.ringleplus.com/en/student/landing/pricing" target="_blank" rel="noopener">링글</a></li><li><a href="https://leanpub.com/blog/lean-publishing-tip-of-the-day-a-guide-to-buying-and-reading-books-on-leanpub/" target="_blank" rel="noopener">Leanpub 블로그</a></li><li><a href="https://support.pearson.com/getsupport/s/registration-and-access-codes?language=en_US" target="_blank" rel="noopener">등록·코드</a></li><li><a href="https://support.pearson.com/getsupport/s/document-item?language=en_US&amp;bundleId=revel-glp-student&amp;topicId=Content%2Fget-started-book%2Fget-started-book.htm&amp;_LANG=enus" target="_blank" rel="noopener">Revel 시작</a></li><li><a href="https://support.zybooks.com/hc/en-us/articles/360053469514-About-course-based-access-keys" target="_blank" rel="noopener">도움말</a></li><li><a href="https://www.joshwcomeau.com/email/black-friday-2025-004-roundup/" target="_blank" rel="noopener">블랙프라이데이</a></li><li><a href="https://www.joshwcomeau.com/email/jor-launch-004-faq-primary/" target="_blank" rel="noopener">FAQ</a></li><li><a href="https://ldirer.com/blog/posts/css-for-js-and-joy-of-react-a-review" target="_blank" rel="noopener">ldirer</a></li><li><a href="https://medium.com/javarevisited/is-educative-unlimited-subscription-worth-it-in-2025-a-detailed-review-1e032ba846db" target="_blank" rel="noopener">Javarevisited</a></li><li><a href="https://devopscube.com/educative-io-review/" target="_blank" rel="noopener">devopscube</a></li><li><a href="https://www.inflearn.com/course/한국사람-인생-영문법-긴문장" target="_blank" rel="noopener">인프런</a></li></ul></details>
+</section>
+
+<footer>조사 노트와 원본 보고서: 저장소 <span class="num">research_notes/</span>, <span class="num">reports/</span> 폴더.</footer>
+</div>
+
+<script>
+(function(){
+  var mau=document.getElementById('mau'),conv=document.getElementById('conv'),price=document.getElementById('price');
+  function f(){
+    var m=Math.max(0,+mau.value||0),c=+conv.value,p=Math.max(0,+price.value||0);
+    var b=Math.round(m*c/100);
+    document.getElementById('convv').textContent=c.toFixed(1)+'%';
+    document.getElementById('buyers').textContent=b.toLocaleString('ko-KR')+'명';
+    document.getElementById('rev').textContent=(b*p).toLocaleString('ko-KR')+'원';
+  }
+  [mau,conv,price].forEach(function(e){e.addEventListener('input',f)});
+  f();
+})();
+</script>
