@@ -236,6 +236,7 @@
     .soon-badge{display:none}
   }
 </style>
+<link rel="stylesheet" href="steps.css?v=20260930234500">
 </head>
 <body>
 
@@ -258,10 +259,12 @@
   <img id="foot-img" src="images/ch/default_active.webp" width="95" height="64" alt="">
 </footer>
 
-<script src="data.js?v=20260920210000"></script>
-<script src="scenes.js?v=20260920210000"></script>
-<script src="quiz.js?v=20260920210000"></script>
+<script src="data.js?v=20260930234500"></script>
+<script src="extra.js?v=20260930234500"></script>
+<script src="scenes.js?v=20260930234500"></script>
+<script src="quiz.js?v=20260930234500"></script>
 <script src="webtoon-data.js?v=20260922000500"></script>
+<script src="steps.js?v=20260930234500"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -355,7 +358,10 @@
         }).join('')+'</div>';
     }).join('')+'</section>' : '';
 
-  app.innerHTML=
+  // 1~32과: 설명 → 추가 설명 → 웹툰 → 연습문제 네 걸음(steps.js). 33과부터는 옛 화면 그대로
+  var useSteps = typeof renderSteps==='function' && typeof extraData!=='undefined' && extraData[d.id] &&
+                 typeof quizData!=='undefined' && quizData[d.id];
+  var top = useSteps ? '<div id="v4root"></div>' :
     '<div class="badges"><span class="kicker">'+esc(meta.label+' · '+meta.theme)+'</span>'+d.tags.map(function(t){return '<span class="tag">#'+esc(t)+'</span>';}).join('')+'</div>'+
     '<h1>'+esc(d.title)+'</h1>'+
     '<div class="prog"><div class="bar"><div style="width:'+Math.round((idx+1)/grammarData.length*100)+'%"></div></div>'+
@@ -364,7 +370,8 @@
     '<article>'+body+'</article>'+
     (typeof quizData!=='undefined' && quizData[d.id]
       ? '<button class="quizopen" id="quizopen" type="button">연습문제 풀기 (7문제)</button><div id="quizbox"></div>'
-      : '')+
+      : '');
+  app.innerHTML = top +
     (d.practice
       ? '<a class="practicebtn" href="'+esc(d.practice)+'" target="_blank" rel="noopener">블로그에서 더 풀기 ↗</a>'
       : '')+
@@ -372,6 +379,27 @@
     '<a class="askbtn" id="askbtn" href="#">이 과에 대해 질문 보내기</a>'+
     '<nav class="pager">'+pager+'</nav>'+
     '<a class="tolist" href="grammar.html#month-'+d.month+'">전체 목록 보기</a>';
+
+  if(useSteps){
+    footImg.hidden=true;   // 한 화면에 캐릭터는 하나 — 걸음 화면 머리의 캐릭터가 표정을 맡는다
+    var pad2=String(d.id).padStart(2,'0');
+    var we=(typeof webtoonEps!=='undefined') && webtoonEps.find(function(e){return e.ep===d.id;});
+    var wx=(typeof webtoonEasyEps!=='undefined') && webtoonEasyEps.find(function(e){return e.ep===d.id;});
+    var stepToon = we && we.panels>0 ? {
+      ep:d.id, title:we.title, h:we.h||1935,
+      easy: wx && wx.panels>0 ? 'images/webtoon/easy/ep'+pad2+'-1.webp' : null,
+      orig: Array.apply(null,Array(we.panels)).map(function(_,i){return 'images/webtoon/ep'+pad2+'-'+(i+1)+'.webp';})
+    } : null;
+    renderSteps(document.getElementById('v4root'), {
+      id:d.id, title:d.title, kicker:[meta.label+' · '+meta.theme], drama:dm.title,
+      old:d.content, neu:extraData[d.id], quiz:quizData[d.id], toon:stepToon, script:scenes,
+      next: next ? {id:next.id, title:next.title} : null,
+      steps:[['설명','먼저 이 과의 핵심을 읽어요'],['추가 설명','같은 그림을 대화로 다시 확인'],
+             ['웹툰', stepToon ? '「'+stepToon.title+'」 · '+(stepToon.easy?'쉬운·원래 버전':'원래 버전') : '준비 중'],
+             ['연습문제','순서 맞추기 7문제']],
+      mascot:{start:'images/ch/'+((typeof faceData!=='undefined' && faceData[d.id]) || 'default_active')+'.webp', mid:'images/ch/happy_active.webp', win:'images/ch/victory_active.webp'}
+    });
+  }
 
   var MAIL=['jongeek1','gmail.com'].join('@');
   document.getElementById('askbtn').href='mailto:'+MAIL
