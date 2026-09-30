@@ -940,7 +940,7 @@ const grammarData = [
     content: [
       "30과에서 on은 붙어 있는 거라고 했지. 그런데 붙지 않고 **떨어져서 위에** 있으면?",
       "= OVER = 떨어져서 위로 **넘어간다** · UNDER = 그 **밑에** 있다",
-      "@compare ON :: 닿아 있음 :: The lamp is on the table :: OVER :: 떨어져서 위 :: The lamp is over the table",
+      "@compare ON :: 닿아 있음 :: The lamp is on the table :: OVER :: 떨어져서 위로 넘어감 :: A plane flew over the house",
       "## OVER — 위로",
       "1. A plane flew over the house. (비행기가 집 위로 날아갔어.) → 닿지 않고 위를 지나간다",
       "2. Jump over the fence. (울타리를 뛰어넘어.) → 울타리 위를 넘어간다",
@@ -956,7 +956,7 @@ const grammarData = [
   {
     id: 38, month: 5, title: "38. INTO & OUT OF: 안으로, 밖으로", tags: ["into", "out_of", "들어감", "나옴"],
     content: [
-      "문을 열고 방에 들어가는 순간을 떠올려봐. 그 순간에는 in이 아니라 다른 단어를 써. 경계를 **넘어가는** 중이니까.",
+      "문을 열고 방에 들어가는 순간을 떠올려봐. 그 순간에는 in보다 **into**가 또렷해. 경계를 **넘어가는** 중이니까.",
       "= INTO = 경계 안으로 들어가는 **화살표** · OUT OF = 경계 밖으로 나오는 **화살표**",
       "in + to = into야. 안(in)으로 향하는 화살표(to)를 붙여 놓은 거지.",
       "@compare IN :: 안에 가만히 있음 :: I'm in the room :: INTO :: 안으로 들어감 :: I walk into the room",
@@ -980,8 +980,8 @@ const grammarData = [
       "1. Go up the stairs. (계단을 올라가.) → 위쪽으로 움직인다",
       "2. Walk down the hill. (언덕을 걸어 내려가.) → 아래쪽으로 움직인다",
       "## 혼자 서 있을 때 — 같은 그림",
-      "! 뒤에 계단이나 언덕 같은 명사가 없어도 그림은 그대로야. 숫자가 올라가면 up, 마음이 가라앉으면 down.",
-      "3. Turn up the volume. (볼륨을 키워.) → 숫자가 위로 올라간다",
+      "! 계단이나 언덕 같은 길이 없어도 그림은 그대로야. 숫자가 올라가면 up, 마음이 가라앉으면 down.",
+      "3. The volume is going up. (볼륨이 올라가고 있어.) → 숫자가 위로 올라간다",
       "4. Calm down. (진정해.) → 들뜬 마음이 아래로 가라앉는다",
       "5. Wake up! (일어나!) → 잠 속에서 위로 떠오른다",
       "~ 계단이든 볼륨이든 마음이든 잠이든, **위로 가면 up, 아래로 가면 down**입니다.",
@@ -1077,8 +1077,8 @@ const grammarData = [
     content: [
       "수영장 물 위에 떠서 발을 내려다본다고 생각해 봐. 수면이 선 하나야. 그 선보다 **위**는 above, **아래**는 below야.",
       "= ABOVE = 선보다 **위** · BELOW = 선보다 **아래**",
-      "37과의 over는 무언가의 위를 넘어 **지나가는** 그림이었어. above와 below는 지나가지 않고 그냥 그 높이에 가만히 있어. 거리는 상관없이 위인지 아래인지만 말해.",
-      "@compare OVER :: 위를 넘어 지나감 :: A bird flew over the boat :: ABOVE :: 가만히 더 높은 곳 :: The sun is above the boat",
+      "37과의 over는 위를 넘거나 바로 위를 덮는 그림이었어. above와 below는 그냥 선보다 높은지 낮은지를 말해. 거리는 상관없어.",
+      "@compare OVER :: 위를 넘어 지나감 :: A bird flew over the boat :: ABOVE :: 그냥 더 높은 곳 :: The sun is above the boat",
       "1. The sun is above the sea. (해가 바다 위에 있어.) → 수면이라는 선보다 높은 곳",
       "2. The fish swim below the boat. (물고기들이 배 아래에서 헤엄쳐.) → 배가 있는 높이보다 낮은 곳",
       "3. The temperature is below zero. (기온이 영하야.) → 0이라는 눈금선보다 아래",
@@ -1095,7 +1095,7 @@ const grammarData = [
       "= AROUND = 가운데를 **빙 둘러** 있거나 · 한 바퀴 **돌아서** 간다",
       "1. We sat around the fire. (우리는 불 둘레에 둘러앉았어.) → 불이 가운데, 사람이 동그랗게",
       "2. I walked around the lake. (나는 호수를 한 바퀴 돌았어.) → 호수 가장자리를 빙 돈다",
-      "3. Wait for me around the corner. (모퉁이 돌아서 기다려.) → 모퉁이를 돌아가면 나오는 곳",
+      "3. Wait for me around the corner. (모퉁이를 돌면 나오는 곳에서 기다려.) → 모퉁이를 돌아가면 나오는 곳",
       "~ 시각과 숫자에서는 about과 바꿔 써도 돼요. around three o'clock, about three o'clock 둘 다 3시쯤이에요. 다른 점은 around가 몸으로 돌거나 둘러싸는 모습까지 그린다는 거예요.",
       "> AROUND를 볼 때마다 \"아, 둥글게 돌고 있네\"라고 생각해보세요.",
       "+ 불 둘레에 앉든 호수를 걷든 모퉁이를 돌든, 둘레를 도는 그림이면 around다."
@@ -1130,7 +1130,7 @@ const grammarData = [
       "3. Who is hiding behind the tree? (누가 나무 뒤에 숨어 있어?) → 나무가 나를 가려 준다",
       "! 가려지지 않아도 뒤쪽이면 behind야. the car behind me처럼.",
       "## BESIDE — 옆",
-      "4. She stood beside me. (그녀는 내 옆에 섰어.) → 같은 방향을 보며 나란히",
+      "4. She stood beside me. (그녀는 내 옆에 섰어.) → 내 바로 옆에 나란히",
       "~ 34과의 by도 곁이지만 by는 가까이에 있다는 뜻이고, beside는 나란히 옆자리라는 뜻이에요. by the window는 창문 가까이, beside me는 내 옆자리예요.",
       "> 숨바꼭질은 behind, 나란히 걷기는 beside.",
       "+ 숨바꼭질처럼 가려질 때가 많지만, 뒤쪽이면 behind, 나란히 서 있으면 beside다."
@@ -1140,7 +1140,7 @@ const grammarData = [
     id: 48, month: 6, title: "48. 여섯째 달 복습 (41과 - 47과)", tags: ["전치사총정리", "길과자리", "완성"],
     content: [
       "이번 달 전치사는 전부 어디에 있고 어떻게 지나가는지를 그렸어.",
-      "= 이번 달도 전치사는 **그림**이다. 이번에는 길과 자리",
+      "= 이번 달도 전치사는 **그림**이다. 이번에는 길·자리·줄",
       "## through — 들어가서 반대쪽으로 나오는 터널",
       "시장, 터널, 유리, 밤. We walked through the market.",
       "## between & among — 사이와 속",
@@ -1166,7 +1166,7 @@ const grammarData = [
     id: 49, month: 7, title: "49. DURING: 일이 벌어지는 동안", tags: ["during", "동안", "시간의띠"],
     content: [
       "영화관에서 옆자리 사람이 속삭인다. \"쉿, 영화 하는 **동안**이잖아.\"",
-      "이 '~하는 동안'을 영어로 하면 **DURING**이야.",
+      "이렇게 **일 이름**(영화, 폭풍) 앞에 오는 '~동안'을 영어로 하면 **DURING**이야. 뒤에 '내가 ~하는' 같은 문장이 오면 while을 써.",
       "= DURING = 어떤 일이 벌어지는 **시간의 띠** 안",
       "영화, 폭풍, 긴 밤은 다 시작과 끝이 있는 띠야. during은 그 띠 위에 서 있다는 말이야.",
       "## 예시",
@@ -1192,7 +1192,7 @@ const grammarData = [
       "3. I stayed up until midnight. (나는 자정까지 안 잤어.) → 자정 말뚝에서 깨어 있던 줄이 끊긴다",
       "## SINCE — 그때부터 지금까지",
       "4. I have lived here since 2020. (나는 2020년부터 여기 살아왔어.) → 2020 말뚝에서 시작해서 지금까지",
-      "5. She has been here since Monday. (그녀는 월요일부터 여기 있었어.) → 월요일 말뚝에서 지금까지 줄이 이어져 있다",
+      "5. She has been here since Monday. (그녀는 월요일부터 여기 있어.) → 월요일 말뚝에서 지금까지 줄이 이어져 있다",
       "~ since 문장에는 보통 have가 같이 다녀. 18과에서 본 현재완료가 바로 그 짝이야.",
       "> 끝을 찍으면 until, 시작을 찍으면 since. 말뚝이 어느 쪽에 박혔는지만 보면 돼.",
       "+ until은 끝 말뚝, since는 시작 말뚝이다. 둘 다 줄이 끊기지 않고 이어진다는 점에서 한 번 해내면 끝나는 by와 다르다."
@@ -1203,15 +1203,15 @@ const grammarData = [
     content: [
       "우산 없이 나갔더니 비가 쏟아졌다. 이 '~ 없이'가 영어로 **WITHOUT**이야.",
       "= WITHOUT = 함께 있던 것이 빠져서 **빈자리**가 남았다",
-      "글자를 쪼개 보면 with + out이야. with(붙어서 함께)에서 밖(out)으로 나가 버린 거지. 그래서 with의 정반대야.",
+      "글자를 쪼개 보면 with + out이야. with(붙어서 함께)에서 밖(out)으로 나가 버린 거지. 그래서 '같이 있음'의 반대편이야.",
       "! without 뒤에 동작이 올 때는 saying처럼 -ing 꼴로 써.",
       "## 예시",
       "1. Don't go out without an umbrella. (우산 없이 나가지 마.) → 우산이 있어야 할 자리가 비어 있다",
       "2. I can't sleep without music. (나는 음악 없이는 잠을 못 자.) → 음악 자리가 비면 잠도 안 온다",
       "3. He drinks coffee without sugar. (그는 설탕 없이 커피를 마셔.) → 설탕 자리가 빈 커피",
       "4. She left without saying goodbye. (그녀는 작별 인사도 없이 떠났어.) → '작별 인사하기' 자리가 비었다",
-      "~ 33과의 with는 나와 같이 움직이는 것이었어. without은 그 짝이 빠진 상태야. 문장 안에서 with 자리에 without을 넣으면 뜻이 정반대로 뒤집혀.",
-      "+ without은 빈자리다. 있어야 할 것이 없다는 뜻이니, with와 자리를 바꾸면 문장이 정반대가 된다."
+      "~ 33과의 with는 나와 같이 움직이는 것이었어. without은 그 짝이 빠진 상태야. 같이 있던 사람이나 도구 자리에 without을 넣으면 뜻이 뒤집혀.",
+      "+ without은 빈자리다. 있어야 할 것이 없다는 뜻이니, 같이 있음(with)과 반대편에 선다."
     ]
   },
   {

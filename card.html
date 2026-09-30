@@ -236,7 +236,7 @@
     .soon-badge{display:none}
   }
 </style>
-<link rel="stylesheet" href="steps.css?v=20261001120000">
+<link rel="stylesheet" href="steps.css?v=20261001160000">
 </head>
 <body>
 
@@ -259,12 +259,12 @@
   <img id="foot-img" src="images/ch/default_active.webp" width="95" height="64" alt="">
 </footer>
 
-<script src="data.js?v=20261001120000"></script>
-<script src="extra.js?v=20261001120000"></script>
-<script src="scenes.js?v=20261001120000"></script>
-<script src="quiz.js?v=20261001120000"></script>
+<script src="data.js?v=20261001160000"></script>
+<script src="extra.js?v=20261001160000"></script>
+<script src="scenes.js?v=20261001160000"></script>
+<script src="quiz.js?v=20261001160000"></script>
 <script src="webtoon-data.js?v=20260922000500"></script>
-<script src="steps.js?v=20261001120000"></script>
+<script src="steps.js?v=20261001160000"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -398,7 +398,7 @@
       old:d.content, neu:extraData[d.id], quiz:quizData[d.id], toon:stepToon, script:scenes,
       next: next ? {id:next.id, title:next.title} : null,
       steps:[['설명','먼저 이 과의 핵심을 읽어요'],['추가 설명','같은 그림을 대화로 다시 확인'],
-             ['웹툰', stepToon ? '「'+stepToon.title+'」 · '+(stepToon.easy?'쉬운·원래 버전':'원래 버전') : '준비 중'],
+             ['웹툰', stepToon ? '「'+stepToon.title+'」 · '+(stepToon.easy?'쉬운·원래 버전':'원래 버전') : '준비 중 · 대본을 먼저 읽어요'],
              ['연습문제','순서 맞추기 7문제']],
       mascot:{start:'images/ch/'+((typeof faceData!=='undefined' && faceData[d.id]) || 'default_active')+'.webp', mid:'images/ch/happy_active.webp', win:'images/ch/victory_active.webp'}
     });

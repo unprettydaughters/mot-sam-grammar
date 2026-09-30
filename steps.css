@@ -152,6 +152,7 @@
 .v4 .prog{display:block}
 .v4 .chips{margin-bottom:0}
 .v4 .tray:empty::before{content:none}
+.v4 .kicker{white-space:normal;max-width:100%;line-height:1.5}
 .v4 .mascot{aspect-ratio:640/420;object-fit:contain;object-position:bottom}
 
 /* 왼쪽 진행 레일 — 1000px 이상에서만. (이름을 .rail이 아니라 .v4rail로: card.html 옛 .rail = 기차 레일과 안 부딪히게) */

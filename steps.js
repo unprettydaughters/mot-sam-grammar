@@ -70,9 +70,22 @@ function renderSteps(root, D) {
   }
 
   /* ── 웹툰 ── */
+  function scriptBlock(open) {
+    if (!D.script || !D.script.length) return '';
+    return '<details class="scr"' + (open ? ' open' : '') + '><summary>글로 읽기 · 대본</summary><div class="in">' + D.script.map(function (s) {
+      return s.lines.map(function (l) {
+        if (l.charAt(0) === '[') return '<p class="place">' + esc(l.replace(/^\[|\]$/g, '')) + '</p>';
+        if (l.charAt(0) === '(') return '<p class="dir">' + esc(l) + '</p>';
+        var k = l.indexOf(': ');
+        if (k > 0 && k < 12) return '<p class="ln"><b>' + esc(l.slice(0, k)) + '</b>' + esc(l.slice(k + 2)) + '</p>';
+        return '<p class="dir">' + esc(l) + '</p>';
+      }).join('');
+    }).join('') + '</div></details>';
+  }
   function toonBody() {
     var t = D.toon, h = '';
-    if (!t) return '<p class="sit">웹툰은 아직 준비 중이에요.</p>';
+    // 웹툰이 아직 없는 과(33~56과): 대본을 펼쳐서 먼저 읽게 한다
+    if (!t) return '<p class="sit">웹툰은 아직 준비 중이에요. 그동안 대본으로 먼저 읽어요.</p><p class="cap2">' + esc(D.drama) + ' · EP.' + esc(D.id) + '</p>' + scriptBlock(true);
     var tabs = [];
     if (t.easy) tabs.push(['easy', '쉬운 버전']);
     if (t.orig && t.orig.length) tabs.push(['orig', '원래 버전']);
