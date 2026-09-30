@@ -185,6 +185,14 @@ function renderSteps(root, D) {
   $('#bars').innerHTML = STEPS.map(function () { return '<i></i>'; }).join('');
   quizInit($('#pn3 .body'));
 
+  // 왼쪽 진행 레일(1000px↑에서만 보임, card.html이 #v4rail 칸을 만들어 둔다)
+  var rail = document.getElementById('v4rail');
+  if (rail) {
+    rail.innerHTML = '<h2>이 과의 네 걸음</h2><div id="railBtns">' + STEPS.map(function (s, i) {
+      return '<button type="button" data-go="' + i + '"><span class="dot"><span class="num">' + (i + 1) + '</span></span>' + esc(s.title) + '</button>';
+    }).join('') + '</div><div class="cnt"><span id="railCnt"></span><br><button class="again" id="resetBtn" type="button">처음부터 다시</button></div>';
+  }
+
   function refresh() {
     var n = state.done.filter(Boolean).length;
     $$('.step').forEach(function (el, i) {
@@ -193,6 +201,16 @@ function renderSteps(root, D) {
       $('.dot', el).innerHTML = state.done[i] ? CHECK : '<span class="num">' + (i + 1) + '</span>';
     });
     $$('#bars i').forEach(function (b, i) { b.className = state.done[i] ? 'done' : (state.open === i ? 'cur' : ''); });
+    if (rail) {
+      [].forEach.call(rail.querySelectorAll('#railBtns button'), function (b, i) {
+        var dot = b.querySelector('.dot');
+        b.classList.toggle('cur', state.open === i);
+        dot.style.background = state.done[i] ? 'var(--amb-face)' : (state.open === i ? 'var(--lav-400)' : '');
+        dot.style.color = state.done[i] ? 'var(--ink-900)' : (state.open === i ? '#fff' : '');
+        dot.innerHTML = state.done[i] ? CHECK : '<span class="num">' + (i + 1) + '</span>';
+      });
+      rail.querySelector('#railCnt').textContent = n + ' / 4 걸음 끝냈어요';
+    }
     $('#progTxt').textContent = n + ' / 4 걸음';
     var face = n >= 4 ? D.mascot.win : n >= 2 ? D.mascot.mid : D.mascot.start;
     var m = $('#mascot'); if (m.getAttribute('src') !== face) m.setAttribute('src', face);
@@ -214,6 +232,16 @@ function renderSteps(root, D) {
       $$('.toon', seg.parentNode).forEach(function (p) { p.hidden = p.getAttribute('data-pane') !== tab; });
     }
   });
+  if (rail) {
+    rail.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-go]'); if (b) { openStep(+b.getAttribute('data-go'), true); return; }
+      if (e.target.closest('#resetBtn')) {
+        state.done = [false, false, false, false]; state.open = 0; save();
+        $('#pn3 .body').innerHTML = quizShell(); quizInit($('#pn3 .body')); refresh();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
   var hm = /^step([1-4])$/.exec((location.hash || '').replace('#', ''));
   if (hm) state.open = +hm[1] - 1;
   refresh();

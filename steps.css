@@ -153,3 +153,20 @@
 .v4 .chips{margin-bottom:0}
 .v4 .tray:empty::before{content:none}
 .v4 .mascot{aspect-ratio:640/420;object-fit:contain;object-position:bottom}
+
+/* 왼쪽 진행 레일 — 1000px 이상에서만. (이름을 .rail이 아니라 .v4rail로: card.html 옛 .rail = 기차 레일과 안 부딪히게) */
+.v4rail{display:none}
+main.wide{max-width:1040px}
+@media(min-width:1000px){
+  .v4wrap{display:grid;grid-template-columns:240px minmax(0,720px);gap:40px;justify-content:center;align-items:start}
+  .v4col{min-width:0}
+  .v4rail{display:block;position:sticky;top:88px;background:var(--wall);border-radius:24px;padding:20px}
+  .v4 .prog{display:none!important}
+}
+.v4rail h2{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;color:var(--ink-400);margin-bottom:12px;border:0;padding:0}
+.v4rail button{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:6px 8px;border:0;border-radius:12px;background:transparent;text-align:left;font-size:16px;font-weight:500;color:var(--ink-700)}
+.v4rail button:hover{background:rgba(255,255,255,.6)}
+.v4rail button.cur{background:var(--card);box-shadow:var(--shadow);color:var(--lav-600);font-weight:600}
+.v4rail .dot{width:32px;height:32px;font-size:14px}
+.v4rail .cnt{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-400)}
+.v4rail .again{margin-top:6px;min-height:44px;width:auto;padding:0 8px;font-size:14px;font-weight:500;color:var(--lav-400)}

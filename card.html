@@ -236,7 +236,7 @@
     .soon-badge{display:none}
   }
 </style>
-<link rel="stylesheet" href="steps.css?v=20260930234500">
+<link rel="stylesheet" href="steps.css?v=20260930235500">
 </head>
 <body>
 
@@ -259,12 +259,12 @@
   <img id="foot-img" src="images/ch/default_active.webp" width="95" height="64" alt="">
 </footer>
 
-<script src="data.js?v=20260930234500"></script>
-<script src="extra.js?v=20260930234500"></script>
-<script src="scenes.js?v=20260930234500"></script>
-<script src="quiz.js?v=20260930234500"></script>
+<script src="data.js?v=20260930235500"></script>
+<script src="extra.js?v=20260930235500"></script>
+<script src="scenes.js?v=20260930235500"></script>
+<script src="quiz.js?v=20260930235500"></script>
 <script src="webtoon-data.js?v=20260922000500"></script>
-<script src="steps.js?v=20260930234500"></script>
+<script src="steps.js?v=20260930235500"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -371,7 +371,7 @@
     (typeof quizData!=='undefined' && quizData[d.id]
       ? '<button class="quizopen" id="quizopen" type="button">연습문제 풀기 (7문제)</button><div id="quizbox"></div>'
       : '');
-  app.innerHTML = top +
+  var tail =
     (d.practice
       ? '<a class="practicebtn" href="'+esc(d.practice)+'" target="_blank" rel="noopener">블로그에서 더 풀기 ↗</a>'
       : '')+
@@ -379,6 +379,9 @@
     '<a class="askbtn" id="askbtn" href="#">이 과에 대해 질문 보내기</a>'+
     '<nav class="pager">'+pager+'</nav>'+
     '<a class="tolist" href="grammar.html#month-'+d.month+'">전체 목록 보기</a>';
+  // 걸음 화면은 넓은 화면(1000px↑)에서 왼쪽에 「이 과의 네 걸음」 레일이 붙는다. 뒤따르는 단추·이동도 오른쪽 칸 안에 둔다
+  if(useSteps){ app.classList.add('wide'); app.innerHTML = '<div class="v4 v4wrap"><aside class="v4rail" id="v4rail" aria-label="진행 상황"></aside><div class="v4col">'+top+tail+'</div></div>'; }
+  else app.innerHTML = top + tail;
 
   if(useSteps){
     footImg.hidden=true;   // 한 화면에 캐릭터는 하나 — 걸음 화면 머리의 캐릭터가 표정을 맡는다
