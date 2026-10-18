@@ -932,7 +932,7 @@ const dramaScenes = {
         "진: Without Taseyo, how do we go?",
         "제이: We can't go anywhere without Taseyo!",
         "수: We can walk. It's just a mountain. Without a map. Without a signal.",
-        "진: (노트에 「with」 그림을 그린 뒤 한 사람을 지운다.) Without is with, but someone is gone.",
+        "진: (노트에 「with」 그림을 그린 뒤 한 사람을 지운다.) Five with Taseyo. Four without Taseyo.",
         "제이: (버스를 토닥이며) With Taseyo, it's a trip. Without Taseyo, it's a hike.",
         "수: A hike without a map. That's a bad hike.",
         "진: Number nineteen. \"Go a day without a phone.\"",
