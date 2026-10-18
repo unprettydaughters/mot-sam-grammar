@@ -576,7 +576,7 @@ const dramaScenes = {
         "제이: I can! With my eyes closed.",
         "수: Please don't.",
         "(버스 문이 삐걱 열린다. 안에서 강아지 한 마리가 튀어나와 진의 발목에 붙는다.)",
-        "진: He came with me?!",
+        "진: He's coming with me?!",
         "제이: Waffle picks people. Get in. First stop: the sea."
       ] }
   ],
@@ -726,7 +726,7 @@ const dramaScenes = {
         "제이: Number nine. \"Drive through a tunnel with the windows down.\"",
         "수: With the windows down. In a tunnel. Great.",
         "진: How long is it?",
-        "제이: Two miles. We go in this side and come out the other side.",
+        "제이: Two miles. We go in one end and come out the other.",
         "진: (노트에 터널과 화살표를 그리며) Into is only in. Through is in and out.",
         "제이: Exactly! (창문을 모두 내린다.) Ready?",
         "(타세요가 터널 안으로 들어간다. 갑자기 전조등이 꺼지고 엔진이 멈춘다. 완전한 암흑.)",
@@ -784,8 +784,8 @@ const dramaScenes = {
         "(난간 너머로 구름이 발밑에 깔려 있다. 진은 벽에 붙어 서서 난간을 잡고 있다. 수는 카메라를 들고 앞으로 나간다.)",
         "제이: Number twelve. \"Stand above the clouds.\"",
         "수: The clouds are below us. Look at that.",
-        "진: (눈을 꼭 감고) I can't. I'm not good with high places.",
-        "제이: Don't look far. Look at the line between the sky and the clouds.",
+        "진: (눈을 꼭 감고) I can't. I'm afraid of heights.",
+        "제이: Don't look down. Look at the line between the sky and the clouds.",
         "진: (실눈을 뜨며) Above the line, blue. Below the line, white.",
         "제이: Right! And what's below the clouds?",
         "진: A town. A very small town. (조금 웃는다.)",
@@ -872,7 +872,7 @@ const dramaScenes = {
         "진: Between two mountains. Around the lake.",
         "수: Stop listing our trip!",
         "(진이 노트를 펼쳐 그림들을 훑는다.)",
-        "진: Wait. Before the cliff, you had it. After the cliff, you sat behind us.",
+        "진: Wait. Before the cliff, you sat with us. After the cliff, you sat behind us.",
         "수: …I sat behind you.",
         "제이: (뒷좌석 등받이를 들추며) Behind the last seat!",
         "(정말로 맨 뒷좌석 뒤에 작은 통이 끼어 있다. 와플이 그 옆에서 자고 있다. 수가 통을 꺼내 가슴에 안는다.)",
@@ -898,7 +898,7 @@ const dramaScenes = {
         "진: What story?",
         "제이: About a lighthouse. It never went out during the worst storm.",
         "(번개가 번쩍이는 순간 진의 얼굴이 환해진다. 와플이 진의 무릎에서 낑낑댄다.)",
-        "진: During the story, Waffle is calm. During the thunder, he is not.",
+        "진: During the thunder, Waffle is scared. A story might help.",
         "제이: (촛불 쪽으로 몸을 기울이며) Want to hear it?"
       ] }
   ],
@@ -931,10 +931,10 @@ const dramaScenes = {
         "수: He's dead. Really dead this time.",
         "진: Without Taseyo, how do we go?",
         "제이: We can't go anywhere without Taseyo!",
-        "수: We can walk. It's just a mountain. Without a map. Without a signal.",
+        "수: We can walk. It's just a mountain. Without a signal. Without breakfast.",
         "진: (노트에 「with」 그림을 그린 뒤 한 사람을 지운다.) Five with Taseyo. Four without Taseyo.",
         "제이: (버스를 토닥이며) With Taseyo, it's a trip. Without Taseyo, it's a hike.",
-        "수: A hike without a map. That's a bad hike.",
+        "수: A hike without breakfast. That's a bad hike.",
         "진: Number nineteen. \"Go a day without a phone.\"",
         "수: The list is doing this on purpose.",
         "(제이가 웃으며 배낭을 멘다.)",
@@ -959,7 +959,7 @@ const dramaScenes = {
         "진: Thank you.",
         "(타세요가 절벽 옆 공터에 선다. 셋이 내려 바람 속에서 타세요에 등을 기댄다.)",
         "수: Lean against Taseyo. He's the only wall here.",
-        "진: (제이의 어깨에 기대며) Against Jay is also okay.",
+        "진: (제이의 어깨에 기대며) I can lean against Jay, too.",
         "제이: Against the wind, against the plan… we're always against something."
       ] }
   ],

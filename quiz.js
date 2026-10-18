@@ -291,7 +291,7 @@ const quizData = {
     {"t":"order","q":"'그녀는 버스를 기다리고 있어.'를 평서문으로 순서대로 놓으세요","words":["bus","for","waiting","the","She","is"],"a":"She is waiting for the bus.","why":"함정: 우리말은 '버스를'이라 for가 안 보이지만 영어는 waiting for."}
   ] },
   33: { core: "with는 **딱 붙어서 함께**. 사람도 도구도 몸의 모습도 붙어 있으면 with.", qs: [
-    {"t":"order","ctx":"EP.33, 버스에서 튀어나온 강아지가 발목에 붙자 진이","q":"진의 대사 '쟤가 나랑 같이 왔다고?!'를 He로 시작하는 평서문 어순으로 순서대로 놓으세요","words":["me","He","with","came"],"a":"He came with me?!","why":"함께 온 강아지가 진 곁에 딱 붙었다. 같이 온 상대 앞에 with."},
+    {"t":"order","ctx":"EP.33, 버스에서 튀어나온 강아지가 발목에 붙자 진이","q":"진의 대사 '쟤가 나랑 같이 가는 거야?!'를 He's로 시작하는 평서문 어순으로 순서대로 놓으세요","words":["me","He's","with","coming"],"a":"He's coming with me?!","why":"강아지가 진 곁에 딱 붙어서 같이 간다. 같이 가는 상대 앞에 with."},
     {"t":"order","q":"'나는 동생이랑 가는 중이야.'를 I'm으로 시작하는 평서문으로 순서대로 놓으세요","words":["with my brother","I'm","going"],"a":"I'm going with my brother.","why":"동생이 옆에 딱 붙어서 같이 간다. 같이 가는 사람 앞이 with."},
     {"t":"order","q":"'그녀는 머리가 긴 여자애야.'를 She's로 시작하는 평서문으로 순서대로 놓으세요","words":["with long hair","She's","the girl"],"a":"She's the girl with long hair.","why":"긴 머리가 그 애한테 딱 붙어 있다. 몸에 붙은 모습도 with."},
     {"t":"order","q":"'나는 개와 함께 산책해.'를 I로 시작하는 평서문으로 순서대로 놓으세요","words":["my dog","walk","I","with"],"a":"I walk with my dog.","why":"개가 옆에 딱 붙어 함께 걷는다. 같이 있는 상대 앞에 with."},
