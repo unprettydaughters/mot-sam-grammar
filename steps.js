@@ -89,12 +89,13 @@ function renderSteps(root, D) {
     var tabs = [];
     if (t.easy) tabs.push(['easy', '쉬운 버전']);
     if (t.orig && t.orig.length) tabs.push(['orig', '원래 버전']);
-    h += '<div class="seg" role="tablist" aria-label="웹툰 버전">' + tabs.map(function (x, i) {
+    // 버전이 하나뿐이면(33~56화) 고를 게 없으니 탭을 그리지 않는다
+    if (tabs.length > 1) h += '<div class="seg" role="tablist" aria-label="웹툰 버전">' + tabs.map(function (x, i) {
       return '<button type="button" role="tab" data-tab="' + x[0] + '" aria-selected="' + (i === 0) + '">' + x[1] + '</button>';
     }).join('') + '</div>';
     if (t.easy) h += '<div class="toon" data-pane="easy"><img loading="lazy" width="1080" height="1935" src="' + esc(t.easy) + '" alt="' + esc(t.ep + '화 ' + t.title + ' · 쉬운 버전, 컷 3개') + '"></div>';
     if (t.orig && t.orig.length) h += '<div class="toon" data-pane="orig"' + (t.easy ? ' hidden' : '') + '>' + t.orig.map(function (s, i) {
-      return '<img loading="lazy" width="1080" height="' + (t.h || 1935) + '" src="' + esc(s) + '" alt="' + esc(t.ep + '화 ' + t.title + ' · 그림 ' + (i + 1)) + '">';
+      return '<img loading="lazy" width="1080" height="' + (t.h || 1935) + '" src="' + esc(s) + '" alt="' + esc(t.alt || (t.ep + '화 ' + t.title + ' · 그림 ' + (i + 1))) + '">';
     }).join('') + '</div>';
     h += '<p class="cap2">' + esc(D.drama) + ' ' + esc(t.ep) + '화 「' + esc(t.title) + '」</p>';
     if (D.script && D.script.length) {

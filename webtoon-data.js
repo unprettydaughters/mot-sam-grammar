@@ -212,3 +212,33 @@ var webtoonEasyEps = [
  {"ep": 31, "panels": 0},
  {"ep": 32, "panels": 0}
 ];
+
+// 웹툰 「할머니의 여름 목록」 — 33~56화, 화 = 과. 한 화에 그림 한 장(컷 3개가 세로로 이어짐), 원본 768×1376
+// 그림: images/webtoon/epNN-1.webp, 목록 썸네일 epNN-t.webp (맨 위 3:4를 360×480으로)
+var webtoonTitle2 = "할머니의 여름 목록";
+var webtoonEps2 = [
+ {"ep": 33, "title": "같이 갈래?", "panels": 1},
+ {"ep": 34, "title": "길가에서", "panels": 1},
+ {"ep": 35, "title": "어디서 왔어?", "panels": 1},
+ {"ep": 36, "title": "그 노래 뭐야?", "panels": 1},
+ {"ep": 37, "title": "별 아래", "panels": 1},
+ {"ep": 38, "title": "첨벙", "panels": 1},
+ {"ep": 39, "title": "오르고 내리고", "panels": 1},
+ {"ep": 40, "title": "도장 여덟 개", "panels": 1},
+ {"ep": 41, "title": "긴 터널", "panels": 1},
+ {"ep": 42, "title": "산과 산 사이", "panels": 1},
+ {"ep": 43, "title": "해 뜨기 전", "panels": 1},
+ {"ep": 44, "title": "구름 위로", "panels": 1},
+ {"ep": 45, "title": "빙글빙글", "panels": 1},
+ {"ep": 46, "title": "다리를 건너", "panels": 1},
+ {"ep": 47, "title": "뒷자리와 옆자리", "panels": 1},
+ {"ep": 48, "title": "필름 한 통", "panels": 1},
+ {"ep": 49, "title": "폭풍 속에서", "panels": 1},
+ {"ep": 50, "title": "비 그칠 때까지", "panels": 1},
+ {"ep": 51, "title": "타세요 없이", "panels": 1},
+ {"ep": 52, "title": "바람을 거슬러", "panels": 1},
+ {"ep": 53, "title": "너처럼", "panels": 1},
+ {"ep": 54, "title": "그래도 간다", "panels": 1},
+ {"ep": 55, "title": "빛을 향해", "panels": 1},
+ {"ep": 56, "title": "마지막 줄", "panels": 1}
+];

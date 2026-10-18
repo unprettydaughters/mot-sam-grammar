@@ -263,8 +263,8 @@
 <script src="extra.js?v=20261001160000"></script>
 <script src="scenes.js?v=20261001080747"></script>
 <script src="quiz.js?v=20261001160000"></script>
-<script src="webtoon-data.js?v=20260922000500"></script>
-<script src="steps.js?v=20261001160000"></script>
+<script src="webtoon-data.js?v=20261018180000"></script>
+<script src="steps.js?v=20261018180000"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -340,7 +340,9 @@
 
   // 드라마 장면
   var toon = (typeof webtoonEps!=='undefined') && webtoonEps.find(function(e){ return e.ep===d.id && e.panels>0; });
-  var toonLink = toon ? '<a class="dtoon" href="webtoon.html?ep='+d.id+'">웹툰으로 보기 →</a>' : '';
+  var toon2 = !toon && (typeof webtoonEps2!=='undefined') && webtoonEps2.find(function(e){ return e.ep===d.id && e.panels>0; });
+  var toonLink = toon ? '<a class="dtoon" href="webtoon.html?ep='+d.id+'">웹툰으로 보기 →</a>'
+               : toon2 ? '<a class="dtoon" href="webtoon.html?d=2&ep='+d.id+'">웹툰으로 보기 →</a>' : '';
   var scenes = (typeof dramaScenes!=='undefined' && dramaScenes[d.id]) || [];
   var dm = (typeof dramaByMonth!=='undefined' && dramaByMonth[d.month]) ||
     { title: (typeof dramaTitle!=='undefined'?dramaTitle:''), subtitle: (typeof dramaSubtitle!=='undefined'?dramaSubtitle:'') };
@@ -388,17 +390,22 @@
     var pad2=String(d.id).padStart(2,'0');
     var we=(typeof webtoonEps!=='undefined') && webtoonEps.find(function(e){return e.ep===d.id;});
     var wx=(typeof webtoonEasyEps!=='undefined') && webtoonEasyEps.find(function(e){return e.ep===d.id;});
+    var w2=(typeof webtoonEps2!=='undefined') && webtoonEps2.find(function(e){return e.ep===d.id;});
     var stepToon = we && we.panels>0 ? {
       ep:d.id, title:we.title, h:we.h||1935,
       easy: wx && wx.panels>0 ? 'images/webtoon/easy/ep'+pad2+'-1.webp' : null,
       orig: Array.apply(null,Array(we.panels)).map(function(_,i){return 'images/webtoon/ep'+pad2+'-'+(i+1)+'.webp';})
+    } : w2 && w2.panels>0 ? {
+      // 33~56화 「할머니의 여름 목록」: 한 화 그림 한 장(컷 3개 세로), 버전은 하나
+      ep:d.id, title:w2.title, h:1935, sub:'한 장에 컷 3개가 세로로', alt:d.id+'화 '+w2.title+' · 컷 3개',
+      easy:null, orig:['images/webtoon/ep'+pad2+'-1.webp']
     } : null;
     renderSteps(document.getElementById('v4root'), {
       id:d.id, title:d.title, kicker:[meta.label+' · '+meta.theme], drama:dm.title,
       old:d.content, neu:extraData[d.id], quiz:quizData[d.id], toon:stepToon, script:scenes,
       next: next ? {id:next.id, title:next.title} : null,
       steps:[['설명','먼저 이 과의 핵심을 읽어요'],['추가 설명','같은 그림을 대화로 다시 확인'],
-             ['웹툰', stepToon ? '「'+stepToon.title+'」 · '+(stepToon.easy?'쉬운·원래 버전':'원래 버전') : '준비 중 · 대본을 먼저 읽어요'],
+             ['웹툰', stepToon ? '「'+stepToon.title+'」 · '+(stepToon.sub || (stepToon.easy?'쉬운·원래 버전':'원래 버전')) : '준비 중 · 대본을 먼저 읽어요'],
              ['연습문제','순서 맞추기 7문제']],
       mascot:{start:'images/ch/'+((typeof faceData!=='undefined' && faceData[d.id]) || 'default_active')+'.webp', mid:'images/ch/happy_active.webp', win:'images/ch/victory_active.webp'}
     });
