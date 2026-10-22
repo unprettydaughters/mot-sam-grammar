@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수업 문의 · 못난이삼돌이 영문법</title>
+<meta name="description" content="영어 과외 1:1 수업 문의. 문의는 이메일로 받는다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* 토큰 — 너무쉬운AI 이름 그대로, 바탕만 살구 종이 */
+  :root{
+    --bg:#FBF6F2;
+    --ink-900:#2C2420; --ink-700:#4A4039; --ink-400:#9C9288;
+    --cream-0:#FFFFFF; --cream-2:#F5F3EF; --line:#E8E4DC;
+    --lav-100:#F2EFF9; --lav-200:#E3DCF5; --lav-400:#7C6BAE; --lav-600:#54487A;
+    --radius:18px; --radius-sm:14px;
+    --shadow:0 1px 3px rgba(100,80,60,0.05);
+    --shadow-up:0 4px 16px rgba(100,80,60,0.09);
+    --sans:'Pretendard Variable', Pretendard, system-ui, sans-serif;
+    --mono:'DM Mono', monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background-color:var(--bg);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    color:var(--ink-700); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; word-break:keep-all; -webkit-text-size-adjust:100%;
+  }
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lav-400);outline-offset:3px;border-radius:8px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* 상단 메뉴 */
+  header{position:sticky;top:0;z-index:20;background:rgba(251,246,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .logo{font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--ink-900);white-space:nowrap}
+  .menu{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+  .menu::-webkit-scrollbar{display:none}
+  .menu a{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:16px;font-weight:500;color:var(--ink-700);white-space:nowrap}
+  .menu a.on{color:var(--lav-600);font-weight:700}
+  .menu a.soon{color:var(--ink-400);cursor:default}
+  .soon-badge{font-size:12px;font-weight:500;color:var(--ink-400);background:var(--cream-2);padding:2px 8px;border-radius:999px}
+
+  /* 머리 — 글 옆에 엿보기 영상 (너무쉬운AI 연결 탭과 같은 영상) */
+  .page-head-row{display:flex;align-items:center;gap:32px}
+  .page-head-text{flex:1;min-width:0;padding:64px 0 40px}
+  .page-head-text h1{font-size:52px;font-weight:700;letter-spacing:-.03em;line-height:1.16;color:var(--ink-900)}
+  .page-head-text p{font-size:20px;line-height:1.6;color:var(--ink-700);margin-top:16px}
+  .page-head-art{flex:none}
+  .peek-video{display:block;width:340px;max-width:48vw;height:auto}
+
+  /* 문 하나 — 영어 과외 */
+  .door{background:var(--cream-0);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 28px 24px;margin-bottom:56px}
+  .door-top{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+  .door-top .mark{flex:none;width:44px;height:44px;border-radius:var(--radius-sm);background:var(--lav-100);color:var(--lav-600);font-family:var(--mono);font-size:16px;font-weight:500;display:grid;place-items:center}
+  .door-top h2{font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--ink-900);line-height:1.3}
+  .door-top small{display:block;font-size:14px;color:var(--ink-400);margin-top:2px}
+  .rows{border-top:1px solid var(--line)}
+  .rows div{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .rows dt{font-size:14px;font-weight:700;color:var(--lav-400);padding-top:1px}
+  .rows dd{font-size:16px;line-height:1.6;color:var(--ink-700)}
+  .rows dd a{color:var(--lav-600);text-decoration:underline;text-underline-offset:3px}
+  .first-msg{display:flex;align-items:center;gap:12px;margin-top:20px;padding:14px 16px;border-radius:var(--radius-sm);background:var(--cream-2)}
+  .first-msg code{flex:1;min-width:0;font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-700)}
+  .first-msg button{flex:none;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--cream-0);color:var(--ink-700);font:inherit;font-size:14px;cursor:pointer}
+  .door-go{display:inline-flex;align-items:center;min-height:44px;margin-top:16px;padding:0 20px;border-radius:999px;border:1.5px solid var(--lav-400);color:var(--lav-600);font-size:16px;font-weight:700}
+  .door-go:hover{background:var(--lav-100)}
+  .mail-note{margin-top:10px;font-size:14px;line-height:1.7;color:var(--ink-400)}
+  .mail-note b{color:var(--ink-700);font-weight:500;word-break:break-all}
+
+  footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-400)}
+
+  @media (max-width:640px){
+    .page-head-row{flex-direction:column-reverse;text-align:center;gap:4px}
+    .page-head-text{padding:0 16px 32px}
+    .page-head-text h1{font-size:32px;line-height:1.25}
+    .page-head-text p{font-size:16px}
+    .peek-video{width:260px;max-width:80vw;margin:0 auto}
+    .door{padding:22px 18px 18px}
+    .rows div{grid-template-columns:1fr;gap:2px}
+    .first-msg{flex-direction:column;align-items:stretch}
+  }
+  @media (max-width:480px){
+    .menu{gap:16px}
+    .soon-badge{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">못난이삼돌이 영문법</a>
+    <nav class="menu" aria-label="메뉴">
+      <a href="grammar.html">영문법</a>
+      <a href="webtoon.html">웹툰</a>
+      <a href="links.html">링크</a>
+      <a class="on" href="lesson.html" aria-current="page">수업 문의</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="page-head-row">
+    <div class="page-head-text">
+      <h1>수업 문의</h1>
+      <p>영어 과외 20년. 문의는 이메일로 받는다.</p>
+    </div>
+    <div class="page-head-art">
+      <video class="peek-video" autoplay loop muted playsinline poster="images/peek-poster.jpg">
+        <source src="images/peek.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <section class="door" id="english">
+    <div class="door-top">
+      <span class="mark">En</span>
+      <div><h2>영어 과외</h2><small>1:1</small></div>
+    </div>
+    <dl class="rows">
+      <div><dt>누가</dt><dd>영어 과외만 20년 한 사람이 가르친다.</dd></div>
+      <div><dt>먼저 보기</dt><dd>무료 <a href="grammar.html">못난이삼돌이 영문법</a> — 수업 방식이 어떤지 여기서 먼저 볼 수 있다.</dd></div>
+      <div><dt>값 · 시간</dt><dd>문의하면 알려 준다.</dd></div>
+    </dl>
+    <div class="first-msg">
+      <code>[영문법 문의] / 배우는 사람 나이 / 원하는 요일·시간</code>
+      <button type="button" data-copy>첫 말 복사</button>
+    </div>
+    <a class="door-go" id="mail-go" href="#">영어 과외 문의 메일 쓰기 →</a>
+    <p class="mail-note">메일이 안 열리면 <b id="mail-addr"></b> 로 제목 「[영문법 문의]」를 달아 보내 줘.</p>
+  </section>
+
+  <footer>
+    <span>© 못난이삼돌이 · The Simplest Line</span>
+  </footer>
+</main>
+
+<script>
+(function(){
+  // 받는 주소 — 글자 그대로 두지 않고 조각으로 이어 붙인다. 영문법용 주소를 따로 만들면 이 한 줄만 바꾼다
+  var MAIL = ['jongeek1', 'gmail.com'].join('@');
+  var subject = '[영문법 문의]';
+  var body = '배우는 사람 나이:\n원하는 요일·시간:\n';
+  document.getElementById('mail-go').href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  document.getElementById('mail-addr').textContent = MAIL;
+
+  // 첫 말 복사 — 안 되면 글자를 골라 둔다
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var code = btn.parentNode.querySelector('code');
+      function done(){ btn.textContent = '복사했다'; setTimeout(function(){ btn.textContent = '첫 말 복사'; }, 1600); }
+      function pick(){ var r = document.createRange(); r.selectNodeContents(code); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(code.textContent).then(done, pick); } else { pick(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
