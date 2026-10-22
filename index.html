@@ -114,6 +114,19 @@
   .intro-play svg{width:72px;height:72px;padding:20px 18px 20px 22px;border-radius:999px;background:var(--cream-0);fill:var(--ink-900);box-shadow:var(--shadow-up)}
   .intro-player.playing .intro-play{display:none}
 
+  /* 웹툰 한 컷 — 오늘 읽을 과 번호부터 세 화를 보여 준다. 그림은 webtoon.html 목록과 같은 썸네일 */
+  .toon{padding:16px 0 48px}
+  .toon-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .toon h2{font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.4;color:var(--ink-900)}
+  .toon .sub{margin-top:8px}
+  .toon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .ep{display:block;background:var(--cream-0);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .ep:hover{transform:translateY(-2px);box-shadow:var(--shadow-up)}
+  .ep img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;background:var(--cream-2)}
+  .ep-body{display:block;padding:14px 16px 16px}
+  .ep-no{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--lav-400)}
+  .ep-title{display:block;font-size:16px;font-weight:500;color:var(--ink-900);margin-top:4px;line-height:1.45}
+
   footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--ink-400)}
 
   @media (max-width:640px){
@@ -127,6 +140,10 @@
     .train{justify-content:center}
     .cta-row{justify-content:center;gap:8px 20px}
     .intro{flex-direction:column;gap:20px;padding:8px 0 32px;text-align:center}
+    .toon{padding:8px 0 32px}
+    .toon-head{flex-direction:column;align-items:center;gap:4px;text-align:center}
+    .toon-grid{grid-template-columns:repeat(2,1fr)}
+    .toon-grid .ep:nth-child(3){display:none}
   }
   @media (max-width:480px){
     .menu{gap:16px}
@@ -192,6 +209,17 @@
     </div>
   </section>
 
+  <section class="toon" id="toon" aria-labelledby="toon-title" hidden>
+    <div class="toon-head">
+      <div>
+        <h2 id="toon-title">웹툰으로 먼저 읽어 보세요</h2>
+        <p class="sub">한 화가 한 과예요. 이야기부터 보고, 문법은 그다음에 봐요.</p>
+      </div>
+      <a class="btn-ghost" href="webtoon.html">웹툰 전체 보기 →</a>
+    </div>
+    <div class="toon-grid" id="toon-grid"></div>
+  </section>
+
   <section class="stats">
     <div class="tile">
       <div class="tile-row">
@@ -232,6 +260,7 @@
 
 <script src="data.js?v=20261001160000"></script>
 <script src="quiz.js?v=20261001160000"></script>
+<script src="webtoon-data.js?v=20261018180000"></script>
 <script>
 (function(){
   var KEY = 'samdol-grammar-done';
@@ -305,6 +334,25 @@
   }
 
   var next = paint();
+
+  // ── 웹툰: 오늘 읽을 과 번호의 화부터 세 화. 1~32화(우리들의 리듬) 뒤에 33~56화(할머니의 여름 목록)가 이어진다
+  (function(){
+    if (typeof webtoonEps === 'undefined' || typeof webtoonEps2 === 'undefined') return;
+    var all = webtoonEps.filter(function(e){ return e.panels > 0; }).map(function(e){ return { e: e, q: '' }; })
+      .concat(webtoonEps2.filter(function(e){ return e.panels > 0; }).map(function(e){ return { e: e, q: 'd=2&' }; }));
+    if (all.length < 3) return;
+    var at = all.findIndex(function(x){ return x.e.ep >= next.id; });
+    if (at < 0) at = 0;
+    var cards = [0, 1, 2].map(function(k){
+      var x = all[(at + k) % all.length];
+      return '<a class="ep" href="webtoon.html?' + x.q + 'ep=' + x.e.ep + '">' +
+        '<img src="images/webtoon/ep' + pad(x.e.ep) + '-t.webp" alt="" width="360" height="480" loading="lazy">' +
+        '<span class="ep-body"><span class="ep-no">' + pad(x.e.ep) + '화</span>' +
+        '<span class="ep-title">' + esc(x.e.title) + '</span></span></a>';
+    }).join('');
+    document.getElementById('toon-grid').innerHTML = cards;
+    document.getElementById('toon').hidden = false;
+  })();
 
   var pick = pickSentence(next.id) || { id: next.id, words: ['I', 'go', 'to', 'school', 'every', 'day'] };
   var trainEl = document.getElementById('train');
