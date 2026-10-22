@@ -56,7 +56,7 @@ const dramaScenes = {
         "(삼돌이의 사물함에 노트 한 장이 끼워져 있다. 꺼내 읽는 삼돌이. 카메라, 문장 줌인. \"Even in the dark, we find our rhythm.\" 삼돌이, 한참을 본다. 접어서 주머니에 넣는다.)",
         "(방과 후. 동아리실 문 앞. 삼돌이, 문고리를 잡았다 놨다 한다. 결국 확 열고 들어간다.)",
         "삼돌이: (가방을 툭 던지며) One week.",
-        "민준: (고개도 안 들고) I know. The boy who never says yes said yes.",
+        "민준: (고개도 안 들고) I know. The girl who never says yes said yes.",
         "삼돌이: (접은 종이를 흔들며 방 안을 둘러본다) The person who wrote this is here.",
         "삼돌이: (못난이에게서 눈이 멈추고) Your words?",
         "못난이: (화들짝) I... yes.",
