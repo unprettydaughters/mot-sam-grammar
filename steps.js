@@ -230,15 +230,19 @@ function renderSteps(root, D) {
     var m = $('#mascot'); if (m.getAttribute('src') !== face) m.setAttribute('src', face);
   }
   function markDone(i) { if (!state.done[i]) { state.done[i] = true; save(); refresh(); } }
+  // 앞 단계가 접히는 0.2초가 끝난 뒤에 스크롤해야 시작점에 선다(바로 하면 접히기 전 높이로 계산돼 끝부분이 보인다)
+  function goStep(i) {
+    setTimeout(function () { var el = $('#step' + (i + 1)); if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 230);
+  }
   function openStep(i, scroll) {
     state.open = (state.open === i && !scroll) ? -1 : i; refresh();
-    if (scroll && state.open >= 0) { var el = $('#step' + (i + 1)); if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (scroll && state.open >= 0) goStep(i);
   }
   stepsEl.addEventListener('click', function (e) {
     var nx = e.target.closest('[data-next]');
     if (nx) { var i = +nx.getAttribute('data-next'); markDone(i); openStep(i + 1, true); return; }
     var sb = e.target.closest('.sbtn');
-    if (sb) { var j = +sb.closest('.step').getAttribute('data-i'); openStep(j, false); if (state.open === j) { var el = $('#step' + (j + 1)); if (el && el.scrollIntoView) setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 230); } }
+    if (sb) { var j = +sb.closest('.step').getAttribute('data-i'); openStep(j, false); if (state.open === j) goStep(j); }
     var t = e.target.closest('.seg button');
     if (t) {
       var seg = t.parentNode, tab = t.getAttribute('data-tab');
