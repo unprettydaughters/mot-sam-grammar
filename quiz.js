@@ -146,13 +146,13 @@ const quizData = {
     {"t":"order","q":"'문이 잠겨 있어.'를 평서문으로 순서대로 놓으세요","words":["locked","is","door","The"],"a":"The door is locked.","why":"수동 얼굴: be + 과거분사. 누가 했는지 말고 지금 결과."},
     {"t":"order","q":"'시험은 쉬울 거야.'를 평서문으로 순서대로 놓으세요","words":["easy","going to","is","The test","be"],"a":"The test is going to be easy.","why":"함정: going to 뒤에 be가 한 번 더 온다. 우리말 '식을 거야'처럼 몰지 않는다."}
   ] },
-  17: { core: "have는 소유가 아니라 **끈**. 물건·사람·시간·꿈을 나와 잇는다.", qs: [
-    {"t":"order","ctx":"EP.17, 삼돌이가 옥상에서 옛날 이야기를 꺼내며","q":"삼돌이의 대사 '나한테도 그런 곳이 있었어.'를 평서문으로 순서대로 놓으세요","words":["a place","had","I"],"a":"I had a place.","why":"I 바로 뒤에 had. 나와 그런 곳이 끈으로 이어져 있었다."},
-    {"t":"order","q":"'나는 펜이 있어.'를 평서문으로 순서대로 놓으세요","words":["a pen","have","I"],"a":"I have a pen.","why":"끈 끝에 물건이 매달린다. I 바로 뒤에 have."},
-    {"t":"order","q":"'그녀에게는 꿈이 있어.'를 평서문으로 순서대로 놓으세요","words":["a dream","She","has"],"a":"She has a dream.","why":"주어가 She면 have가 has로 바뀐다. 끈은 그대로다."},
-    {"t":"order","q":"'나에게는 문제가 있어.'를 평서문으로 순서대로 놓으세요","words":["a problem","I","have"],"a":"I have a problem.","why":"문제도 손에 안 잡히지만 끈으로 나와 이어진다."},
-    {"t":"order","q":"'나는 계획이 없어.'를 평서문으로 순서대로 놓으세요","words":["no","plan","I","have"],"a":"I have no plan.","why":"have no는 끈이 없다는 뜻. no는 have 바로 뒤에 온다."},
-    {"t":"order","q":"'내 여동생은 새 휴대폰이 있어.'를 평서문으로 순서대로 놓으세요","words":["new phone","a","My sister","has"],"a":"My sister has a new phone.","why":"주어가 My sister(she)라 has. 물건도 끈 끝에 매달린다."},
+  17: { core: "have는 **내 성 안에 있다**. 물건·사람·시간·꿈이 내 성 안에 있으면 have.", qs: [
+    {"t":"order","ctx":"EP.17, 삼돌이가 옥상에서 옛날 이야기를 꺼내며","q":"삼돌이의 대사 '나한테도 그런 곳이 있었어.'를 평서문으로 순서대로 놓으세요","words":["a place","had","I"],"a":"I had a place.","why":"I 바로 뒤에 had. 그런 곳이 내 성 안에 있었다."},
+    {"t":"order","q":"'나는 펜이 있어.'를 평서문으로 순서대로 놓으세요","words":["a pen","have","I"],"a":"I have a pen.","why":"내 성 안에 물건이 들어 있다. I 바로 뒤에 have."},
+    {"t":"order","q":"'그녀에게는 꿈이 있어.'를 평서문으로 순서대로 놓으세요","words":["a dream","She","has"],"a":"She has a dream.","why":"주어가 She면 have가 has로 바뀐다. 성 안에 있다는 뜻은 그대로다."},
+    {"t":"order","q":"'나에게는 문제가 있어.'를 평서문으로 순서대로 놓으세요","words":["a problem","I","have"],"a":"I have a problem.","why":"문제도 손에 안 잡히지만 내 성 안에 있다."},
+    {"t":"order","q":"'나는 계획이 없어.'를 평서문으로 순서대로 놓으세요","words":["no","plan","I","have"],"a":"I have no plan.","why":"have no는 성 안에 없다는 뜻. no는 have 바로 뒤에 온다."},
+    {"t":"order","q":"'내 여동생은 새 휴대폰이 있어.'를 평서문으로 순서대로 놓으세요","words":["new phone","a","My sister","has"],"a":"My sister has a new phone.","why":"주어가 My sister(she)라 has. 물건도 그 사람 성 안에 있다."},
     {"t":"order","q":"'민준에게는 여동생이 둘 있어.'를 평서문으로 순서대로 놓으세요","words":["sisters","has","two","Minjun","younger"],"a":"Minjun has two younger sisters.","why":"함정. 우리말은 '있다'가 맨 끝. 영어는 has를 주어 바로 뒤에 둔다."}
   ] },
   18: { core: "현재완료는 **다리**. have + 과거분사로 지난 일을 지금과 잇는다.", qs: [
@@ -209,8 +209,8 @@ const quizData = {
     {"t":"order","q":"'그는 새 휴대폰을 얻었어.'를 평서문으로 순서대로 놓으세요","words":["new","phone","a","He","got"],"a":"He got a new phone.","why":"새 폰이 그에게 오는 과정이라 got."},
     {"t":"order","q":"'삼촌은 새 일자리를 받아들였어.'를 평서문으로 순서대로 놓으세요","words":["new","job","My uncle","took","a"],"a":"My uncle took a new job.","why":"함정. 우리말은 '받아들였어'가 끝. 영어는 took이 주어 바로 뒤."}
   ] },
-  24: { core: "have는 이어진 상태, get은 오는 변화, take는 내가 집는 행동.", qs: [
-    {"t":"order","ctx":"EP.24, 공연 전날 밤 아무도 집에 안 가고","q":"못난이의 대사 '우리 시간 있어.'를 평서문으로 순서대로 놓으세요","words":["time","We","have"],"a":"We have time.","why":"시간이 우리에게 이어져 있다. 끈으로 이은 것은 have."},
+  24: { core: "have는 성 안에 있는 상태, get은 오는 변화, take는 내가 집는 행동.", qs: [
+    {"t":"order","ctx":"EP.24, 공연 전날 밤 아무도 집에 안 가고","q":"못난이의 대사 '우리 시간 있어.'를 평서문으로 순서대로 놓으세요","words":["time","We","have"],"a":"We have time.","why":"시간이 우리 성 안에 있다. 성 안에 있는 것은 have."},
     {"t":"order","q":"'나는 배가 고파져.'를 평서문으로 순서대로 놓으세요","words":["hungry","I","get"],"a":"I get hungry.","why":"배고프지 않던 몸이 문턱을 넘는다. get + 형용사."},
     {"t":"order","q":"'나는 사진을 찍어.'를 평서문으로 순서대로 놓으세요","words":["a picture","take","I"],"a":"I take a picture.","why":"손을 뻗어 사진을 내 쪽으로 가져온다. take + 명사."},
     {"t":"order","q":"'나는 서울에 가 본 적이 있어.'를 평서문으로 순서대로 놓으세요","words":["to Seoul","been","I","have"],"a":"I have been to Seoul.","why":"지난 일이 다리를 건너 지금 내게 있다. have + 과거분사."},
