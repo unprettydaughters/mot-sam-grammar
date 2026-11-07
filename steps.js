@@ -18,12 +18,35 @@ function renderSteps(root, D) {
     '<ol class="steps" id="steps"></ol>';
 
   /* ── 설명 그리기 (data.js 형식) ── */
+  // 「@train 누가: I | 한다: love | 누구를: you // 밑줄 글」 → 그림 기차. 첫 칸 누가 + 둘째 칸 한다 = 붙은 기관차(동사 칸만 불),
+  // 무엇을·누구를 = 분홍 칸, 짐: = 짐칸. 「|」가 없으면 옛 네모 세 개(3·4과).
   function train(spec) {
+    spec = (spec || '').trim();
+    if (spec.indexOf('|') >= 0) return train2(spec);
     var w = (spec || '주어 · 동사 · 목적어').split('·').map(function (x) { return x.trim(); });
     var cars = [['S', w[0] || '주어', '#B8A9D9'], ['V', w[1] || '동사', '#E8C547'], ['O', w[2] || '목적어', '#F0A9A9']];
     return '<div class="fig"><div class="train">' + cars.map(function (c) {
       return '<div class="car"><span class="cap">' + esc(c[1]) + '</span><span class="bx" style="background:' + c[2] + '">' + c[0] + '</span></div>';
     }).join('<span class="lk"></span>') + '</div><div class="rl"></div><p>칸 순서는 절대 바뀌지 않는다</p></div>';
+  }
+  function train2(spec) {
+    var cap = '칸 순서는 절대 바뀌지 않는다', k = spec.indexOf(' // ');
+    if (k >= 0) { cap = spec.slice(k + 4).trim(); spec = spec.slice(0, k); }
+    var TERM = { '누가': '주어', '한다': '동사', '무엇을': '목적어', '누구를': '목적어' };
+    var cars = spec.split('|').map(function (p, i) {
+      p = p.trim();
+      var c = p.indexOf(': '), lab = c > 0 ? p.slice(0, c).trim() : '', w = c > 0 ? p.slice(c + 2).trim() : p;
+      var role = i === 0 ? 's' : i === 1 ? 'v' : TERM[lab] === '목적어' ? 'o' : 'c';
+      return { role: role, top: role === 'c' ? '짐칸' : lab, term: role === 'c' ? '' : (TERM[lab] || ''), w: w };
+    });
+    function car(c) {
+      return '<div class="cv ' + c.role + '"><span class="q"><b>' + esc(c.top) + '</b>' + (c.term ? esc(c.term) : '&nbsp;') + '</span>' +
+        '<span class="bd"><span class="w">' + esc(c.w) + '</span></span><span class="wh"><b></b><b></b></span></div>';
+    }
+    var h = '<div class="u loco">' + car(cars[0]) + (cars[1] ? car(cars[1]) : '') + '</div>';
+    for (var i = 2; i < cars.length; i++) h += '<span class="u cp"></span><div class="u">' + car(cars[i]) + '</div>';
+    var say = cars.map(function (c) { return c.w + '(' + (c.term || c.top) + ')'; }).join(' ');
+    return '<div class="fig"><div class="tr" role="img" aria-label="' + esc('기차: ' + say) + '">' + h + '</div><p>' + esc(cap) + '</p></div>';
   }
   function compare(spec) {
     var p = (spec || '').split('::').map(function (x) { return x.trim(); });
