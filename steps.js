@@ -29,8 +29,9 @@ function renderSteps(root, D) {
       return '<div class="car"><span class="cap">' + esc(c[1]) + '</span><span class="bx" style="background:' + c[2] + '">' + c[0] + '</span></div>';
     }).join('<span class="lk"></span>') + '</div><div class="rl"></div><p>칸 순서는 절대 바뀌지 않는다</p></div>';
   }
-  function train2(spec) {
-    var cap = '칸 순서는 절대 바뀌지 않는다', k = spec.indexOf(' // ');
+  // bare: 밑줄 글 없이 기차만 (연습문제 정답 밑)
+  function train2(spec, bare) {
+    var cap = bare ? '' : '칸 순서는 절대 바뀌지 않는다', k = spec.indexOf(' // ');
     if (k >= 0) { cap = spec.slice(k + 4).trim(); spec = spec.slice(0, k); }
     var TERM = { '누가': '주어', '한다': '동사', '무엇을': '목적어', '누구를': '목적어' };
     var cars = spec.split('|').map(function (p, i) {
@@ -51,7 +52,7 @@ function renderSteps(root, D) {
     var h = car(cars[0]) + (cars[1] ? car(cars[1]) : '');
     for (var i = 2; i < cars.length; i++) h += link + car(cars[i]);
     var say = cars.map(function (c) { return c.w + '(' + (c.term || c.top) + ')'; }).join(' ');
-    return '<div class="fig"><div class="tr2" role="img" aria-label="' + esc('기차: ' + say) + '">' + h + '</div><p>' + esc(cap) + '</p></div>';
+    return '<div class="fig' + (bare ? ' bare' : '') + '"><div class="tr2" role="img" aria-label="' + esc('기차: ' + say) + '">' + h + '</div>' + (cap ? '<p>' + esc(cap) + '</p>' : '') + '</div>';
   }
   function compare(spec) {
     var p = (spec || '').split('::').map(function (x) { return x.trim(); });
@@ -167,7 +168,7 @@ function renderSteps(root, D) {
       var v = $('.verdict', el); if (v) v.remove();
       if (s.res !== null) {
         var d = document.createElement('div'); d.className = 'verdict ' + (s.res ? 'right' : 'wrong');
-        d.innerHTML = (s.res ? '맞았어. <b>' + esc(q.a) + '</b>' : '정답 <b>' + esc(q.a) + '</b>') + (q.why ? ' — ' + esc(q.why) : '');
+        d.innerHTML = (s.res ? '맞았어. <b>' + esc(q.a) + '</b>' : '정답 <b>' + esc(q.a) + '</b>') + (q.why ? ' — ' + esc(q.why) : '') + (q.tr ? train2(q.tr, true) : '');
         $('.acts', el).before(d);
       }
       var ck = $('[data-act="check"]', el), cl = $('[data-act="clear"]', el);

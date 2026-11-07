@@ -14,7 +14,7 @@
 <link rel="icon" href="favicon.ico?v=2" sizes="48x48">
 <link rel="icon" type="image/png" href="icon-192.png?v=2" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
-<meta property="og:image" content="https://unprettydaughters.github.io/mot-sam-grammar/og-default.jpg">
+<meta property="og:image" content="https://unprettydaughters.github.io/mot-sam-grammar/og-default.jpg?v=20261108">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,12 +77,16 @@
 
   /* 기차 — 오늘 읽을 과의 문장이 칸으로 들어온다 */
   .train-wrap{margin-top:24px}
-  .train{display:flex;flex-wrap:wrap;gap:14px 8px;align-items:flex-end;padding-bottom:12px;border-bottom:2px solid var(--line)}
-  .car{position:relative;flex:none;font-family:var(--mono);font-size:16px;font-weight:500;color:var(--lav-600);background:var(--cream-0);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow),0 0 0 1.5px var(--lav-200) inset}
-  .car.loco{background:var(--lav-400);color:#fff;box-shadow:none}
-  .car::before,.car::after{content:"";position:absolute;bottom:-6px;width:8px;height:8px;border-radius:50%;background:var(--ink-400)}
-  .car::before{left:12px}
-  .car::after{right:12px}
+  /* 펠트 기차 — steps.css .tr2와 같은 칸 규칙(칸 폭 = 시트 픽셀 폭 × --k, 그림 자리는 기관차 높이 301에 맞춰 바퀴 한 줄) */
+  .train{--k:.4;display:flex;align-items:flex-start;padding-top:calc(var(--k)*110px)}
+  .train .fc{flex:0 1 calc(var(--w)*var(--k)*1px);min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .train .im{position:relative;display:flex;align-items:flex-end;width:100%;aspect-ratio:var(--w)/301}
+  .train .im img{display:block;width:100%;height:auto}
+  .train .im .sm{position:absolute;left:11%;bottom:97%;width:36.5%}
+  .train .cl{position:relative;z-index:2}
+  .train .cl img{position:absolute;left:-43%;bottom:25.7%;width:187%;max-width:none}
+  .train .w{max-width:100%;margin-top:8px;font-size:15px;font-weight:700;line-height:1.3;color:var(--ink-900);overflow-wrap:break-word}
+  .train .q{margin-top:2px;font-size:12px;font-weight:600;color:var(--ink-400)}
   .train-cap{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-400);margin-top:10px}
 
   .cta-row{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-top:28px}
@@ -95,7 +99,7 @@
   .tilt{position:relative;transform-style:preserve-3d;will-change:transform}
   .hero-art img{display:block;width:340px;max-width:44vw;height:auto}
   /* JS 애니 대기 중엔 캐릭터·붓획·기차 숨김 (깜빡임 방지) */
-  html.anim .art-float,html.anim .car{opacity:0}
+  html.anim .art-float,html.anim .train{opacity:0}
   html.anim .brush path{stroke-dashoffset:600;stroke-dasharray:600}
 
   /* 진도·바로가기 */
@@ -160,7 +164,8 @@
   @media (max-width:480px){
     .menu{gap:16px}
     .soon-badge{display:none}
-    .car{font-size:14px;padding:9px 11px}
+    .train{--k:.3}
+    .train .w{font-size:14px}
   }
   @media (prefers-reduced-motion:reduce){
     .bar>div{transition:none}
@@ -270,8 +275,8 @@
 })();
 </script>
 
-<script src="data.js?v=20261107120000"></script>
-<script src="quiz.js?v=20261030170000"></script>
+<script src="data.js?v=20261108120000"></script>
+<script src="quiz.js?v=20261108120000"></script>
 <script src="webtoon-data.js?v=20261018180000"></script>
 <script>
 (function(){
@@ -292,22 +297,40 @@
   }
   var done = load();
 
-  // ── 기차: 오늘 읽을 과의 조립하기 문제 정답 문장을 칸으로 쪼갠다 (3~6칸)
+  // ── 기차: 칸을 나눠 둔 연습문제 정답(quiz.js의 tr, 1~4과 · 8과) 중 하나. 오늘 읽을 과에 있으면 그 과에서, 없으면 전체에서. 올 때마다 바뀐다
   function pickSentence(fromId){
     if (typeof quizData === 'undefined') return null;
-    var ids = grammarData.map(function(d){ return d.id; });
-    var start = Math.max(0, ids.indexOf(fromId));
-    for (var k = 0; k < ids.length; k++){
-      var id = ids[(start + k) % ids.length], Q = quizData[id];
-      if (!Q) continue;
-      for (var i = 0; i < Q.qs.length; i++){
-        var q = Q.qs[i];
-        if (q.t !== 'order' || !q.a) continue;
-        var w = q.a.replace(/[.?!]+$/, '').trim().split(/\s+/);
-        if (w.length >= 3 && w.length <= 6) return { id: id, words: w };
-      }
+    var all = [], mine = [];
+    Object.keys(quizData).forEach(function(id){
+      quizData[id].qs.forEach(function(q){
+        if (q.t !== 'order' || !q.tr) return;
+        var x = { id: +id, tr: q.tr };
+        all.push(x);
+        if (+id === fromId) mine.push(x);
+      });
+    });
+    var pool = mine.length ? mine : all;
+    return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+  }
+  // 「누가: I | 한다: love | 누구를: you」 → 펠트 기차. steps.js train2와 같은 칸 규칙: 앞 두 칸은 붙은 기관차, 뒤 칸은 고리로 잇는다
+  function feltTrain(spec){
+    var IMG = { s: ['s', 320], v: ['v-on', 264], o: ['o', 268], c: ['c', 248] };
+    var cars = spec.split('|').map(function(p, i){
+      p = p.trim();
+      var c = p.indexOf(': '), lab = c > 0 ? p.slice(0, c).trim() : '', w = c > 0 ? p.slice(c + 2).trim() : p;
+      var role = i === 0 ? 's' : i === 1 ? 'v' : (lab === '무엇을' || lab === '누구를') ? 'o' : 'c';
+      return { role: role, top: role === 'c' ? '짐칸' : lab, w: w };
+    });
+    function car(c){
+      var f = IMG[c.role];
+      return '<div class="fc" style="--w:' + f[1] + '"><span class="im"><img src="images/train/' + f[0] + '.webp" alt="">' +
+        (c.role === 's' ? '<img class="sm" src="images/train/smoke.webp" alt="">' : '') + '</span>' +
+        '<span class="w">' + esc(c.w) + '</span><span class="q">' + esc(c.top) + '</span></div>';
     }
-    return null;
+    var link = '<div class="fc cl" style="--w:46"><span class="im"><img src="images/train/link.webp" alt=""></span></div>';
+    var h = car(cars[0]) + (cars[1] ? car(cars[1]) : '');
+    for (var i = 2; i < cars.length; i++) h += link + car(cars[i]);
+    return { html: h, words: cars.map(function(c){ return c.w; }).join(' ') };
   }
 
   // ── 표정은 상태로: 읽은 과 수를 따라간다
@@ -366,12 +389,10 @@
     document.getElementById('toon').hidden = false;
   })();
 
-  var pick = pickSentence(next.id) || { id: next.id, words: ['I', 'go', 'to', 'school', 'every', 'day'] };
-  var trainEl = document.getElementById('train');
-  trainEl.innerHTML = pick.words.map(function(w, i){
-    return '<span class="car' + (i === 0 ? ' loco' : '') + '">' + esc(w) + '</span>';
-  }).join('');
-  trainEl.setAttribute('aria-label', '영어 문장 ' + pick.words.join(' '));
+  var pick = pickSentence(next.id) || { id: 1, tr: '누가: I | 한다: love | 누구를: you' };
+  var ft = feltTrain(pick.tr), trainEl = document.getElementById('train');
+  trainEl.innerHTML = ft.html;
+  trainEl.setAttribute('aria-label', '기차: ' + ft.words);
   document.getElementById('train-cap').textContent = pad(pick.id) + '과 문장';
 })();
 </script>
@@ -414,8 +435,8 @@
     .from('.hero .kicker, .hero h1, .hero .sub, .train-cap, .cta-row', {
         opacity: 0, y: 16, duration: 0.5, stagger: 0.06, clearProps: 'opacity,transform'
      }, 0.05)
-    .from('.car', {
-        opacity: 0, x: -320, duration: 0.9, stagger: 0.14, ease: 'back.out(1.1)', clearProps: 'opacity,transform'
+    .from('.train', {
+        opacity: 0, x: -320, duration: 1.1, ease: 'back.out(1.1)', clearProps: 'opacity,transform'
      }, 0.5);
 
   /* 상시 — 캐릭터가 계속 둥둥 (위아래 · 갸웃 · 좌우, 주기가 달라 자연스럽게) */
@@ -439,10 +460,8 @@
       gsap.set('.art-float', { opacity: 1, scale: 1, yPercent: 0 });
       if (path) gsap.set(path, { strokeDashoffset: 0 });
     }
-    var cars = document.querySelectorAll('.car');
-    for (var i = 0; i < cars.length; i++) {
-      if (parseFloat(getComputedStyle(cars[i]).opacity) < 0.9) { gsap.set('.car', { opacity: 1, x: 0 }); break; }
-    }
+    var tr = document.querySelector('.train');
+    if (tr && parseFloat(getComputedStyle(tr).opacity) < 0.9) { gsap.set('.train', { opacity: 1, x: 0 }); }
   }, 3500);
 
   /* ③ 마우스 — 3D 틸트 (폰 제외) */

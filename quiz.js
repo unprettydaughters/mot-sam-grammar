@@ -3,40 +3,40 @@
 
 const quizData = {
   1: { core: "영어는 **순서**가 뜻이다. 주어 → 동사 → 목적어.", qs: [
-    {"t":"order","ctx":"EP.1, 민준이 못난이에게 다가가 말하며","q":"민준의 대사 '나는 네가 필요해.'를 평서문으로 순서대로 놓으세요","words":["you","I","need"],"a":"I need you.","why":"주어 I 바로 뒤에 동사. 세 칸이 순서대로 찬다."},
-    {"t":"order","q":"'미나가 준을 사랑해.'를 평서문으로 순서대로 놓으세요","words":["Jun","Mina","loves"],"a":"Mina loves Jun.","why":"사랑하는 쪽(주어)이 맨 앞. Mina가 앞이라 미나가 사랑한다."},
-    {"t":"order","q":"'준이 미나를 사랑해.'를 평서문으로 순서대로 놓으세요","words":["loves","Mina","Jun"],"a":"Jun loves Mina.","why":"같은 단어인데 Jun이 앞이라 사랑하는 쪽이 바뀐다."},
-    {"t":"order","q":"'준이 미나를 좋아해.'를 평서문으로 순서대로 놓으세요","words":["Mina","Jun","likes"],"a":"Jun likes Mina.","why":"좋아하는 사람이 맨 앞, 대상이 맨 뒤."},
-    {"t":"order","q":"'나는 피자를 먹어.'를 평서문으로 순서대로 놓으세요","words":["pizza","I","eat"],"a":"I eat pizza.","why":"주어 → 동사 → 목적어. 먹는 사람이 먼저."},
-    {"t":"order","q":"'우리는 영어를 공부해.'를 평서문으로 순서대로 놓으세요","words":["English","We","study"],"a":"We study English.","why":"공부하는 사람(We)이 맨 앞. 영어가 맨 뒤."},
-    {"t":"order","q":"'내 여동생은 그림을 그려.'를 평서문으로 순서대로 놓으세요","words":["draws","pictures","My sister"],"a":"My sister draws pictures.","why":"우리말처럼 동사를 맨 뒤에 두지 않는다. 동사는 주어 바로 뒤."}
+    {"t":"order","ctx":"EP.1, 민준이 못난이에게 다가가 말하며","q":"민준의 대사 '나는 네가 필요해.'를 평서문으로 순서대로 놓으세요","words":["you","I","need"],"a":"I need you.","tr":"누가: I | 한다: need | 누구를: you","why":"주어 I 바로 뒤에 동사. 세 칸이 순서대로 찬다."},
+    {"t":"order","q":"'미나가 준을 사랑해.'를 평서문으로 순서대로 놓으세요","words":["Jun","Mina","loves"],"a":"Mina loves Jun.","tr":"누가: Mina | 한다: loves | 누구를: Jun","why":"사랑하는 쪽(주어)이 맨 앞. Mina가 앞이라 미나가 사랑한다."},
+    {"t":"order","q":"'준이 미나를 사랑해.'를 평서문으로 순서대로 놓으세요","words":["loves","Mina","Jun"],"a":"Jun loves Mina.","tr":"누가: Jun | 한다: loves | 누구를: Mina","why":"같은 단어인데 Jun이 앞이라 사랑하는 쪽이 바뀐다."},
+    {"t":"order","q":"'준이 미나를 좋아해.'를 평서문으로 순서대로 놓으세요","words":["Mina","Jun","likes"],"a":"Jun likes Mina.","tr":"누가: Jun | 한다: likes | 누구를: Mina","why":"좋아하는 사람이 맨 앞, 대상이 맨 뒤."},
+    {"t":"order","q":"'나는 피자를 먹어.'를 평서문으로 순서대로 놓으세요","words":["pizza","I","eat"],"a":"I eat pizza.","tr":"누가: I | 한다: eat | 무엇을: pizza","why":"주어 → 동사 → 목적어. 먹는 사람이 먼저."},
+    {"t":"order","q":"'우리는 영어를 공부해.'를 평서문으로 순서대로 놓으세요","words":["English","We","study"],"a":"We study English.","tr":"누가: We | 한다: study | 무엇을: English","why":"공부하는 사람(We)이 맨 앞. 영어가 맨 뒤."},
+    {"t":"order","q":"'내 여동생은 그림을 그려.'를 평서문으로 순서대로 놓으세요","words":["draws","pictures","My sister"],"a":"My sister draws pictures.","tr":"누가: My sister | 한다: draws | 무엇을: pictures","why":"우리말처럼 동사를 맨 뒤에 두지 않는다. 동사는 주어 바로 뒤."}
   ] },
   2: { core: "문장 앞 **기관차 두 칸**(주어 → 동사)이 뼈대. 뒤는 짐칸.", qs: [
-    {"t":"order","ctx":"EP.2, 삼돌이가 민준을 밀어내며","q":"삼돌이의 대사 '나는 그룹은 안 해.'를 평서문으로 순서대로 놓으세요","words":["do groups","don't","I"],"a":"I don't do groups.","why":"주어 I 바로 뒤에 동사 don't do. groups는 뒤에 실린 짐."},
-    {"t":"order","q":"'개가 달려.'를 평서문으로 순서대로 놓으세요","words":["runs","dog","The"],"a":"The dog runs.","why":"주어 The dog 바로 뒤에 동사 runs. 기관차 두 칸이 앞에 선다."},
-    {"t":"order","q":"'내 친구는 서울에 살아.'를 평서문으로 순서대로 놓으세요","words":["Seoul","lives in","My friend"],"a":"My friend lives in Seoul.","why":"My friend → lives가 앞 두 칸. in Seoul은 뒤에 실린 짐칸."},
-    {"t":"order","q":"'준은 버스 정류장에서 기다려.'를 평서문으로 순서대로 놓으세요","words":["the bus stop","Jun","waits at"],"a":"Jun waits at the bus stop.","why":"뼈대는 Jun waits. at the bus stop은 뒤에 실린 짐칸이다."},
-    {"t":"order","q":"'새는 아침에 노래해.'를 평서문으로 순서대로 놓으세요","words":["the morning","sings in","bird","The"],"a":"The bird sings in the morning.","why":"뼈대는 The bird sings. in the morning은 짐칸이라 맨 뒤."},
-    {"t":"order","q":"'우리 팀은 방과 후에 연습해.'를 평서문으로 순서대로 놓으세요","words":["school","practices after","team","Our"],"a":"Our team practices after school.","why":"기관차 Our team practices가 먼저, after school은 뒤 짐칸."},
-    {"t":"order","q":"'우리 할아버지는 공원에서 걸으셔.'를 평서문으로 순서대로 놓으세요","words":["the park","walks in","grandfather","My"],"a":"My grandfather walks in the park.","why":"우리말은 동사가 맨 끝이지만 영어는 주어 바로 뒤에 동사(walks)."}
+    {"t":"order","ctx":"EP.2, 삼돌이가 민준을 밀어내며","q":"삼돌이의 대사 '나는 그룹은 안 해.'를 평서문으로 순서대로 놓으세요","words":["do groups","don't","I"],"a":"I don't do groups.","tr":"누가: I | 한다: don't do | 무엇을: groups","why":"주어 I 바로 뒤에 동사 don't do. groups는 뒤에 실린 짐."},
+    {"t":"order","q":"'개가 달려.'를 평서문으로 순서대로 놓으세요","words":["runs","dog","The"],"a":"The dog runs.","tr":"누가: The dog | 한다: runs","why":"주어 The dog 바로 뒤에 동사 runs. 기관차 두 칸이 앞에 선다."},
+    {"t":"order","q":"'내 친구는 서울에 살아.'를 평서문으로 순서대로 놓으세요","words":["Seoul","lives in","My friend"],"a":"My friend lives in Seoul.","tr":"누가: My friend | 한다: lives | 짐: in Seoul","why":"My friend → lives가 앞 두 칸. in Seoul은 뒤에 실린 짐칸."},
+    {"t":"order","q":"'준은 버스 정류장에서 기다려.'를 평서문으로 순서대로 놓으세요","words":["the bus stop","Jun","waits at"],"a":"Jun waits at the bus stop.","tr":"누가: Jun | 한다: waits | 짐: at the bus stop","why":"뼈대는 Jun waits. at the bus stop은 뒤에 실린 짐칸이다."},
+    {"t":"order","q":"'새는 아침에 노래해.'를 평서문으로 순서대로 놓으세요","words":["the morning","sings in","bird","The"],"a":"The bird sings in the morning.","tr":"누가: The bird | 한다: sings | 짐: in the morning","why":"뼈대는 The bird sings. in the morning은 짐칸이라 맨 뒤."},
+    {"t":"order","q":"'우리 팀은 방과 후에 연습해.'를 평서문으로 순서대로 놓으세요","words":["school","practices after","team","Our"],"a":"Our team practices after school.","tr":"누가: Our team | 한다: practices | 짐: after school","why":"기관차 Our team practices가 먼저, after school은 뒤 짐칸."},
+    {"t":"order","q":"'우리 할아버지는 공원에서 걸으셔.'를 평서문으로 순서대로 놓으세요","words":["the park","walks in","grandfather","My"],"a":"My grandfather walks in the park.","tr":"누가: My grandfather | 한다: walks | 짐: in the park","why":"우리말은 동사가 맨 끝이지만 영어는 주어 바로 뒤에 동사(walks)."}
   ] },
   3: { core: "주어 → 동사 → 목적어 **세 칸 틀**에 낱말만 갈아 끼운다.", qs: [
-    {"t":"order","ctx":"EP.3, 민준이 못난이의 노트를 다 읽었다며","q":"민준의 대사 '나는 그걸 읽었어.'를 평서문으로 순서대로 놓으세요","words":["it","read","I"],"a":"I read it.","why":"I(주어) → read(동사) → it(목적어). 세 칸이 순서대로 찬다."},
-    {"t":"order","q":"'나는 김밥을 먹어.'를 평서문으로 순서대로 놓으세요","words":["gimbap","I","eat"],"a":"I eat gimbap.","why":"나 → 먹는다 → 김밥을. 동사가 두 번째 칸이다."},
-    {"t":"order","q":"'나는 음악을 좋아해.'를 평서문으로 순서대로 놓으세요","words":["music","like","I"],"a":"I like music.","why":"틀은 그대로, 낱말만 갈아 끼운다. 동사는 두 번째."},
-    {"t":"order","q":"'나는 내 작은 강아지를 사랑해.'를 평서문으로 순서대로 놓으세요","words":["my little dog","I","love"],"a":"I love my little dog.","why":"목적어 my little dog은 낱말이 셋이어도 세 번째 한 칸."},
-    {"t":"order","q":"'우리 엄마가 저녁을 요리해.'를 평서문으로 순서대로 놓으세요","words":["dinner","cooks","My mom"],"a":"My mom cooks dinner.","why":"주어 My mom → 동사 cooks → 목적어 dinner. 순서가 뜻이다."},
-    {"t":"order","q":"'엠마가 창문을 열어.'를 평서문으로 순서대로 놓으세요","words":["window","opens","Emma","the"],"a":"Emma opens the window.","why":"Emma(주어) → opens(동사) → the window(목적어)."},
-    {"t":"order","q":"'미나는 자기 새 노래를 써.'를 평서문으로 순서대로 놓으세요","words":["song","her","writes","new","Mina"],"a":"Mina writes her new song.","why":"우리말처럼 동사를 맨 끝에 두지 않는다. 동사는 두 번째 칸."}
+    {"t":"order","ctx":"EP.3, 민준이 못난이의 노트를 다 읽었다며","q":"민준의 대사 '나는 그걸 읽었어.'를 평서문으로 순서대로 놓으세요","words":["it","read","I"],"a":"I read it.","tr":"누가: I | 한다: read | 무엇을: it","why":"I(주어) → read(동사) → it(목적어). 세 칸이 순서대로 찬다."},
+    {"t":"order","q":"'나는 김밥을 먹어.'를 평서문으로 순서대로 놓으세요","words":["gimbap","I","eat"],"a":"I eat gimbap.","tr":"누가: I | 한다: eat | 무엇을: gimbap","why":"나 → 먹는다 → 김밥을. 동사가 두 번째 칸이다."},
+    {"t":"order","q":"'나는 음악을 좋아해.'를 평서문으로 순서대로 놓으세요","words":["music","like","I"],"a":"I like music.","tr":"누가: I | 한다: like | 무엇을: music","why":"틀은 그대로, 낱말만 갈아 끼운다. 동사는 두 번째."},
+    {"t":"order","q":"'나는 내 작은 강아지를 사랑해.'를 평서문으로 순서대로 놓으세요","words":["my little dog","I","love"],"a":"I love my little dog.","tr":"누가: I | 한다: love | 무엇을: my little dog","why":"목적어 my little dog은 낱말이 셋이어도 세 번째 한 칸."},
+    {"t":"order","q":"'우리 엄마가 저녁을 요리해.'를 평서문으로 순서대로 놓으세요","words":["dinner","cooks","My mom"],"a":"My mom cooks dinner.","tr":"누가: My mom | 한다: cooks | 무엇을: dinner","why":"주어 My mom → 동사 cooks → 목적어 dinner. 순서가 뜻이다."},
+    {"t":"order","q":"'엠마가 창문을 열어.'를 평서문으로 순서대로 놓으세요","words":["window","opens","Emma","the"],"a":"Emma opens the window.","tr":"누가: Emma | 한다: opens | 무엇을: the window","why":"Emma(주어) → opens(동사) → the window(목적어)."},
+    {"t":"order","q":"'미나는 자기 새 노래를 써.'를 평서문으로 순서대로 놓으세요","words":["song","her","writes","new","Mina"],"a":"Mina writes her new song.","tr":"누가: Mina | 한다: writes | 무엇을: her new song","why":"우리말처럼 동사를 맨 끝에 두지 않는다. 동사는 두 번째 칸."}
   ] },
   4: { core: "긴 주어는 **한 덩어리**. He·She·It·They로 바꿔 보면 진짜 동사가 남는다.", qs: [
-    {"t":"order","ctx":"EP.4, 삼돌이가 한참 뒤 종이를 보며","q":"삼돌이의 대사 '이 종이에 적힌 말은 나쁘지 않아.'를 평서문으로 순서대로 놓으세요","words":["bad","are","The words on this page","not"],"a":"The words on this page are not bad.","why":"긴 첫 칸 The words on this page를 다 채운 뒤에 동사 are."},
-    {"t":"order","q":"'빨간 모자를 쓴 남자는 행복해.'를 평서문으로 순서대로 놓으세요","words":["happy","is","The man with a red hat"],"a":"The man with a red hat is happy.","why":"긴 첫 칸 전체가 주어. 그 뒤에 나오는 is가 동사다."},
-    {"t":"order","q":"'밤에 짖는 개는 내 침대에서 자.'를 평서문으로 순서대로 놓으세요","words":["my bed","sleeps on","The dog that barks at night"],"a":"The dog that barks at night sleeps on my bed.","why":"barks는 설명 속 동사. 덩어리를 It으로 바꾸면 sleeps가 남는다."},
-    {"t":"order","q":"'홀에서 노래하는 여자아이가 내 여동생이야.'를 「여자아이」가 주어인 평서문으로 순서대로 놓으세요","words":["my sister","The girl who sings in the hall","is"],"a":"The girl who sings in the hall is my sister.","why":"The girl who sings in the hall → She. 남는 동사 is."},
-    {"t":"order","q":"'미나가 쓴 노래는 길지 않아.'를 평서문으로 순서대로 놓으세요","words":["long","is","The song that Mina wrote","not"],"a":"The song that Mina wrote is not long.","why":"wrote는 설명 속 동사. 덩어리 뒤의 is가 진짜 동사, not은 그 뒤."},
-    {"t":"order","q":"'우리 차를 고치는 남자는 아주 친절해.'를 「남자」가 주어인 평서문으로 순서대로 놓으세요","words":["kind","is","The man who fixes our car","very"],"a":"The man who fixes our car is very kind.","why":"fixes는 덩어리 안 동사. 덩어리 다음 is가 진짜 동사다."},
-    {"t":"order","q":"'옆집에 사는 사람들은 아주 친절해.'를 평서문으로 순서대로 놓으세요","words":["very","who live next door","friendly","are","The people"],"a":"The people who live next door are very friendly.","why":"live는 who 설명 속 동사. 우리말처럼 꾸밈을 앞에 두지 않고 The people 뒤에."}
+    {"t":"order","ctx":"EP.4, 삼돌이가 한참 뒤 종이를 보며","q":"삼돌이의 대사 '이 종이에 적힌 말은 나쁘지 않아.'를 평서문으로 순서대로 놓으세요","words":["bad","are","The words on this page","not"],"a":"The words on this page are not bad.","tr":"누가: The words on this page | 한다: are | 짐: not bad","why":"긴 첫 칸 The words on this page를 다 채운 뒤에 동사 are."},
+    {"t":"order","q":"'빨간 모자를 쓴 남자는 행복해.'를 평서문으로 순서대로 놓으세요","words":["happy","is","The man with a red hat"],"a":"The man with a red hat is happy.","tr":"누가: The man with a red hat | 한다: is | 짐: happy","why":"긴 첫 칸 전체가 주어. 그 뒤에 나오는 is가 동사다."},
+    {"t":"order","q":"'밤에 짖는 개는 내 침대에서 자.'를 평서문으로 순서대로 놓으세요","words":["my bed","sleeps on","The dog that barks at night"],"a":"The dog that barks at night sleeps on my bed.","tr":"누가: The dog that barks at night | 한다: sleeps | 짐: on my bed","why":"barks는 설명 속 동사. 덩어리를 It으로 바꾸면 sleeps가 남는다."},
+    {"t":"order","q":"'홀에서 노래하는 여자아이가 내 여동생이야.'를 「여자아이」가 주어인 평서문으로 순서대로 놓으세요","words":["my sister","The girl who sings in the hall","is"],"a":"The girl who sings in the hall is my sister.","tr":"누가: The girl who sings in the hall | 한다: is | 짐: my sister","why":"The girl who sings in the hall → She. 남는 동사 is."},
+    {"t":"order","q":"'미나가 쓴 노래는 길지 않아.'를 평서문으로 순서대로 놓으세요","words":["long","is","The song that Mina wrote","not"],"a":"The song that Mina wrote is not long.","tr":"누가: The song that Mina wrote | 한다: is | 짐: not long","why":"wrote는 설명 속 동사. 덩어리 뒤의 is가 진짜 동사, not은 그 뒤."},
+    {"t":"order","q":"'우리 차를 고치는 남자는 아주 친절해.'를 「남자」가 주어인 평서문으로 순서대로 놓으세요","words":["kind","is","The man who fixes our car","very"],"a":"The man who fixes our car is very kind.","tr":"누가: The man who fixes our car | 한다: is | 짐: very kind","why":"fixes는 덩어리 안 동사. 덩어리 다음 is가 진짜 동사다."},
+    {"t":"order","q":"'옆집에 사는 사람들은 아주 친절해.'를 평서문으로 순서대로 놓으세요","words":["very","who live next door","friendly","are","The people"],"a":"The people who live next door are very friendly.","tr":"누가: The people who live next door | 한다: are | 짐: very friendly","why":"live는 who 설명 속 동사. 우리말처럼 꾸밈을 앞에 두지 않고 The people 뒤에."}
   ] },
   5: { core: "셀 수 있는 것엔 **딱지**. 하나면 a(an) 같은 앞말, 여럿이면 -s.", qs: [
     {"t":"order","ctx":"EP.5, 삼돌이가 혼자 추겠다고 버티며","q":"삼돌이의 대사 '나는 팀이 필요 없어.'를 평서문으로 순서대로 놓으세요","words":["a team","don't","need","I"],"a":"I don't need a team.","why":"team은 하나라서 앞에 a. 하나인 명사는 혼자 서지 못한다."},
@@ -66,13 +66,13 @@ const quizData = {
     {"t":"order","q":"'나는 물 두 잔이 필요해.'를 평서문으로 순서대로 놓으세요","words":["of","water","two glasses","need","I"],"a":"I need two glasses of water.","why":"우리말은 「물 두 잔」이라 물이 먼저. 영어는 그릇이 먼저: two glasses of water."}
   ] },
   8: { core: "**자리**를 지키고, **숫자**를 밝히고, he·she·it 뒤 동사에 **s**.", qs: [
-    {"t":"order","ctx":"EP.8, 삼돌이가 한참 뒤 픽 웃으며","q":"삼돌이의 대사 '그 애는 그걸 생각해 봐.'를 평서문으로 순서대로 놓으세요","words":["about it","She","thinks"],"a":"She thinks about it.","why":"She는 나·너가 아닌 하나(3인칭 단수). 그래서 동사에 s: thinks."},
-    {"t":"order","q":"'그는 피자를 좋아해.'를 평서문으로 순서대로 놓으세요","words":["pizza","likes","He"],"a":"He likes pizza.","why":"He는 3인칭 단수라서 동사에 s: likes."},
-    {"t":"order","q":"'그들은 피자를 좋아해.'를 평서문으로 순서대로 놓으세요","words":["like","pizza","They"],"a":"They like pizza.","why":"They는 여럿이라 동사에 s가 없다. like 그대로."},
-    {"t":"order","q":"'너는 물이 필요해.'를 평서문으로 순서대로 놓으세요","words":["water","need","You"],"a":"You need water.","why":"You는 한 명이어도 s가 없다. water도 a·s가 없다."},
-    {"t":"order","q":"'개가 공원에서 달려.'를 평서문으로 순서대로 놓으세요","words":["the park","runs in","dog","The"],"a":"The dog runs in the park.","why":"The dog는 it으로 바뀐다. 그래서 runs. in the park는 뒤 짐칸."},
-    {"t":"order","q":"'내 여동생은 개가 두 마리 있어.'를 평서문으로 순서대로 놓으세요","words":["two dogs","has","sister","My"],"a":"My sister has two dogs.","why":"My sister는 she로 바뀐다. 그래서 have가 haves 아닌 has로 바뀐다."},
-    {"t":"order","q":"'그녀는 우유 한 잔을 마셔.'를 평서문으로 순서대로 놓으세요","words":["of","milk","a glass","She","drinks"],"a":"She drinks a glass of milk.","why":"우리말처럼 동사를 끝에 두지 않는다. She 뒤 동사엔 s: drinks."}
+    {"t":"order","ctx":"EP.8, 삼돌이가 한참 뒤 픽 웃으며","q":"삼돌이의 대사 '그 애는 그걸 생각해 봐.'를 평서문으로 순서대로 놓으세요","words":["about it","She","thinks"],"a":"She thinks about it.","tr":"누가: She | 한다: thinks | 짐: about it","why":"She는 나·너가 아닌 하나(3인칭 단수). 그래서 동사에 s: thinks."},
+    {"t":"order","q":"'그는 피자를 좋아해.'를 평서문으로 순서대로 놓으세요","words":["pizza","likes","He"],"a":"He likes pizza.","tr":"누가: He | 한다: likes | 무엇을: pizza","why":"He는 3인칭 단수라서 동사에 s: likes."},
+    {"t":"order","q":"'그들은 피자를 좋아해.'를 평서문으로 순서대로 놓으세요","words":["like","pizza","They"],"a":"They like pizza.","tr":"누가: They | 한다: like | 무엇을: pizza","why":"They는 여럿이라 동사에 s가 없다. like 그대로."},
+    {"t":"order","q":"'너는 물이 필요해.'를 평서문으로 순서대로 놓으세요","words":["water","need","You"],"a":"You need water.","tr":"누가: You | 한다: need | 무엇을: water","why":"You는 한 명이어도 s가 없다. water도 a·s가 없다."},
+    {"t":"order","q":"'개가 공원에서 달려.'를 평서문으로 순서대로 놓으세요","words":["the park","runs in","dog","The"],"a":"The dog runs in the park.","tr":"누가: The dog | 한다: runs | 짐: in the park","why":"The dog는 it으로 바뀐다. 그래서 runs. in the park는 뒤 짐칸."},
+    {"t":"order","q":"'내 여동생은 개가 두 마리 있어.'를 평서문으로 순서대로 놓으세요","words":["two dogs","has","sister","My"],"a":"My sister has two dogs.","tr":"누가: My sister | 한다: has | 무엇을: two dogs","why":"My sister는 she로 바뀐다. 그래서 have가 haves 아닌 has로 바뀐다."},
+    {"t":"order","q":"'그녀는 우유 한 잔을 마셔.'를 평서문으로 순서대로 놓으세요","words":["of","milk","a glass","She","drinks"],"a":"She drinks a glass of milk.","tr":"누가: She | 한다: drinks | 무엇을: a glass of milk","why":"우리말처럼 동사를 끝에 두지 않는다. She 뒤 동사엔 s: drinks."}
   ] },
   9: { core: "be 동사는 뜻이 없는 **빈 컵**. 주어와 상태를 등호처럼 잇는다.", qs: [
     {"t":"order","ctx":"EP.9, 돌아온 삼돌이가 씩 웃으며","q":"삼돌이의 대사 '나 돌아왔어.'를 평서문으로 순서대로 놓으세요","words":["back","I","am"],"a":"I am back.","why":"am은 뜻 없이 I와 back을 잇는 등호. 돌아온 상태를 담았다."},
