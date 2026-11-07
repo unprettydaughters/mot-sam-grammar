@@ -18,7 +18,7 @@ function renderSteps(root, D) {
     '<ol class="steps" id="steps"></ol>';
 
   /* ── 설명 그리기 (data.js 형식) ── */
-  // 「@train 누가: I | 한다: love | 누구를: you // 밑줄 글」 → 그림 기차. 첫 칸 누가 + 둘째 칸 한다 = 붙은 기관차(동사 칸만 불),
+  // 「@train 누가: I | 한다: love | 누구를: you // 밑줄 글」 → 펠트 기차. 첫 칸 누가 + 둘째 칸 한다 = 붙은 기관차(동사 칸만 불),
   // 무엇을·누구를 = 분홍 칸, 짐: = 짐칸. 「|」가 없으면 옛 네모 세 개(3·4과).
   function train(spec) {
     spec = (spec || '').trim();
@@ -39,14 +39,19 @@ function renderSteps(root, D) {
       var role = i === 0 ? 's' : i === 1 ? 'v' : TERM[lab] === '목적어' ? 'o' : 'c';
       return { role: role, top: role === 'c' ? '짐칸' : lab, term: role === 'c' ? '' : (TERM[lab] || ''), w: w };
     });
+    // 칸 그림: [파일, 시트 픽셀 폭]. 앞 두 칸은 붙여서 기관차, 뒤 칸은 털실 고리로 잇는다. 낱말과 칸 이름은 칸 밑에
+    var IMG = { s: ['s', 320], v: ['v-on', 264], o: ['o', 268], c: ['c', 248] };
     function car(c) {
-      return '<div class="cv ' + c.role + '"><span class="q"><b>' + esc(c.top) + '</b>' + (c.term ? esc(c.term) : '&nbsp;') + '</span>' +
-        '<span class="bd"><span class="w">' + esc(c.w) + '</span></span><span class="wh"><b></b><b></b></span></div>';
+      var f = IMG[c.role];
+      return '<div class="fc ' + c.role + '" style="--w:' + f[1] + '"><span class="im"><img src="images/train/' + f[0] + '.webp" alt="">' +
+        (c.role === 's' ? '<img class="sm" src="images/train/smoke.webp" alt="">' : '') + '</span>' +
+        '<span class="w">' + esc(c.w) + '</span><span class="q"><b>' + esc(c.top) + '</b>' + (c.term ? esc(c.term) : '') + '</span></div>';
     }
-    var h = '<div class="u loco">' + car(cars[0]) + (cars[1] ? car(cars[1]) : '') + '</div>';
-    for (var i = 2; i < cars.length; i++) h += '<span class="u cp"></span><div class="u">' + car(cars[i]) + '</div>';
+    var link = '<div class="fc cl" style="--w:46"><span class="im"><img src="images/train/link.webp" alt=""></span></div>';
+    var h = car(cars[0]) + (cars[1] ? car(cars[1]) : '');
+    for (var i = 2; i < cars.length; i++) h += link + car(cars[i]);
     var say = cars.map(function (c) { return c.w + '(' + (c.term || c.top) + ')'; }).join(' ');
-    return '<div class="fig"><div class="tr" role="img" aria-label="' + esc('기차: ' + say) + '">' + h + '</div><p>' + esc(cap) + '</p></div>';
+    return '<div class="fig"><div class="tr2" role="img" aria-label="' + esc('기차: ' + say) + '">' + h + '</div><p>' + esc(cap) + '</p></div>';
   }
   function compare(spec) {
     var p = (spec || '').split('::').map(function (x) { return x.trim(); });

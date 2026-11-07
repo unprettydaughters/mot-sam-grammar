@@ -68,34 +68,21 @@
 .v4 .lk{width:16px;height:3px;background:var(--line2);margin:0 0 24px;border-radius:2px}
 .v4 .rl{height:3px;background:var(--line2);border-radius:2px;margin:9px auto 0;max-width:300px}
 .v4 .fig p{margin:12px 0 0!important;text-align:center;font-size:14px!important;color:var(--ink-400)!important}
-/* 그림 기차 — 앞 두 칸(누가·한다)은 붙은 기관차, 동사 칸만 불이 켜진다. 폭이 모자라면 칸 안 낱말이 두 줄로 접힌다(기차는 한 줄) */
-.v4 .tr{display:flex;justify-content:center;align-items:stretch}
-.v4 .tr .u{display:flex;align-items:stretch;padding-bottom:8px;
-  background:linear-gradient(#B5AA9C,#B5AA9C) 0 calc(100% - 4px)/100% 2px no-repeat,repeating-linear-gradient(90deg,#D8CFC2 0 6px,transparent 6px 13px) 0 100%/100% 7px no-repeat}
-.v4 .tr .cp{position:relative;flex:none;align-self:flex-end;width:10px;height:30px}
-.v4 .tr .cp::before{content:"";position:absolute;left:-2px;right:-2px;bottom:24px;height:3px;border-radius:2px;background:var(--ink-400)}
-.v4 .cv{display:flex;flex-direction:column;align-items:stretch;min-width:58px}
-.v4 .cv .q{display:flex;flex-direction:column;align-items:center;margin-bottom:16px;font-size:11px;line-height:1.35;color:var(--ink-400);white-space:nowrap}
-.v4 .cv .q b{font-size:13px;font-weight:700;color:var(--ink-700)}
-.v4 .cv .bd{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 7px;border-radius:10px;background:var(--c)}
-.v4 .cv .w{max-width:100%;padding:4px 9px;border-radius:7px;background:#fff;font-size:15px;font-weight:600;line-height:1.35;color:var(--ink-900);text-align:center;overflow-wrap:break-word;text-wrap:balance}
-.v4 .cv .wh{position:relative;z-index:1;display:flex;justify-content:space-around;margin-top:-7px;padding:0 4px}
-.v4 .cv .wh b{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle,#D8CFC2 0 3px,var(--ink-700) 3.5px)}
-.v4 .cv.s{--c:#B8A9D9}
-.v4 .cv.v{--c:#E8C547}
-.v4 .cv.o{--c:#F0A9A9}
-.v4 .cv.c{--c:#E6DACA}
-.v4 .cv.s .bd{border-radius:12px 0 0 10px;box-shadow:inset 0 5px 0 rgba(84,72,122,.18)}
-.v4 .cv.s .bd::before{content:"";position:absolute;top:-13px;left:9px;width:12px;height:13px;border-radius:3px 3px 0 0;background:var(--ink-700)}
-.v4 .cv.v .bd{border-radius:0 10px 10px 0;box-shadow:inset 2px 0 0 rgba(44,36,32,.10),0 0 18px rgba(232,197,71,.55)}
-.v4 .cv.v .bd::before{content:"";position:absolute;top:-10px;left:50%;width:22px;height:10px;margin-left:-11px;border-radius:8px 8px 2px 2px;background:#FFE58A;box-shadow:0 0 12px 5px rgba(255,205,60,.7)}
-.v4 .tr .loco .cv:only-child .bd{border-radius:12px 10px 10px 10px}
-.v4 .cv.c .bd{border-radius:3px 3px 10px 10px;border-top:4px solid #CDBB9E}
+/* 펠트 기차 (images/train/, 원본 j-work/_재료/캐릭터/기차/) — 칸 그림은 한 시트에서 나와 배율이 같다. 픽셀 폭(--w)에 --k를 곱해 쓰고,
+   그림 자리 높이는 제일 큰 기관차(301)에 맞춰 아래로 붙인다 → 바퀴가 한 줄. 폭이 모자라면 flex-shrink가 폭에 비례해서 모든 칸이 같은 비율로 준다 */
+.v4 .tr2{--k:.45;display:flex;justify-content:center;align-items:flex-start;padding-top:calc(var(--k)*110px)}
+.v4 .tr2 .fc{flex:0 1 calc(var(--w)*var(--k)*1px);min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.v4 .tr2 .im{position:relative;display:flex;align-items:flex-end;width:100%;aspect-ratio:var(--w)/301}
+.v4 .tr2 .im img{display:block;width:100%;height:auto}
+.v4 .tr2 .im .sm{position:absolute;left:11%;bottom:97%;width:36.5%}
+.v4 .tr2 .cl{position:relative;z-index:2}
+.v4 .tr2 .cl img{position:absolute;left:-43%;bottom:25.7%;width:187%;max-width:none}
+.v4 .tr2 .w{max-width:100%;margin-top:10px;font-size:16px;font-weight:700;line-height:1.3;color:var(--ink-900);overflow-wrap:break-word}
+.v4 .tr2 .q{display:flex;flex-direction:column;margin-top:4px;font-size:11px;line-height:1.35;color:var(--ink-400)}
+.v4 .tr2 .q b{font-size:12px;font-weight:700;color:var(--ink-700)}
 @media(max-width:420px){.v4 .fig{padding-inline:8px}
-.v4 .cv{min-width:46px}
-.v4 .cv .bd{padding:6px 4px}
-.v4 .cv .w{padding:3px 5px;font-size:13px}
-.v4 .tr .cp{width:6px}
+.v4 .tr2{--k:.3}
+.v4 .tr2 .w{font-size:14px}
 }
 .v4 .cmpw{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
 .v4 .cmp{min-width:0;padding:16px;border-radius:14px;text-align:center}
