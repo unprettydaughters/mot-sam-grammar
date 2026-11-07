@@ -2,7 +2,7 @@
 // t: scene 장면(4지선다) · choice 고르기(4지선다) · order 순서 맞추기
 
 const quizData = {
-  1: { core: "영어는 **순서**가 뜻이다. 주어 → 동사 → 목적어.", qs: [
+  1: { core: "영어는 **먼저 나온 쪽이 주인공**이다. 주어 → 동사 → 목적어.", qs: [
     {"t":"order","ctx":"EP.1, 민준이 못난이에게 다가가 말하며","q":"민준의 대사 '나는 네가 필요해.'를 평서문으로 순서대로 놓으세요","words":["you","I","need"],"a":"I need you.","tr":"누가: I | 한다: need | 누구를: you","why":"주어 I 바로 뒤에 동사. 세 칸이 순서대로 찬다."},
     {"t":"order","q":"'미나가 준을 사랑해.'를 평서문으로 순서대로 놓으세요","words":["Jun","Mina","loves"],"a":"Mina loves Jun.","tr":"누가: Mina | 한다: loves | 누구를: Jun","why":"사랑하는 쪽(주어)이 맨 앞. Mina가 앞이라 미나가 사랑한다."},
     {"t":"order","q":"'준이 미나를 사랑해.'를 평서문으로 순서대로 놓으세요","words":["loves","Mina","Jun"],"a":"Jun loves Mina.","tr":"누가: Jun | 한다: loves | 누구를: Mina","why":"같은 단어인데 Jun이 앞이라 사랑하는 쪽이 바뀐다."},
