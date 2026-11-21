@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>한 바퀴 현황</title>
+<!-- 종익만 보는 숨은 주소(lap/now.html, 메뉴 링크 없음). 숫자는 Supabase neomu-swiun-ai의 lap_counts 함수 — 합계만 나온다(창고.sql).
+     원본은 이 파일, 만들기.py가 lap/now.html로 복사한다. 손으로 lap/을 고치지 않는다. 규칙: 화면-규칙.md · 공통-색과캐릭터.md -->
+<style>
+  @font-face { font-family: 'Pretendard'; src: url(pretendard.woff2) format('woff2'); font-weight: 400 800; font-display: swap; }
+  :root {
+    --bg: #FAFAF8; --card: #FFFFFF; --block: #F5F3EF; --line: #E8E4DC;
+    --ink: #2C2420; --body: #4A4039; --sub: #6E645A; --mute: #9C9288;
+    --lav-bg: #F2EFF9; --lav: #C8BAEA; --lav-text: #54487A;
+    --amb-bg: #FDF8E7; --amb: #E8C547; --amb-text: #9A6E1E;
+    --shadow: 0 2px 12px rgba(100,80,60,0.06);
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); }
+  body {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; color: var(--body);
+    font-size: 16px; line-height: 1.6; word-break: keep-all; -webkit-font-smoothing: antialiased;
+    padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
+    padding-block: calc(28px + env(safe-area-inset-top, 0px)) 120px;
+    scrollbar-width: none;
+  }
+  body::-webkit-scrollbar { display: none; }
+  main { max-width: 720px; margin: 0 auto; display: grid; gap: 32px; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .head { display: flex; align-items: center; gap: 16px; }
+  .head .txt { flex: 1; min-width: 0; }
+  .lab { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: var(--mute); }
+  h1 { margin: 4px 0 4px; font-size: 32px; font-weight: 700; letter-spacing: -0.025em; color: var(--ink); line-height: 1.25; }
+  .sub { font-size: 14px; color: var(--sub); }
+  .head img { flex: none; width: 108px; height: auto; display: block; }
+
+  .seg { display: flex; gap: 8px; }
+  .seg button { flex: 1; min-height: 44px; border: 0; border-radius: 999px; background: var(--block); color: var(--sub);
+    font-size: 16px; font-weight: 500; font-family: inherit; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--lav-bg); color: var(--lav-text); box-shadow: inset 0 0 0 2px var(--lav); }
+  .seg button:focus-visible, .retry:focus-visible { outline: 2px solid var(--lav-text); outline-offset: 2px; }
+
+  .top { background: var(--card); border-radius: 24px; box-shadow: var(--shadow); padding: 24px; display: grid; gap: 20px; }
+  .hero .big { font-size: 52px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); line-height: 1.1; }
+  .hero .what { font-size: 14px; color: var(--sub); margin-top: 4px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pair > div { background: var(--block); border-radius: 16px; padding: 16px; min-width: 0; }
+  .pair .v { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+  .pair .k { font-size: 14px; color: var(--sub); }
+  .soon { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 999px; background: var(--bg); color: var(--mute);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em; vertical-align: 3px; }
+
+  h2 { margin: 0 0 12px; font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+  .lessons { display: grid; gap: 16px; }
+  .lesson { background: var(--card); border-radius: 24px; box-shadow: var(--shadow); padding: 20px 24px; }
+  .lesson h3 { margin: 0 0 12px; font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+  .row { display: grid; grid-template-columns: 76px 1fr 44px; align-items: center; gap: 12px; min-height: 32px; }
+  .row .name { font-size: 14px; color: var(--sub); }
+  .row .bar { height: 12px; border-radius: 999px; background: var(--block); overflow: hidden; }
+  .row .bar i { display: block; height: 100%; border-radius: 999px; background: var(--amb); }
+  .row .cnt { font-size: 16px; font-weight: 500; color: var(--ink); text-align: right; }
+  .row.ask .bar i { background: var(--amb-text); }
+  .habit { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14px; color: var(--sub); }
+  .habit b { color: var(--amb-text); font-weight: 600; }
+  .note { font-size: 14px; color: var(--mute); }
+
+  .empty { text-align: center; padding: 24px 0; }
+  .empty img { width: 200px; height: auto; display: block; margin: 0 auto 12px; }
+  .empty p { margin: 0; font-size: 16px; color: var(--sub); }
+
+  .sk { display: inline-block; width: 64px; height: 1em; border-radius: 8px; background: var(--block); animation: sk 1.2s ease-in-out infinite; }
+  @keyframes sk { 50% { background: var(--line); } }
+  @media (prefers-reduced-motion: reduce) { .sk { animation: none; } }
+  .retry { min-height: 44px; padding: 0 20px; border: 0; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 16px; font-weight: 600; font-family: inherit; cursor: pointer; margin-top: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <header class="head">
+    <div class="txt">
+      <div class="lab">못삼영 · 한 바퀴</div>
+      <h1>현황</h1>
+      <div class="sub" id="when">불러오는 중</div>
+    </div>
+    <img id="head-img" src="img/char-think.webp" alt="생각하는 못난이와 삼돌이">
+  </header>
+
+  <div class="seg" role="group" aria-label="기간">
+    <button type="button" id="p7" data-days="7" aria-pressed="true">7일</button>
+    <button type="button" id="p30" data-days="30" aria-pressed="false">30일</button>
+    <button type="button" id="pall" data-days="0" aria-pressed="false">전체</button>
+  </div>
+
+  <section class="top" aria-label="요약">
+    <div class="hero">
+      <div class="big num" id="h-first"><span class="sk"></span></div>
+      <div class="what">처음 온 사람 (브라우저 기준)</div>
+    </div>
+    <div class="pair">
+      <div><div class="v num" id="h-report"><span class="sk"></span></div><div class="k">리포트까지 간 번</div></div>
+      <div><div class="v num" id="h-ask"><span class="sk"></span></div><div class="k">문의 누른 번<span class="soon" id="ask-soon">준비 중</span></div></div>
+    </div>
+  </section>
+
+  <section aria-label="과마다">
+    <h2>과마다 어디서 멈추나</h2>
+    <div class="lessons" id="lessons"></div>
+  </section>
+
+  <p class="note">숫자는 그 화면이 열린 번수다. 같은 사람이 두 번 열면 두 번이다. 이름 · 연락처는 모으지 않는다.</p>
+</main>
+
+<script>
+const DB = "https://ymuyfruvymwtfmuynhyo.supabase.co", DBKEY = "sb_publishable_FfeHb_EL5izl_Cpj9vAEAA_5Rd3eVsM";
+const DOORS_READY = false;   /* 리포트 끝 과외 문 · 맨 아래 AI 문을 달면 true */
+const STEPS = [["webtoon","웹툰"],["words","낱말"],["game","기차 게임"],["quiz","문제"],["report","리포트"],["ask-tutor","과외 문의"]];
+const HABIT = { swap: "앞뒤 칸을 바꿈", last: "한다를 맨 뒤에", first: "한다를 맨 앞에", verb: "어느 게 동작인지", other: "세 칸 순서",
+                front: "짐칸을 앞에", cut: "뼈대가 어디까지인지", chunk: "덩어리를 쪼갬" };
+const $ = id => document.getElementById(id);
+let days = 7;
+
+$("ask-soon").hidden = DOORS_READY;
+document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
+  days = +b.dataset.days;
+  document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  load();
+}));
+
+function sum(rows, f) { return rows.filter(f).reduce((a, r) => a + Number(r.cnt), 0); }
+function stamp() { const d = new Date(); return (d.getMonth() + 1) + "월 " + d.getDate() + "일 " + String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0"); }
+
+async function load() {
+  ["h-first", "h-report", "h-ask"].forEach(id => $(id).innerHTML = '<span class="sk"></span>');
+  $("when").textContent = "불러오는 중";
+  const since = days ? new Date(Date.now() - days * 864e5).toISOString() : "2000-01-01T00:00:00Z";
+  let rows;
+  try {
+    const r = await fetch(DB + "/rest/v1/rpc/lap_counts", { method: "POST", headers: { apikey: DBKEY, "Content-Type": "application/json" }, body: JSON.stringify({ since }) });
+    if (!r.ok) throw new Error(r.status);
+    rows = await r.json();
+  } catch (e) {
+    $("when").textContent = "숫자를 못 가져왔다 (" + e.message + ")";
+    $("lessons").innerHTML = '<div class="empty"><p>인터넷이 끊겼거나 창고가 멈췄다.</p><button class="retry" type="button" onclick="load()">다시 불러오기</button></div>';
+    return;
+  }
+  $("when").textContent = (days ? "최근 " + days + "일" : "전체") + " · " + stamp() + " 기준";
+  $("h-first").textContent = sum(rows, r => r.first);
+  $("h-report").textContent = sum(rows, r => r.v === "report");
+  const tutor = sum(rows, r => r.v === "ask-tutor"), ai = sum(rows, r => r.v === "ask-ai");
+  $("h-ask").textContent = DOORS_READY ? (tutor + ai) + " · 과외 " + tutor + " · AI " + ai : tutor + ai;
+
+  const ns = [...new Set(rows.filter(r => r.n).map(r => r.n))].sort((a, b) => a - b);
+  $("head-img").hidden = !ns.length;
+  if (!ns.length) {
+    $("lessons").innerHTML = '<div class="empty"><img src="img/char-think.webp" alt="생각하는 못난이와 삼돌이"><p>이 기간엔 아직 아무도 안 왔다. 학부모 한 명에게 링크를 보내 보자.</p></div>';
+    return;
+  }
+  $("lessons").innerHTML = ns.map(n => {
+    const mine = rows.filter(r => r.n === n);
+    const c = Object.fromEntries(STEPS.map(([v]) => [v, sum(mine, r => r.v === v)]));
+    const max = Math.max(1, ...Object.values(c));
+    const bars = STEPS.filter(([v]) => v !== "ask-tutor" || DOORS_READY).map(([v, name]) =>
+      '<div class="row' + (v === "ask-tutor" ? " ask" : "") + '"><span class="name">' + name + '</span><span class="bar"><i style="width:' + (c[v] / max * 100) + '%"></i></span><span class="cnt num">' + c[v] + '</span></div>').join("");
+    const hs = {}; mine.filter(r => r.v === "report" && r.h).forEach(r => hs[r.h] = (hs[r.h] || 0) + Number(r.cnt));
+    const top = Object.entries(hs).sort((a, b) => b[1] - a[1])[0];
+    const habit = top ? '<div class="habit">제일 많이 틀린 칸 · <b>' + (HABIT[top[0]] || top[0]) + '</b> ' + top[1] + '번</div>' : "";
+    return '<article class="lesson"><h3>' + n + '과</h3>' + bars + habit + '</article>';
+  }).join("");
+}
+load();
+</script>
+</body>
+</html>

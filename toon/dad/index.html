@@ -1,0 +1,180 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>.toon-back{display:flex;align-items:center;box-sizing:border-box;width:100%;min-height:44px;max-width:480px;margin:0 auto;padding:0 16px;font:600 14px/1.2 Pretendard,"Noto Sans KR",system-ui,sans-serif;color:#54487A;text-decoration:none}@media (prefers-color-scheme:dark){.toon-back{color:#D4C9F2}}</style><title>아빠가 나로 등교했다</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+  /* 세로 한 줄로 이어 읽는 보기 화면. 맨 위에 화 번호 띠가 붙어 따라오고, 아래로 화마다 그림 둘. 글자 여섯 단계(32·20·16·14·12), 크림 바탕 한 색, 라벤더는 「지금 보는 화」에만 */
+  :root {
+    --bg: #FAFAF8;
+    --line: #E8E4DC;
+    --fg: #4A4039;
+    --title: #2C2420;
+    --sub: #6E645A;
+    --faint: #9C9288;
+    --lav-bg: #F2EFF9;
+    --lav-fg: #54487A;
+    --lav-line: #C8BAEA;
+    --font: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1E1A17; --line: #3A332D; --fg: #D9D1C7; --title: #F4EEE6; --sub: #B5AA9E; --faint: #8E8378;
+      --lav-bg: #2B2638; --lav-fg: #D4C9F2; --lav-line: #5A4F82; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1E1A17; --line: #3A332D; --fg: #D9D1C7; --title: #F4EEE6; --sub: #B5AA9E; --faint: #8E8378;
+    --lav-bg: #2B2638; --lav-fg: #D4C9F2; --lav-line: #5A4F82; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.6; letter-spacing: -0.01em;
+    padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 0 64px;
+  }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  .head { padding-block: 40px 24px; display: flex; flex-direction: column; gap: 12px; }
+  h1 { margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; color: var(--title); text-wrap: balance; }
+  .sub { margin: 0; font-size: 14px; color: var(--sub); max-width: 46ch; }
+  .cap { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: var(--faint); }
+
+  .nav {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+    display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--line); padding-block: 4px;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a {
+    flex: none; min-width: 44px; height: 44px; display: grid; place-items: center; border-radius: 999px; text-decoration: none;
+    font-size: 14px; font-weight: 500; color: var(--sub); font-variant-numeric: tabular-nums; border: 1px solid transparent;
+  }
+  .nav a[aria-current="true"] { background: var(--lav-bg); color: var(--lav-fg); border-color: var(--lav-line); font-weight: 600; }
+  .nav a:focus-visible { outline: 2px solid var(--lav-fg); outline-offset: 2px; }
+
+  .ep { padding-top: 40px; display: flex; flex-direction: column; gap: 16px; scroll-margin-top: 60px; }
+  .ep-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+  .ep-head .cap { flex: none; min-width: 2.5em; }
+  h2 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--title); }
+  .when { font-size: 14px; color: var(--sub); }
+  .shot { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .pg { position: relative; max-width: 100%; container-type: inline-size; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .pg img { display: block; width: 100%; height: auto; max-width: 100%; border: 1px solid var(--line); background: var(--line); }
+  .pg:focus-visible { outline: 2px solid var(--lav-fg); outline-offset: 3px; }
+  .pg.off .b { visibility: hidden; }
+  /* 말풍선 · 창: 크기는 그림 폭 390 기준 px(--u)을 그림 폭에 맞춰 늘이고 줄인다 */
+  .b { --u: calc(100cqw / 390); position: absolute; margin: 0; width: max-content; max-width: 46%; transform: translateX(-50%); box-sizing: border-box; text-wrap: balance; }
+  /* 말풍선 색 = 몸 안에 든 사람. 아빠 파랑 · 다미 분홍 · 팀장 회색 · 유나 흰색 */
+  .say { --bb: #FFFFFF; --bd: #2C2420; padding: calc(var(--u) * 8) calc(var(--u) * 12); border-radius: calc(var(--u) * 16); background: var(--bb); border: calc(var(--u) * 1.5) solid var(--bd); color: #2C2420; font-size: calc(var(--u) * 14); font-weight: 600; line-height: 1.35; text-align: center; letter-spacing: -0.01em; }
+  .say::after { content: ""; position: absolute; left: var(--tail, 50%); bottom: calc(var(--u) * -7); width: calc(var(--u) * 12); height: calc(var(--u) * 12); margin-left: calc(var(--u) * -6); background: var(--bb); border-right: calc(var(--u) * 1.5) solid var(--bd); border-bottom: calc(var(--u) * 1.5) solid var(--bd); transform: rotate(45deg); }
+  .say.dad { --bb: #DCEAFB; --bd: #2B5A9E; }
+  .say.dami { --bb: #FFE1EA; --bd: #B3386A; }
+  .say.boss { --bb: #E6E7EC; --bd: #33353E; }
+  /* 쪽지 · 봉투 · 스크린 · 서류철 이름 칸 위의 글: 코드가 얹는다(그림엔 글자 0). 칸은 색으로 찾은 그 면의 자리와 기울기를 따른다 */
+  .b.paper { transform: translate(-50%, -50%) rotate(var(--rot, 0deg)); max-width: none; display: flex; flex-direction: column; justify-content: center; gap: calc(var(--u) * 2); overflow: hidden; color: #2A2420; font-size: calc(var(--u) * var(--fs, 11)); font-weight: 600; line-height: 1.25; text-align: center; letter-spacing: -0.01em; word-break: keep-all; }
+  .b.paper.between { justify-content: space-between; text-align: left; }
+  .b.paper .h { font-weight: 700; color: #54483F; font-size: 0.92em; letter-spacing: 0.01em; }
+  .b.paper.between .h { font-size: 1.15em; color: #1F3A5F; border-bottom: calc(var(--u) * 1) solid #AEB8C6; padding-bottom: calc(var(--u) * 2); }
+  .b.paper.env .h { font-size: 1.08em; color: #7A2230; letter-spacing: 0.02em; }
+  .b.paper .sg { align-self: flex-end; font-weight: 500; font-style: italic; }
+  .b.paper .grp { display: flex; flex-direction: column; gap: calc(var(--u) * 2); }
+  /* 시간 칩: 화마다 첫 컷 구석. 말풍선과 달리 사람이 말하는 게 아니라 이야기 시간을 알려 주는 표지 */
+  .b.chip { transform: none; max-width: none; white-space: nowrap; padding: calc(var(--u) * 5) calc(var(--u) * 10); border-radius: calc(var(--u) * 6); background: #2C2420; color: #FAFAF8; font-size: calc(var(--u) * 12); font-weight: 500; letter-spacing: 0.04em; line-height: 1.3; }
+  .pend { margin: 0; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--lav-line); background: var(--lav-bg); color: var(--lav-fg); font-size: 14px; }
+  .mean { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .mean li { display: grid; grid-template-columns: auto 1fr; gap: 0 12px; align-items: baseline; font-size: 14px; }
+  .mean .who { grid-row: span 2; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--faint); white-space: nowrap; min-width: 4.6em; }
+  .mean .en { color: var(--title); font-weight: 500; }
+  .mean .ko { color: var(--sub); }
+  .end { margin: 0; font-size: 14px; color: var(--sub); }
+  /* 시작 · 끝 설명: 테두리만 있는 상자 하나씩. 라벤더는 「지금 보는 화」에만 쓰므로 여기선 안 쓴다 */
+  .note-box { display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; }
+  .note-box p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--fg); text-wrap: pretty; word-break: keep-all; }
+  .note-box b { color: var(--title); font-weight: 600; }
+  .cast { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; color: var(--sub); }
+  .cast b { color: var(--title); font-weight: 600; margin-right: 4px; }
+  /* 말풍선 색 안내 */
+  .legend { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; color: var(--sub); }
+  .legend li { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .sw { display: inline-block; width: 18px; height: 18px; border-radius: 6px; border: 2px solid #2C2420; background: #FFFFFF; }
+  .legend .sw.dad { background: #DCEAFB; border-color: #2B5A9E; }
+  .legend .sw.dami { background: #FFE1EA; border-color: #B3386A; }
+  .legend .sw.boss { background: #E6E7EC; border-color: #33353E; }
+  .outro { margin-top: 48px; }
+  .keys { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .keys li { display: grid; grid-template-columns: 4.2em minmax(0, 1fr); gap: 0 12px; align-items: baseline; }
+  .keys .kn { grid-row: span 2; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: var(--faint); white-space: nowrap; }
+  .keys .en { font-size: 16px; font-weight: 600; color: var(--title); }
+  .keys .ko { font-size: 14px; color: var(--sub); }
+  .keys li.main .en { font-size: 20px; font-weight: 700; }
+</style>
+<div class="wrap">
+  <a class="toon-back" href="../../webtoon.html">← 웹툰 책장</a>
+<header class="head">
+    <h1>아빠가 나로 등교했다</h1>
+    <p class="sub">8화, 그림 16장. 그림 위에 영어 말풍선이 있어요. 말풍선 색은 몸이 아니라 <b>몸 안에 든 사람</b>을 따라가요. 한국어 뜻은 그림 밑에 있어요. 그림을 누르면 말풍선이 꺼지고 켜집니다.</p>
+    <ul class="legend" aria-label="말풍선 색">
+      <li><i class="sw dad"></i>아빠가 말해요</li>
+      <li><i class="sw dami"></i>다미가 말해요</li>
+      <li><i class="sw boss"></i>팀장</li>
+      <li><i class="sw"></i>유나</li>
+    </ul>
+    <section class="note-box" aria-label="시작하기 전에">
+      <span class="cap">시작하기 전에</span>
+      <p>다미(15)는 <b>수요일 오후 4시</b>에 밴드 오디션이 있어요. 아빠(45)는 같은 날 회사에서 가장 중요한 발표를 해야 해요.</p>
+      <p>월요일 아침, 눈을 뜨니 <b>둘의 몸이 바뀌어 있어요.</b> 아빠는 딸의 몸으로 학교에 가고, 딸은 아빠의 몸으로 회사에 가요. 그림 속 사람은 몸이고, 말풍선 색이 안에 든 사람이에요.</p>
+      <ul class="cast" aria-label="나오는 사람">
+        <li><b>다미</b>15 · 기타를 쳐요</li><li><b>아빠</b>45 · 회사원</li><li><b>팀장</b>32 · 아빠의 상사</li><li><b>유나</b>15 · 다미의 반 친구</li>
+      </ul>
+    </section>
+  </header>
+  <nav class="nav" id="nav" aria-label="화 이동"><a href="#ep1">1</a><a href="#ep2">2</a><a href="#ep3">3</a><a href="#ep4">4</a><a href="#ep5">5</a><a href="#ep6">6</a><a href="#ep7">7</a><a href="#ep8">8</a></nav>
+  <section class="ep" id="ep1" aria-labelledby="t1"><div class="ep-head"><span class="cap">1화</span><h2 id="t1">to는 딱 하나, &#x27;화살표(→)&#x27;입니다</h2><span class="when">오늘은 안 돼 · 25과</span></div><figure class="shot"><figcaption class="cap">1화 1장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="1화 1장 말풍선 끄고 켜기"><img src="img/01-1.jpg" width="900" height="1613" loading="lazy" alt="1화 1장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dad" style="left:50%;top:2.3%;max-width:40%">These hands... are so small?!</p><p class="b say dami" style="left:50%;top:34.9%">Why is my face so old?!</p><p class="b say dad" style="left:26%;top:68.2%">Not today! My big meeting is Wednesday!</p><p class="b say dami" style="left:74%;top:68.2%">Not today! My audition is Wednesday!</p><p class="b chip" style="right:3.0%;top:2.0%">Mon · 6:50 AM</p></div><ul class="mean"><li><span class="who">컷 1 · 시각</span><span class="en">Mon · 6:50 AM</span><span class="ko">월요일 · 아침 6시 50분</span></li><li><span class="who">컷 1 · 아빠 (다미 몸)</span><span class="en">These hands... are so small?!</span><span class="ko">이 손… 왜 이렇게 작아?!</span></li><li><span class="who">컷 2 · 다미 (아빠 몸)</span><span class="en">Why is my face so old?!</span><span class="ko">내 얼굴이 왜 이렇게 늙었어?!</span></li><li><span class="who">컷 3 · 아빠 (다미 몸)</span><span class="en">Not today! My big meeting is Wednesday!</span><span class="ko">오늘은 안 돼! 중요한 회의가 수요일인데!</span></li><li><span class="who">컷 3 · 다미 (아빠 몸)</span><span class="en">Not today! My audition is Wednesday!</span><span class="ko">오늘은 안 돼! 오디션이 수요일인데!</span></li></ul></figure><figure class="shot"><figcaption class="cap">1화 2장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="1화 2장 말풍선 끄고 켜기"><img src="img/01-2.jpg" width="900" height="1613" loading="lazy" alt="1화 2장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dad" style="left:27%;top:2.4%">Chin up. You go to work today.</p><p class="b say dad" style="left:26%;top:34.0%">I go to school.</p><p class="b say dami" style="left:74%;top:34.0%">I go to work.</p><p class="b say dad" style="left:50%;top:68.6%">School? How hard can it be?</p></div><ul class="mean"><li><span class="who">컷 1 · 아빠 (다미 몸)</span><span class="en">Chin up. You go to work today.</span><span class="ko">턱 들어. 오늘은 네가 출근하는 거야.</span></li><li><span class="who">컷 2 · 아빠 (다미 몸)</span><span class="en">I go to school.</span><span class="ko">나는 학교에 간다.</span></li><li><span class="who">컷 2 · 다미 (아빠 몸)</span><span class="en">I go to work.</span><span class="ko">나는 회사에 간다.</span></li><li><span class="who">컷 3 · 아빠 (다미 몸)</span><span class="en">School? How hard can it be?</span><span class="ko">학교? 그게 얼마나 어렵겠어?</span></li></ul></figure></section>
+<section class="ep" id="ep2" aria-labelledby="t2"><div class="ep-head"><span class="cap">2화</span><h2 id="t2">To 부정사 = 행동을 향한 화살표</h2><span class="when">앉을 자리 · 26과</span></div><figure class="shot"><figcaption class="cap">2화 1장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="2화 1장 말풍선 끄고 켜기"><img src="img/02-1.jpg" width="900" height="1613" loading="lazy" alt="2화 1장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dad" style="left:50%;top:2.3%;max-width:40%">I just want to sit down.</p><p class="b say dad" style="left:26%;top:34.9%">Excuse me. I want to sit here.</p><p class="b say" style="left:74%;top:34.9%">Nobody wants to sit with you.</p><p class="b say dad" style="left:73%;top:68.2%">Does she have to eat alone every day?</p><p class="b chip" style="right:3.0%;top:2.0%">Mon · 12:30 PM</p></div><ul class="mean"><li><span class="who">컷 1 · 시각</span><span class="en">Mon · 12:30 PM</span><span class="ko">월요일 · 낮 12시 30분</span></li><li><span class="who">컷 1 · 아빠 (다미 몸)</span><span class="en">I just want to sit down.</span><span class="ko">그냥 앉고 싶을 뿐인데.</span></li><li><span class="who">컷 2 · 아빠 (다미 몸)</span><span class="en">Excuse me. I want to sit here.</span><span class="ko">실례합니다. 여기 앉고 싶은데요.</span></li><li><span class="who">컷 2 · 유나</span><span class="en">Nobody wants to sit with you.</span><span class="ko">너랑 앉고 싶은 애는 없어.</span></li><li><span class="who">컷 3 · 아빠 (다미 몸)</span><span class="en">Does she have to eat alone every day?</span><span class="ko">얘는 매일 혼자 먹어야 하는 거야?</span></li></ul></figure><figure class="shot"><figcaption class="cap">2화 2장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="2화 2장 말풍선 끄고 켜기"><img src="img/02-2.jpg" width="900" height="1613" loading="lazy" alt="2화 2장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dad" style="left:27%;top:2.3%">Hm? Something&#x27;s inside.</p><div class="b paper" style="left:49.93%;top:45.97%;width:16.62%;height:10.12%;--rot:0.0deg;--fs:10.5"><span class="h">To: Dami</span><span>Eat alone. Stay alone.</span></div><p class="b say dad" style="left:27%;top:68.4%">I need to know who did this.</p></div><ul class="mean"><li><span class="who">컷 1 · 아빠 (다미 몸)</span><span class="en">Hm? Something&#x27;s inside.</span><span class="ko">음? 안에 뭐가 있네.</span></li><li><span class="who">컷 2 · 쪽지 글</span><span class="en">To: Dami / Eat alone. Stay alone.</span><span class="ko">다미에게 / 혼자 먹어. 혼자 있어.</span></li><li><span class="who">컷 3 · 아빠 (다미 몸)</span><span class="en">I need to know who did this.</span><span class="ko">누가 이랬는지 알아야겠어.</span></li></ul></figure></section>
+<section class="ep" id="ep3" aria-labelledby="t3"><div class="ep-head"><span class="cap">3화</span><h2 id="t3">FOR: 내 마음이 향하는 방향 (위해서)</h2><span class="when">이건 당신 거예요 · 27과</span></div><figure class="shot"><figcaption class="cap">3화 1장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="3화 1장 말풍선 끄고 켜기"><img src="img/03-1.jpg" width="900" height="1613" loading="lazy" alt="3화 1장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dami" style="left:47%;top:2.4%;max-width:40%">Okay. I&#x27;m Dad. Look busy.</p><p class="b say boss" style="left:45%;top:34.9%;--tail:88%">This is for you. Do it again.</p><p class="b say dami" style="left:74%;top:68.6%;--tail:8%">My dad works for this guy?!</p><p class="b chip" style="right:3.0%;top:2.8%">Mon · 3:00 PM</p></div><ul class="mean"><li><span class="who">컷 1 · 시각</span><span class="en">Mon · 3:00 PM</span><span class="ko">월요일 · 오후 3시</span></li><li><span class="who">컷 1 · 다미 (아빠 몸)</span><span class="en">Okay. I&#x27;m Dad. Look busy.</span><span class="ko">좋아. 난 아빠다. 바쁜 척하자.</span></li><li><span class="who">컷 2 · 팀장</span><span class="en">This is for you. Do it again.</span><span class="ko">이건 자네 몫이야. 다시 해 와.</span></li><li><span class="who">컷 3 · 다미 (아빠 몸)</span><span class="en">My dad works for this guy?!</span><span class="ko">우리 아빠가 이 사람 밑에서 일한다고?!</span></li></ul></figure><figure class="shot"><figcaption class="cap">3화 2장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="3화 2장 말풍선 끄고 켜기"><img src="img/03-2.jpg" width="900" height="1613" loading="lazy" alt="3화 2장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dami" style="left:50%;top:2.3%">What&#x27;s he keeping in here?</p><div class="b paper env" style="left:48.66%;top:55.45%;width:39.03%;height:6.16%;--rot:-13.8deg;--fs:11.5"><span class="h">Resignation Letter</span><span>I quit.</span><span class="sg">Park Joon-ho</span></div><p class="b say dami" style="left:50%;top:68.2%">Dad... is this for me?</p></div><ul class="mean"><li><span class="who">컷 1 · 다미 (아빠 몸)</span><span class="en">What&#x27;s he keeping in here?</span><span class="ko">아빠가 여기 뭘 넣어 놨지?</span></li><li><span class="who">컷 2 · 봉투 글</span><span class="en">Resignation Letter / I quit. / Park Joon-ho</span><span class="ko">사직서 / 그만두겠습니다. / 박준호</span></li><li><span class="who">컷 3 · 다미 (아빠 몸)</span><span class="en">Dad... is this for me?</span><span class="ko">아빠… 이게 다 나 때문이야?</span></li></ul></figure></section>
+<section class="ep" id="ep4" aria-labelledby="t4"><div class="ep-head"><span class="cap">4화</span><h2 id="t4">IN: 경계 안에 있다</h2><span class="when">별일 없었어 · 28과</span></div><figure class="shot"><figcaption class="cap">4화 1장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="4화 1장 말풍선 끄고 켜기"><img src="img/04-1.jpg" width="900" height="1613" loading="lazy" alt="4화 1장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dad" style="left:50%;top:35.0%">What&#x27;s in your hand?</p><p class="b say dami" style="left:36%;top:68.4%;--tail:90%">Nothing! Nothing happened today!</p><p class="b chip" style="right:3.0%;top:2.0%">Mon · 8:30 PM</p></div><ul class="mean"><li><span class="who">컷 1 · 시각</span><span class="en">Mon · 8:30 PM</span><span class="ko">월요일 · 저녁 8시 30분</span></li><li><span class="who">컷 2 · 아빠 (다미 몸)</span><span class="en">What&#x27;s in your hand?</span><span class="ko">손에 뭐 들었어?</span></li><li><span class="who">컷 3 · 다미 (아빠 몸)</span><span class="en">Nothing! Nothing happened today!</span><span class="ko">아무것도 아냐! 오늘 별일 없었어!</span></li></ul></figure><figure class="shot"><figcaption class="cap">4화 2장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="4화 2장 말풍선 끄고 켜기"><img src="img/04-2.jpg" width="900" height="1613" loading="lazy" alt="4화 2장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dad" style="left:50%;top:2.3%">I&#x27;m in your body. I saw the notes.</p><p class="b say dami" style="left:50%;top:34.9%">Now I&#x27;m in your life. I saw the letter.</p></div><ul class="mean"><li><span class="who">컷 1 · 아빠 (다미 몸)</span><span class="en">I&#x27;m in your body. I saw the notes.</span><span class="ko">나는 네 몸 안에 있어. 쪽지를 봤어.</span></li><li><span class="who">컷 2 · 다미 (아빠 몸)</span><span class="en">Now I&#x27;m in your life. I saw the letter.</span><span class="ko">이제 나는 아빠 삶 안에 있어. 사직서를 봤어.</span></li></ul></figure></section>
+<section class="ep" id="ep5" aria-labelledby="t5"><div class="ep-head"><span class="cap">5화</span><h2 id="t5">AT: 특정한 한 점</h2><span class="when">나를 봐 · 29과</span></div><figure class="shot"><figcaption class="cap">5화 1장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="5화 1장 말풍선 끄고 켜기"><img src="img/05-1.jpg" width="900" height="1613" loading="lazy" alt="5화 1장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say" style="left:73%;top:2.3%">What are you looking at?</p><p class="b say dad" style="left:28%;top:68.2%;--tail:88%">Look at me.</p><p class="b chip" style="left:3.0%;top:2.0%">Tue · 9:00 AM</p></div><ul class="mean"><li><span class="who">컷 1 · 시각</span><span class="en">Tue · 9:00 AM</span><span class="ko">화요일 · 아침 9시</span></li><li><span class="who">컷 1 · 유나</span><span class="en">What are you looking at?</span><span class="ko">뭘 봐?</span></li><li><span class="who">컷 3 · 아빠 (다미 몸)</span><span class="en">Look at me.</span><span class="ko">나를 봐.</span></li></ul></figure><figure class="shot"><figcaption class="cap">5화 2장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="5화 2장 말풍선 끄고 켜기"><img src="img/05-2.jpg" width="900" height="1613" loading="lazy" alt="5화 2장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dad" style="left:50%;top:3.5%">I&#x27;m not angry at you.</p><p class="b say" style="left:50%;top:35.4%">Why aren&#x27;t you angry at me?</p></div><ul class="mean"><li><span class="who">컷 1 · 아빠 (다미 몸)</span><span class="en">I&#x27;m not angry at you.</span><span class="ko">너한테 화난 거 아니야.</span></li><li><span class="who">컷 2 · 유나</span><span class="en">Why aren&#x27;t you angry at me?</span><span class="ko">왜 나한테 화 안 내?</span></li></ul></figure></section>
+<section class="ep" id="ep6" aria-labelledby="t6"><div class="ep-head"><span class="cap">6화</span><h2 id="t6">ON: 붙어있다</h2><span class="when">누구 이름 · 30과</span></div><figure class="shot"><figcaption class="cap">6화 1장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="6화 1장 말풍선 끄고 켜기"><img src="img/06-1.jpg" width="900" height="1613" loading="lazy" alt="6화 1장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say boss" style="left:73%;top:2.7%">Let&#x27;s see... another boring plan?</p><div class="b paper between" style="left:37.17%;top:78.98%;width:50.77%;height:19.72%;--rot:0.0deg;--fs:12.5"><span class="h">Project: Listen First</span><div class="grp"><span>1. Listen to the customer</span><span>2. Fix one problem fast</span></div></div><p class="b say dami" style="left:73%;top:67.3%">Okay. Turn it on!</p><p class="b chip" style="left:3.0%;top:2.4%">Wed · 1:00 PM<br>Big meeting</p></div><ul class="mean"><li><span class="who">컷 1 · 시각</span><span class="en">Wed · 1:00 PM · Big meeting</span><span class="ko">수요일 · 오후 1시 · 중요한 회의</span></li><li><span class="who">컷 1 · 팀장</span><span class="en">Let&#x27;s see... another boring plan?</span><span class="ko">어디 보자… 또 지루한 기획인가?</span></li><li><span class="who">컷 3 · 다미 (아빠 몸)</span><span class="en">Okay. Turn it on!</span><span class="ko">좋아. 켜자!</span></li><li><span class="who">컷 3 · 스크린 글</span><span class="en">Project: Listen First / 1. Listen to the customer / 2. Fix one problem fast</span><span class="ko">프로젝트: 먼저 듣기 / 1. 고객 말을 먼저 듣는다 / 2. 문제 하나를 빨리 고친다</span></li></ul></figure><figure class="shot"><figcaption class="cap">6화 2장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="6화 2장 말풍선 끄고 켜기"><img src="img/06-2.jpg" width="900" height="1613" loading="lazy" alt="6화 2장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say boss" style="left:50%;top:2.7%">Wait. This is actually good.</p><div class="b paper" style="left:52.61%;top:55.52%;width:27.34%;height:3.49%;--rot:-23.2deg;--fs:10.5"><span>Park Joon-ho</span></div><p class="b say boss" style="left:50%;top:35.2%">Whose name is on this?</p><p class="b say dami" style="left:50%;top:68.5%">His name is on it.</p></div><ul class="mean"><li><span class="who">컷 1 · 팀장</span><span class="en">Wait. This is actually good.</span><span class="ko">잠깐. 이거 꽤 괜찮은데.</span></li><li><span class="who">컷 2 · 팀장</span><span class="en">Whose name is on this?</span><span class="ko">이거 누구 이름이지?</span></li><li><span class="who">컷 2 · 서류철 이름</span><span class="en">Park Joon-ho</span><span class="ko">박준호</span></li><li><span class="who">컷 3 · 다미 (아빠 몸)</span><span class="en">His name is on it.</span><span class="ko">그 사람 이름이 적혀 있어요.</span></li></ul></figure></section>
+<section class="ep" id="ep7" aria-labelledby="t7"><div class="ep-head"><span class="cap">7화</span><h2 id="t7">OF &amp; OFF</h2><span class="when">못 쳐 · 31과</span></div><figure class="shot"><figcaption class="cap">7화 1장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="7화 1장 말풍선 끄고 켜기"><img src="img/07-1.jpg" width="900" height="1613" loading="lazy" alt="7화 1장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dad" style="left:64%;top:2.6%;--tail:35%">I can&#x27;t play. I&#x27;m afraid of this.</p><p class="b say dad" style="left:50%;top:42.4%">My fingers... won&#x27;t move.</p><p class="b say dami" style="left:28%;top:67.7%;--tail:95%">I&#x27;m off! Hold on, Dad!</p><p class="b chip" style="left:3.0%;top:2.2%">Wed · 3:40 PM<br>Audition at 4:00</p></div><ul class="mean"><li><span class="who">컷 1 · 시각</span><span class="en">Wed · 3:40 PM · Audition at 4:00</span><span class="ko">수요일 · 오후 3시 40분 · 오디션은 4시</span></li><li><span class="who">컷 1 · 아빠 (다미 몸)</span><span class="en">I can&#x27;t play. I&#x27;m afraid of this.</span><span class="ko">난 못 쳐. 이게 무서워.</span></li><li><span class="who">컷 2 · 아빠 (다미 몸)</span><span class="en">My fingers... won&#x27;t move.</span><span class="ko">손가락이… 안 움직여.</span></li><li><span class="who">컷 3 · 다미 (아빠 몸)</span><span class="en">I&#x27;m off! Hold on, Dad!</span><span class="ko">출발이다! 조금만 버텨요, 아빠!</span></li></ul></figure><figure class="shot"><figcaption class="cap">7화 2장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="7화 2장 말풍선 끄고 켜기"><img src="img/07-2.jpg" width="900" height="1613" loading="lazy" alt="7화 2장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dad" style="left:50%;top:2.3%">Okay. I&#x27;ll try for Dami.</p><p class="b say dad" style="left:50%;top:35.1%">Please, someone... help me.</p><p class="b say dami" style="left:50%;top:67.3%">One of us can play!</p></div><ul class="mean"><li><span class="who">컷 1 · 아빠 (다미 몸)</span><span class="en">Okay. I&#x27;ll try for Dami.</span><span class="ko">좋아. 다미를 위해 해 보자.</span></li><li><span class="who">컷 2 · 아빠 (다미 몸)</span><span class="en">Please, someone... help me.</span><span class="ko">제발, 누구든… 도와줘.</span></li><li><span class="who">컷 3 · 다미 (아빠 몸)</span><span class="en">One of us can play!</span><span class="ko">우리 둘 중 하나는 칠 수 있어!</span></li></ul></figure></section>
+<section class="ep" id="ep8" aria-labelledby="t8"><div class="ep-head"><span class="cap">8화</span><h2 id="t8">넷째 달 복습 (25과 - 31과)</h2><span class="when">들을게 · 32과</span></div><figure class="shot"><figcaption class="cap">8화 1장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="8화 1장 말풍선 끄고 켜기"><img src="img/08-1.jpg" width="900" height="1613" loading="lazy" alt="8화 1장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dami" style="left:28%;top:3.8%;--tail:88%">Look at me.</p><p class="b say dad" style="left:22%;top:35.5%;max-width:40%">Fingers on the strings... like this?</p><p class="b say dami" style="left:73%;top:68.3%">Play it for me!</p><p class="b chip" style="right:3.0%;top:3.5%">Wed · 4:05 PM</p></div><ul class="mean"><li><span class="who">컷 1 · 시각</span><span class="en">Wed · 4:05 PM</span><span class="ko">수요일 · 오후 4시 5분</span></li><li><span class="who">컷 1 · 다미 (아빠 몸)</span><span class="en">Look at me.</span><span class="ko">나를 봐.</span></li><li><span class="who">컷 2 · 아빠 (다미 몸)</span><span class="en">Fingers on the strings... like this?</span><span class="ko">손가락을 줄 위에… 이렇게?</span></li><li><span class="who">컷 3 · 다미 (아빠 몸)</span><span class="en">Play it for me!</span><span class="ko">나를 위해 쳐 줘요!</span></li></ul></figure><figure class="shot"><figcaption class="cap">8화 2장</figcaption><div class="pg" tabindex="0" role="button" aria-pressed="true" aria-label="8화 2장 말풍선 끄고 켜기"><img src="img/08-2.jpg" width="900" height="1613" loading="lazy" alt="8화 2장 웹툰 그림. 컷 세 개가 위에서 아래로"><p class="b say dami" style="left:50%;top:2.3%;max-width:40%">I&#x27;m back! These are my hands!</p><p class="b say dami" style="left:26%;top:34.9%">Dad, this one&#x27;s for you.</p><p class="b say dad" style="left:74%;top:34.9%">I came to listen.</p><p class="b chip" style="right:3.0%;top:2.0%">Thu · 7:00 AM</p></div><ul class="mean"><li><span class="who">컷 1 · 시각</span><span class="en">Thu · 7:00 AM</span><span class="ko">목요일 · 아침 7시</span></li><li><span class="who">컷 1 · 다미</span><span class="en">I&#x27;m back! These are my hands!</span><span class="ko">돌아왔어! 이건 내 손이야!</span></li><li><span class="who">컷 2 · 다미</span><span class="en">Dad, this one&#x27;s for you.</span><span class="ko">아빠, 이 곡은 아빠 거예요.</span></li><li><span class="who">컷 2 · 아빠</span><span class="en">I came to listen.</span><span class="ko">들으러 왔다.</span></li></ul></figure></section>
+  <section class="note-box outro" aria-label="다 읽고 나서">
+    <span class="cap">다 읽고 나서</span>
+    <p>아빠는 딸의 몸으로 딸이 학교에서 늘 혼자라는 걸 봤어요. 딸은 아빠의 몸으로 아빠가 회사에서 어떤 대접을 받는지 봤어요. 둘 다 서로에게 말하지 못했지만, 수요일에 서로의 자리를 지켜 줬어요.</p>
+    <p>목요일 아침, <b>몸은 원래대로</b> 돌아왔어요. 휴지통엔 찢긴 사직서와 구겨진 쪽지가 같이 들어가요.</p>
+    <p>이 만화를 꿰는 문장 셋이에요. 같은 말 「Look at me.」가 5화에선 아빠가 유나에게, 8화에선 딸이 아빠에게 건네는 말이에요.</p>
+    <ol class="keys">
+      <li><span class="kn">1화</span><span class="en">Not today!</span><span class="ko">둘이 같이 외친 첫마디</span></li>
+      <li><span class="kn">5화</span><span class="en">Look at me.</span><span class="ko">아빠가 딸의 몸으로 유나에게 한 말</span></li>
+      <li class="main"><span class="kn">8화</span><span class="en">I came to listen.</span><span class="ko">아빠가 소파에서 딸의 기타를 들으며 한 말</span></li>
+    </ol>
+    <p class="end">끝.</p>
+  </section>
+</div>
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+    var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+    function mark(i) {
+      links.forEach(function (a, k) {
+        if (k === i) { a.setAttribute('aria-current', 'true'); a.scrollIntoView({ inline: 'center', block: 'nearest' }); }
+        else a.removeAttribute('aria-current');
+      });
+    }
+    mark(0);
+    Array.prototype.forEach.call(document.querySelectorAll('.pg'), function (pg) {
+      function flip() { var off = pg.classList.toggle('off'); pg.setAttribute('aria-pressed', off ? 'false' : 'true'); }
+      pg.addEventListener('click', flip);
+      pg.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+    });
+    if (!('IntersectionObserver' in window)) return;
+    var seen = {};
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { seen[e.target.id] = e.isIntersecting ? e.boundingClientRect.top : null; });
+      var best = -1, bestTop = Infinity;
+      secs.forEach(function (s, k) { var t = seen[s.id]; if (t !== null && t !== undefined && Math.abs(t) < bestTop) { best = k; bestTop = Math.abs(t); } });
+      if (best >= 0) mark(best);
+    }, { rootMargin: '-60px 0px -55% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+  })();
+</script>
+
+<p style="margin:0;padding:8px 0 48px"><a class="toon-back" href="../../webtoon.html">← 웹툰 책장으로</a></p>

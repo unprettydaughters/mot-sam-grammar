@@ -242,3 +242,16 @@ var webtoonEps2 = [
  {"ep": 55, "title": "빛을 향해", "panels": 1},
  {"ep": 56, "title": "마지막 줄", "panels": 1}
 ];
+
+// 웹툰 책장(webtoon.html 첫 화면, 11/21) — 윗줄 = 달마다 한 편, 새로 그린 만화. 그 달 여덟 과와 이어진다
+// 보기 화면은 toon/<slug>/ (j-work/프로젝트/웹툰-유료사이트/책장/옮기기.py가 넣는다, 손으로 안 고친다). slug 없는 달은 준비 중
+// 아랫줄 「처음 만든 만화」는 위 세 목록(원래 · 쉬운 버전 · 할머니의 여름 목록) 그대로
+var shelfToons = [
+ {"month": 1, "title": "우리들의 리듬", "slug": "rhythm", "eps": 12, "line": "춤 동아리 셋, 공연까지 21일"},
+ {"month": 2, "title": "상태창이 보인다", "slug": "status", "eps": 12, "line": "농구부 후보 눈앞에 윈도우가 떴다"},
+ {"month": 3, "title": "가방이 바뀌었다", "slug": "bag", "eps": 8, "line": "지하철에서 노란 가방이 바뀌었다"},
+ {"month": 4, "title": "아빠가 나로 등교했다", "slug": "dad", "eps": 8, "line": "아빠와 딸, 몸이 바뀌었다"},
+ {"month": 5, "title": "우리 어디서 봤죠?", "slug": "met", "eps": 8, "line": "뽑을 때마다 누군가 나를 잊는다"},
+ {"month": 6},
+ {"month": 7}
+];

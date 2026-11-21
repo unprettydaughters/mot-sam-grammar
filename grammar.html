@@ -90,6 +90,11 @@
   .num.done{background:var(--peach-face);color:#5C4708}
   .lesson .t{display:block;font-size:16px;font-weight:500;line-height:1.5;margin-bottom:4px}
   .lesson .g{display:block;font-size:12px;color:var(--ink-400)}
+  .lesson .g b{font-weight:600;color:var(--lav-600)}
+  /* 그 달 만화 한 편 — 달을 접어도 보인다 */
+  .mtoon{display:flex;align-items:center;gap:12px;min-height:44px;margin:-4px 0 16px;font-size:14px;color:var(--ink-700)}
+  .mtoon img{flex:none;width:36px;height:48px;object-fit:cover;border-radius:6px;background:var(--cream-2)}
+  .mtoon b{font-weight:600;color:var(--lav-600)}
 
   footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--ink-400)}
 
@@ -144,6 +149,8 @@
 </main>
 
 <script src="data.js?v=20261108120000"></script>
+<script src="webtoon-data.js?v=20261121120000"></script>
+<script src="lap/lessons.js?v=20261121120000"></script>
 <script>
 (function(){
   var KEY = 'samdol-grammar-done';   // index.html·card.html과 같은 자리에 저장한다
@@ -159,6 +166,10 @@
     try { localStorage.setItem(KEY, JSON.stringify(d)); } catch(e){}
   }
   var done = load();
+  // 한 바퀴가 있는 과는 만화부터(lap/), 없는 과는 카드
+  var lapOf = function(id){ return typeof lapLessons !== 'undefined' && lapLessons.indexOf(id) >= 0; };
+  var hrefOf = function(id){ return lapOf(id) ? 'lap/#l' + id + '-webtoon' : 'card.html?id=' + id; };
+  var toonOf = function(m){ return (typeof shelfToons !== 'undefined' && shelfToons.filter(function(t){ return t.month === m && t.slug; })[0]) || null; };
 
   var months = [];
   grammarData.forEach(function(d){ if (months.indexOf(d.month) === -1) months.push(d.month); });
@@ -171,12 +182,14 @@
       '<span class="theme">' + esc(meta.theme) + '</span>' +
       '<span class="count">' + items.length + '과</span>' +
       '<span class="chev">▸</span></div>' +
+      (toonOf(m) ? '<a class="mtoon" href="toon/' + toonOf(m).slug + '/"><img src="toon/' + toonOf(m).slug + '/cover.webp" alt="" width="36" height="48" loading="lazy">' +
+        '<span>이 달의 만화 <b>「' + esc(toonOf(m).title) + '」</b> · ' + toonOf(m).eps + '화 →</span></a>' : '') +
       '<div class="grid">' + items.map(function(d){
         var n = pad(d.id);
-        return '<a class="lesson" href="card.html?id=' + d.id + '">' +
+        return '<a class="lesson" href="' + hrefOf(d.id) + '">' +
           '<button class="num" type="button" data-id="' + d.id + '" aria-label="' + n + '과 읽음 표시">' + n + '</button>' +
           '<span><span class="t">' + esc(d.title) + '</span>' +
-          '<span class="g">' + d.tags.map(esc).join(' · ') + '</span></span></a>';
+          '<span class="g">' + (lapOf(d.id) ? '<b>만화부터</b> · ' : '') + d.tags.map(esc).join(' · ') + '</span></span></a>';
       }).join('') + '</div></section>';
   }).join('');
 
@@ -201,8 +214,8 @@
 
     var next = grammarData.find(function(d){ return !done[d.id]; }) || grammarData[0];
     var nl = document.getElementById('next-link');
-    nl.href = 'card.html?id=' + next.id;
-    nl.textContent = pad(next.id) + '과 이어 읽기 →';
+    nl.href = hrefOf(next.id);
+    nl.textContent = pad(next.id) + (lapOf(next.id) ? '과 만화부터 보기 →' : '과 이어 읽기 →');
   }
 
   document.getElementById('months').addEventListener('click', function(e){

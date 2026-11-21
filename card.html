@@ -248,6 +248,10 @@
   }
 </style>
 <link rel="stylesheet" href="steps.css?v=20261108120000">
+<style>
+  /* 한 바퀴가 있는 과: 맨 위에 「만화부터」 문 하나 */
+  .lapgo{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;margin:0 0 20px;padding:0 20px;border-radius:16px;background:var(--lav-100);color:var(--lav-600);font-size:16px;font-weight:700}
+</style>
 </head>
 <body>
 
@@ -273,8 +277,9 @@
 <script src="extra.js?v=20261108210000"></script>
 <script src="scenes.js?v=20261023003000"></script>
 <script src="quiz.js?v=20261108210000"></script>
-<script src="webtoon-data.js?v=20261018180000"></script>
-<script src="steps.js?v=20261108120000"></script>
+<script src="webtoon-data.js?v=20261121120000"></script>
+<script src="steps.js?v=20261121120000"></script>
+<script src="lap/lessons.js?v=20261121120000"></script>
 <script>
 (function(){
   var KEY='samdol-grammar-done';
@@ -373,7 +378,10 @@
   // 1~32과: 설명 → 추가 설명 → 웹툰 → 연습문제 네 걸음(steps.js). 33과부터는 옛 화면 그대로
   var useSteps = typeof renderSteps==='function' && typeof extraData!=='undefined' && extraData[d.id] &&
                  typeof quizData!=='undefined' && quizData[d.id];
-  var top = useSteps ? '<div id="v4root"></div>' :
+  // 한 바퀴가 있는 과(lap/lessons.js): 이 카드는 「설명 보기」 옆문. 옛 만화 · 대본 대신 바퀴로 가는 문을 둔다
+  var lapHref = (typeof lapLessons!=='undefined' && lapLessons.indexOf(d.id)>=0) ? 'lap/#l'+d.id+'-webtoon' : null;
+  var monthToon = (typeof shelfToons!=='undefined' && shelfToons.filter(function(t){return t.month===d.month && t.slug;})[0]) || null;
+  var top = useSteps ? (lapHref ? '<a class="lapgo" href="'+lapHref+'"><span>이 과는 만화부터 해요</span><span>→</span></a>' : '')+'<div id="v4root"></div>' :
     '<div class="badges"><span class="kicker">'+esc(meta.label+' · '+meta.theme)+'</span>'+d.tags.map(function(t){return '<span class="tag">#'+esc(t)+'</span>';}).join('')+'</div>'+
     '<h1>'+esc(d.title)+'</h1>'+
     '<div class="prog"><div class="bar"><div style="width:'+Math.round((idx+1)/grammarData.length*100)+'%"></div></div>'+
@@ -410,11 +418,14 @@
       ep:d.id, title:w2.title, h:1935, sub:'한 장에 컷 3개가 세로로', alt:d.id+'화 '+w2.title+' · 컷 3개',
       easy:null, orig:['images/webtoon/ep'+pad2+'-1.webp']
     } : null;
+    if(lapHref) stepToon=null;
     renderSteps(document.getElementById('v4root'), {
       id:d.id, title:d.title, kicker:[meta.label+' · '+meta.theme], drama:dm.title,
-      old:d.content, neu:extraData[d.id], quiz:quizData[d.id], toon:stepToon, script:scenes,
+      old:d.content, neu:extraData[d.id], quiz:quizData[d.id], toon:stepToon, script:lapHref?[]:scenes,
+      lap:lapHref, lapToon:monthToon?monthToon.title:'',
       next: next ? {id:next.id, title:next.title} : null,
       steps:[['설명','먼저 이 과의 핵심을 읽어요'],['추가 설명','같은 그림을 대화로 다시 확인'],
+             lapHref ? ['만화', (monthToon?'「'+monthToon.title+'」 · ':'')+'만화부터 하는 길에서 봐요'] :
              ['웹툰', stepToon ? '「'+stepToon.title+'」 · '+(stepToon.sub || (stepToon.easy?'쉬운·원래 버전':'원래 버전')) : '준비 중 · 대본을 먼저 읽어요'],
              ['연습문제','순서 맞추기 7문제']],
       mascot:{start:'images/ch/'+((typeof faceData!=='undefined' && faceData[d.id]) || 'default_active')+'.webp', mid:'images/ch/happy_active.webp', win:'images/ch/victory_active.webp'}

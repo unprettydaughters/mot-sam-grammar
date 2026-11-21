@@ -95,6 +95,12 @@
   .ep-lesson{display:block;font-size:14px;color:var(--ink-400);margin-top:4px;line-height:1.5}
   /* 아직 그림 없는 화 — 카드가 아니라 한 줄 */
   .missing{display:flex;align-items:center;gap:10px;min-height:32px;font-size:14px;color:var(--ink-400);margin-top:8px}
+  /* 책장: 아직 없는 달은 점선 빈칸 */
+  .ep .ph{display:block;aspect-ratio:3/4;background:var(--cream-2)}
+  .ep.soon{background:transparent;box-shadow:none;border:1px dashed var(--line)}
+  .ep.soon:hover{transform:none;box-shadow:none}
+  .ep.soon .ep-title{color:var(--ink-400)}
+  .shelf-back{display:inline-flex;align-items:center;min-height:44px;padding-top:12px;font-size:14px;color:var(--ink-400)}
 
   /* 보기 */
   .viewer{max-width:720px;margin:0 auto;padding:32px 0 0}
@@ -146,7 +152,7 @@
 <div class="wrap"><footer>© 못난이삼돌이 · 웹툰 한 화가 영문법 한 과다</footer></div>
 
 <script src="data.js?v=20261108120000"></script>
-<script src="webtoon-data.js?v=20261018180000"></script>
+<script src="webtoon-data.js?v=20261121120000"></script>
 <script>
 (function(){
   var app = document.getElementById('app');
@@ -155,26 +161,29 @@
   var pad = function(n){ return String(n).padStart(2,'0'); };
   var lesson = function(n){ return grammarData.find(function(d){ return d.id === n; }); };
   var params = new URLSearchParams(location.search);
-  // 버전: 원래(기본) / 쉬운 버전(?v=easy). 쉬운 버전은 한 화에 그림 한 장, 제목은 과 제목을 쓴다
-  // 드라마: 기본 「우리들의 리듬」(1~32화) / ?d=2 「할머니의 여름 목록」(33~56화, 한 화 그림 한 장이라 버전 칸 없음)
+  // 첫 화면(물음표 없음) = 책장: 윗줄 달마다 한 편(새 만화, toon/), 아랫줄 처음 만든 만화 셋
+  // 처음 만든 만화: ?d=1 「우리들의 리듬」 처음 버전(1~32화) / ?v=easy 쉬운 버전(한 화 그림 한 장, 제목은 과 제목) / ?d=2 「할머니의 여름 목록」(33~56화)
+  // 옛 주소 webtoon.html?ep=N 은 처음 버전 N화로 그대로 열린다
   var drama2 = params.get('d') === '2';
   var easy = !drama2 && params.get('v') === 'easy';
+  var isShelf = !params.get('d') && !params.get('v') && !params.get('ep');
   var eps = drama2 ? webtoonEps2 : easy ? webtoonEasyEps : webtoonEps;
   var title = drama2 ? webtoonTitle2 : easy ? webtoonEasyTitle : webtoonTitle;
   var imgDir = easy ? 'images/webtoon/easy/' : 'images/webtoon/';
-  var qkey = drama2 ? 'd=2' : easy ? 'v=easy' : '';
-  var base = 'webtoon.html' + (qkey ? '?' + qkey : '');
-  var epUrl = function(n){ return 'webtoon.html?' + (qkey ? qkey + '&' : '') + 'ep=' + n; };
+  var qkey = drama2 ? 'd=2' : easy ? 'v=easy' : 'd=1';
+  var base = 'webtoon.html?' + qkey;
+  var epUrl = function(n){ return 'webtoon.html?' + qkey + '&ep=' + n; };
   var epTitle = function(e){ var l = lesson(e.ep); return easy ? (l ? l.title.replace(/^\d+\.\s*/, '') : '') : e.title; };
   var ready = eps.filter(function(e){ return e.panels > 0; });
 
   function list(){
     document.title = '웹툰 「' + title + '」 · 못난이삼돌이 영문법';
-    var html = '<nav class="dtabs" aria-label="웹툰 고르기">' +
-      '<a class="dtab' + (drama2 ? '' : ' on') + '" href="webtoon.html"' + (drama2 ? '' : ' aria-current="page"') + '>' + esc(webtoonTitle) + ' <small>1~32화</small></a>' +
+    var html = '<a class="shelf-back" href="webtoon.html">← 웹툰 책장</a>' +
+      '<nav class="dtabs" aria-label="웹툰 고르기">' +
+      '<a class="dtab' + (drama2 ? '' : ' on') + '" href="webtoon.html?d=1"' + (drama2 ? '' : ' aria-current="page"') + '>' + esc(webtoonTitle) + ' · 처음 버전 <small>1~32화</small></a>' +
       '<a class="dtab' + (drama2 ? ' on' : '') + '" href="webtoon.html?d=2"' + (drama2 ? ' aria-current="page"' : '') + '>' + esc(webtoonTitle2) + ' <small>33~56화</small></a></nav>' +
       (drama2 ? '' : '<nav class="vtabs" aria-label="웹툰 버전">' +
-        '<a class="vtab' + (easy ? '' : ' on') + '" href="webtoon.html"' + (easy ? '' : ' aria-current="page"') + '>원래 버전</a>' +
+        '<a class="vtab' + (easy ? '' : ' on') + '" href="webtoon.html?d=1"' + (easy ? '' : ' aria-current="page"') + '>원래 버전</a>' +
         '<a class="vtab' + (easy ? ' on' : '') + '" href="webtoon.html?v=easy"' + (easy ? ' aria-current="page"' : '') + '>쉬운 버전</a></nav>') +
       '<section class="top"><div class="top-text">' +
       '<span class="kicker">' + (drama2 ? 'WEBTOON · 5~7월' : easy ? 'WEBTOON · 쉬운 버전' : 'WEBTOON · 1~4월') + '</span>' +
@@ -216,6 +225,34 @@
     app.innerHTML = html;
   }
 
+  // 책장: 달 하나 = 만화 한 편 = 여덟 과
+  function shelf(){
+    document.title = '웹툰 · 못난이삼돌이 영문법';
+    var range = function(m){ var ids = grammarData.filter(function(d){ return d.month === m; }).map(function(d){ return d.id; });
+      return ids.length ? ids[0] + '~' + ids[ids.length - 1] + '과' : ''; };
+    var count = function(list){ return list.filter(function(e){ return e.panels > 0; }).length; };
+    var card = function(href, img, no, ttl, line){
+      return '<a class="ep" href="' + href + '"><img src="' + img + '" alt="" width="360" height="480" loading="lazy">' +
+        '<span class="ep-body"><span class="ep-no">' + no + '</span><span class="ep-title">' + esc(ttl) + '</span>' +
+        '<span class="ep-lesson">' + esc(line) + '</span></span></a>'; };
+    var html = '<section class="top"><div class="top-text">' +
+      '<span class="kicker">WEBTOON · 한 달에 한 편</span><h1>못난이삼돌이 웹툰</h1>' +
+      '<p class="sub">한 달 여덟 과가 만화 한 편이에요. 과를 열면 그 과의 만화부터 봐요.</p></div>' +
+      '<img src="images/ch/cheer_active.webp" alt="팔을 들어 응원하는 못난이와 삼돌이" width="168" height="103"></section>';
+    html += '<section class="month"><div class="mhead"><h2>달마다 한 편</h2><span>새로 그린 만화</span></div><div class="grid">' +
+      shelfToons.map(function(t){
+        var no = t.month + '달 · ' + range(t.month);
+        if (!t.slug) return '<div class="ep soon"><span class="ph"></span><span class="ep-body"><span class="ep-no">' + no + '</span><span class="ep-title">준비 중</span></span></div>';
+        return card('toon/' + t.slug + '/', 'toon/' + t.slug + '/cover.webp', no, t.title, t.line + ' · ' + t.eps + '화');
+      }).join('') + '</div></section>';
+    html += '<section class="month"><div class="mhead"><h2>처음 만든 만화</h2><span>한 화가 한 과</span></div><div class="grid">' +
+      card('webtoon.html?d=1', 'images/webtoon/ep01-t.webp', '1~32과', webtoonTitle + ' · 처음 버전', count(webtoonEps) + '화') +
+      card('webtoon.html?v=easy', 'images/webtoon/easy/ep01-t.webp', '1~32과', webtoonEasyTitle, count(webtoonEasyEps) + '화') +
+      card('webtoon.html?d=2', 'images/webtoon/ep33-t.webp', '33~56과', webtoonTitle2, count(webtoonEps2) + '화') +
+      '</div></section>';
+    app.innerHTML = html;
+  }
+
   function view(e){
     var l = lesson(e.ep);
     var i = ready.indexOf(e);
@@ -247,7 +284,7 @@
 
   var q = parseInt(params.get('ep'), 10);
   var e = eps.find(function(x){ return x.ep === q && x.panels > 0; });
-  if (e) view(e); else list();
+  if (isShelf) shelf(); else if (e) view(e); else list();
 })();
 </script>
 </body>

@@ -230,7 +230,7 @@
     <div class="toon-head">
       <div>
         <h2 id="toon-title">웹툰으로 먼저 읽어 보세요</h2>
-        <p class="sub">한 화가 한 과예요. 이야기부터 보고, 문법은 그다음에 봐요.</p>
+        <p class="sub">한 달 여덟 과가 만화 한 편이에요. 이야기부터 보고, 문법은 그다음에 봐요.</p>
       </div>
       <a class="btn-ghost" href="webtoon.html">웹툰 전체 보기 →</a>
     </div>
@@ -245,7 +245,7 @@
       </div>
       <div class="bar"><div id="bar-fill"></div></div>
     </div>
-    <a class="link" href="webtoon.html"><span><b>웹툰</b><small>「우리들의 리듬」 1~32화 · 「할머니의 여름 목록」 33~56화</small></span><span class="arw">→</span></a>
+    <a class="link" href="webtoon.html"><span><b>웹툰</b><small>달마다 한 편 · 처음 만든 만화</small></span><span class="arw">→</span></a>
     <a class="link" href="https://motnani-planner.vercel.app/" target="_blank" rel="noopener"><span><b>못난이삼돌이 플래너</b><small>시간을 눈으로 보는 캘린더</small></span><span class="arw">↗</span></a>
     <a class="link" href="https://47realization.tistory.com/" target="_blank" rel="noopener"><span><b>삼돌이 블로그</b><small>매일 쓰는 아빠의 기록</small></span><span class="arw">↗</span></a>
     <a class="link" id="ask-link" href="#"><span><b>질문 보내기</b><small>모르는 건 메일로 물어봐</small></span><span class="arw">→</span></a>
@@ -277,7 +277,8 @@
 
 <script src="data.js?v=20261108120000"></script>
 <script src="quiz.js?v=20261108210000"></script>
-<script src="webtoon-data.js?v=20261018180000"></script>
+<script src="webtoon-data.js?v=20261121120000"></script>
+<script src="lap/lessons.js?v=20261121120000"></script>
 <script>
 (function(){
   var KEY = 'samdol-grammar-done';
@@ -356,10 +357,11 @@
     document.getElementById('bar-fill').style.width = Math.round(count / total * 100) + '%';
 
     var next = grammarData.find(function(d){ return !done[d.id]; }) || grammarData[0];
-    var href = 'card.html?id=' + next.id;
+    // 한 바퀴가 있는 과는 만화부터(lap/), 없는 과는 카드
+    var lap = typeof lapLessons !== 'undefined' && lapLessons.indexOf(next.id) >= 0;
     var s = document.getElementById('start-link');
-    s.href = href;
-    s.textContent = pad(next.id) + '과 바로 읽기';
+    s.href = lap ? 'lap/#l' + next.id + '-webtoon' : 'card.html?id=' + next.id;
+    s.textContent = pad(next.id) + (lap ? '과 만화부터 보기' : '과 바로 읽기');
 
     var face = faceFor(count, total), img = document.getElementById('hero-img');
     img.setAttribute('src', 'images/ch/' + face + '.webp');
@@ -370,20 +372,19 @@
 
   var next = paint();
 
-  // ── 웹툰: 오늘 읽을 과 번호의 화부터 세 화. 1~32화(우리들의 리듬) 뒤에 33~56화(할머니의 여름 목록)가 이어진다
+  // ── 웹툰: 달마다 한 편(책장 윗줄)에서 오늘 읽을 과의 달부터 세 편
   (function(){
-    if (typeof webtoonEps === 'undefined' || typeof webtoonEps2 === 'undefined') return;
-    var all = webtoonEps.filter(function(e){ return e.panels > 0; }).map(function(e){ return { e: e, q: '' }; })
-      .concat(webtoonEps2.filter(function(e){ return e.panels > 0; }).map(function(e){ return { e: e, q: 'd=2&' }; }));
+    if (typeof shelfToons === 'undefined') return;
+    var all = shelfToons.filter(function(t){ return t.slug; });
     if (all.length < 3) return;
-    var at = all.findIndex(function(x){ return x.e.ep >= next.id; });
+    var at = all.findIndex(function(t){ return t.month >= next.month; });
     if (at < 0) at = 0;
     var cards = [0, 1, 2].map(function(k){
-      var x = all[(at + k) % all.length];
-      return '<a class="ep" href="webtoon.html?' + x.q + 'ep=' + x.e.ep + '">' +
-        '<img src="images/webtoon/ep' + pad(x.e.ep) + '-t.webp" alt="" width="360" height="480" loading="lazy">' +
-        '<span class="ep-body"><span class="ep-no">' + pad(x.e.ep) + '화</span>' +
-        '<span class="ep-title">' + esc(x.e.title) + '</span></span></a>';
+      var t = all[(at + k) % all.length];
+      return '<a class="ep" href="toon/' + t.slug + '/">' +
+        '<img src="toon/' + t.slug + '/cover.webp" alt="" width="360" height="480" loading="lazy">' +
+        '<span class="ep-body"><span class="ep-no">' + t.month + '달 · ' + t.eps + '화</span>' +
+        '<span class="ep-title">' + esc(t.title) + '</span></span></a>';
     }).join('');
     document.getElementById('toon-grid').innerHTML = cards;
     document.getElementById('toon').hidden = false;
