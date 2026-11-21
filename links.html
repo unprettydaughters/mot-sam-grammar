@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>링크 · 못난이삼돌이 영문법</title>
-<meta name="description" content="못난이삼돌이가 만든 것과, 매일 쓰는 곳. 너무쉬운AI 사이트, 삼돌이 영어, 못삼플래너.">
+<title>만든 사람 · 못난이삼돌이 영문법</title>
+<meta name="description" content="영어를 20년 가르친 선생님이 AI와 같이 만든 사이트. 영어 과외 문의 · 단어 책 알림 · AI 수업.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="못난이삼돌이 영문법">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="링크 · 못난이삼돌이 영문법">
-<meta property="og:description" content="못난이삼돌이가 만든 것과, 매일 쓰는 곳. 너무쉬운AI 사이트, 삼돌이 영어, 못삼플래너.">
+<meta property="og:title" content="만든 사람 · 못난이삼돌이 영문법">
+<meta property="og:description" content="영어를 20년 가르친 선생님이 AI와 같이 만든 사이트. 영어 과외 문의 · 단어 책 알림 · AI 수업.">
 <meta property="og:url" content="https://unprettydaughters.github.io/mot-sam-grammar/links.html">
 <link rel="icon" href="favicon.ico?v=2" sizes="48x48">
 <link rel="icon" type="image/png" href="icon-192.png?v=2" sizes="192x192">
@@ -88,11 +88,24 @@
   .link .desc{font-size:14px;line-height:1.55;color:var(--ink-400);margin-top:4px}
   .link .go{flex:none;font-size:16px;color:var(--lav-400)}
 
-  /* 아직 없는 것은 회색이다. 흐리게 만들지 않는다 */
-  .link.soon{background:var(--cream-2);box-shadow:none}
-  .link.soon .mark{background:var(--line);color:var(--ink-400)}
-  .link.soon .name{color:var(--ink-700)}
-  .link.soon .go{font-family:var(--mono);font-size:12px;color:var(--ink-400);background:var(--cream-0);padding:4px 9px;border-radius:6px}
+  /* 문 셋 — 과외 · 단어 책 · AI 수업. 만화 끝 · 리포트 끝 · 단어 쪽에서 #lesson · #book · #ai 로 들어온다 */
+  .who{font-size:16px;line-height:1.75;color:var(--ink-700);max-width:640px;margin-bottom:40px}
+  .who b{color:var(--ink-900)}
+  .doors{display:grid;gap:16px;margin-bottom:64px}
+  .door{scroll-margin-top:80px;background:var(--cream-0);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 24px;display:flex;gap:28px;align-items:center}
+  .door:target{border-color:var(--lav-400);box-shadow:var(--shadow-up)}
+  .door .txt{flex:1;min-width:0}
+  .door .kicker{font-size:14px;font-weight:600;color:var(--lav-600);margin-bottom:6px}
+  .door h2{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.35;color:var(--ink-900)}
+  .door p{font-size:16px;line-height:1.7;color:var(--ink-700);margin-top:10px}
+  .door .facts{font-size:14px;color:var(--ink-400);margin-top:12px}
+  .door .acts{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin-top:20px}
+  .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:var(--radius-sm);background:var(--lav-400);color:#fff;font-size:16px;font-weight:600}
+  .btn:hover{background:var(--lav-600)}
+  .sub-link{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600;color:var(--lav-600)}
+  .door .alt{font-size:13px;color:var(--ink-400);margin-top:8px}
+  .door .pic{flex:none;width:240px}
+  .door .pic img{display:block;width:100%;height:auto;border-radius:var(--radius-sm)}
 
   footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-400)}
 
@@ -103,8 +116,13 @@
     .page-head-text p{font-size:16px}
     .peek-video{width:260px;max-width:80vw;margin:0 auto}
   }
+  @media (max-width:640px){
+    .door{flex-direction:column-reverse;align-items:stretch;gap:16px;padding:24px 20px}
+    .door .pic{width:100%;max-width:280px;margin:0 auto}
+    .door h2{font-size:20px}
+  }
   @media (max-width:480px){
-    .menu{gap:16px}
+    .menu{gap:14px}
     .soon-badge{display:none}
   }
 </style>
@@ -118,7 +136,7 @@
       <a href="grammar.html">영문법</a>
       <a href="words/">단어</a>
       <a href="webtoon.html">웹툰</a>
-      <a class="on" href="links.html" aria-current="page">링크</a>
+      <a class="on" href="links.html" aria-current="page">만든 사람</a>
     </nav>
   </div>
 </header>
@@ -127,8 +145,8 @@
 
   <div class="page-head-row">
     <div class="page-head-text">
-      <h1>링크</h1>
-      <p>만든 것과, 매일 쓰는 곳.</p>
+      <h1>만든 사람</h1>
+      <p>어려운 걸 쉽게 가르쳐요. 영어도, 단어도, AI도.</p>
     </div>
     <div class="page-head-art">
       <video class="peek-video" autoplay loop muted playsinline poster="images/peek-poster.jpg">
@@ -137,11 +155,48 @@
     </div>
   </div>
 
+  <p class="who"><b>못난이삼돌이</b>. 영어를 20년 가르쳤고, 지금은 AI도 가르쳐요. 이 사이트의 만화 · 기차 게임 · 문제 · 단어 그림은 전부 AI와 같이 만들었어요.</p>
+
+  <div class="doors">
+
+    <section class="door" id="lesson">
+      <div class="txt">
+        <p class="kicker">영어 과외</p>
+        <h2>이 사이트가 수업 그대로예요</h2>
+        <p>수업에서도 만화로 보고, 기차로 연습하고, 문제로 확인해요. 혼자 하면 틀린 칸만 보이지만, 수업에선 왜 자꾸 거기서 틀리는지를 같이 찾아요.</p>
+        <p class="facts">1:1 · 영어 과외 20년 · 값과 시간은 메일로 알려 드려요</p>
+        <div class="acts"><a class="btn" id="mail-lesson" href="#lesson">수업 문의 메일 쓰기</a></div>
+        <p class="alt" id="alt-lesson"></p>
+      </div>
+      <div class="pic"><img src="toon/met/cover.webp" width="360" height="480" alt="못삼 웹툰 「우리 어디서 봤죠?」 표지" loading="lazy"></div>
+    </section>
+
+    <section class="door" id="book">
+      <div class="txt">
+        <p class="kicker">단어 책 · 나올 책</p>
+        <h2>《영어 단어는 왜 뜻이 여러 개일까?》</h2>
+        <p>많이 쓰는 단어 30개를 그림 한 장씩으로 풀었어요. get도 take도, 뜻은 사실 하나예요. 책이 나오기 전에 여기서 먼저 다 볼 수 있어요.</p>
+        <div class="acts"><a class="btn" id="mail-book" href="#book">종이책 나오면 알림 받기</a><a class="sub-link" href="words/">먼저 읽어 보기 →</a></div>
+        <p class="alt" id="alt-book"></p>
+      </div>
+      <div class="pic"><img src="words/img/get-1.webp" width="1000" height="747" alt="삼돌이가 선물 상자를 들고 문턱을 넘어오는 GET 그림" loading="lazy"></div>
+    </section>
+
+    <section class="door" id="ai">
+      <div class="txt">
+        <p class="kicker">AI 수업</p>
+        <h2>이 사이트를 만든 방법을 가르쳐요</h2>
+        <p>그림은 제미나이, 화면은 클로드와 만들었어요. 단체 · 학교 AI 강의는 전국 어디든 가요. AI를 쉬운 말로 푸는 글은 너무쉬운AI에 있어요.</p>
+        <div class="acts"><a class="btn" href="https://too-easy-ai.vercel.app/lesson" target="_blank" rel="noopener">AI 수업 알아보기 ↗</a><a class="sub-link" href="https://too-easy-ai.vercel.app" target="_blank" rel="noopener">너무쉬운AI ↗</a></div>
+      </div>
+    </section>
+
+  </div>
+
   <section class="group">
     <h2>만든 것</h2>
     <p class="lead">직접 쓰려고 만들었다. 누구나 쓸 수 있다.</p>
     <div class="links">
-
       <a class="link" href="https://too-easy-ai.vercel.app" target="_blank" rel="noopener">
         <span class="mark">AI</span>
         <span class="body">
@@ -181,53 +236,22 @@
     </div>
   </section>
 
-  <section class="group">
-    <h2>채널</h2>
-    <p class="lead">아직 문을 안 연 곳은 회색이다. 죽은 링크는 걸지 않는다.</p>
-    <div class="links">
-
-      <div class="link soon">
-        <span class="mark">유튜</span>
-        <span class="body">
-          <span class="name">유튜브</span>
-          <span class="desc">실제 수업 풀영상. 삽질하는 장면 그대로</span>
-        </span>
-        <span class="go">준비 중</span>
-      </div>
-
-      <div class="link soon">
-        <span class="mark">인스</span>
-        <span class="body">
-          <span class="name">인스타</span>
-          <span class="desc">수업 중 잘 풀리는 30초 장면</span>
-        </span>
-        <span class="go">준비 중</span>
-      </div>
-
-      <div class="link soon">
-        <span class="mark">스레</span>
-        <span class="body">
-          <span class="name">스레드</span>
-          <span class="desc">그날 알게 된 것 세 줄. 매일</span>
-        </span>
-        <span class="go">준비 중</span>
-      </div>
-
-      <div class="link soon">
-        <span class="mark">블로</span>
-        <span class="body">
-          <span class="name">네이버 블로그</span>
-          <span class="desc">검색해서 오는 사람이 처음 만나는 자리</span>
-        </span>
-        <span class="go">준비 중</span>
-      </div>
-
-    </div>
-  </section>
-
 </main>
 
 <div class="wrap"><footer>© 못난이삼돌이 · The Simplest Line</footer></div>
 
+<script>
+(function(){
+  var FROM = {report:'리포트에서', toon:'만화 끝에서', words:'단어 책에서', home:'홈에서', webtoon:'웹툰 책장에서'};
+  var f = FROM[new URLSearchParams(location.search).get('from')] || '';
+  function mail(id, tag, subject, body){
+    var to = ['jongeek1+' + tag, 'gmail.com'].join('@');
+    document.getElementById('mail-' + id).href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject + (f ? ' · ' + f : '')) + '&body=' + encodeURIComponent(body);
+    document.getElementById('alt-' + id).textContent = '메일이 안 열리면 ' + to + ' 로 제목 「' + subject + '」를 달아 보내 주세요.';
+  }
+  mail('lesson', 'english', '[영어 과외 문의]', '배우는 사람 학년:\n원하는 요일 · 시간:\n');
+  mail('book', 'book', '[단어 책 알림]', '종이책이 나오면 이 메일로 알려 주세요.\n');
+})();
+</script>
 </body>
 </html>

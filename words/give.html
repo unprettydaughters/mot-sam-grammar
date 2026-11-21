@@ -95,6 +95,10 @@ footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);font
 .wnav .sp{flex:1}
 .ask{display:inline-flex;align-items:center;min-height:44px;margin-top:20px;font-size:15px;color:var(--ink-400)}
 .ask b{color:var(--lav-600);margin-right:8px}
+.ask + .ask{margin-top:0}
+.ask:not([data-w]){display:flex}
+.top .book{margin-top:14px;font-size:15px;line-height:1.7;color:var(--ink-700)}
+.top .book a{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--lav-600)}
 
 @media (max-width:560px){
   .wp h1{font-size:40px}
@@ -117,7 +121,7 @@ footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);font
       <a href="../grammar.html">영문법</a>
       <a class="on" href="./">단어</a>
       <a href="../webtoon.html">웹툰</a>
-      <a href="../links.html">링크</a>
+      <a href="../links.html">만든 사람</a>
     </nav>
   </div>
 </header>
@@ -135,9 +139,10 @@ footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);font
 
 <nav class="wnav" aria-label="앞뒤 단어"><a href="take.html">← TAKE</a><span class="sp"></span><a href="make.html">MAKE →</a></nav>
 <a class="ask" href="#" data-w="GIVE"><b>질문 보내기</b>모르는 건 메일로 물어봐</a>
+<a class="ask" href="../links.html?from=words#book"><b>종이책 알림</b>이 그림들이 책으로 나오면 알려 드려요</a>
 </article>
 </main>
 <div class="wrap"><footer>© 못난이삼돌이 · 단어 하나에 그림 하나</footer></div>
-<script>document.querySelectorAll('.ask').forEach(function(a){a.href='mailto:'+['jongeek1','gmail.com'].join('@')+'?subject='+encodeURIComponent('[못난이삼돌이 단어] '+a.getAttribute('data-w')+' 질문이요');});</script>
+<script>document.querySelectorAll('.ask[data-w]').forEach(function(a){a.href='mailto:'+['jongeek1','gmail.com'].join('@')+'?subject='+encodeURIComponent('[못난이삼돌이 단어] '+a.getAttribute('data-w')+' 질문이요');});</script>
 </body>
 </html>

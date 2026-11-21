@@ -117,6 +117,9 @@
   .ghost.off{color:var(--ink-400);pointer-events:none}
   .back{display:inline-flex;align-items:center;min-height:44px;font-size:14px;color:var(--ink-400)}
 
+  .credit{margin-top:56px;font-size:15px;line-height:1.7;color:var(--ink-700)}
+  .credit a{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--lav-600)}
+  .credit + footer{margin-top:16px}
   footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-400)}
 
   @media (max-width:640px){
@@ -143,14 +146,14 @@
       <a href="grammar.html">영문법</a>
       <a href="words/">단어</a>
       <a class="on" href="webtoon.html" aria-current="page">웹툰</a>
-      <a href="links.html">링크</a>
+      <a href="links.html">만든 사람</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap" id="app"></main>
 
-<div class="wrap"><footer>© 못난이삼돌이 · 웹툰 한 화가 영문법 한 과다</footer></div>
+<div class="wrap"><p class="credit">이 만화들은 영어를 20년 가르친 선생님이 AI와 같이 만들었어요. <a href="links.html?from=webtoon">만든 사람 →</a></p><footer>© 못난이삼돌이 · 웹툰 한 화가 영문법 한 과다</footer></div>
 
 <script src="data.js?v=20261108120000"></script>
 <script src="webtoon-data.js?v=20261121120000"></script>
