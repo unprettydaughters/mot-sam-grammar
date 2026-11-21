@@ -60,7 +60,8 @@
   .page-head-row{display:flex;align-items:center;gap:32px}
   .page-head-text{flex:1;min-width:0;padding:64px 0 40px}
   .page-head-text h1{font-size:52px;font-weight:700;letter-spacing:-.03em;line-height:1.16;color:var(--ink-900)}
-  .page-head-text p{font-size:20px;line-height:1.6;color:var(--ink-700);margin-top:16px}
+  .page-head-text p{font-size:20px;line-height:1.7;color:var(--ink-700);margin-top:20px;max-width:520px}
+  .page-head-text p b{color:var(--ink-900)}
   .page-head-art{flex:none}
   .peek-video{display:block;width:340px;max-width:48vw;height:auto}
 
@@ -89,8 +90,6 @@
   .link .go{flex:none;font-size:16px;color:var(--lav-400)}
 
   /* 문 셋 — 과외 · 단어 책 · AI 수업. 만화 끝 · 리포트 끝 · 단어 쪽에서 #lesson · #book · #ai 로 들어온다 */
-  .who{font-size:16px;line-height:1.75;color:var(--ink-700);max-width:640px;margin-bottom:40px}
-  .who b{color:var(--ink-900)}
   .doors{display:grid;gap:16px;margin-bottom:64px}
   .door{scroll-margin-top:80px;background:var(--cream-0);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 24px;display:flex;gap:28px;align-items:center}
   .door:target{border-color:var(--lav-400);box-shadow:var(--shadow-up)}
@@ -112,7 +111,7 @@
     .page-head-row{flex-direction:column-reverse;text-align:center;gap:4px}
     .page-head-text{padding:0 16px 32px}
     .page-head-text h1{font-size:32px;line-height:1.25}
-    .page-head-text p{font-size:16px}
+    .page-head-text p{font-size:16px;margin:12px auto 0}
     .peek-video{width:260px;max-width:80vw;margin:0 auto}
   }
   @media (max-width:640px){
@@ -145,6 +144,7 @@
   <div class="page-head-row">
     <div class="page-head-text">
       <h1>만든 사람</h1>
+      <p class="who"><b>못난이삼돌이</b>. 영어를 20년 가르쳤고, 지금은 AI도 가르쳐요. 이 사이트의 만화 · 기차 게임 · 문제 · 단어 그림은 전부 AI와 같이 만들었어요.</p>
     </div>
     <div class="page-head-art">
       <video class="peek-video" autoplay loop muted playsinline poster="images/peek-poster.jpg">
@@ -152,8 +152,6 @@
       </video>
     </div>
   </div>
-
-  <p class="who"><b>못난이삼돌이</b>. 영어를 20년 가르쳤고, 지금은 AI도 가르쳐요. 이 사이트의 만화 · 기차 게임 · 문제 · 단어 그림은 전부 AI와 같이 만들었어요.</p>
 
   <div class="doors">
 
