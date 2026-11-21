@@ -177,13 +177,15 @@
   document.getElementById('months').innerHTML = months.map(function(m){
     var items = grammarData.filter(function(d){ return d.month === m; });
     var meta = monthMeta[m] || { label: 'MONTH ' + m, theme: '' };
+    // 그 달 첫 과에 한 바퀴가 있으면 만화 줄도 한 바퀴로(만화만 보고 끝나지 않게, 11/21 종익)
+    var t = toonOf(m), lap0 = t && lapOf(items[0].id);
     return '<section class="month" id="month-' + m + '">' +
       '<div class="mhead" role="button" tabindex="0" aria-label="' + esc(meta.label) + ' 열고 닫기"><h2>' + esc(meta.label) + '</h2>' +
       '<span class="theme">' + esc(meta.theme) + '</span>' +
       '<span class="count">' + items.length + '과</span>' +
       '<span class="chev">▸</span></div>' +
-      (toonOf(m) ? '<a class="mtoon" href="toon/' + toonOf(m).slug + '/"><img src="toon/' + toonOf(m).slug + '/cover.webp" alt="" width="36" height="48" loading="lazy">' +
-        '<span>이 달의 만화 <b>「' + esc(toonOf(m).title) + '」</b> · ' + toonOf(m).eps + '화 →</span></a>' : '') +
+      (t ? '<a class="mtoon" href="' + (lap0 ? hrefOf(items[0].id) : 'toon/' + t.slug + '/') + '"><img src="toon/' + t.slug + '/cover.webp" alt="" width="36" height="48" loading="lazy">' +
+        '<span>이 달의 만화 <b>「' + esc(t.title) + '」</b> · ' + (lap0 ? items[0].id + '과부터 →' : t.eps + '화 →') + '</span></a>' : '') +
       '<div class="grid">' + items.map(function(d){
         var n = pad(d.id);
         return '<a class="lesson" href="' + hrefOf(d.id) + '">' +
