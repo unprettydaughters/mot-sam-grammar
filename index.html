@@ -143,6 +143,15 @@
   .ep-no{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--lav-400)}
   .ep-title{display:block;font-size:16px;font-weight:500;color:var(--ink-900);margin-top:4px;line-height:1.45}
 
+  /* 게임 — 웹툰 밑. 그림 둘은 게임 시험 때 찍은 화면(첫 화면 · 문장 채운 화면) */
+  .game{display:flex;align-items:center;gap:48px;padding:16px 0 48px}
+  .game-text{flex:1;min-width:0}
+  .game h2{font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.4;color:var(--ink-900)}
+  .game .sub{margin-top:12px}
+  .game .btn{margin-top:24px}
+  .game-shots{flex:none;display:flex;gap:16px;width:400px;max-width:100%}
+  .game-shots img{display:block;flex:1;min-width:0;height:auto;aspect-ratio:390/800;border-radius:var(--radius);box-shadow:var(--shadow-up);background:var(--cream-2)}
+
   footer{margin-top:64px;padding:28px 0 60px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--ink-400)}
 
   @media (max-width:640px){
@@ -160,6 +169,9 @@
     .toon-head{flex-direction:column;align-items:center;gap:4px;text-align:center}
     .toon-grid{grid-template-columns:repeat(2,1fr)}
     .toon-grid .ep:nth-child(3){display:none}
+    .game{flex-direction:column;gap:20px;padding:8px 0 32px;text-align:center}
+    .game-text{display:flex;flex-direction:column;align-items:center}
+    .game-shots{width:100%;gap:12px}
   }
   @media (max-width:480px){
     .menu{gap:16px}
@@ -238,6 +250,19 @@
     <div class="toon-grid" id="toon-grid"></div>
   </section>
 
+  <section class="game" aria-labelledby="game-title">
+    <div class="game-text">
+      <span class="kicker">게임 · 1~5과</span>
+      <h2 id="game-title">못난이와 삼돌이의 숲</h2>
+      <p class="sub">낱말을 이어 영어 문장을 만들면, 숲이 그 문장대로 움직여. 순서가 바뀌면 일도 뒤집혀.</p>
+      <a class="btn" href="forest/">게임 하러 가기</a>
+    </div>
+    <a class="game-shots" href="forest/" aria-label="게임 하러 가기">
+      <img src="images/game/forest-title.webp" width="390" height="800" loading="lazy" alt="게임 첫 화면. 숲속 오두막 앞에 못난이와 삼돌이가 서 있다">
+      <img src="images/game/forest-play.webp" width="390" height="800" loading="lazy" alt="토리의 부탁 「토리가 당근을 먹어」에 Tori eats a carrot을 칸에 채운 화면">
+    </a>
+  </section>
+
   <section class="stats">
     <div class="tile">
       <div class="tile-row">
@@ -246,7 +271,6 @@
       </div>
       <div class="bar"><div id="bar-fill"></div></div>
     </div>
-    <a class="link" href="forest/"><span><b>게임 · 못난이와 삼돌이의 숲</b><small>문장대로 숲이 움직이는 게임 · 1~5과</small></span><span class="arw">→</span></a>
     <a class="link" href="webtoon.html"><span><b>웹툰</b><small>달마다 한 편 · 처음 만든 만화</small></span><span class="arw">→</span></a>
     <a class="link" href="links.html?from=home"><span><b>만든 사람</b><small>영어 과외 · 단어 책 · AI 수업</small></span><span class="arw">→</span></a>
     <a class="link" href="https://47realization.tistory.com/" target="_blank" rel="noopener"><span><b>삼돌이 블로그</b><small>매일 쓰는 아빠의 기록</small></span><span class="arw">↗</span></a>
